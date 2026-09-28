@@ -2,7 +2,7 @@
 
 ## 目标与结构
 
-这是化工安全知识库的独立 React 页面，参考 [Semantica Explorer](https://github.com/semantica-agi/semantica/tree/main/explorer) 的工作台组织方式：导航栏、全屏图谱、实体索引、来源详情、时间轴与快速搜索。页面没有使用原 Streamlit 布局或主题。顶栏提供 Light / Dark 外观切换，并在浏览器中记住选择。旧 Streamlit 程序仍可运行，现有知识处理模块由 Flask API 复用。
+这是化工安全知识库的独立 React 页面：导航栏、全屏图谱、实体索引、来源详情、时间轴与快速搜索。页面没有使用原 Streamlit 布局或主题。顶栏提供 Light / Dark 外观切换，并在浏览器中记住选择。旧 Streamlit 程序仍可运行，现有知识处理模块由 Flask API 复用。
 
 - 前端源码：`explorer_web/src/`
 - 生产构建：`explorer_web/dist/`
