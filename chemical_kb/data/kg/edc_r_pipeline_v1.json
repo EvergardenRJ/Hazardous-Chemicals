@@ -1,0 +1,283 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "name": "Chemical Safety KG Construction Pipeline v1 (EDC+R)",
+  "created_at": "2026-08-25",
+  "schema_version": "1.0",
+
+  "pipeline": [
+    "document_router",
+    "rule_preprocessor",
+    "schema_retrieval",
+    "case_retrieval",
+    "extract",
+    "define",
+    "canonicalize",
+    "schema_validation",
+    "human_review",
+    "case_builder"
+  ],
+
+  "modules": {
+    "document_router": {
+      "input": "chunk_metadata",
+      "routes": {
+        "标准": "extract_standard",
+        "法规": "extract_standard",
+        "事故": "extract_accident"
+      },
+      "field": "document_type"
+    },
+    "rule_preprocessor": {
+      "regex_rules": {
+        "standard_code": "GB/T?\\s?\\d{4,5}([-—]\\d{4})?|DB\\d{2}/?T?\\s?\\d+|HG/T?\\s?\\d+",
+        "cas": "\\d{2,7}-\\d{2}-\\d",
+        "death_count": "(\\d+)\\s*人死亡",
+        "injury_count": "(\\d+)\\s*人受伤",
+        "missing_count": "(\\d+)\\s*人失踪",
+        "clause_no": "第[一二三四五六七八九十百零0-9]+条|\\d+(\\.\\d+)+",
+        "modality": "应|应当|必须|不得|禁止|严禁"
+      },
+      "section_priors": {
+        "直接原因": "DIRECT_CAUSE",
+        "间接原因": "INDIRECT_CAUSE",
+        "应急处置": "HAS_MEASURE:应急",
+        "整改措施": "HAS_MEASURE:整改",
+        "防范措施": "HAS_MEASURE:整改",
+        "事故防范措施": "HAS_MEASURE:整改",
+        "人员伤亡": "attribute:casualty",
+        "伤亡情况": "attribute:casualty",
+        "经济损失": "attribute:economic_loss"
+      }
+    },
+    "schema_retriever": {
+      "embedding_model": "bge-m3",
+      "max_seq_length": 1024,
+      "index_type": "IndexFlatIP",
+      "normalized": true,
+      "top_k_entities": 8,
+      "top_k_relations": 12,
+      "rerank_model": "bge-reranker-v2-m3",
+      "repository_source": "schema_v1.json"
+    },
+    "case_retriever": {
+      "embedding_model": "bge-m3",
+      "top_k_success": 3,
+      "top_k_failure": 3,
+      "separate_index": true,
+      "ranking": {
+        "hard_filters": ["source_type_match", "task_type_match"],
+        "scoring_factors": [
+          "semantic_similarity",
+          "schema_overlap",
+          "entity_type_overlap",
+          "source_type_match",
+          "task_type_match",
+          "case_quality",
+          "recency"
+        ],
+        "weights": "tuned_by_experiment"
+      }
+    },
+    "extractor": {
+      "strategy": "hybrid_schema_guided_open_span",
+      "llm": "Qwen3-4B-Instruct-2507",
+      "temperature": 0.2,
+      "no_early_canonicalization": true,
+      "keep_surface": true,
+      "keep_section": true
+    },
+    "definer": {
+      "output": ["open_predicate", "definition", "candidates"],
+      "candidate_fields": ["schema_relation", "subject_role", "object_role", "direction", "confidence"],
+      "direction_values": ["TEXT_AS_IS", "SCHEMA_INVERTED"],
+      "fallback_relation": "relates_to",
+      "persist_definition": true
+    },
+    "canonicalizer": {
+      "match_levels": ["exact_id", "alias", "retrieval", "llm_disambiguated", "unresolved"],
+      "low_confidence_threshold": 0.85,
+      "retrieval_top_k": 5
+    },
+    "validator": {
+      "checks": [
+        "subject_type_valid",
+        "predicate_valid",
+        "object_type_valid",
+        "domain_range_valid",
+        "required_property",
+        "canonical_id",
+        "provenance",
+        "duplicate_assertion"
+      ],
+      "on_fail": "mark_validation_failed_not_delete"
+    }
+  },
+
+  "case_repository": {
+    "storage_scheme": "metadata_unified_index_split_by_case_type",
+    "files": {
+      "metadata": "data/kg/cases/cases.jsonl",
+      "success_index": "data/kg/cases/success.index",
+      "success_embeddings": "data/kg/cases/success_embeddings.npy",
+      "failure_index": "data/kg/cases/failure.index",
+      "failure_embeddings": "data/kg/cases/failure_embeddings.npy"
+    },
+    "case_types": ["success", "failure"],
+    "corrected_case_independent": false,
+    "corrected_embedded_in_failure": true,
+    "case_granularity": "assertion_level_with_chunk_context",
+    "case_status": ["pending", "verified", "deprecated"],
+    "retrieval_only_verified": true,
+    "error_taxonomy": [
+      "entity_missing",
+      "entity_extra",
+      "entity_type_error",
+      "relation_missing",
+      "relation_extra",
+      "relation_type_error",
+      "relation_direction_error",
+      "canonicalization_error",
+      "attribute_error",
+      "provenance_error",
+      "hallucination",
+      "schema_violation"
+    ],
+    "success_case_fields": [
+      "case_id", "case_type", "task_type", "source_doc_id", "source_chunk_id",
+      "source_type", "source_text", "schema_version", "schema_context",
+      "model_output", "reviewed_output", "entities", "relations",
+      "quality_score", "case_status", "created_at"
+    ],
+    "failure_case_fields": [
+      "case_id", "case_type", "task_type", "source_doc_id", "source_chunk_id",
+      "source_type", "source_text", "model_output", "wrong_assertion",
+      "corrected_assertion", "error_type", "error_reason", "review_comment",
+      "schema_element", "canonicalization_error", "case_status", "created_at"
+    ]
+  },
+
+  "review_workflow": {
+    "unit": "assertion",
+    "entity_review": "inline_with_assertion",
+    "chunk_review": "not_direct",
+    "v1_all_human_review": true,
+    "auto_approve_reserved": {
+      "enabled": false,
+      "criteria": {
+        "min_confidence": 0.95,
+        "assertion_type": "explicit",
+        "match_level": ["exact_id", "alias"],
+        "schema_valid": true
+      },
+      "behavior": "sort_and_highlight_only"
+    },
+    "review_status": ["pending", "approved", "rejected", "modified"],
+    "modified_requires": ["corrected_output", "review_note"],
+    "review_display": {
+      "source_text_quote": true,
+      "section": true,
+      "candidate_entities": true,
+      "candidate_assertions": true,
+      "confidence": true,
+      "actions": ["accept", "modify", "reject"]
+    }
+  },
+
+  "canonicalization": {
+    "pipeline": [
+      "normalization", "exact_id_match", "alias_match",
+      "retrieval_candidates", "llm_disambiguation",
+      "confidence", "human_review_if_uncertain", "canonical_entity"
+    ],
+    "entity_id_priority": {
+      "chemical": ["CAS", "UN", "catalog_number", "canonical_dictionary"],
+      "enterprise": ["credit_code", "exact_full_name", "alias"],
+      "equipment": ["mention", "context", "type", "enterprise"],
+      "standard": ["code"],
+      "regulation": ["doc_no", "title"],
+      "process": ["mention", "context", "type"]
+    },
+    "physical_state_preserved": true
+  },
+
+  "prompt_templates": {
+    "extract_accident_prompt": {
+      "input": ["chunk_text", "source_metadata", "rule_annotations", "schema_context", "case_context"],
+      "output_schema": ["entity_mentions", "relation_phrases", "event_causal_expressions", "attribute_mentions"],
+      "constraints": ["no_early_canonicalization", "keep_surface", "keep_section"],
+      "failure_handling": "retry_once_then_rule_only"
+    },
+    "extract_standard_prompt": {
+      "input": ["clause_text", "rule_annotations", "schema_context"],
+      "output_schema": ["clauses", "requirements"],
+      "constraints": ["requirement_id_required", "modality_from_rule"],
+      "failure_handling": "retry_once_then_rule_only"
+    },
+    "define_prompt": {
+      "input": ["open_predicates", "schema_context"],
+      "output_schema": ["predicate", "definition", "candidates"],
+      "constraints": ["direction_explicit", "relation_from_schema_context"],
+      "failure_handling": "fallback_relates_to"
+    },
+    "canonicalize_prompt": {
+      "input": ["mentions", "entity_repo_candidates", "context"],
+      "output_schema": ["mention_id", "canonical", "confidence", "match_level", "needs_review"],
+      "constraints": ["no_fabricated_ids"],
+      "failure_handling": "mark_unresolved"
+    },
+    "case_augmented_extract_prompt": {
+      "input": ["extract_prompt_input", "top_k_success", "top_k_failure"],
+      "constraints": ["failure_separated_as_incorrect_vs_corrected"]
+    },
+    "case_reflection_prompt": {
+      "input": ["current_output", "retrieved_failure_cases"],
+      "output_schema": ["violations", "revisions", "final_output"],
+      "constraints": ["only_fix_violations"]
+    }
+  },
+
+  "evaluation": {
+    "metrics": [
+      "entity_precision", "entity_recall", "entity_f1",
+      "relation_precision", "relation_recall", "relation_f1",
+      "canonicalization_accuracy",
+      "schema_violation_rate",
+      "hallucination_rate",
+      "human_correction_rate",
+      "review_acceptance_rate",
+      "case_retrieval_hit_rate",
+      "failure_recurrence_rate"
+    ],
+    "human_effort_metrics": [
+      "avg_review_time_per_chunk",
+      "modifications_per_100_assertions",
+      "auto_approve_rate",
+      "human_modify_rate",
+      "human_reject_rate",
+      "review_time_before_vs_after_case_memory"
+    ],
+    "failure_recurrence_rate_definition": "同类错误（同 error_type + 同 schema_element/谓词模式）进入 Failure Repository 后，后续相似样本再次犯同类错误的比例"
+  },
+
+  "experiments": {
+    "test_set": "fixed_small_gold_standard",
+    "configs": {
+      "A": "schema_guided_baseline",
+      "B": "edc",
+      "C": "edc_schema_retrieval",
+      "D": "edc_schema_retrieval_success_cases",
+      "E": "edc_schema_retrieval_success_failure_cases",
+      "F": "edc_r_case_human_feedback_full"
+    },
+    "ablations": [
+      "remove_schema_retrieval",
+      "remove_success_case",
+      "remove_failure_case",
+      "remove_canonicalization_retrieval",
+      "remove_human_feedback"
+    ],
+    "prototype_document_count": "30-50",
+    "prototype_split": {"事故": 15, "标准": 15, "法规": 10}
+  }
+}

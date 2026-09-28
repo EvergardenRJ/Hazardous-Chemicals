@@ -216,3 +216,29 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Server deployment, source documents, and downloadable runtimes
+.autodl/
+.claude/
+models/**
+!models/README.md
+chemical_kb/data/pdf/**
+!chemical_kb/data/pdf/README.md
+neo4j/**
+!neo4j/README.md
+neo4j-java/**
+!neo4j-java/README.md
+*.pdf
+*.doc
+*.docx
+*.tgz
+*.tar.gz
+*.sqlite-wal
+*.sqlite-shm
+*.db-wal
+*.db-shm
+chemical_kb/logs/
+chemical_kb/backup_before_accident_*/
+chemical_kb/explorer_web/node_modules/
+!chemical_kb/explorer_web/dist/
+!chemical_kb/explorer_web/dist/**

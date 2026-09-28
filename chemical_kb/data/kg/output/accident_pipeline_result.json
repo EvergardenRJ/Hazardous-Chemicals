@@ -1,0 +1,887 @@
+{
+  "chunk_id": "ACC_aa76907ac753bc37_c0020",
+  "doc_id": "ACC_aa76907ac753bc37",
+  "doc_type": "accident",
+  "title": "融汇化工“8·29”氯气泄漏事故报告发布",
+  "code": "",
+  "section": "（一）直接原因",
+  "page_start": 1,
+  "page_end": 1,
+  "status": "ok",
+  "rule_annotations": {
+    "section": "（一）直接原因",
+    "death_count": null,
+    "injury_count": null,
+    "severe_injury_count": null,
+    "minor_injury_count": null,
+    "missing_count": null,
+    "standard_codes": [],
+    "cas_numbers": [],
+    "dates": [],
+    "clause_numbers": [],
+    "modalities": [],
+    "quantitative_expressions": []
+  },
+  "schema_context": {
+    "entities": [
+      {
+        "name": "Accident",
+        "name_zh": "事故",
+        "definition": "生产安全事故，是因果链与整改知识的核心锚点。",
+        "score": 0.5854252576828003,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "Requirement",
+        "name_zh": "安全要求",
+        "definition": "从条款中规范化出的、可判定的安全要求命题（主体+模态+行为+条件+对象）。是事故与标准法规桥接的最小语义单元，使用稳定 requirement_id。",
+        "score": 0.5351009368896484,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "Equipment",
+        "name_zh": "设备/设施",
+        "definition": "装置、设备、设施、管道、安全附件、监测报警装置等。事故的物因素载体，也是标准技术要求的对象。",
+        "score": 0.5345717668533325,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "HazardClass",
+        "name_zh": "危险类别",
+        "definition": "按 GHS/国标划分的危险类别，用于连接化学品与其分类标签规范（GB 30000 系列）。",
+        "score": 0.5111267566680908,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "Chemical",
+        "name_zh": "化学品",
+        "definition": "危险化学品/危险物质，含单质、化合物、混合物、气体（如煤气）等。表示化学物质本体，是事故与标准法规桥接的核心对象。",
+        "score": 0.5059699416160583,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "MajorHazardSource",
+        "name_zh": "重大危险源",
+        "definition": "构成重大危险源的生产装置、储存罐区等，按 GB 18218 辨识分级。法规与标准均有专项管控要求。",
+        "score": 0.49471771717071533,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "Process",
+        "name_zh": "工艺/工序",
+        "definition": "生产工艺、工序、作业环节。是危险化工工艺管控与事故工艺致因的载体。",
+        "score": 0.48919937014579773,
+        "subject_types": [],
+        "object_types": []
+      },
+      {
+        "name": "Enterprise",
+        "name_zh": "企业/单位",
+        "definition": "生产经营单位，含生产/经营/使用/运输企业、施工/承包单位、检测/评价机构等。事故责任主体与安全义务主体。",
+        "score": 0.4872342348098755,
+        "subject_types": [],
+        "object_types": []
+      }
+    ],
+    "relations": [
+      {
+        "name": "INVOLVES_CHEMICAL",
+        "name_zh": "涉及化学品",
+        "definition": "事故涉及某化学品",
+        "score": 0.5101635456085205,
+        "subject_types": [
+          "accident"
+        ],
+        "object_types": [
+          "chemical"
+        ]
+      },
+      {
+        "name": "BELONGS_TO_CLASS",
+        "name_zh": "属于危险类别",
+        "definition": "化学品属于某 GHS 危险类别",
+        "score": 0.49149882793426514,
+        "subject_types": [
+          "chemical"
+        ],
+        "object_types": [
+          "hazard_class"
+        ]
+      },
+      {
+        "name": "INVOLVES_PROCESS",
+        "name_zh": "涉及工艺",
+        "definition": "事故涉及某工艺",
+        "score": 0.48075902462005615,
+        "subject_types": [
+          "accident"
+        ],
+        "object_types": [
+          "process"
+        ]
+      },
+      {
+        "name": "HAZARD_OF",
+        "name_zh": "涉及化学品",
+        "definition": "重大危险源涉及的危险化学品",
+        "score": 0.4746097922325134,
+        "subject_types": [
+          "major_hazard_source"
+        ],
+        "object_types": [
+          "chemical"
+        ]
+      },
+      {
+        "name": "HANDLES",
+        "name_zh": "涉危化品操作",
+        "definition": "企业生产/储存/使用/经营/运输某化学品",
+        "score": 0.47233080863952637,
+        "subject_types": [
+          "enterprise"
+        ],
+        "object_types": [
+          "chemical"
+        ]
+      },
+      {
+        "name": "INVOLVES_EQUIPMENT",
+        "name_zh": "涉及设备",
+        "definition": "事故涉及某设备",
+        "score": 0.4714733362197876,
+        "subject_types": [
+          "accident"
+        ],
+        "object_types": [
+          "equipment"
+        ]
+      },
+      {
+        "name": "CONTAINS",
+        "name_zh": "储存/输送介质",
+        "definition": "设备储存/输送/盛装某化学品",
+        "score": 0.47010332345962524,
+        "subject_types": [
+          "equipment"
+        ],
+        "object_types": [
+          "chemical"
+        ]
+      },
+      {
+        "name": "DIRECT_CAUSE",
+        "name_zh": "直接原因",
+        "definition": "事故的直接原因（方向统一：Accident -[DIRECT_CAUSE]-> CausalFactor，语义=事故具有直接原因）",
+        "score": 0.4612540006637573,
+        "subject_types": [
+          "accident"
+        ],
+        "object_types": [
+          "causal_factor"
+        ]
+      },
+      {
+        "name": "INDIRECT_CAUSE",
+        "name_zh": "间接原因",
+        "definition": "事故的间接原因（方向统一：Accident -[INDIRECT_CAUSE]-> CausalFactor）",
+        "score": 0.45979878306388855,
+        "subject_types": [
+          "accident"
+        ],
+        "object_types": [
+          "causal_factor"
+        ]
+      },
+      {
+        "name": "VIOLATES",
+        "name_zh": "违反",
+        "definition": "事故原因/事故违反了某要求或条款（桥接核心关系；assertion_type 区分 explicit/inferred/human_confirmed）",
+        "score": 0.4540436565876007,
+        "subject_types": [
+          "causal_factor",
+          "accident"
+        ],
+        "object_types": [
+          "requirement",
+          "clause",
+          "standard",
+          "regulation"
+        ]
+      },
+      {
+        "name": "RELATES_TO",
+        "name_zh": "关联对象",
+        "definition": "致因所关联的具体对象",
+        "score": 0.4492041766643524,
+        "subject_types": [
+          "causal_factor"
+        ],
+        "object_types": [
+          "chemical",
+          "equipment",
+          "process",
+          "site",
+          "enterprise",
+          "major_hazard_source"
+        ]
+      },
+      {
+        "name": "OCCURRED_IN",
+        "name_zh": "发生于单位",
+        "definition": "事故发生在某企业/单位",
+        "score": 0.44735994935035706,
+        "subject_types": [
+          "accident"
+        ],
+        "object_types": [
+          "enterprise"
+        ]
+      }
+    ]
+  },
+  "extraction_draft": {
+    "status": "ok",
+    "entity_mentions": [
+      {
+        "mention_id": "m1",
+        "surface": "融汇化工",
+        "type_hint": "enterprise",
+        "context": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业",
+        "physical_state": null
+      },
+      {
+        "mention_id": "m2",
+        "surface": "万向节（鹤管）",
+        "type_hint": "equipment",
+        "context": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业",
+        "physical_state": null
+      },
+      {
+        "mention_id": "m3",
+        "surface": "液氯",
+        "type_hint": "chemical",
+        "context": "进行液氯充装作业，由于充装液氯压力超过万向节减薄部位的承载能力",
+        "physical_state": "liquid"
+      },
+      {
+        "mention_id": "m4",
+        "surface": "压力",
+        "type_hint": "causal_factor",
+        "context": "由于充装液氯压力超过万向节减薄部位的承载能力",
+        "physical_state": null
+      },
+      {
+        "mention_id": "m5",
+        "surface": "减薄",
+        "type_hint": "causal_factor",
+        "context": "万向节（鹤管）存在局部严重减薄",
+        "physical_state": null
+      },
+      {
+        "mention_id": "m6",
+        "surface": "塑性断裂",
+        "type_hint": "causal_factor",
+        "context": "导致减薄部位发生塑性断裂",
+        "physical_state": null
+      },
+      {
+        "mention_id": "m7",
+        "surface": "泄漏",
+        "type_hint": "causal_factor",
+        "context": "造成液氯瞬间泄漏",
+        "physical_state": null
+      },
+      {
+        "mention_id": "m8",
+        "surface": "中毒",
+        "type_hint": "causal_factor",
+        "context": "引起人员中毒",
+        "physical_state": null
+      }
+    ],
+    "relation_phrases": [
+      {
+        "relation_id": "r1",
+        "subject_mention_id": "m4",
+        "predicate_surface": "超过",
+        "object_mention_id": "m2",
+        "evidence_quote": "由于充装液氯压力超过万向节减薄部位的承载能力"
+      },
+      {
+        "relation_id": "r2",
+        "subject_mention_id": "m5",
+        "predicate_surface": "导致",
+        "object_mention_id": "m6",
+        "evidence_quote": "导致减薄部位发生塑性断裂"
+      },
+      {
+        "relation_id": "r3",
+        "subject_mention_id": "m6",
+        "predicate_surface": "导致",
+        "object_mention_id": "m7",
+        "evidence_quote": "造成液氯瞬间泄漏"
+      },
+      {
+        "relation_id": "r4",
+        "subject_mention_id": "m7",
+        "predicate_surface": "引起",
+        "object_mention_id": "m8",
+        "evidence_quote": "引起人员中毒"
+      },
+      {
+        "relation_id": "r5",
+        "subject_mention_id": "m1",
+        "predicate_surface": "进行",
+        "object_mention_id": "m3",
+        "evidence_quote": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业"
+      },
+      {
+        "relation_id": "r6",
+        "subject_mention_id": "m2",
+        "predicate_surface": "含有",
+        "object_mention_id": "m3",
+        "evidence_quote": "进行液氯充装作业"
+      },
+      {
+        "relation_id": "r7",
+        "subject_mention_id": "m3",
+        "predicate_surface": "涉及",
+        "object_mention_id": "m8",
+        "evidence_quote": "引起人员中毒"
+      }
+    ],
+    "attribute_mentions": [],
+    "requirement_candidates": [],
+    "clause_mentions": [],
+    "raw": "{\n  \"entity_mentions\": [\n    {\n      \"mention_id\": \"m1\",\n      \"surface\": \"融汇化工\",\n      \"type_hint\": \"enterprise\",\n      \"context\": \"融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业\",\n      \"physical_state\": null\n    },\n    {\n      \"mention_id\": \"m2\",\n      \"surface\": \"万向节（鹤管）\",\n      \"type_hint\": \"equipment\",\n      \"context\": \"融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业\",\n      \"physical_state\": null\n    },\n    {\n      \"mention_id\": \"m3\",\n      \"surface\": \"液氯\",\n      \"type_hint\": \"chemical\",\n      \"context\": \"进行液氯充装作业，由于充装液氯压力超过万向节减薄部位的承载能力\",\n      \"physical_state\": \"liquid\"\n    },\n    {\n      \"mention_id\": \"m4\",\n      \"surface\": \"压力\",\n      \"type_hint\": \"causal_factor\",\n      \"context\": \"由于充装液氯压力超过万向节减薄部位的承载能力\",\n      \"physical_state\": null\n    },\n    {\n      \"mention_id\": \"m5\",\n      \"surface\": \"减薄\",\n      \"type_hint\": \"causal_factor\",\n      \"context\": \"万向节（鹤管）存在局部严重减薄\",\n      \"physical_state\": null\n    },\n    {\n      \"mention_id\": \"m6\",\n      \"surface\": \"塑性断裂\",\n      \"type_hint\": \"causal_factor\",\n      \"context\": \"导致减薄部位发生塑性断裂\",\n      \"physical_state\": null\n    },\n    {\n      \"mention_id\": \"m7\",\n      \"surface\": \"泄漏\",\n      \"type_hint\": \"causal_factor\",\n      \"context\": \"造成液氯瞬间泄漏\",\n      \"physical_state\": null\n    },\n    {\n      \"mention_id\": \"m8\",\n      \"surface\": \"中毒\",\n      \"type_hint\": \"causal_factor\",\n      \"context\": \"引起人员中毒\",\n      \"physical_state\": null\n    }\n  ],\n  \"relation_phrases\": [\n    {\n      \"relation_id\": \"r1\",\n      \"subject_mention_id\": \"m4\",\n      \"predicate_surface\": \"超过\",\n      \"object_mention_id\": \"m2\",\n      \"evidence_quote\": \"由于充装液氯压力超过万向节减薄部位的承载能力\"\n    },\n    {\n      \"relation_id\": \"r2\",\n      \"subject_mention_id\": \"m5\",\n      \"predicate_surface\": \"导致\",\n      \"object_mention_id\": \"m6\",\n      \"evidence_quote\": \"导致减薄部位发生塑性断裂\"\n    },\n    {\n      \"relation_id\": \"r3\",\n      \"subject_mention_id\": \"m6\",\n      \"predicate_surface\": \"导致\",\n      \"object_mention_id\": \"m7\",\n      \"evidence_quote\": \"造成液氯瞬间泄漏\"\n    },\n    {\n      \"relation_id\": \"r4\",\n      \"subject_mention_id\": \"m7\",\n      \"predicate_surface\": \"引起\",\n      \"object_mention_id\": \"m8\",\n      \"evidence_quote\": \"引起人员中毒\"\n    },\n    {\n      \"relation_id\": \"r5\",\n      \"subject_mention_id\": \"m1\",\n      \"predicate_surface\": \"进行\",\n      \"object_mention_id\": \"m3\",\n      \"evidence_quote\": \"融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业\"\n    },\n    {\n      \"relation_id\": \"r6\",\n      \"subject_mention_id\": \"m2\",\n      \"predicate_surface\": \"含有\",\n      \"object_mention_id\": \"m3\",\n      \"evidence_quote\": \"进行液氯充装作业\"\n    },\n    {\n      \"relation_id\": \"r7\",\n      \"subject_mention_id\": \"m3\",\n      \"predicate_surface\": \"涉及\",\n      \"object_mention_id\": \"m8\",\n      \"evidence_quote\": \"引起人员中毒\"\n    }\n  ],\n  \"attribute_mentions\": []\n}",
+    "parse_method": "json.loads",
+    "retry_used": false
+  },
+  "define_results": [
+    {
+      "relation_id": "r1",
+      "predicate_surface": "超过",
+      "definition": "",
+      "schema_relation": "",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.0,
+      "status": "unresolved",
+      "subject_mention_id": "m4",
+      "object_mention_id": "m2"
+    },
+    {
+      "relation_id": "r2",
+      "predicate_surface": "导致",
+      "definition": "谓词「导致」按类型消歧映射到 leads_to",
+      "schema_relation": "leads_to",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.85,
+      "status": "mapped",
+      "subject_mention_id": "m5",
+      "object_mention_id": "m6"
+    },
+    {
+      "relation_id": "r3",
+      "predicate_surface": "导致",
+      "definition": "谓词「导致」按类型消歧映射到 leads_to",
+      "schema_relation": "leads_to",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.85,
+      "status": "mapped",
+      "subject_mention_id": "m6",
+      "object_mention_id": "m7"
+    },
+    {
+      "relation_id": "r4",
+      "predicate_surface": "引起",
+      "definition": "谓词「引起」按类型消歧映射到 leads_to",
+      "schema_relation": "leads_to",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.85,
+      "status": "mapped",
+      "subject_mention_id": "m7",
+      "object_mention_id": "m8"
+    },
+    {
+      "relation_id": "r5",
+      "predicate_surface": "进行",
+      "definition": "",
+      "schema_relation": "",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.0,
+      "status": "unresolved",
+      "subject_mention_id": "m1",
+      "object_mention_id": "m3"
+    },
+    {
+      "relation_id": "r6",
+      "predicate_surface": "含有",
+      "definition": "",
+      "schema_relation": "",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.0,
+      "status": "unresolved",
+      "subject_mention_id": "m2",
+      "object_mention_id": "m3"
+    },
+    {
+      "relation_id": "r7",
+      "predicate_surface": "涉及",
+      "definition": "",
+      "schema_relation": "",
+      "direction": "TEXT_AS_IS",
+      "confidence": 0.0,
+      "status": "unresolved",
+      "subject_mention_id": "m3",
+      "object_mention_id": "m8"
+    }
+  ],
+  "canonical_results": [
+    {
+      "mention_id": "m1",
+      "surface": "融汇化工",
+      "type_hint": "enterprise",
+      "entity_type": "enterprise",
+      "canonical_name": "融汇化工",
+      "canonical_id": "enterprise::融汇化工::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.5
+    },
+    {
+      "mention_id": "m2",
+      "surface": "万向节(鹤管)",
+      "type_hint": "equipment",
+      "entity_type": "equipment",
+      "canonical_name": "万向节(鹤管)",
+      "canonical_id": "equipment::万向节(鹤管)::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.6
+    },
+    {
+      "mention_id": "m3",
+      "surface": "液氯",
+      "type_hint": "chemical",
+      "entity_type": "chemical",
+      "canonical_name": "氯",
+      "canonical_id": "chemical::氯",
+      "physical_state": "liquid",
+      "canonical_status": "resolved",
+      "match_level": "dictionary",
+      "confidence": 0.95
+    },
+    {
+      "mention_id": "m4",
+      "surface": "压力",
+      "type_hint": "causal_factor",
+      "entity_type": "causal_factor",
+      "canonical_name": "压力",
+      "canonical_id": "causal_factor::压力::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.6
+    },
+    {
+      "mention_id": "m5",
+      "surface": "减薄",
+      "type_hint": "causal_factor",
+      "entity_type": "causal_factor",
+      "canonical_name": "减薄",
+      "canonical_id": "causal_factor::减薄::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.6
+    },
+    {
+      "mention_id": "m6",
+      "surface": "塑性断裂",
+      "type_hint": "causal_factor",
+      "entity_type": "causal_factor",
+      "canonical_name": "塑性断裂",
+      "canonical_id": "causal_factor::塑性断裂::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.6
+    },
+    {
+      "mention_id": "m7",
+      "surface": "泄漏",
+      "type_hint": "causal_factor",
+      "entity_type": "causal_factor",
+      "canonical_name": "泄漏",
+      "canonical_id": "causal_factor::泄漏::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.6
+    },
+    {
+      "mention_id": "m8",
+      "surface": "中毒",
+      "type_hint": "causal_factor",
+      "entity_type": "causal_factor",
+      "canonical_name": "中毒",
+      "canonical_id": "causal_factor::中毒::ACC_aa76907ac753bc37",
+      "physical_state": null,
+      "canonical_status": "provisional",
+      "match_level": "provisional",
+      "confidence": 0.6
+    }
+  ],
+  "assertions": [
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A001",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "occurred_in",
+      "object_id": "enterprise::融汇化工::ACC_aa76907ac753bc37",
+      "object_type": "enterprise",
+      "object_label": "融汇化工",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A002",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "involves_equipment",
+      "object_id": "equipment::万向节(鹤管)::ACC_aa76907ac753bc37",
+      "object_type": "equipment",
+      "object_label": "万向节(鹤管)",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A003",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "involves_chemical",
+      "object_id": "chemical::氯",
+      "object_type": "chemical",
+      "object_label": "氯",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "进行液氯充装作业，由于充装液氯压力超过万向节减薄部位的承载能力",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A004",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "direct_cause",
+      "object_id": "causal_factor::压力::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "压力",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "由于充装液氯压力超过万向节减薄部位的承载能力",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A005",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "direct_cause",
+      "object_id": "causal_factor::减薄::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "减薄",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "万向节（鹤管）存在局部严重减薄",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A006",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "direct_cause",
+      "object_id": "causal_factor::塑性断裂::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "塑性断裂",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "导致减薄部位发生塑性断裂",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A007",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "direct_cause",
+      "object_id": "causal_factor::泄漏::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "泄漏",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "造成液氯瞬间泄漏",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A008",
+      "subject_id": "accident::ACC_aa76907ac753bc37",
+      "subject_type": "accident",
+      "subject_label": "融汇化工“8·29”氯气泄漏事故报告发布",
+      "predicate": "direct_cause",
+      "object_id": "causal_factor::中毒::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "中毒",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "引起人员中毒",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A009",
+      "subject_id": "causal_factor::减薄::ACC_aa76907ac753bc37",
+      "subject_type": "causal_factor",
+      "subject_label": "减薄",
+      "predicate": "leads_to",
+      "object_id": "causal_factor::塑性断裂::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "塑性断裂",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "导致减薄部位发生塑性断裂",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm+rule",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A010",
+      "subject_id": "causal_factor::塑性断裂::ACC_aa76907ac753bc37",
+      "subject_type": "causal_factor",
+      "subject_label": "塑性断裂",
+      "predicate": "leads_to",
+      "object_id": "causal_factor::泄漏::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "泄漏",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "造成液氯瞬间泄漏",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm+rule",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    },
+    {
+      "assertion_id": "ACC_aa76907ac753bc37_c0020_A011",
+      "subject_id": "causal_factor::泄漏::ACC_aa76907ac753bc37",
+      "subject_type": "causal_factor",
+      "subject_label": "泄漏",
+      "predicate": "leads_to",
+      "object_id": "causal_factor::中毒::ACC_aa76907ac753bc37",
+      "object_type": "causal_factor",
+      "object_label": "中毒",
+      "object_kind": "entity",
+      "source_doc_id": "ACC_aa76907ac753bc37",
+      "source_chunk_id": "ACC_aa76907ac753bc37_c0020",
+      "source_text_quote": "引起人员中毒",
+      "source_type": "事故",
+      "page_start": "1",
+      "page_end": "1",
+      "section": "（一）直接原因",
+      "schema_version": "1.0",
+      "extraction_method": "llm+rule",
+      "assertion_type": "explicit",
+      "confidence": 0.5,
+      "review_status": "pending",
+      "validation_status": "passed",
+      "validation_errors": [],
+      "created_at": "2026-08-25T20:29:44"
+    }
+  ],
+  "unresolved_relations": [
+    {
+      "relation_id": "r1",
+      "predicate_surface": "超过",
+      "subject_surface": "压力",
+      "subject_type": "causal_factor",
+      "object_surface": "万向节(鹤管)",
+      "object_type": "equipment",
+      "evidence_quote": "由于充装液氯压力超过万向节减薄部位的承载能力"
+    },
+    {
+      "relation_id": "r5",
+      "predicate_surface": "进行",
+      "subject_surface": "融汇化工",
+      "subject_type": "enterprise",
+      "object_surface": "液氯",
+      "object_type": "chemical",
+      "evidence_quote": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业"
+    },
+    {
+      "relation_id": "r6",
+      "predicate_surface": "含有",
+      "subject_surface": "万向节(鹤管)",
+      "subject_type": "equipment",
+      "object_surface": "液氯",
+      "object_type": "chemical",
+      "evidence_quote": "进行液氯充装作业"
+    },
+    {
+      "relation_id": "r7",
+      "predicate_surface": "涉及",
+      "subject_surface": "液氯",
+      "subject_type": "chemical",
+      "object_surface": "中毒",
+      "object_type": "causal_factor",
+      "evidence_quote": "引起人员中毒"
+    }
+  ],
+  "validation": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "assertions": [
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A001', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='occurred_in', object_id='enterprise::融汇化工::ACC_aa76907ac753bc37', object_type='enterprise', object_label='融汇化工', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A002', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='involves_equipment', object_id='equipment::万向节(鹤管)::ACC_aa76907ac753bc37', object_type='equipment', object_label='万向节(鹤管)', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A003', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='involves_chemical', object_id='chemical::氯', object_type='chemical', object_label='氯', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='进行液氯充装作业，由于充装液氯压力超过万向节减薄部位的承载能力', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A004', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='direct_cause', object_id='causal_factor::压力::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='压力', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='由于充装液氯压力超过万向节减薄部位的承载能力', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A005', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='direct_cause', object_id='causal_factor::减薄::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='减薄', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='万向节（鹤管）存在局部严重减薄', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A006', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='direct_cause', object_id='causal_factor::塑性断裂::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='塑性断裂', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='导致减薄部位发生塑性断裂', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A007', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='direct_cause', object_id='causal_factor::泄漏::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='泄漏', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='造成液氯瞬间泄漏', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A008', subject_id='accident::ACC_aa76907ac753bc37', subject_type='accident', subject_label='融汇化工“8·29”氯气泄漏事故报告发布', predicate='direct_cause', object_id='causal_factor::中毒::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='中毒', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='引起人员中毒', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A009', subject_id='causal_factor::减薄::ACC_aa76907ac753bc37', subject_type='causal_factor', subject_label='减薄', predicate='leads_to', object_id='causal_factor::塑性断裂::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='塑性断裂', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='导致减薄部位发生塑性断裂', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm+rule', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A010', subject_id='causal_factor::塑性断裂::ACC_aa76907ac753bc37', subject_type='causal_factor', subject_label='塑性断裂', predicate='leads_to', object_id='causal_factor::泄漏::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='泄漏', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='造成液氯瞬间泄漏', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm+rule', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')",
+      "CandidateAssertion(assertion_id='ACC_aa76907ac753bc37_c0020_A011', subject_id='causal_factor::泄漏::ACC_aa76907ac753bc37', subject_type='causal_factor', subject_label='泄漏', predicate='leads_to', object_id='causal_factor::中毒::ACC_aa76907ac753bc37', object_type='causal_factor', object_label='中毒', object_kind='entity', source_doc_id='ACC_aa76907ac753bc37', source_chunk_id='ACC_aa76907ac753bc37_c0020', source_text_quote='引起人员中毒', source_type='事故', page_start='1', page_end='1', section='（一）直接原因', schema_version='1.0', extraction_method='llm+rule', assertion_type='explicit', confidence=0.5, review_status='pending', validation_status='passed', validation_errors=[], created_at='2026-08-25T20:29:44')"
+    ]
+  }
+}

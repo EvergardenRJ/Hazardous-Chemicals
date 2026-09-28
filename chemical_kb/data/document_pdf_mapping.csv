@@ -1,0 +1,855 @@
+﻿doc_id,title,pdf_id,pdf_path,match_method,confidence
+REG_ZV9X00FC1CC7BB445E4D,北京市应急管理局等7部门关于印发《北京市危险化学品禁止、限制、控制措施(2024年版)》的通知,PDF_00910,/root/autodl-tmp/chemical_kb/data/pdf/法规/北京市危险化学品禁止、限制、控制措施（2024年版）_20240114.pdf,title_fuzzy_high,0.85
+REG_ZV9X02428853F97D6D50,危险化学品建设项目安全监督管理办法(2015修正),PDF_00776,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150527--危险化学品建设项目安全监督管理办法（2015年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9X02CDBFD16766BC3E,宁夏回族自治区危险化学品安全管理办法,PDF_00828,/root/autodl-tmp/chemical_kb/data/pdf/法规/20191231--宁夏回族自治区危险化学品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X02F176B7F9E9FA54,国务院安委会办公室关于涉氨制冷企业液氨使用专项治理工作情况的通报,PDF_00806,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180225--关于涉氨制冷企业液氨使用专项治理工作情况的通报（安委办〔2018〕7号）.pdf,regulation_code,0.95
+REG_ZV9X05AD86D78806AB69,国家安全监管总局办公厅关于开展危险化学品重大危险源在线监控及事故预警系统建设试点工作的通知,PDF_00923,/root/autodl-tmp/chemical_kb/data/pdf/法规/国家安全监管总局办公厅关于开展危险化学品重大危险源在线监控及事故预警系统建设试点工作的通知--20161018.pdf,title_fuzzy_high,0.85
+REG_ZV9X0676B53ED0F60C33,放射性药品管理办法(2011修订),PDF_00935,/root/autodl-tmp/chemical_kb/data/pdf/法规/放射性药品管理办法(2011修订)_20110108.pdf,title_fuzzy_high,0.85
+REG_ZV9X06B8233AC71217FD,天津市危险化学品安全管理办法,PDF_00804,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180109--天津市危险化学品安全管理办法（市政府第29号令2018年修正）.pdf,title_fuzzy_high,0.85
+REG_ZV9X07229D5346247C03,中华人民共和国应急管理部、中华人民共和国工业和信息化部、中华人民共和国公安部、中华人民共和国生态环境部、中华人民共和国交通运输部、中华人民共和国农业农村部、中华人民共和国国家卫生健康委员会、国家市场监督管理总局、国家铁路局、中国民用航空局公告2022年第8号—关于调整《危险化学品目录(2015版)》的公告,PDF_00773,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150227--危险化学品目录2015版.pdf,title_fuzzy_high,0.85
+REG_ZV9X080F189EB419804A,非药品类易制毒化学品生产、经营许可办法,PDF_00736,/root/autodl-tmp/chemical_kb/data/pdf/法规/20060405--非药品类易制毒化学品生产、经营许可办法（国家安全生产监督管理总局令第5号）.pdf,regulation_code,0.95
+REG_ZV9X0856CD1474AAD7BC,民用爆炸物品销售许可实施办法(2015修订),PDF_00893,/root/autodl-tmp/chemical_kb/data/pdf/法规/20251021--民用爆炸物品销售许可实施办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X0857F8F1CDA2EF78,国家安全监管总局关于进一步加强非药品类易制毒化学品监管工作的指导意见,PDF_00922,/root/autodl-tmp/chemical_kb/data/pdf/法规/国家安全监管总局关于进一步加强非药品类易制毒化学品监管工作的指导意见.20120615.pdf,title_fuzzy_high,0.85
+REG_ZV9X09ADA20299EF5050,中华人民共和国危险化学品安全法,PDF_00899,/root/autodl-tmp/chemical_kb/data/pdf/法规/中华人民共和国危险化学品安全法_20251227.pdf,title_fuzzy_high,0.85
+REG_ZV9X0CCF08456F08909F,天然气利用管理办法,PDF_00880,/root/autodl-tmp/chemical_kb/data/pdf/法规/20240603--天然气利用管理办法（2024年公布）.pdf,title_fuzzy_high,0.85
+REG_ZV9X0F62DF038E7E5AB8,"公安部、商务部、国家卫生健康委员会、应急管理部、海关总署、国家药品监督管理局关于将4—(N—苯基氨基)哌啶、1—叔丁氧羰基—4—(N—苯基氨基)哌啶、N—苯基—N—(4—哌啶基)丙酰胺、大麻二酚、2—甲基—3—苯基缩水甘油酸及其酯类、3—氧—2—苯基丁酸及其酯类、2—甲基—3—[3,4—(亚甲二氧基)苯基]缩水甘油酸酯类列入易制毒化学品管理的公告",PDF_00881,/root/autodl-tmp/chemical_kb/data/pdf/法规/20240808--关于将4-(N-苯基氨基)哌啶等列入易制毒化学品管理的公告.pdf,title_fuzzy_low,0.6
+REG_ZV9X11FAD074A9180C4B,湖北省燃气管理条例(2025修订),PDF_00741,/root/autodl-tmp/chemical_kb/data/pdf/法规/20070728--湖北省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X127916ADF022B480,湖南省住房和城乡建设厅 湖南省自然资源厅关于进一步加强城镇燃气设施工程质量安全管理的通知,PDF_00955,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖南省住房和城乡建设厅 湖南省自然资源厅关于进一步加强城镇燃气设施工程质量安全管理的通知_20250401.pdf,title_fuzzy_high,0.85
+REG_ZV9X12D6C764D4878609,河南省民用爆炸物品安全管理办法,PDF_00875,/root/autodl-tmp/chemical_kb/data/pdf/法规/20231221--河南省民用爆炸物品安全管理办法（2023年公布）.pdf,title_fuzzy_high,0.85
+REG_ZV9X1563FC4CB650E9C3,云南省住房和城乡建设厅关于印发云南省燃气经营许可管理实施办法的通知,PDF_00908,/root/autodl-tmp/chemical_kb/data/pdf/法规/云南省住房和城乡建设厅关于印发云南省燃气经营许可管理实施办法的通知_20241125.pdf,title_fuzzy_high,0.85
+REG_ZV9X16761639490F4B82,农药管理条例(2022修订),PDF_00858,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220329--农药管理条例（2022年修订）.pdf,title_fuzzy_high,0.85
+REG_ZV9X18DB30DE30E93630,劳动部、化学工业部关于颁发《工作场所安全使用化学品规定》的通知,PDF_00730,/root/autodl-tmp/chemical_kb/data/pdf/法规/19961220--劳动部、化学工业部关于颁发《工作场所安全使用化学品规定》的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X19EC7847C07146A0,广西壮族自治区实施《危险化学品安全管理条例》办法(2013修订),PDF_00761,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130508--广西壮族自治区实施《危险化学品安全管理条例》办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X1A2C66B9F32A011F,易制毒化学品管理条例(2018修订),PDF_00810,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180918--易制毒化学品管理条例（2018年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9X1A2D4D5C6F4EE8A6,辽宁省城镇燃气管理条例(2022修正),PDF_00862,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220421--辽宁省城镇燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X1A3E23D3906A31A6,放射性药品管理办法(2024修订),PDF_00859,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220329--放射性药品管理办法（2022年修订）.pdf,title_fuzzy_high,0.85
+REG_ZV9X1A6957B5D41F50AB,山东省燃气管理条例(2016修正),PDF_00860,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220330--山东省燃气管理条例(2022年修正）.pdf,title_fuzzy_medium,0.7
+REG_ZV9X1B65E9531BD91AD0,浙江省安全生产委员会办公室关于印发《浙江省工贸企业危险化学品使用安全管理指南(试行)》的通知(2024修订),PDF_00833,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200430--浙江省工贸企业危险化学品使用安全管理指南（试行）.pdf,title_fuzzy_high,0.85
+REG_ZV9X1C114D13059828F5,江苏省安全生产委员会关于加强口岸危险化学品安全管理的意见,PDF_00807,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180408--省安委会关于加强口岸危险化学品安全管理的意见.pdf,title_fuzzy_high,0.85
+REG_ZV9X1C8C1B521FCD888A,宁夏回族自治区燃气管理条例(2023修订),PDF_00783,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150930--宁夏回族自治区燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X1ED8BEA47DE6210A,上海市燃气条例,PDF_00770,/root/autodl-tmp/chemical_kb/data/pdf/法规/上海市燃气条例_20251126.pdf,title_fuzzy_high,0.85
+REG_ZV9X1F4536AFB065916B,工业和信息化部关于印发《民用爆炸物品生产企业门禁式定员监控系统安全技术条件(修订)》的通知(2014),PDF_00767,/root/autodl-tmp/chemical_kb/data/pdf/法规/20140411--民用爆炸物品生产企业门禁式定员监控系统安全技术条件（修订）（工安函〔2014〕31号）.pdf,regulation_code,0.95
+REG_ZV9X1F939DB9B8A87592,重庆市天然气使用及设施安全管理办法,PDF_00731,/root/autodl-tmp/chemical_kb/data/pdf/法规/20020420--重庆市天然气使用及设施安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X20A359F8A1E41495,国家安全监管总局 交通运输部 国家铁路局关于印发《危险化学品储存场所安全专项整治工作方案》的通知,PDF_00920,/root/autodl-tmp/chemical_kb/data/pdf/法规/国家安全监管总局 交通运输部 国家铁路局关于印发《危险化学品储存场所安全专项整治工作方案》的通知--20160519.pdf,title_fuzzy_high,0.85
+REG_ZV9X2671DE997273B7E0,河北省燃气管理条例,PDF_00826,/root/autodl-tmp/chemical_kb/data/pdf/法规/20191129--河北省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X2AA3061D479F4BF6,广东省应急管理厅关于印发《广东省气雾剂生产企业戳罐作业安全指引(试行)》的通知,PDF_00889,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250321--广东省气雾剂生产企业戳罐作业安全指引(试行).pdf,title_fuzzy_high,0.85
+REG_ZV9X2C43898BB6C88E64,广东省燃气管理条例(2010修订),PDF_00874,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230927--广东省燃气管理条例（2023年修订）.pdf,title_fuzzy_high,0.85
+REG_ZV9X2E96F58FA2D43006,危险化学品安全使用许可证实施办法(2017修正),PDF_00794,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170306--危险化学品安全使用许可证实施办法（2017年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9X306A48649D3FDB3F,易制毒化学品购销和运输管理办法,PDF_00739,/root/autodl-tmp/chemical_kb/data/pdf/法规/20060822--易制毒化学品购销和运输管理办法(公安部令第87号).pdf,regulation_code,0.95
+REG_ZV9X31B908EF1148E760,广东省应急管理厅关于加强工业制造业企业使用危险化学品安全管理工作的通知,PDF_00843,/root/autodl-tmp/chemical_kb/data/pdf/法规/20201229--广东省应急管理厅关于加强工业制造业企业使用危险化学品安全管理工作的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X32BDFFFCA1EC940D,民用爆炸物品销售许可实施办法(2025),PDF_00774,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150429--民用爆炸物品销售许可实施办法（2015年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9X338642AA6337C8C6,新疆生产建设兵团住房城乡建设局关于印发《新疆生产建设兵团防范第三方施工破坏燃气管道管理办法(暂行)》的通知,PDF_00937,/root/autodl-tmp/chemical_kb/data/pdf/法规/新疆生产建设兵团住房城乡建设局关于印发《新疆生产建设兵团防范第三方施工破坏燃气管道管理办法（暂行）》的通知_20250624.pdf,title_fuzzy_high,0.85
+REG_ZV9X33D58C06264D2184,上海市应急管理局关于推动建立本市危险化学品企业行业安全联盟的通知,PDF_00878,/root/autodl-tmp/chemical_kb/data/pdf/法规/20240225--上海市应急管理局关于推动建立本市危险化学品企业行业安全联盟的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X363667E953B420B6,公安部公告——易制爆危险化学品名录(2017年版),PDF_00800,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170511--易制爆危险化学品名录（2017年版）.pdf,title_fuzzy_high,0.85
+REG_ZV9X387639AAA4BB9610,四川省燃气管理条例(2025修订),PDF_00792,/root/autodl-tmp/chemical_kb/data/pdf/法规/20161130--四川省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X397BBCE0C9CEE6B6,浙江省燃气管理条例(2020修正),PDF_00839,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200924--浙江省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X39B1403F89D92F10,内蒙古自治区人民政府关于印发自治区危险化学品安全管理实施办法的通知,PDF_00738,/root/autodl-tmp/chemical_kb/data/pdf/法规/20060523--内蒙古自治区危险化学品安全管理实施办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X3B109A2BEBB1C097,剧毒化学品购买和公路运输许可证件管理办法,PDF_00733,/root/autodl-tmp/chemical_kb/data/pdf/法规/20050525--剧毒化学品购买和公路运输许可证件管理办法（公安部令第77号）.pdf,regulation_code,0.95
+REG_ZV9X3B26E8E154C7FBB1,中华人民共和国药品管理法实施条例(2026修订),PDF_00900,/root/autodl-tmp/chemical_kb/data/pdf/法规/中华人民共和国药品管理法实施条例_20020804.pdf,title_fuzzy_high,0.85
+REG_ZV9X3B801CEEF13E6D10,北京市烟花爆竹安全管理规定(2017修正),PDF_00802,/root/autodl-tmp/chemical_kb/data/pdf/法规/20171201--北京市烟花爆竹安全管理规定.pdf,title_fuzzy_high,0.85
+REG_ZV9X3C7B2E5CCCEDD1D8,中华人民共和国药品管理法实施条例,PDF_00905,/root/autodl-tmp/chemical_kb/data/pdf/法规/中华人民共和国药品管理法实施条例（2026年修订）_20260116.pdf,title_fuzzy_high,0.85
+REG_ZV9X3DDF65C83DD7CA85,上海市危险化学品安全管理办法(2016),PDF_00869,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230615--上海市危险化学品安全管理办法（市政府令第5号2023年修正）.pdf,title_fuzzy_high,0.85
+REG_ZV9X40E5FE9FE95FA526,陕西省燃气管理条例(2025修正),PDF_00779,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150528--陕西省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X41A1621C57C100BA,工业和信息化部关于印发《民用爆炸物品企业安全生产标准化管理通则》的通知,PDF_00757,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130115--关于印发《民用爆炸物品企业安全生产标准化管理通则》的通知（工信部安[2013]20号）.pdf,title_fuzzy_high,0.85
+REG_ZV9X42E9E5F00F1AB620,中华人民共和国药品管理法实施条例(2016修订),PDF_00903,/root/autodl-tmp/chemical_kb/data/pdf/法规/中华人民共和国药品管理法实施条例（2024年修订）_20241206.pdf,title_fuzzy_high,0.85
+REG_ZV9X43915227BD2CDB4A,江苏省燃气管理条例(2025修正),PDF_00829,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200109--江苏省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X43A81C637440F8CE,民用爆炸物品安全管理条例(2014修订),PDF_00940,/root/autodl-tmp/chemical_kb/data/pdf/法规/民用爆炸物品安全管理条例_20060510.pdf,title_fuzzy_high,0.85
+REG_ZV9X4733BC3DE6B6AF2C,民用爆炸物品销售许可实施办法,PDF_00942,/root/autodl-tmp/chemical_kb/data/pdf/法规/民用爆炸物品销售许可实施办法_20060831.pdf,title_fuzzy_high,0.85
+REG_ZV9X47C586E7EB20F444,浙江省应急管理厅关于印发《危险化学品经营许可(不带储存经营)告知承诺实施细则(试行)》的通知,PDF_00844,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210129--危险化学品经营许可（不带储存经营）告知承诺实施细则（试行）.pdf,title_fuzzy_low,0.6
+REG_ZV9X48D87D0E5D79D822,应急管理部、工业和信息化部、公安部、交通运输部、海关总署关于进一步加强硝酸铵安全管理的通知,PDF_00852,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210913--关于进一步加强硝酸铵安全管理的通知(应急〔2021〕64号).pdf,regulation_code,0.95
+REG_ZV9X497B8864095AAAEE,上海市应急管理局关于加强危险化学品企业吨桶安全管理工作的通知,PDF_00895,/root/autodl-tmp/chemical_kb/data/pdf/法规/上海市应急管理局关于加强危险化学品企业吨桶安全管理工作的通知_20260331.pdf,title_fuzzy_high,0.85
+REG_ZV9X49ED3DB8F163DE2F,湖北省应急管理厅办公室印发《湖北省危险化学品建设项目安全审查要点》(试行)的通知,PDF_00951,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖北省危险化学品建设项目安全审查要点(试行)_20260528.pdf,title_fuzzy_high,0.85
+REG_ZV9X4A40E2EB47D2C966,陕西省人民政府办公厅关于印发危化品道路运输重点区域安全监管方案的通知,PDF_00817,/root/autodl-tmp/chemical_kb/data/pdf/法规/20181207--陕西省危化品道路运输重点区域安全监管方案.pdf,title_fuzzy_high,0.85
+REG_ZV9X4A51E8EA4915B794,福建省人民政府办公厅关于转发省公安厅等部门《硝酸铵类物品管理办法》的通知(2024),PDF_00960,/root/autodl-tmp/chemical_kb/data/pdf/法规/福建省人民政府办公厅关于转发省公安厅等部门《硝酸铵类物品管理办法》的通知(2024)_20240625.pdf,title_fuzzy_high,0.85
+REG_ZV9X4B1B9C94D7911BAF,天津市烟花爆竹安全管理办法(2018),PDF_00812,/root/autodl-tmp/chemical_kb/data/pdf/法规/20181016--天津市烟花爆竹安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X4BBCE8E3B4E03C2F,烟花爆竹生产经营安全规定,PDF_00805,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180115--烟花爆竹生产经营安全规定（国家安全生产监督管理总局令第93号）.pdf,regulation_code,0.95
+REG_ZV9X4CB13DB0DFAA2426,上海市燃气管道设施保护办法(2025修正),PDF_00897,/root/autodl-tmp/chemical_kb/data/pdf/法规/上海市燃气管道设施保护办法（2018年修正）_20180104.pdf,title_fuzzy_high,0.85
+REG_ZV9X4E31AA079E7920DB,贵州省城镇燃气管理条例(2021修正),PDF_00965,/root/autodl-tmp/chemical_kb/data/pdf/法规/贵州省城镇燃气管理条例(2025修正)_20250801.pdf,title_fuzzy_high,0.85
+REG_ZV9X4E3AB134DD15913C,上海市液化石油气管理办法(2020),PDF_00896,/root/autodl-tmp/chemical_kb/data/pdf/法规/上海市液化石油气管理办法（2025年修正）_20251229.pdf,title_fuzzy_high,0.85
+REG_ZV9X4E59E525EC1452EA,重庆市民用爆炸物品安全管理办法(2013),PDF_00766,/root/autodl-tmp/chemical_kb/data/pdf/法规/20131216--重庆市民用爆炸物品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X4E8F9D58E37259DF,放射性药品管理办法(2017修订),PDF_00936,/root/autodl-tmp/chemical_kb/data/pdf/法规/放射性药品管理办法(2017修订)_20170301.pdf,title_fuzzy_high,0.85
+REG_ZV9X5163C9A3D424767E,河南省城镇燃气管理办法(2020修改),PDF_00831,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200317--河南省城镇燃气管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X526498E1DB07E750,河北省住房和城乡建设厅关于修订印发《河北省燃气经营许可实施办法》的通知(2025),PDF_00890,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250331--河北省燃气经营许可实施办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X535306F2B6CD0332,药品类易制毒化学品管理办法,PDF_00746,/root/autodl-tmp/chemical_kb/data/pdf/法规/20100318---药品类易制毒化学品管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X535F211D1314B1ED,黑龙江省城镇燃气管理条例,PDF_00808,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180628--黑龙江省城镇燃气管理条例(2018年修正）.pdf,title_fuzzy_high,0.85
+REG_ZV9X54EE851F54E97139,工业和信息化部办公厅关于印发《民用爆炸物品生产和销售企业安全生产培训大纲》的通知(2019),PDF_00827,/root/autodl-tmp/chemical_kb/data/pdf/法规/20191225--民用爆炸物品生产和销售企业安全生产培训大纲（工信厅安全〔2019〕94号）.pdf,regulation_code,0.95
+REG_ZV9X554B1289EEA3E6F2,吉林省住房和城乡建设厅关于印发《吉林省燃气经营许可管理办法》的通知,PDF_00916,/root/autodl-tmp/chemical_kb/data/pdf/法规/吉林省燃气经营许可管理办法_20240419.pdf,title_fuzzy_high,0.85
+REG_ZV9X5613EA333A8CEF10,河北省住房和城乡建设厅关于印发《河北省管道燃气经营企业安全生产标准化定级暂行办法》的通知,PDF_00891,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250411--河北省管道燃气经营企业安全生产标准化定级暂行办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X56A56A00A6101CE2,湖北省燃气管理条例(2007修订),PDF_00954,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖北省燃气管理条例(2025修订)_20250925.pdf,title_fuzzy_high,0.85
+REG_ZV9X58DFEDD726CFE4A3,江苏省液化石油气管理办法(2003修改),PDF_00943,/root/autodl-tmp/chemical_kb/data/pdf/法规/江苏省液化石油气管理办法(2004修正)_20040629.pdf,title_fuzzy_high,0.85
+REG_ZV9X5C5679B9E68E7DA0,危险化学品输送管道安全管理规定(2015修正),PDF_00778,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150527--危险化学品输送管道安全管理规定（2015年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9X5C87101D95343D5E,各类监控化学品名录(2020),PDF_00835,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200603--各类监控化学品名录（工业和信息化部令第52号）.pdf,regulation_code,0.95
+REG_ZV9X5D346EEC4CB80A3A,国家安全监管总局关于印发《危险化学品安全生产“十三五”规划》的通知,PDF_00921,/root/autodl-tmp/chemical_kb/data/pdf/法规/国家安全监管总局关于印发《危险化学品安全生产“十三五”规划》的通知--20170911.pdf,title_fuzzy_high,0.85
+REG_ZV9X5D57F983894D1A96,云南省燃气管理条例,PDF_00868,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230531--云南省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X5ED69E82C1768718,重庆市液化石油气经营管理条例(2022修正),PDF_00765,/root/autodl-tmp/chemical_kb/data/pdf/法规/20131130--重庆市液化石油气经营管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X5FB52F66AA6435BB,中国民用航空局关于公布《航空运输危险品目录》(2019版)的公告,PDF_00906,/root/autodl-tmp/chemical_kb/data/pdf/法规/中国民用航空局关于公布《航空运输危险品目录(2026年版)》的公告_20260116.pdf,title_fuzzy_high,0.85
+REG_ZV9X5FDA103BC23A3E97,新疆维吾尔自治区煤炭石油天然气开发环境保护条例(2018修正),PDF_00811,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180921--新疆维吾尔自治区煤炭石油天然气开发环境保护条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X60C646B26E8A90A3,国家安全监管总局办公厅关于印发首批重点监管的危险化学品安全措施和应急处置原则的通知,PDF_00751,/root/autodl-tmp/chemical_kb/data/pdf/法规/20110701--印发首批重点监管的危险化学品安全措施和应急处置原则的通知（安监总厅管三〔2011〕142号）.pdf,regulation_code,0.95
+REG_ZV9X60C94B237E9BA485,宁夏回族自治区燃气管理条例(2015修订),PDF_00932,/root/autodl-tmp/chemical_kb/data/pdf/法规/广西壮族自治区燃气管理条例(2025修正)_20251127.pdf,title_fuzzy_medium,0.7
+REG_ZV9X621EE4D64614B22B,湖北省烟花爆竹安全管理办法,PDF_00953,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖北省烟花爆竹安全管理办法(2024修订)_20241130.pdf,title_fuzzy_high,0.85
+REG_ZV9X62DFB93D8CAB3D58,甘肃省住房和城乡建设厅关于印发《甘肃省城镇燃气安全风险分级管控与隐患排查治理双重预防机制管理办法》的通知,PDF_00959,/root/autodl-tmp/chemical_kb/data/pdf/法规/甘肃省城镇燃气安全风险分级管控与隐患排查治理双重预防机制管理办法_20240429.pdf,title_fuzzy_high,0.85
+REG_ZV9X6341690E22927304,公安部、国家互联网信息办公室、工业和信息化部、环境保护部、国家工商行政管理总局、国家安全生产监督管理总局关于印发《互联网危险物品信息发布管理规定》的通知,PDF_00909,/root/autodl-tmp/chemical_kb/data/pdf/法规/公安部等关于印发《互联网危险物品信息发布管理规定》的通知_20150205.pdf,title_fuzzy_high,0.85
+REG_ZV9X634E30AC4DB8D9AC,重庆市液化石油气经营管理条例(2013修正),PDF_00864,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220928--重庆市液化石油气经营管理条例(2022年修正）.pdf,title_fuzzy_high,0.85
+REG_ZV9X639BC96441E90FA4,农药管理条例(2017修订),PDF_00797,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170316--农药管理条例（国务院令第677号）.pdf,regulation_code,0.95
+REG_ZV9X63CDF4933B1E78BE,上海市农药管理规定,PDF_00842,/root/autodl-tmp/chemical_kb/data/pdf/法规/20201014--上海市农药管理规定.pdf,title_fuzzy_high,0.85
+REG_ZV9X6A5D4204A77FDBD1,山东省应急管理厅关于印发《全省危险化学品安全生产“机械化换人、自动化减人”工作方案》的通知,PDF_00854,/root/autodl-tmp/chemical_kb/data/pdf/法规/20211109--山东省危险化学品安全生产 “机械化换人、自动化减人”工作方案.pdf,title_fuzzy_high,0.85
+REG_ZV9X6B90E3A2A82744DF,贵州省城镇燃气管理条例(2025修正),PDF_00853,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210929--贵州省城镇燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X6C9E5B4B31DACBCF,海南省燃气管理条例(2024修订),PDF_00764,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130925--海南省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X6DCA00600E3EC73D,国家安全生产监督管理总局办公厅关于印发光气及光气化产品安全生产管理指南的通知,PDF_00771,/root/autodl-tmp/chemical_kb/data/pdf/法规/20141011--关于印发光气及光气化产品安全生产管理指南的通知（安监总厅管三〔2014〕104号）.pdf,regulation_code,0.95
+REG_ZV9X6E0A476950011110,河南省《民用爆炸物品安全管理条例》实施办法(2017修改),PDF_00769,/root/autodl-tmp/chemical_kb/data/pdf/法规/20140729--民用爆炸物品安全管理条例（2014年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9X6E5B2598DA2BF2A4,江苏省住房和城乡建设厅、江苏省公安厅、江苏省自然资源厅、江苏省应急管理厅、江苏省通信管理局、国网江苏省电力有限公司关于印发《江苏省防范第三方施工破坏城市燃气管道若干措施》的通知,PDF_00969,/root/autodl-tmp/chemical_kb/data/pdf/法规/江苏省防范第三方施工破坏城市燃气管道若干措施的通知_20260129.pdf,title_fuzzy_high,0.85
+REG_ZV9X6F3558F9ADCA2DE8,江西省烟花爆竹安全管理办法(2019修改),PDF_00824,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190929--江西省烟花爆竹安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X6F402FED7FCD685C,湖北省应急管理厅关于进一步加强工贸企业生产储存使用危险化学品安全监管的通知,PDF_00952,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖北省应急管理厅关于进一步加强工贸企业生产储存使用危险化学品安全监管的通知_20231030.pdf,title_fuzzy_high,0.85
+REG_ZV9X6F85EC63114C3AB4,湖北省危险化学品安全管理办法,PDF_00763,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130909--湖北省危险化学品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X715514F775C68233,江西省应急管理厅办公室关于印发《加油站安全检查表》的通知,PDF_00872,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230818--江西省应急管理厅办公室关于印发《加油站安全检查表》的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X7178E442C42A3FD7,福建省燃气管理条例(2012修改),PDF_00962,/root/autodl-tmp/chemical_kb/data/pdf/法规/福建省燃气管理条例(2025修订)_20250530.pdf,title_fuzzy_high,0.85
+REG_ZV9X71FC35571A129E0D,天津市危险化学品企业安全治理规定,PDF_00782,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150907--天津市危险化学品企业安全治理规定.pdf,title_fuzzy_high,0.85
+REG_ZV9X720B604B93D4AFBF,吉林省燃气管理条例(2018修改),PDF_00816,/root/autodl-tmp/chemical_kb/data/pdf/法规/20181130--吉林省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X74F99B75637AB80B,湖南省应急管理厅关于委托下放烟花爆竹批发企业布点规划制定权限的通知,PDF_00956,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖南省应急管理厅关于委托下放烟花爆竹批发企业布点规划制定权限的通知_20231219.pdf,title_fuzzy_high,0.85
+REG_ZV9X758906AFAFE33A97,国家安全监管总局关于印发《危险化学品建设项目安全评价细则(试行)》的通知,PDF_00742,/root/autodl-tmp/chemical_kb/data/pdf/法规/20071212--国家安全监管总局关于印发《危险化学品建设项目安全评价细则（试行）》的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X768F128A54A34D4E,山东省应急管理厅关于印发《全省危险化学品生产储存企业安全风险评估诊断方案》的通知,PDF_00849,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210323--全省危险化学品生产储存企业安全风险评估诊断方案.pdf,title_fuzzy_high,0.85
+REG_ZV9X7AD2F0096FC8C004,上海市燃气管理条例(2016修正),PDF_00790,/root/autodl-tmp/chemical_kb/data/pdf/法规/20160623--上海市燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X7B4D5460CD0CFDA6,公安部、商务部、卫生计生委、海关总署、国家安全监管总局、国家食品药品监管总局关于将N-苯乙基-4-哌啶酮、4-苯胺基-N-苯乙基哌啶、N-甲基-1-苯基-1-氯-2-丙胺、溴素、1-苯基-1-丙酮5种物质列入易制毒化学品管理的公告,PDF_00803,/root/autodl-tmp/chemical_kb/data/pdf/法规/20171222--关于将4-苯胺基-N-苯乙基哌啶等5种物质列入易制毒化学品管理的公告.pdf,title_fuzzy_medium,0.7
+REG_ZV9X7E762E4432F57F62,应急管理部、中央网信办、教育部、工业和信息化部、公安部、市场监管总局、国家邮政局关于加强互联网销售危险化学品安全管理的通知,PDF_00867,/root/autodl-tmp/chemical_kb/data/pdf/法规/20221203--关于加强互联网销售危险化学品安全管理的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X801BE14C55CA388C,湖北省燃放烟花爆竹若干规定,PDF_00737,/root/autodl-tmp/chemical_kb/data/pdf/法规/20060413--湖北省燃放烟花爆竹若干规定.pdf,title_fuzzy_high,0.85
+REG_ZV9X816A5F22547158E1,北京市燃气管理条例(2020修订),PDF_00840,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200925--北京市燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X81CF899DAE3A639C,重庆市天然气管理条例(2019修订),PDF_00820,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190531--重庆市天然气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X8200A8D8F88A1B32,陕西省燃气管理条例(2015修正),PDF_00967,/root/autodl-tmp/chemical_kb/data/pdf/法规/陕西省燃气管理条例(2025修正)_20251128.pdf,title_fuzzy_high,0.85
+REG_ZV9X8247F74E8D47545A,广东省住房和城乡建设厅关于印发防范第三方施工破坏燃气管道管理办法(暂行)的通知,PDF_00929,/root/autodl-tmp/chemical_kb/data/pdf/法规/广东省住房和城乡建设厅关于印发防范第三方施工破坏燃气管道管理办法（暂行）的通知_20241118.pdf,title_fuzzy_high,0.85
+REG_ZV9X8302E29747C5EF76,浙江省燃气安全隐患排查导则—天然气(试行),PDF_00885,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250124--浙江省燃气安全隐患排查导则-天然气（试行）.pdf,title_fuzzy_high,0.85
+REG_ZV9X841FE9B98C36FAD0,江苏省液化石油气管理办法(2004修正),PDF_00732,/root/autodl-tmp/chemical_kb/data/pdf/法规/20030611--江苏省液化石油气管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X86882DA03C87C997,中华人民共和国药品管理法实施条例(2024修订),PDF_00901,/root/autodl-tmp/chemical_kb/data/pdf/法规/中华人民共和国药品管理法实施条例（2016年修订）_20160206.pdf,title_fuzzy_high,0.85
+REG_ZV9X8705CB7A7ABBCF60,烟花爆竹生产经营单位重大生产安全事故隐患判定标准(试行),PDF_00801,/root/autodl-tmp/chemical_kb/data/pdf/法规/20171113--烟花爆竹生产经营单位重大生产安全事故隐患判定标准（试行）（安监总管三〔2017〕121号）及解读.pdf,regulation_code,0.95
+REG_ZV9X87371ECCEFEE1A5F,江苏省燃气管理条例(2020),PDF_00945,/root/autodl-tmp/chemical_kb/data/pdf/法规/江苏省燃气管理条例_20050401.pdf,title_fuzzy_high,0.85
+REG_ZV9X87A9D5CC54080A9C,应急管理部办公厅关于修改《危险化学品目录(2015版)实施指南(试行)》涉及柴油部分内容的通知,PDF_00866,/root/autodl-tmp/chemical_kb/data/pdf/法规/20221128--关于修改《危险化学品目录（2015版）实施指南（试行）》涉及柴油部分内容的通知.pdf,title_fuzzy_low,0.6
+REG_ZV9X8870200536AB3E78,国务院安委会办公室关于烟花爆竹生产经营企业贯彻落实《国务院关于进一步加强企业安全生产工作的通知》的实施意见,PDF_00748,/root/autodl-tmp/chemical_kb/data/pdf/法规/2010129--关于烟花爆竹生产经营企业贯彻落实《国务院关于进一步加强企业安全生产工作的通知》的实施意见（安委办〔2010〕30号）.pdf,regulation_code,0.95
+REG_ZV9X898531CB51D12E65,天津市燃气管理条例(2021修订),PDF_00855,/root/autodl-tmp/chemical_kb/data/pdf/法规/20211129--天津市燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X8994660056BC555B,湖北省应急管理厅关于印发《湖北省危险化学品重大危险源监督管理办法》的通知,PDF_00850,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210325--关于印发《湖北省危险化学品重大危险源监督管理办法》的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X8A21C86DA2128F4E,应急管理部、工业和信息化部、公安部、交通运输部公告2020年第3号—特别管控危险化学品目录(第一版),PDF_00834,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200530--特别管控危险化学品目录(第一版).pdf,title_fuzzy_high,0.85
+REG_ZV9X8A28E9EF1408F6DB,宁夏回族自治区烟花爆竹安全管理条例,PDF_00865,/root/autodl-tmp/chemical_kb/data/pdf/法规/20221104--宁夏回族自治区烟花爆竹安全管理条例(2022年修正）.pdf,title_fuzzy_high,0.85
+REG_ZV9X8A64A3E913A5A5CB,广西壮族自治区燃气管理条例(2023修订),PDF_00924,/root/autodl-tmp/chemical_kb/data/pdf/法规/宁夏回族自治区燃气管理条例(2023修订)_20230923.pdf,title_fuzzy_high,0.85
+REG_ZV9X8B08E5B55E90A005,国家安全监管总局办公厅关于使用危险化学品单位安全监管有关问题的复函,PDF_00754,/root/autodl-tmp/chemical_kb/data/pdf/法规/20120530--国家安全监管总局关于使用危险化学品单位安全监管有关问题的复函.pdf,title_fuzzy_high,0.85
+REG_ZV9X8B97A977504A20F5,放射性药品管理办法(2022修订),PDF_00884,/root/autodl-tmp/chemical_kb/data/pdf/法规/20241206--放射性药品管理办法（2024年修正）.pdf,title_fuzzy_high,0.85
+REG_ZV9X8BB158B4E70CFBAF,民用爆炸物品生产许可实施办法(2018修订),PDF_00813,/root/autodl-tmp/chemical_kb/data/pdf/法规/20181109--民用爆炸物品生产许可实施办法（工业和信息化部令第49号）.pdf,regulation_code,0.95
+REG_ZV9X8C6805468B99FD91,浙江省燃气安全隐患排查导则—液化石油气(试行),PDF_00886,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250124--浙江省燃气安全隐患排查导则-液化石油气（试行）.pdf,title_fuzzy_high,0.85
+REG_ZV9X8CDB83589566EC6A,四川省人民政府办公厅关于印发《四川省城市燃气管道“带病运行”问题专项治理方案》的通知,PDF_00917,/root/autodl-tmp/chemical_kb/data/pdf/法规/四川省人民政府办公厅关于印发《四川省城市燃气管道“带病运行”问题专项治理方案》的通知_20240411.pdf,title_fuzzy_high,0.85
+REG_ZV9X8D941BA76EB2DF6D,湖北省烟花爆竹安全管理办法(2024修订),PDF_00785,/root/autodl-tmp/chemical_kb/data/pdf/法规/20151216--湖北省烟花爆竹安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9X8E1FBC447FAA2D5C,山西省应急管理厅关于做好全省烟花爆竹经营安全监督管理工作的通知,PDF_00927,/root/autodl-tmp/chemical_kb/data/pdf/法规/山西省应急管理厅关于做好全省烟花爆竹经营安全监督管理工作的通知_20251221.pdf,title_fuzzy_high,0.85
+REG_ZV9X8F1D35B1CF436C5D,化学品物理危险性鉴定与分类管理办法,PDF_00762,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130710--化学品物理危险性鉴定与分类管理办法（总局令第60号）及解读.pdf,title_fuzzy_high,0.85
+REG_ZV9X903B452B62F73BC7,海南省燃气管理条例(2004修正),PDF_00949,/root/autodl-tmp/chemical_kb/data/pdf/法规/海南省燃气管理条例(2004修正)_20040924.pdf,title_fuzzy_high,0.85
+REG_ZV9X9134DC143B96ED9B,《中华人民共和国监控化学品管理条例》实施细则(2018),PDF_00809,/root/autodl-tmp/chemical_kb/data/pdf/法规/20180702--《中华人民共和国监控化学品管理条例》实施细则（工业和信息化部令第48号）.pdf,regulation_code,0.95
+REG_ZV9X919DE589D57AFEFE,民用爆炸物品安全生产许可实施办法,PDF_00775,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150519--民用爆炸物品安全生产许可实施办法（工业和信息化部令第30号）.pdf,regulation_code,0.95
+REG_ZV9X91A2F2CE9064653D,广东省应急管理厅关于严格落实危险化学品生产“四个严禁”的通知,PDF_00847,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210313--广东省应急管理厅关于严格落实危险化学品生产“四个严禁”的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X91AA926FBEFCCC0E,国家安全监管总局关于公布第二批重点监管危险化学品名录的通知,PDF_00758,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130205--关于公布第二批重点监管危险化学品名录的通知(安监总管三〔2013〕12号).pdf,regulation_code,0.95
+REG_ZV9X925D94A35D5EE686,天津市安委会办公室关于将经营危险化学品类制冷剂企业纳入危险化学品经营许可管理范畴的通知,PDF_00832,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200414--关于将经营危险化学品类制冷剂企业纳入危险化学品经营许可管理范畴的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X927FBCC62B8A256D,西藏自治区住房和城乡建设厅关于修订《西藏自治区城镇燃气经营许可管理办法》的通知(2022),PDF_00963,/root/autodl-tmp/chemical_kb/data/pdf/法规/西藏自治区住房和城乡建设厅关于修订《西藏自治区城镇燃气经营许可管理办法》的通知(2022)_20220408.pdf,title_fuzzy_high,0.85
+REG_ZV9X9370C64A88F6295A,青海省燃气管理条例,PDF_00815,/root/autodl-tmp/chemical_kb/data/pdf/法规/20181128--青海省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X944BDC9825EB497D,宁夏回族自治区烟花爆竹安全管理条例(2022修正),PDF_00734,/root/autodl-tmp/chemical_kb/data/pdf/法规/20050722--宁夏回族自治区烟花爆竹安全管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X949176951B6F0898,国家安全生产监督管理总局、公安部、农业部公告2013年第9号—危险化学品使用量的数量标准(2013年版),PDF_00760,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130419--危险化学品使用量的数量标准（2013年版）.pdf,title_fuzzy_high,0.85
+REG_ZV9X953B21F6B6E007B0,福建省住房和城乡建设厅关于印发《福建省防范第三方施工破坏燃气管道管理办法》的通知,PDF_00961,/root/autodl-tmp/chemical_kb/data/pdf/法规/福建省住房和城乡建设厅关于印发《福建省防范第三方施工破坏燃气管道管理办法》的通知_20240319.pdf,title_fuzzy_high,0.85
+REG_ZV9X960C8AAA5DF38EB6,民用爆炸物品进出口管理办法,PDF_00752,/root/autodl-tmp/chemical_kb/data/pdf/法规/20120319--民用爆炸物品进出口管理办法（工业和信息化部令第21号）.pdf,title_fuzzy_high,0.85
+REG_ZV9X97C51B2FE953E368,国家安全监管总局办公厅关于危险化学品经营许可有关事项的通知,PDF_00756,/root/autodl-tmp/chemical_kb/data/pdf/法规/20121017--国家安全监管总局办公厅关于危险化学品经营许可有关事项的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9X991E107D954EC8E8,上海市燃气管道设施保护办法(2018修正),PDF_00898,/root/autodl-tmp/chemical_kb/data/pdf/法规/上海市燃气管道设施保护办法（2025年修正）_20251229.pdf,title_fuzzy_high,0.85
+REG_ZV9X99C2F2FCD7F2C32A,福建省燃气管理条例(2025修订),PDF_00753,/root/autodl-tmp/chemical_kb/data/pdf/法规/20120331--福建省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X9A630A575638A503,民用爆炸物品生产许可实施办法,PDF_00941,/root/autodl-tmp/chemical_kb/data/pdf/法规/民用爆炸物品生产许可实施办法_20060831.pdf,title_fuzzy_high,0.85
+REG_ZV9X9AAF8848FA63A27C,商务部等5部门关于调整《向特定国家（地区）出口易制毒化学品管理目录》《特定国家（地区）目录》的公告,PDF_00894,/root/autodl-tmp/chemical_kb/data/pdf/法规/20251110--商务部等5部门关于调整向特定国家（地区）出口易制毒化学品管理目录等的公告.pdf,title_fuzzy_high,0.85
+REG_ZV9X9B964B7678A192D9,危险化学品安全管理条例(2011修订),PDF_00911,/root/autodl-tmp/chemical_kb/data/pdf/法规/危险化学品安全管理条例(2011修订)_20110302.pdf,title_fuzzy_high,0.85
+REG_ZV9X9DF2BA883BCCE675,内蒙古自治区燃气管理条例(2022修订),PDF_00857,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220329--内蒙古自治区燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9X9EC3D6656CD52534,贵州省住房和城乡建设厅等四部门关于印发贵州省城镇燃气管道“带病运行”专项治理工作方案的通知,PDF_00964,/root/autodl-tmp/chemical_kb/data/pdf/法规/贵州省住房和城乡建设厅等四部门关于印发贵州省城镇燃气管道“带病运行”专项治理工作方案的通知_20240717.pdf,title_fuzzy_high,0.85
+REG_ZV9XA37E3353ACEF720F,国务院安委会办公室关于开展瓶装液化石油气安全专项治理工作的通知,PDF_00823,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190829--关于开展瓶装液化石油气安全专项治理工作的通知（安委办〔2019〕13号）.pdf,regulation_code,0.95
+REG_ZV9XA395E3B5FE6E401A,国务院安全生产委员会关于强化危险化学品“一件事”全链条安全管理的措施,PDF_00888,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250210--关于强化危险化学品“一件事”全链条安全管理的措施.pdf,title_fuzzy_high,0.85
+REG_ZV9XA3F9B811920E5E7F,江苏省应急管理厅关于进一步提升硝化企业本质安全水平的指导意见,PDF_00837,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200813--关于进一步提升硝化企业本质安全水平的指导意见.pdf,title_fuzzy_high,0.85
+REG_ZV9XA60206A050596C84,山东省燃气管理条例(2022修正),PDF_00788,/root/autodl-tmp/chemical_kb/data/pdf/法规/20160330--山东省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XA68F6E7FADF5A2EC,山西省危险化学品安全管理办法,PDF_00735,/root/autodl-tmp/chemical_kb/data/pdf/法规/20060108--山西省危险化学品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XA773A92B1DDD79B1,江苏省燃气管理条例,PDF_00944,/root/autodl-tmp/chemical_kb/data/pdf/法规/江苏省燃气管理条例(2025修正)_20250114.pdf,title_fuzzy_high,0.85
+REG_ZV9XA8972C30D4DA7349,危险化学品安全管理条例(2013修订),PDF_00912,/root/autodl-tmp/chemical_kb/data/pdf/法规/危险化学品安全管理条例(2013修订)_20131207.pdf,title_fuzzy_high,0.85
+REG_ZV9XA9749B4A463CC3FA,工业和信息化部办公厅关于印发《民用爆炸物品生产和销售企业安全生产培训管理办法》的通知,PDF_00814,/root/autodl-tmp/chemical_kb/data/pdf/法规/20181106--民用爆炸物品生产和销售企业安全生产培训管理办法（工信厅安全〔2018〕77号）.pdf,regulation_code,0.95
+REG_ZV9XA999551F9142FE7C,湖南省燃气管理条例(2021修正),PDF_00851,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210331--湖南省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XABB99003B428EB28,易制爆危险化学品治安管理办法,PDF_00822,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190706--易制爆危险化学品治安管理办法（公安部令第154号 ）.pdf,regulation_code,0.95
+REG_ZV9XAD117E4F7AC31E64,国家安全监管总局关于印发遏制危险化学品和烟花爆竹重特大事故工作意见的通知,PDF_00789,/root/autodl-tmp/chemical_kb/data/pdf/法规/20160603--遏制危险化学品和烟花爆竹重特大事故工作意见（安监总管三〔2016〕62号）.pdf,regulation_code,0.95
+REG_ZV9XAD7F47D312F367A6,民用爆炸物品品名表,PDF_00740,/root/autodl-tmp/chemical_kb/data/pdf/法规/20061109--民用爆炸物品品名表（2006年）.pdf,title_fuzzy_high,0.85
+REG_ZV9XAF2074D66A437588,内蒙古自治区应急管理厅关于印发《强化危险化学品安全监管若干措施》的通知,PDF_00870,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230620--内蒙古自治区应急管理厅关于印发《强化危险化学品安全监管若干措施》的通知.pdf,title_fuzzy_high,0.85
+REG_ZV9XAF5EEC3FEC174A57,天津市危险化学品安全管理办法(2018修正),PDF_00743,/root/autodl-tmp/chemical_kb/data/pdf/法规/20080904--天津市危险化学品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XAFF63BDCFA53C5FD,广西壮族自治区住房城乡建设厅关于印发《广西壮族自治区燃气经营许可管理办法》（2024年修订）的通知,PDF_00930,/root/autodl-tmp/chemical_kb/data/pdf/法规/广西壮族自治区住房城乡建设厅关于印发《广西壮族自治区燃气经营许可管理办法》（2024年修订）的通知_20240124.pdf,title_fuzzy_high,0.85
+REG_ZV9XB1504EDC866AD830,山东省人民政府安全生产委员会办公室关于印发《山东省可燃液体、液化烃及液化毒性气体汽车装卸设施安全改造指南》的通知,PDF_00877,/root/autodl-tmp/chemical_kb/data/pdf/法规/20240110--山东省可燃液体、液化烃及液化毒性气体汽车装卸设施安全改造指南.pdf,title_fuzzy_high,0.85
+REG_ZV9XB180DEC272F7B031,中共中央办公厅、国务院办公厅印发《关于全面加强危险化学品安全生产工作的意见》,PDF_00830,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200226--关于全面加强危险化学品安全生产工作的意见及答记者问.pdf,title_fuzzy_medium,0.7
+REG_ZV9XB2B949CC364B19E6,危险化学品经营许可证管理办法(2015修正),PDF_00777,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150527--危险化学品经营许可证管理办法（2015年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9XB2ED024554855548,交通运输部、生态环境部、工业和信息化部、应急管理部关于发布《内河禁运危险化学品目录(2019版)》的公告,PDF_00821,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190705--内河禁运危险化学品目录（2019版）及解读.pdf,title_fuzzy_medium,0.7
+REG_ZV9XB37139FC1BC4CE7A,广东省燃气管理条例(2023修订),PDF_00747,/root/autodl-tmp/chemical_kb/data/pdf/法规/20100602--广东省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XB3FE86E131EE0ADA,广西壮族自治区燃气管理条例(2025修正),PDF_00876,/root/autodl-tmp/chemical_kb/data/pdf/法规/20239328--广西壮族自治区燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XB4A0A5EAA51354B3,内蒙古自治区人民政府办公厅关于印发《内蒙古自治区石油天然气管道保护监管办法》的通知,PDF_00846,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210225--内蒙古自治区石油天然气管道保护监管办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XB6A900B3F462678D,危险化学品生产企业安全生产许可证实施办法(2017修正),PDF_00795,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170306--危险化学品生产企业安全生产许可证实施办法（2017年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9XB71A745B6DD0CABF,城镇燃气管理条例(2016修订),PDF_00966,/root/autodl-tmp/chemical_kb/data/pdf/法规/辽宁省城镇燃气管理条例(2026修正)_20260125.pdf,title_fuzzy_high,0.85
+REG_ZV9XB8312B6B2644116A,黑龙江省城镇燃气管理条例(2018修正),PDF_00968,/root/autodl-tmp/chemical_kb/data/pdf/法规/黑龙江省城镇燃气管理条例_20161021.pdf,title_fuzzy_high,0.85
+REG_ZV9XBB0264B8C4845313,国务院安委会办公室关于进一步加强危险化学品安全生产工作的指导意见,PDF_00744,/root/autodl-tmp/chemical_kb/data/pdf/法规/20080914--关于进一步加强危险化学品安全生产工作的指导意见(安委办〔2008〕26号).pdf,regulation_code,0.95
+REG_ZV9XBB069001346365D5,山东省住房和城乡建设厅、山东省公安厅、山东省自然资源厅、山东省水利厅、山东省应急管理厅、山东省市场监督管理局关于印发《山东省燃气管道设施保护办法》的通知,PDF_00926,/root/autodl-tmp/chemical_kb/data/pdf/法规/山东省燃气管道设施保护办法_20260105.pdf,title_fuzzy_high,0.85
+REG_ZV9XBC775342F5E5399B,中华人民共和国应急管理部、中华人民共和国工业和信息化部、中华人民共和国公安部、中华人民共和国生态环境部、中华人民共和国交通运输部、中华人民共和国农业农村部、中华人民共和国国家卫生健康委员会、国家市场监督管理总局、国家铁路局、中国民用航空局公告2026年第3号—关于公布将3-氯丙炔等5种化学品纳入《危险化学品目录(2015版)》的公告,PDF_00904,/root/autodl-tmp/chemical_kb/data/pdf/法规/关于调整《危险化学品目录（2015版）》的公告--20221013.pdf,title_fuzzy_high,0.85
+REG_ZV9XC02B6BA12F26BEE6,湖南省燃气管理条例(2020修正),PDF_00958,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖南省燃气管理条例(2020修正)_20200730.pdf,title_fuzzy_high,0.85
+REG_ZV9XC0C183BEA03C5AB3,上海市安全生产监督管理局关于印发危险化学品经营许可工作实施细则的通知,PDF_00799,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170428--上海市危险化学品经营许可工作实施细则.pdf,title_fuzzy_high,0.85
+REG_ZV9XC24312DB82ECBF86,浙江省燃气用户安全问题排查导则(试行),PDF_00887,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250124--浙江省燃气用户安全问题排查导则（试行）.pdf,title_fuzzy_high,0.85
+REG_ZV9XC2BE6F2BBB429D17,城镇燃气经营安全重大隐患判定标准,PDF_00873,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230921--城镇燃气经营安全重大隐患判定标准.pdf,title_fuzzy_high,0.85
+REG_ZV9XC512A8B8FE3DF3D4,海南省燃气管理条例(2013修订),PDF_00950,/root/autodl-tmp/chemical_kb/data/pdf/法规/海南省燃气管理条例(2024修订)_20241129.pdf,title_fuzzy_high,0.85
+REG_ZV9XC57E24C6E8E19119,新疆维吾尔自治区住房城乡建设厅、新疆维吾尔自治区国防动员办公室、新疆维吾尔自治区自然资源厅、新疆维吾尔自治区交通运输厅、新疆维吾尔自治区水利厅关于印发《新疆维吾尔自治区防范第三方施工破坏城镇燃气管道管理办法(试行)》的通知,PDF_00939,/root/autodl-tmp/chemical_kb/data/pdf/法规/新疆维吾尔自治区住房城乡建设厅等5部门关于印发《新疆维吾尔自治区防范第三方施工破坏城镇燃气管道管理办法（试行）》的通知_20260127.pdf,title_fuzzy_medium,0.7
+REG_ZV9XC679945B5BB36760,山东省人民政府安全生产委员会关于印发《关于切实加强使用危险化学品的化工企业安全生产工作的指导意见》的通知,PDF_00925,/root/autodl-tmp/chemical_kb/data/pdf/法规/山东省人民政府安全生产委员会关于印发《关于切实加强使用危险化学品的化工企业安全生产工作的指导意见》的通知_20251120.pdf,title_fuzzy_high,0.85
+REG_ZV9XC6AC3F8EFD733077,云南省燃气管理办法(2020修改),PDF_00838,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200827--云南省燃气管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XC6CAD6F656D690F0,吉林省燃气管理条例(2017修正),PDF_00915,/root/autodl-tmp/chemical_kb/data/pdf/法规/吉林省燃气管理条例(2017修正)_20170324.pdf,title_fuzzy_high,0.85
+REG_ZV9XC797F67110005FAB,公安部、商务部、国家卫生健康委员会、应急管理部、海关总署、国家药品监督管理局关于将4—哌啶酮和1—叔丁氧羰基—4—哌啶酮列为易制毒化学品管理的公告,PDF_00892,/root/autodl-tmp/chemical_kb/data/pdf/法规/20250620--关于将4-哌啶酮和1-叔丁氧羰基-4-哌啶酮 列为易制毒化学品管理的公告.pdf,title_fuzzy_high,0.85
+REG_ZV9XC9E049E5D2D5D2A7,山西省燃气管理条例(2022修订),PDF_00772,/root/autodl-tmp/chemical_kb/data/pdf/法规/20141128--山西省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XCB02A688680A889C,危险化学品登记管理办法(2012),PDF_00755,/root/autodl-tmp/chemical_kb/data/pdf/法规/20120701--危险化学品登记管理办法（总局令第53号）.pdf,title_fuzzy_high,0.85
+REG_ZV9XCBEBFDAE28E7D450,安徽省城镇燃气管理条例,PDF_00819,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190329--安徽省城镇燃气条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XCCF694A77BAE6074,新疆生产建设兵团办公厅印发《关于进一步加强兵团城镇燃气安全管理工作的实施意见》的通知,PDF_00938,/root/autodl-tmp/chemical_kb/data/pdf/法规/新疆生产建设兵团办公厅印发《关于进一步加强兵团城镇燃气安全管理工作的实施意见》的通知_20220818.pdf,title_fuzzy_high,0.85
+REG_ZV9XCCF96036CCEB5CA4,国务院安全生产委员会关于印发《全国城镇燃气安全专项整治工作方案》的通知,PDF_00871,/root/autodl-tmp/chemical_kb/data/pdf/法规/20230809--全国城镇燃气安全专项整治工作方案.pdf,title_fuzzy_high,0.85
+REG_ZV9XD03F9420ADDB3477,江西省燃气管理办法(2019修正),PDF_00825,/root/autodl-tmp/chemical_kb/data/pdf/法规/20191127--江西省燃气管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XD1EDE8C25451C232,中华人民共和国监控化学品管理条例(2011修订),PDF_00749,/root/autodl-tmp/chemical_kb/data/pdf/法规/20110108--监控化学品管理条例（2011修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9XD225EC961EF61E52,应急管理部办公厅关于认真做好3—氯丙炔等5种危险化学品安全监管工作的通知,PDF_00933,/root/autodl-tmp/chemical_kb/data/pdf/法规/应急管理部办公厅关于认真做好3—氯丙炔等5种危险化学品安全监管工作的通知_20260428.pdf,title_fuzzy_high,0.85
+REG_ZV9XD559F678EE6C2FA3,山西省城乡燃气使用安全管理规定,PDF_00845,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210209--山西省城乡燃气使用安全管理规定.pdf,title_fuzzy_high,0.85
+REG_ZV9XD8544F5D58183AAE,上海市危险化学品安全管理办法(2023修正),PDF_00791,/root/autodl-tmp/chemical_kb/data/pdf/法规/20160905--上海市危险化学品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XD97564F1D84F7194,山西省燃气管理条例(2014修正),PDF_00861,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220330--山西省燃气管理条例(2022年修订）.pdf,title_fuzzy_medium,0.7
+REG_ZV9XD9F88EBA0117D399,中国民用航空局关于公布《航空运输危险品目录(2026年版)》的公告,PDF_00818,/root/autodl-tmp/chemical_kb/data/pdf/法规/20190103--航空运输危险品目录（2019年版）.pdf,title_fuzzy_high,0.85
+REG_ZV9XDA97309549F6AF0F,国家安全监管总局关于印发《化工(危险化学品)企业保障生产安全十条规定》《烟花爆竹企业保障生产安全十条规定》和《油气罐区防火防爆十条规定》的通知,PDF_00796,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170306--烟花爆竹企业保障生产安全十条规定(安监总政法〔2017〕15号).pdf,regulation_code,0.95
+REG_ZV9XDAA0A88B9D6F03EE,危险化学品生产企业安全生产许可证实施办法,PDF_00914,/root/autodl-tmp/chemical_kb/data/pdf/法规/危险化学品生产企业安全生产许可证实施办法_20040517.pdf,title_fuzzy_high,0.85
+REG_ZV9XDB0208ADD2355120,烟花爆竹企业保障生产安全十条规定(2017),PDF_00793,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170306--危化、烟花爆竹企业、油气罐区防火防爆十条规定(安监总政法〔2017〕15号).pdf,regulation_code,0.95
+REG_ZV9XDDA9209EE6D3CAC7,辽宁省城镇燃气管理条例(2026修正),PDF_00787,/root/autodl-tmp/chemical_kb/data/pdf/法规/20160206--城镇燃气管理条例（2016年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9XDDD3F0E4CC3D7923,广西壮族自治区燃气管理条例(2019修正),PDF_00931,/root/autodl-tmp/chemical_kb/data/pdf/法规/广西壮族自治区燃气管理条例(2019修正)_20190725.pdf,title_fuzzy_high,0.85
+REG_ZV9XDE8E18A3751A2A6B,山西省非列管可制毒化学品管理办法,PDF_00928,/root/autodl-tmp/chemical_kb/data/pdf/法规/山西省非列管可制毒化学品管理办法_20231207.pdf,title_fuzzy_high,0.85
+REG_ZV9XDF1FAF7F26D358B6,国家安全监管总局办公厅关于印发危险化学品目录(2015版)实施指南(试行)的通知,PDF_00781,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150819--关于印发危险化学品目录(2015版)实施指南 (试行 )的通知（安监总厅管三〔2015〕80号）.pdf,regulation_code,0.95
+REG_ZV9XDFF19C19308B2581,河南省住房和城乡建设厅关于印发《河南省燃气经营许可管理实施办法》的通知,PDF_00948,/root/autodl-tmp/chemical_kb/data/pdf/法规/河南省住房和城乡建设厅关于印发《河南省燃气经营许可管理实施办法》的通知_20240204.pdf,title_fuzzy_high,0.85
+REG_ZV9XE0EE74072C618500,国家安全监管总局关于公布首批重点监管的危险化学品名录的通知,PDF_00750,/root/autodl-tmp/chemical_kb/data/pdf/法规/20110621--关于公布首批重点监管的危险化学品名录的通知(安监总管三〔2011〕95号).pdf,regulation_code,0.95
+REG_ZV9XE100FBAB07287ED8,江西省烟花爆竹安全管理办法(2005修正),PDF_00946,/root/autodl-tmp/chemical_kb/data/pdf/法规/江西省烟花爆竹安全管理办法(2005修正)_20051109.pdf,title_fuzzy_high,0.85
+REG_ZV9XE246086E53264567,四川省燃气管理条例(2004修正),PDF_00918,/root/autodl-tmp/chemical_kb/data/pdf/法规/四川省燃气管理条例(2004修正)_20040924.pdf,title_fuzzy_high,0.85
+REG_ZV9XE2D79A0578B96C1E,民用爆炸物品安全管理条例,PDF_00798,/root/autodl-tmp/chemical_kb/data/pdf/法规/20170414--河南省《民用爆炸物品安全管理条例》实施办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XE2E2510457877FD9,浙江省应急管理厅关于印发《浙江省工贸企业危险化学品使用安全管理指南(试行)》的通知,PDF_00882,/root/autodl-tmp/chemical_kb/data/pdf/法规/20240927--浙江省工贸企业危险化学品使用安全管理指南（试行）.pdf,title_fuzzy_high,0.85
+REG_ZV9XE3D55D8C6BAEBF4F,中华人民共和国药品管理法实施条例(2019修订),PDF_00902,/root/autodl-tmp/chemical_kb/data/pdf/法规/中华人民共和国药品管理法实施条例（2019年修订）_20190302.pdf,title_fuzzy_high,0.85
+REG_ZV9XE538EB80E53617E9,危险化学品重大危险源监督管理暂行规定(2015修正),PDF_00784,/root/autodl-tmp/chemical_kb/data/pdf/法规/20151201--危险化学品重大危险源监督管理暂行规定（2015年修正本）.pdf,title_fuzzy_high,0.85
+REG_ZV9XE5ED89EAE9CB8A43,最高人民法院、最高人民检察院、公安部、工业和信息化部、住房和城乡建设部、交通运输部、应急管理部、国家铁路局、中国民用航空局、国家邮政局关于依法惩治涉枪支、弹药、爆炸物、易燃易爆危险物品犯罪的意见,PDF_00856,/root/autodl-tmp/chemical_kb/data/pdf/法规/20211228--关于依法惩治涉枪支、弹药、爆炸物、易燃易爆危险物品犯罪的意见.pdf,title_fuzzy_high,0.85
+REG_ZV9XE7CF4C065EAEA67E,国家安全生产监督管理总局公告2013年第3号—危险化学品安全使用许可适用行业目录(2013年版),PDF_00759,/root/autodl-tmp/chemical_kb/data/pdf/法规/20130221--危险化学品安全使用许可适用行业目录（2013 年版）.pdf,title_fuzzy_high,0.85
+REG_ZV9XE7FC7D04357958A2,湖南省燃气管理条例(2012修正),PDF_00957,/root/autodl-tmp/chemical_kb/data/pdf/法规/湖南省燃气管理条例(2012修正)_20120331.pdf,title_fuzzy_high,0.85
+REG_ZV9XE82DCB525A7F5A3A,甘肃省燃气管理条例,PDF_00879,/root/autodl-tmp/chemical_kb/data/pdf/法规/20240327--甘肃省燃气管理条例（2024年公布）.pdf,title_fuzzy_high,0.85
+REG_ZV9XEA7F8C9502574133,危险化学品安全管理条例,PDF_00913,/root/autodl-tmp/chemical_kb/data/pdf/法规/危险化学品安全管理条例_20020126.pdf,title_fuzzy_high,0.85
+REG_ZV9XEB53E4F9381B3FF9,江西省烟花爆竹安全管理办法(2016修正),PDF_00947,/root/autodl-tmp/chemical_kb/data/pdf/法规/江西省烟花爆竹安全管理办法(2016修正)_20160528.pdf,title_fuzzy_high,0.85
+REG_ZV9XEC3622A8495BABCE,国家安全监管总局办公厅关于印发企业非药品类易制毒化学品规范化管理指南的通知,PDF_00768,/root/autodl-tmp/chemical_kb/data/pdf/法规/20140616--关于印发企业非药品类易制毒化学品规范化管理指南的通知（安监总厅管三〔2014〕70号）.pdf,regulation_code,0.95
+REG_ZV9XECC29A03641DF4AA,云南省住房和城乡建设厅关于印发《云南省防范第三方施工破坏燃气管道若干管理措施》的通知,PDF_00907,/root/autodl-tmp/chemical_kb/data/pdf/法规/云南省住房和城乡建设厅关于印发《云南省防范第三方施工破坏燃气管道若干管理措施》的通知_20260104.pdf,title_fuzzy_high,0.85
+REG_ZV9XEE558E230411B248,工业和信息化部、公安部关于调整《民用爆炸物品品名表》品名的通知,PDF_00863,/root/autodl-tmp/chemical_kb/data/pdf/法规/20220523--两部委关于调整《民用爆炸物品品名表》品名的通知（工信部联安全〔2022〕60号）.pdf,regulation_code,0.95
+REG_ZV9XF02074C7B41EA411,宁夏回族自治区关于全面加强危险化学品安全生产工作的实施意见,PDF_00836,/root/autodl-tmp/chemical_kb/data/pdf/法规/20200725--宁夏回族自治区关于全面加强危险化学品安全生产工作的实施意见.pdf,title_fuzzy_high,0.85
+REG_ZV9XF0DACD14FB2A1E0E,辽宁省民用爆炸物品安全管理办法(2015修正),PDF_00780,/root/autodl-tmp/chemical_kb/data/pdf/法规/20150614--辽宁省民用爆炸物品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XF1977342FAB38724,中国民用航空局关于公布《航空运输危险品目录》(2021版)的公告,PDF_00848,/root/autodl-tmp/chemical_kb/data/pdf/法规/20210322--航空运输危险品目录（2021年版）.pdf,title_fuzzy_high,0.85
+REG_ZV9XF1D26B6B2CC21343,四川省燃气管理条例(2016修订),PDF_00919,/root/autodl-tmp/chemical_kb/data/pdf/法规/四川省燃气管理条例(2025修订)_20250730.pdf,title_fuzzy_high,0.85
+REG_ZV9XF47B4E8523120302,河南省燃气管理条例,PDF_00883,/root/autodl-tmp/chemical_kb/data/pdf/法规/20241128--河南省燃气管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XF83A93021FA4916B,新疆维吾尔自治区民用爆炸物品安全管理办法,PDF_00745,/root/autodl-tmp/chemical_kb/data/pdf/法规/20090407--新疆维吾尔自治区民用爆炸物品安全管理办法.pdf,title_fuzzy_high,0.85
+REG_ZV9XFB58AF12E04FFCD7,上海市烟花爆竹安全管理条例(2015修订),PDF_00786,/root/autodl-tmp/chemical_kb/data/pdf/法规/20151230--上海市烟花爆竹安全管理条例.pdf,title_fuzzy_high,0.85
+REG_ZV9XFC50064953C72049,上海市液化石油气管理办法(2025修正),PDF_00841,/root/autodl-tmp/chemical_kb/data/pdf/法规/20201001--上海市液化石油气管理办法.pdf,title_fuzzy_high,0.85
+STD_AQ_3011_2007,连二亚硫酸钠包装安全要求,PDF_00000,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 3011-2007.pdf,standard_code_doc_id,1.0
+STD_AQ_4101_2008,烟花爆竹企业安全监控系统通用技术条件,PDF_00001,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4101-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4101_2026,烟花爆竹安全生产风险监测预警技术规范,PDF_00002,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4101-2026.pdf,standard_code_doc_id,1.0
+STD_AQ_4102_2008,烟花爆竹流向登记通用规范,PDF_00003,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4102-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4102_2026,烟花爆竹流向登记通用规范,PDF_00004,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4102-2026.pdf,standard_code_doc_id,1.0
+STD_AQ_4103_2008,烟花爆竹 烟火药认定方法,PDF_00005,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4103-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4104_2008,烟花爆竹 烟火药安全性指标及测定方法,PDF_00006,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4104-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4104_2025,烟花爆竹用烟火药安全指标,PDF_00007,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4104-2025.pdf,standard_code_doc_id,1.0
+STD_AQ_4105_2008,烟花爆竹 烟火药TNT当量测定方法,PDF_00008,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4105-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4106_2008,烟花爆竹作业场所接地电阻测量方法,PDF_00009,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4106-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4107_2008,烟花爆竹机械 滚筒造粒机,PDF_00010,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4107-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4108_2008,烟花爆竹机械 引线机,PDF_00011,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4108-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4109_2008,烟花爆竹机械 爆竹插引机,PDF_00012,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4109-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4110_2008,烟花爆竹机械 结鞭机,PDF_00013,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4110-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4111_2008,烟花爆竹作业场所机械电器安全规范,PDF_00014,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4111-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4112_2008,烟花爆竹出厂包装检验规程,PDF_00015,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4112-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4113_2008,烟花爆竹企业安全评价规范,PDF_00016,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4113-2008.pdf,standard_code_doc_id,1.0
+STD_AQ_4114_2011,烟花爆竹安全生产标志,PDF_00017,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4114-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_4115_2011,烟花爆竹防止静电通用导则,PDF_00018,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4115-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_4115_2025,烟花爆竹防止静电危害技术规范,PDF_00019,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4115-2025.pdf,standard_code_doc_id,1.0
+STD_AQ_4124_2026,烟花爆竹用烟火药危险性分类定级,PDF_00020,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4124-2026.pdf,standard_code_doc_id,1.0
+STD_AQ_4125_2014,烟花爆竹 单基火药安全要求,PDF_00021,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4125-2014.pdf,standard_code_doc_id,1.0
+STD_AQ_4126_2018,烟花爆竹工程设计安全审查规范,PDF_00022,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4126-2018.pdf,standard_code_doc_id,1.0
+STD_AQ_4127_2026,烟花爆竹工程竣工验收规范,PDF_00023,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4127-2026.pdf,standard_code_doc_id,1.0
+STD_AQ_4128_2019,烟花爆竹零售店（点）安全技术规范,PDF_00024,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4128-2019.pdf,standard_code_doc_id,1.0
+STD_AQ_4129_2019,烟花爆竹 化工原材料使用安全规范,PDF_00025,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4129-2019.pdf,standard_code_doc_id,1.0
+STD_AQ_4131_2023,烟花爆竹重大危险源辨识,PDF_00026,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4131-2023.pdf,standard_code_doc_id,1.0
+STD_AQ_4132_2025,烟花爆竹用烟火药和生产机械设备安全论证导则,PDF_00027,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ 4132-2025.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4105_2023,烟花爆竹 烟火药TNT当量测定方法,PDF_00028,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4105-2023.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4116_2011,烟花爆竹 烟火药氯酸盐定性检测方法,PDF_00029,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4116-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4117_2011,烟花爆竹 烟火药作功能力测定方法,PDF_00030,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4117-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4118_2011,烟花爆竹 烟火药猛度测定方法,PDF_00031,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4118-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4119_2011,烟花爆竹 烟火药爆发点测定方法,PDF_00032,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4119-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4120_2011,烟花爆竹 烟火药静电火花感度测定方法,PDF_00033,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4120-2011.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4122_2014,烟花爆竹 烟火药吸湿率测定方法,PDF_00034,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4122-2014.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4123_2014,烟花爆竹 烟火药火焰感度测定方法,PDF_00035,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4123-2014.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4124_2014,烟花爆竹 烟火药危险性分类定级方法,PDF_00036,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4124-2014.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4127_2018,烟花爆竹工程竣工验收规范,PDF_00037,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4127-2018.pdf,standard_code_doc_id,1.0
+STD_AQ_T_4130_2019,烟花爆竹 生产过程名词术语,PDF_00038,/root/autodl-tmp/chemical_kb/data/pdf/标准/AQ_T 4130-2019.pdf,standard_code_doc_id,1.0
+STD_DB11_T_1322.32_2019,安全生产等级评定技术规范 第32部分：烟花爆竹经营（批发）企业,PDF_00040,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB11_T 1322.32-2019_安全生产等级评定技术规范 第32部分：烟花爆竹经营（批发）企业.pdf,standard_code_code_field,1.0
+STD_DB11_T_1578_2025,医疗机构危险化学品安全管理要求,PDF_00041,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB11_T 1578-2025_医疗机构危险化学品安全管理要求.pdf,standard_code_code_field,1.0
+STD_DB11_T_2196_2023,危险化学品全流程追溯管理技术规范,PDF_00042,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB11_T 2196-2023_危险化学品全流程追溯管理技术规范.pdf,standard_code_code_field,1.0
+STD_DB11_T_302_2023,燃气输配工程设计施工验收技术规范,PDF_00044,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB11_T 302-2023_燃气输配工程设计施工验收技术规范.pdf,standard_code_code_field,1.0
+STD_DB11_T_834_2020,烟花爆竹零售网点设置安全规范,PDF_00720,/root/autodl-tmp/chemical_kb/data/pdf/标准/已废止地方标准/DB11_T 834-2020_烟花爆竹零售网点设置安全规范.pdf,standard_code_code_field,1.0
+STD_DB11__358_2016,烟花爆竹安全 级别、类别和标识标注,PDF_00039,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB11_ 358-2016_烟花爆竹安全 级别、类别和标识标注.pdf,standard_code_code_field,1.0
+STD_DB13_T_2941_2019,危险化学品登记管理规范,PDF_00045,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB13_T 2941-2019_危险化学品登记管理规范.pdf,standard_code_code_field,1.0
+STD_DB13_T_5272_2020,工业企业天然气安全管理条件规范,PDF_00046,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB13_T 5272-2020_工业企业天然气安全管理条件规范.pdf,standard_code_code_field,1.0
+STD_DB13_T_5742_2023,醇基燃料使用安全规范,PDF_00047,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB13_T 5742-2023_醇基燃料使用安全规范.pdf,standard_code_code_field,1.0
+STD_DB15_T_1198_2024,危险化学品行业反恐怖防范要求,PDF_00048,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB15_T 1198-2024_危险化学品行业反恐怖防范要求.pdf,standard_code_code_field,1.0
+STD_DB21_T_3267_2020,烟花爆竹批发企业安全生产管理手册编写导则,PDF_00049,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB21_T 3267-2020_烟花爆竹批发企业安全生产管理手册编写导则.pdf,standard_code_code_field,1.0
+STD_DB22_T_3071_2019,爆炸型催化剂检测取样规程,PDF_00050,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB22_T 3071-2019_爆炸型催化剂检测取样规程.pdf,standard_code_code_field,1.0
+STD_DB22_T_3221_2021,危险化学品重大危险源安全评估导则,PDF_00051,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB22_T 3221-2021_危险化学品重大危险源安全评估导则.pdf,standard_code_code_field,1.0
+STD_DB32_T_3256_2017,化学品禁配表编制导则,PDF_00052,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB32_T 3256-2017_化学品禁配表编制导则.pdf,standard_code_code_field,1.0
+STD_DB32_T_3615_2019,剧毒化学品生产企业安全管理规范,PDF_00053,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB32_T 3615-2019_剧毒化学品生产企业安全管理规范.pdf,standard_code_code_field,1.0
+STD_DB32_T_3617_2019,液氯使用安全技术规范,PDF_00054,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB32_T 3617-2019_液氯使用安全技术规范.pdf,standard_code_code_field,1.0
+STD_DB32_T_4531_2023,危险化学品重大危险源二维码安全管理标志牌规范,PDF_00055,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB32_T 4531-2023_危险化学品重大危险源二维码安全管理标志牌规范.pdf,standard_code_code_field,1.0
+STD_DB3302_T_1051_2019,燃气行业服务规范,PDF_00056,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB3302_T 1051-2019_燃气行业服务规范.pdf,standard_code_code_field,1.0
+STD_DB33_T_1155_2018,城镇小型液化天然气气化站技术规程,PDF_00057,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB33_T 1155-2018_城镇小型液化天然气气化站技术规程.pdf,standard_code_code_field,1.0
+STD_DB33_T_768.8_2009,安全技术防范系统建设技术规范 第8部分: 城镇燃气供储场所,PDF_00058,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB33_T 768.8-2009_安全技术防范系统建设技术规范 第8部分_ 城镇燃气供储场所.pdf,standard_code_code_field,1.0
+STD_DB37_T_4995_2025,可燃液体、液化烃及液化毒性气体汽车装卸设施安全管理规范,PDF_00059,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB37_T 4995-2025_可燃液体、液化烃及液化毒性气体汽车装卸设施安全管理规范.pdf,standard_code_code_field,1.0
+STD_DB37_T_5347_2026,城镇燃气老化管道更新改造技术标准,PDF_00060,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB37_T 5347-2026_城镇燃气老化管道更新改造技术标准.pdf,standard_code_code_field,1.0
+STD_DB37_T_997_2022,危险化学品作业场所警示标志标识规范,PDF_00727,/root/autodl-tmp/chemical_kb/data/pdf/标准/已废止地方标准/DB37_T 997-2022_危险化学品作业场所警示标志标识规范.pdf,standard_code_code_field,1.0
+STD_DB43_T_1780_2020,工业企业天然气使用安全规程,PDF_00062,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 1780-2020_工业企业天然气使用安全规程.pdf,standard_code_code_field,1.0
+STD_DB43_T_1785_2020,烟花爆竹企业内部运输电动车辆安全规范,PDF_00063,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 1785-2020_烟花爆竹企业内部运输电动车辆安全规范.pdf,standard_code_code_field,1.0
+STD_DB43_T_1786_2020,湖南省烟花爆竹生产经营安全规范,PDF_00064,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 1786-2020_湖南省烟花爆竹生产经营安全规范.pdf,standard_code_code_field,1.0
+STD_DB43_T_3447_2025,烟花爆竹生产企业对标改造技术指南,PDF_00065,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 3447-2025_烟花爆竹生产企业对标改造技术指南.pdf,standard_code_code_field,1.0
+STD_DB43_T_411_2008,烟花爆竹企业防雷设计施工规范,PDF_00066,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 411-2008_烟花爆竹企业防雷设计施工规范.pdf,standard_code_code_field,1.0
+STD_DB43_T_412_2008,烟花爆竹企业防雷装置检测技术规范,PDF_00067,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 412-2008_烟花爆竹企业防雷装置检测技术规范.pdf,standard_code_code_field,1.0
+STD_DB43_T_413_2008,烟花爆竹企业防雷运行管理规程,PDF_00068,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB43_T 413-2008_烟花爆竹企业防雷运行管理规程.pdf,standard_code_code_field,1.0
+STD_DB44_T_2564_2024,危险化学品安全信息码应用规范,PDF_00069,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB44_T 2564-2024_危险化学品安全信息码应用规范.pdf,standard_code_code_field,1.0
+STD_DB46_T_521_2021,危险化学品企业可查验防护措施管理规范,PDF_00070,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB46_T 521-2021_危险化学品企业可查验防护措施管理规范.pdf,standard_code_code_field,1.0
+STD_DB46_T_671_2025,醇基液体燃料使用安全管理规范,PDF_00072,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB46_T 671-2025_醇基液体燃料使用安全管理规范.pdf,standard_code_code_field,1.0
+STD_DB46_T_672_2025,醇基液体燃料安全检查工作规范,PDF_00073,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB46_T 672-2025_醇基液体燃料安全检查工作规范.pdf,standard_code_code_field,1.0
+STD_DB50_T_867.25_2021,城镇天然气经营企业,PDF_00074,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB50_T 867.25-2021_城镇天然气经营企业.pdf,standard_code_code_field,1.0
+STD_DB51_T_3239_2024,危险化学品安全生产数据交换规范,PDF_00075,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB51_T 3239-2024_危险化学品安全生产数据交换规范.pdf,standard_code_code_field,1.0
+STD_DB65_T_3902_2016,烟花爆竹批发、零售及储存库事故隐患排查技术规范,PDF_00076,/root/autodl-tmp/chemical_kb/data/pdf/标准/DB65_T 3902-2016_烟花爆竹批发、零售及储存库事故隐患排查技术规范.pdf,standard_code_code_field,1.0
+STD_GA_837_2009,民用爆炸物品储存库治安防范要求,PDF_00071,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA 837-2009.pdf,standard_code_doc_id,1.0
+STD_GA_838_2009,小型民用爆炸物品储存库安全规范,PDF_00077,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA 838-2009.pdf,standard_code_doc_id,1.0
+STD_GA_921_2011,民用爆炸物品警示标识、登记标识通则,PDF_00079,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA 921-2011.pdf,standard_code_doc_id,1.0
+STD_GA_T_536.1_2013,易燃易爆危险品火灾危险性分级及试验方法 第1部分：火灾危险性分级,PDF_00078,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 536.1-2013.pdf,standard_code_doc_id,1.0
+STD_GA_T_536.2_2005,易然易爆危险品火灾危险性分级及试验方法 第2部分：易燃固体分级试验方法,PDF_00080,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 536.2-2005.pdf,standard_code_doc_id,1.0
+STD_GA_T_536.3_2005,易燃易爆危险品火灾危险性分级及试验方法 第3部分：易于自燃的物质分级试验方法,PDF_00081,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 536.3-2005.pdf,standard_code_doc_id,1.0
+STD_GA_T_536.4_2005,易燃易爆危险品火灾危险性分级及试验方法 第4部分：遇水放出易燃气体物质分级试验方法,PDF_00082,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 536.4-2005.pdf,standard_code_doc_id,1.0
+STD_GA_T_536.5_2005,易燃易爆危险品火灾危险性分级及试验方法 第5部分：固体氧化性物质分级试验方法,PDF_00083,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 536.5-2005.pdf,standard_code_doc_id,1.0
+STD_GA_T_536.6_2010,易燃易爆危险品火灾危险性分级及试验方法 第6部分：液体氧化性物质,PDF_00084,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 536.6-2010.pdf,standard_code_doc_id,1.0
+STD_GA_T_972_2011,化学品危险性分类与代码,PDF_00085,/root/autodl-tmp/chemical_kb/data/pdf/标准/GA_T 972-2011.pdf,standard_code_doc_id,1.0
+STD_GB_10631_2025,烟花爆竹 安全与质量,PDF_00088,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 10631-2025_烟花爆竹 安全与质量.pdf,standard_code_code_field,1.0
+STD_GB_11652_2012,烟花爆竹作业安全技术规程,PDF_00089,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 11652-2012_烟花爆竹作业安全技术规程.pdf,standard_code_code_field,1.0
+STD_GB_11984_2024,化工企业氯气安全技术规范,PDF_00090,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 11984-2024_化工企业氯气安全技术规范.pdf,standard_code_code_field,1.0
+STD_GB_12268_2025,危险货物品名表,PDF_00091,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 12268-2025_危险货物品名表.pdf,standard_code_code_field,1.0
+STD_GB_12662_2008,爆炸物解体器,PDF_00092,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 12662-2008_爆炸物解体器.pdf,standard_code_code_field,1.0
+STD_GB_12950_1991,地震勘探爆炸安全规程,PDF_00093,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 12950-1991_地震勘探爆炸安全规程.pdf,standard_code_code_field,1.0
+STD_GB_13042_2008,包装容器 铁质气雾罐,PDF_00094,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 13042-2008_包装容器 铁质气雾罐.pdf,standard_code_code_field,1.0
+STD_GB_15258_2009,化学品安全标签编写规定,PDF_00097,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 15258-2009_化学品安全标签编写规定.pdf,standard_code_code_field,1.0
+STD_GB_15346_2012,化学试剂 包装及标志,PDF_00098,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 15346-2012_化学试剂 包装及标志.pdf,standard_code_code_field,1.0
+STD_GB_16473_1996,黄磷包装,PDF_00100,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 16473-1996_黄磷包装.pdf,standard_code_code_field,1.0
+STD_GB_17919_2025,可燃性粉尘除尘系统防爆安全规范,PDF_00102,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 17919-2025_可燃性粉尘除尘系统防爆安全规范.pdf,standard_code_code_field,1.0
+STD_GB_18154_2025,可燃性粉尘抑爆安全规范,PDF_00103,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 18154-2025_可燃性粉尘抑爆安全规范.pdf,standard_code_code_field,1.0
+STD_GB_18191_2008,包装容器 危险品包装用塑料桶,PDF_00104,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 18191-2008_包装容器 危险品包装用塑料桶.pdf,standard_code_code_field,1.0
+STD_GB_19107_2003,次氯酸钠溶液包装要求,PDF_00105,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19107-2003_次氯酸钠溶液包装要求.pdf,standard_code_code_field,1.0
+STD_GB_19109_2003,次氯酸钙包装要求,PDF_00106,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19109-2003_次氯酸钙包装要求.pdf,standard_code_code_field,1.0
+STD_GB_19160_2008,包装容器 危险品包装用塑料罐,PDF_00107,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19160-2008_包装容器 危险品包装用塑料罐.pdf,standard_code_code_field,1.0
+STD_GB_19268_2021,固体氰化物包装,PDF_00109,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19268-2021_固体氰化物包装.pdf,standard_code_code_field,1.0
+STD_GB_19358_2003,黄磷包装安全规范 使用鉴定,PDF_00110,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19358-2003_黄磷包装安全规范 使用鉴定.pdf,standard_code_code_field,1.0
+STD_GB_19417_2025,工业雷管通用安全技术要求,PDF_00111,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19417-2025_工业雷管通用安全技术要求.pdf,standard_code_code_field,1.0
+STD_GB_19434.3_2004,危险货物木质中型散装容器检验安全规范 性能检验,PDF_00114,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19434.3-2004_危险货物木质中型散装容器检验安全规范 性能检验.pdf,standard_code_code_field,1.0
+STD_GB_19434.4_2004,危险货物柔性中型散装容器检验安全规范 性能检验,PDF_00115,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19434.4-2004_危险货物柔性中型散装容器检验安全规范 性能检验.pdf,standard_code_code_field,1.0
+STD_GB_19434.5_2004,危险货物金属中型散装容器检验安全规范 性能检验,PDF_00116,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19434.5-2004_危险货物金属中型散装容器检验安全规范 性能检验.pdf,standard_code_code_field,1.0
+STD_GB_19434.6_2004,危险货物复合中型散装容器检验安全规范 性能检验,PDF_00117,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19434.6-2004_危险货物复合中型散装容器检验安全规范 性能检验.pdf,standard_code_code_field,1.0
+STD_GB_19434.7_2004,危险货物纤维板中型散装容器检验安全规范 性能检验,PDF_00118,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19434.7-2004_危险货物纤维板中型散装容器检验安全规范 性能检验.pdf,standard_code_code_field,1.0
+STD_GB_19434.8_2004,危险货物刚性塑料中型散装容器检验安全规范,PDF_00119,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19434.8-2004_危险货物刚性塑料中型散装容器检验安全规范.pdf,standard_code_code_field,1.0
+STD_GB_19454_2009,危险货物便携式罐体检验安全规范,PDF_00120,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19454-2009_危险货物便携式罐体检验安全规范.pdf,standard_code_code_field,1.0
+STD_GB_19455_2004,民用爆炸品危险货物危险特性检验安全规范,PDF_00124,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19455-2004_民用爆炸品危险货物危险特性检验安全规范.pdf,standard_code_code_field,1.0
+STD_GB_19521.11_2005,锂电池组危险货物危险特性检验安全规范,PDF_00127,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19521.11-2005_锂电池组危险货物危险特性检验安全规范.pdf,standard_code_code_field,1.0
+STD_GB_19595_2004,烟花爆竹 引火线,PDF_00130,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19595-2004_烟花爆竹 引火线.pdf,standard_code_code_field,1.0
+STD_GB_20208_2006,烟花爆竹 礼花弹发射炮筒,PDF_00131,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 20208-2006_烟花爆竹 礼花弹发射炮筒.pdf,standard_code_code_field,1.0
+STD_GB_21178_2007,自反应物质和有机过氧化物分类程序,PDF_00158,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 21178-2007_自反应物质和有机过氧化物分类程序.pdf,standard_code_code_field,1.0
+STD_GB_26447_2010,危险货物运输 能够自持分解的硝酸铵化肥的分类程序、试验方法和判据,PDF_00163,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 26447-2010_危险货物运输 能够自持分解的硝酸铵化肥的分类程序、试验方法和判据.pdf,standard_code_code_field,1.0
+STD_GB_26448_2010,危险货物运输 炸药中间体（ANE）的敏感性试验方法和判据,PDF_00164,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 26448-2010_危险货物运输 炸药中间体（ANE）的敏感性试验方法和判据.pdf,standard_code_code_field,1.0
+STD_GB_26569_2026,民用煤层气（煤矿瓦斯）,PDF_00165,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 26569-2026_民用煤层气（煤矿瓦斯）.pdf,standard_code_code_field,1.0
+STD_GB_2702_1990,爆炸品保险箱,PDF_00166,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 2702-1990_爆炸品保险箱.pdf,standard_code_code_field,1.0
+STD_GB_27833_2011,危险化学品有机过氧化物包装规范,PDF_00167,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 27833-2011_危险化学品有机过氧化物包装规范.pdf,standard_code_code_field,1.0
+STD_GB_27834_2011,危险化学品自反应物质包装规范,PDF_00168,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 27834-2011_危险化学品自反应物质包装规范.pdf,standard_code_code_field,1.0
+STD_GB_28263_2024,民用爆炸物品生产、销售企业安全管理规程,PDF_00171,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 28263-2024_民用爆炸物品生产、销售企业安全管理规程.pdf,standard_code_code_field,1.0
+STD_GB_28644.3_2012,有机过氧化物分类及品名表,PDF_00170,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 28644.3-2012_有机过氧化物分类及品名表.pdf,standard_code_code_field,1.0
+STD_GB_28645.1_2012,危险品检验安全规范 化学氧气发生器,PDF_00173,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 28645.1-2012_危险品检验安全规范 化学氧气发生器.pdf,standard_code_code_field,1.0
+STD_GB_28645.2_2012,危险品检验安全规范 密封蓄电池,PDF_00172,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 28645.2-2012_危险品检验安全规范 密封蓄电池.pdf,standard_code_code_field,1.0
+STD_GB_30000.10_2013,化学品分类和标签规范 第10部分：自燃液体,PDF_00175,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.10-2013_化学品分类和标签规范 第10部分：自燃液体.pdf,standard_code_code_field,1.0
+STD_GB_30000.11_2013,化学品分类和标签规范 第11部分：自燃固体,PDF_00176,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.11-2013_化学品分类和标签规范 第11部分：自燃固体.pdf,standard_code_code_field,1.0
+STD_GB_30000.12_2013,化学品分类和标签规范 第12部分：自热物质和混合物,PDF_00177,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.12-2013_化学品分类和标签规范 第12部分：自热物质和混合物.pdf,standard_code_code_field,1.0
+STD_GB_30000.13_2013,化学品分类和标签规范 第13部分：遇水放出易燃气体的物质和混合物,PDF_00178,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.13-2013_化学品分类和标签规范 第13部分：遇水放出易燃气体的物质和混合物.pdf,standard_code_code_field,1.0
+STD_GB_30000.14_2013,化学品分类和标签规范 第14部分：氧化性液体,PDF_00179,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.14-2013_化学品分类和标签规范 第14部分：氧化性液体.pdf,standard_code_code_field,1.0
+STD_GB_30000.15_2013,化学品分类和标签规范 第15部分：氧化性固体,PDF_00180,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.15-2013_化学品分类和标签规范 第15部分：氧化性固体.pdf,standard_code_code_field,1.0
+STD_GB_30000.16_2013,化学品分类和标签规范 第16部分：有机过氧化物,PDF_00181,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.16-2013_化学品分类和标签规范 第16部分：有机过氧化物.pdf,standard_code_code_field,1.0
+STD_GB_30000.17_2013,化学品分类和标签规范 第17部分：金属腐蚀物,PDF_00182,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.17-2013_化学品分类和标签规范 第17部分：金属腐蚀物.pdf,standard_code_code_field,1.0
+STD_GB_30000.18_2013,化学品分类和标签规范 第18部分：急性毒性,PDF_00183,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.18-2013_化学品分类和标签规范 第18部分：急性毒性.pdf,standard_code_code_field,1.0
+STD_GB_30000.19_2013,化学品分类和标签规范 第19部分：皮肤腐蚀/刺激,PDF_00184,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.19-2013_化学品分类和标签规范 第19部分：皮肤腐蚀.pdf,standard_code_code_field,1.0
+STD_GB_30000.1_2024,化学品分类和标签规范 第1部分：通则,PDF_00174,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.1-2024_化学品分类和标签规范 第1部分：通则.pdf,standard_code_code_field,1.0
+STD_GB_30000.20_2013,化学品分类和标签规范 第20部分：严重眼损伤/眼刺激,PDF_00186,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.20-2013_化学品分类和标签规范 第20部分：严重眼损伤.pdf,standard_code_code_field,1.0
+STD_GB_30000.21_2013,化学品分类和标签规范 第21部分：呼吸道或皮肤致敏,PDF_00187,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.21-2013_化学品分类和标签规范 第21部分：呼吸道或皮肤致敏.pdf,standard_code_code_field,1.0
+STD_GB_30000.22_2013,化学品分类和标签规范 第22部分：生殖细胞致突变性,PDF_00188,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.22-2013_化学品分类和标签规范 第22部分：生殖细胞致突变性.pdf,standard_code_code_field,1.0
+STD_GB_30000.23_2013,化学品分类和标签规范 第23部分：致癌性,PDF_00189,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.23-2013_化学品分类和标签规范 第23部分：致癌性.pdf,standard_code_code_field,1.0
+STD_GB_30000.24_2013,化学品分类和标签规范 第24部分：生殖毒性,PDF_00190,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.24-2013_化学品分类和标签规范 第24部分：生殖毒性.pdf,standard_code_code_field,1.0
+STD_GB_30000.25_2013,化学品分类和标签规范 第25部分: 特异性靶器官毒性 一次接触,PDF_00714,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.25-2013_化学品分类和标签规范 第25部分.pdf,standard_code_code_field,1.0
+STD_GB_30000.26_2013,化学品分类和标签规范 第26部分：特异性靶器官毒性 反复接触,PDF_00191,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.26-2013_化学品分类和标签规范 第26部分：特异性靶器官毒性 反复接触.pdf,standard_code_code_field,1.0
+STD_GB_30000.27_2013,化学品分类和标签规范 第27部分：吸入危害,PDF_00192,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.27-2013_化学品分类和标签规范 第27部分：吸入危害.pdf,standard_code_code_field,1.0
+STD_GB_30000.28_2013,化学品分类和标签规范 第28部分：对水生环境的危害,PDF_00193,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.28-2013_化学品分类和标签规范 第28部分：对水生环境的危害.pdf,standard_code_code_field,1.0
+STD_GB_30000.29_2013,化学品分类和标签规范 第29部分：对臭氧层的危害,PDF_00194,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.29-2013_化学品分类和标签规范 第29部分：对臭氧层的危害.pdf,standard_code_code_field,1.0
+STD_GB_30000.2_2013,化学品分类和标签规范 第2部分：爆炸物,PDF_00185,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.2-2013_化学品分类和标签规范 第2部分：爆炸物.pdf,standard_code_code_field,1.0
+STD_GB_30000.30_2025,化学品分类和标签规范 第30部分：退敏爆炸物,PDF_00196,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.30-2025_化学品分类和标签规范 第30部分：退敏爆炸物.pdf,standard_code_code_field,1.0
+STD_GB_30000.3_2013,化学品分类和标签规范 第3部分：易燃气体,PDF_00195,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.3-2013_化学品分类和标签规范 第3部分：易燃气体.pdf,standard_code_code_field,1.0
+STD_GB_30000.4_2013,化学品分类和标签规范 第4部分：气溶胶,PDF_00197,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.4-2013_化学品分类和标签规范 第4部分：气溶胶.pdf,standard_code_code_field,1.0
+STD_GB_30000.5_2013,化学品分类和标签规范 第5部分：氧化性气体,PDF_00198,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.5-2013_化学品分类和标签规范 第5部分：氧化性气体.pdf,standard_code_code_field,1.0
+STD_GB_30000.6_2013,化学品分类和标签规范 第6部分：加压气体,PDF_00199,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.6-2013_化学品分类和标签规范 第6部分：加压气体.pdf,standard_code_code_field,1.0
+STD_GB_30000.7_2013,化学品分类和标签规范 第7部分：易燃液体,PDF_00200,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.7-2013_化学品分类和标签规范 第7部分：易燃液体.pdf,standard_code_code_field,1.0
+STD_GB_30000.8_2013,化学品分类和标签规范 第8部分：易燃固体,PDF_00201,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.8-2013_化学品分类和标签规范 第8部分：易燃固体.pdf,standard_code_code_field,1.0
+STD_GB_30000.9_2013,化学品分类和标签规范 第9部分：自反应物质和混合物,PDF_00202,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 30000.9-2013_化学品分类和标签规范 第9部分：自反应物质和混合物.pdf,standard_code_code_field,1.0
+STD_GB_39176_2020,稀土产品的包装、标志、运输和贮存,PDF_00204,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 39176-2020_稀土产品的包装、标志、运输和贮存.pdf,standard_code_code_field,1.0
+STD_GB_46032_2025,储粮化学药剂管理与使用规范,PDF_00205,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 46032-2025_储粮化学药剂管理与使用规范.pdf,standard_code_code_field,1.0
+STD_GB_46770_2025,可燃性粉尘隔爆安全规范,PDF_00206,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 46770-2025_可燃性粉尘隔爆安全规范.pdf,standard_code_code_field,1.0
+STD_GB_47369_2026,民用爆炸物品警示标识、登记标识通则,PDF_00207,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 47369-2026_民用爆炸物品警示标识、登记标识通则.pdf,standard_code_code_field,1.0
+STD_GB_50028_2006(2020年版),城镇燃气设计规范（2020版）,PDF_00208,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 50028-2006(2020年版)_城镇燃气设计规范（2020版）.pdf,title_fuzzy_high,0.85
+STD_GB_50089_2018,民用爆炸物品工程设计安全标准,PDF_00210,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 50089-2018_民用爆炸物品工程设计安全标准.pdf,standard_code_code_field,1.0
+STD_GB_6222_2025,工业企业煤气安全规范,PDF_00212,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 6222-2025_工业企业煤气安全规范.pdf,standard_code_code_field,1.0
+STD_GB_6944_2025,危险货物分类和品名编号,PDF_00214,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 6944-2025_危险货物分类和品名编号.pdf,standard_code_code_field,1.0
+STD_GB_T_10632_2026,烟花爆竹 抽样检查规则,PDF_00423,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 10632-2014_烟花爆竹 抽样检查规则.pdf,title_fuzzy_high,0.85
+STD_GB_T_12474_2008,空气中可燃气体爆炸极限测定方法,PDF_00425,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 12474-2008_空气中可燃气体爆炸极限测定方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_13201_2025,圆柱体运输包装尺寸系列,PDF_00426,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 13201-2025_圆柱体运输包装尺寸系列.pdf,title_fuzzy_high,0.85
+STD_GB_T_13611_2018,城镇燃气分类和基本特性,PDF_00427,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 13611-2018_城镇燃气分类和基本特性.pdf,title_fuzzy_high,0.85
+STD_GB_T_14188_2025,气相防锈包装材料选用通则,PDF_00428,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 14188-2025_气相防锈包装材料选用通则.pdf,title_fuzzy_high,0.85
+STD_GB_T_14492_2008,一次性使用电石包装钢桶,PDF_00429,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 14492-2008_一次性使用电石包装钢桶.pdf,title_fuzzy_high,0.85
+STD_GB_T_14659_2015,民用爆破器材术语,PDF_00430,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 14659-2015_民用爆破器材术语.pdf,title_fuzzy_high,0.85
+STD_GB_T_15170_2025,包装容器 工业用薄钢板圆罐,PDF_00431,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 15170-2025_包装容器 工业用薄钢板圆罐.pdf,title_fuzzy_high,0.85
+STD_GB_T_15171_2025,包装件密封性能试验方法,PDF_00432,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 15171-2025_包装件密封性能试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_15814.1_2010,烟花爆竹烟火药成分定性测定,PDF_00433,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 15814.1-2010_烟花爆竹烟火药成分定性测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_15814.2_1995,烟花爆竹药剂 密度测定,PDF_00434,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 15814.2-1995_烟花爆竹药剂 密度测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_15814.3_1995,烟花爆竹药剂 热相容性试验 差热分析或差示扫描热量热法,PDF_00435,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 15814.3-1995_烟花爆竹药剂 热相容性试验 差热分析或差示扫描热量热法.pdf,title_fuzzy_high,0.85
+STD_GB_T_16265_2025,包装材料试验方法 相容性,PDF_00437,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 16265-2025_包装材料试验方法 相容性.pdf,title_fuzzy_high,0.85
+STD_GB_T_16267_2025,包装材料试验方法 气相缓蚀能力,PDF_00438,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 16267-2025_包装材料试验方法 气相缓蚀能力.pdf,title_fuzzy_high,0.85
+STD_GB_T_16425_2018,粉尘云爆炸下限浓度测定方法,PDF_00439,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 16425-2018_粉尘云爆炸下限浓度测定方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_16430_2018,粉尘层最低着火温度测定方法,PDF_00440,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 16430-2018_粉尘层最低着火温度测定方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_16483_2008,化学品安全技术说明书 内容和项目顺序,PDF_00442,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 16483-2008_化学品安全技术说明书 内容和项目顺序.pdf,title_fuzzy_high,0.85
+STD_GB_T_16929_2025,包装材料试验方法 透油性,PDF_00443,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 16929-2025_包装材料试验方法 透油性.pdf,title_fuzzy_high,0.85
+STD_GB_T_17449_2025,包装 玻璃容器 螺纹瓶口尺寸,PDF_00444,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 17449-1998_包装 玻璃容器 螺纹瓶口尺寸.pdf,title_fuzzy_high,0.85
+STD_GB_T_17519_2013,化学品安全技术说明书编写指南,PDF_00446,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 17519-2013_化学品安全技术说明书编写指南.pdf,title_fuzzy_high,0.85
+STD_GB_T_18096_2000,煤矿许用电雷管可燃气安全度试验方法,PDF_00448,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 18096-2000_煤矿许用电雷管可燃气安全度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_18098_2000,工业炸药爆炸后有毒气体含量的测定,PDF_00449,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 18098-2000_工业炸药爆炸后有毒气体含量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_18927_2025,包装容器 金属辅件,PDF_00441,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 18927-2002_包装容器 金属辅件.pdf,title_fuzzy_high,0.85
+STD_GB_T_191_2025,包装储运图形符号标志,PDF_00451,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 191-2025_包装储运图形符号标志.pdf,title_fuzzy_high,0.85
+STD_GB_T_19469_2026,烟火药着火温度的测定 差热-热重分析法,PDF_00453,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 19469-2026_烟火药着火温度的测定 差热-热重分析法.pdf,title_fuzzy_high,0.85
+STD_GB_T_19593_2026,烟花爆竹 组合烟花,PDF_00128,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19593-2015_烟花爆竹 组合烟花.pdf,title_fuzzy_high,0.85
+STD_GB_T_19594_2026,烟花爆竹 礼花弹,PDF_00129,/root/autodl-tmp/chemical_kb/data/pdf/标准/GB 19594-2015_烟花爆竹 礼花弹.pdf,title_fuzzy_high,0.85
+STD_GB_T_19787_2025,包装材料 聚烯烃热收缩薄膜,PDF_00456,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 19787-2025_包装材料 聚烯烃热收缩薄膜.pdf,title_fuzzy_high,0.85
+STD_GB_T_20209_2026,烟花爆竹 铝镁合金粉,PDF_00458,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20209-2026_烟花爆竹 铝镁合金粉.pdf,title_fuzzy_high,0.85
+STD_GB_T_20210_2026,烟花爆竹 铝粉,PDF_00460,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20210-2026_烟花爆竹 铝粉.pdf,title_fuzzy_high,0.85
+STD_GB_T_20211_2006,烟花爆竹用钛粉,PDF_00461,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20211-2006_烟花爆竹用钛粉.pdf,title_fuzzy_high,0.85
+STD_GB_T_20212_2026,烟花爆竹 固引剂,PDF_00463,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20212-2026_烟花爆竹 固引剂.pdf,title_fuzzy_high,0.85
+STD_GB_T_20603_2023,冷冻轻烃流体 液化天然气的取样,PDF_00464,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20603-2023_冷冻轻烃流体 液化天然气的取样.pdf,title_fuzzy_high,0.85
+STD_GB_T_20613_2026,烟花爆竹 储存运输安全性能检验规范,PDF_00465,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20613-2006_烟花爆竹 储存运输安全性能检验规范.pdf,title_fuzzy_high,0.85
+STD_GB_T_20614_2026,烟花爆竹 烟火药中高氯酸盐含量的测定,PDF_00467,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20614-2006_烟花爆竹 烟火药中高氯酸盐含量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_20615_2026,烟花爆竹 烟火药中铝含量的测定,PDF_00469,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20615-2006_烟花爆竹 烟火药中铝含量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_20616_2026,烟花爆竹 烟火药中铋含量的测定,PDF_00471,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20616-2006_烟花爆竹 烟火药中铋含量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_20617_2026,烟花爆竹 烟火药中铁含量的测定,PDF_00473,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20617-2006_烟花爆竹 烟火药中铁含量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_20618_2026,烟花爆竹 烟火药中硝酸盐含量的测定,PDF_00475,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 20618-2006_烟花爆竹 烟火药中硝酸盐含量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21242_2019,烟花爆竹 禁限用物质定性检测方法,PDF_00479,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21242-2019_烟花爆竹 禁限用物质定性检测方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21243_2007,烟花爆竹危险等级分类方法,PDF_00478,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21243-2007_烟花爆竹危险等级分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21279_2007,危险化学品包装液压试验方法,PDF_00477,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21279-2007_危险化学品包装液压试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21281_2007,危险化学品鱼类急性毒性分级试验方法,PDF_00480,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21281-2007_危险化学品鱼类急性毒性分级试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21566_2008,危险品 爆炸品摩擦感度试验方法,PDF_00482,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21566-2008_危险品 爆炸品摩擦感度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21567_2008,危险品 爆炸品撞击感度试验方法,PDF_00483,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21567-2008_危险品 爆炸品撞击感度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21571_2008,危险品 爆燃转爆轰试验方法,PDF_00484,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21571-2008_危险品 爆燃转爆轰试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21572_2008,危险品 1.5项物品的外部火烧试验方法,PDF_00485,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21572-2008_危险品 1.5项物品的外部火烧试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21575_2008,危险品 极不敏感引爆物质的雷管试验方法,PDF_00486,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21575-2008_危险品 极不敏感引爆物质的雷管试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21576_2008,危险品 极不敏感引爆物质的隔板试验方法,PDF_00487,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21576-2008_危险品 极不敏感引爆物质的隔板试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21577_2008,危险品 极不敏感引爆物质的脆性试验方法,PDF_00488,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21577-2008_危险品 极不敏感引爆物质的脆性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21579_2008,危险品 时间/压力试验方法,PDF_00489,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21579-2008_危险品 时间压力试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21580_2008,危险品 小型燃烧试验方法,PDF_00490,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21580-2008_危险品 小型燃烧试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21582_2008,危险品 雷管敏感度试验方法,PDF_00491,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21582-2008_危险品 雷管敏感度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21596_2008,危险品 便携式罐体压力试验方法,PDF_00492,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21596-2008_危险品 便携式罐体压力试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21609_2025,化学品 急性眼刺激性／腐蚀性试验方法,PDF_00498,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21609-2025_化学品 急性眼刺激性／腐蚀性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21611_2008,危险品 易燃固体自燃试验方法,PDF_00500,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21611-2008_危险品 易燃固体自燃试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21612_2008,危险品 易燃固体自热试验方法,PDF_00501,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21612-2008_危险品 易燃固体自热试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21613_2008,危险品 自加速分解温度试验方法,PDF_00502,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21613-2008_危险品 自加速分解温度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21615_2008,危险品 易燃液体闭杯闪点试验方法,PDF_00504,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21615-2008_危险品 易燃液体闭杯闪点试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21616_2008,危险品 易燃液体蒸汽压力试验方法,PDF_00505,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21616-2008_危险品 易燃液体蒸汽压力试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21617_2023,危险品 固体氧化性试验方法,PDF_00506,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21617-2008_危险品 固体氧化性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21618_2008,危险品 易燃固体燃烧速率试验方法,PDF_00508,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21618-2008_危险品 易燃固体燃烧速率试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21619_2008,危险品 易燃固体遇水放出易燃气体试验方法,PDF_00509,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21619-2008_危险品 易燃固体遇水放出易燃气体试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21620_2008,危险品 液体氧化性试验方法,PDF_00510,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21620-2008_危险品 液体氧化性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21621_2008,危险品 金属腐蚀性试验方法,PDF_00511,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21621-2008_危险品 金属腐蚀性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21622_2008,危险品 易燃液体持续燃烧试验方法,PDF_00512,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21622-2008_危险品 易燃液体持续燃烧试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21623_2008,危险品 易燃黏性液体黏度试验方法,PDF_00513,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21623-2008_危险品 易燃黏性液体黏度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21624_2008,危险品 易燃黏性液体溶剂分离试验方法,PDF_00514,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21624-2008_危险品 易燃黏性液体溶剂分离试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21625_2008,危险品 极不敏感引爆物质的子弹撞击试验方法,PDF_00515,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21625-2008_危险品 极不敏感引爆物质的子弹撞击试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21626_2008,危险品 极不敏感引爆物质的外部火烧试验方法,PDF_00516,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21626-2008_危险品 极不敏感引爆物质的外部火烧试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21627_2008,危险品 极不敏感引爆物质的缓慢升温试验方法,PDF_00517,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21627-2008_危险品 极不敏感引爆物质的缓慢升温试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21628_2008,危险品 1.6项物品的外部火烧试验方法,PDF_00518,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21628-2008_危险品 1.6项物品的外部火烧试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21629_2008,危险品 1.6项物品的子弹撞击试验方法,PDF_00519,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21629-2008_危险品 1.6项物品的子弹撞击试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21630_2008,危险品 喷雾剂点燃距离试验方法,PDF_00520,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21630-2008_危险品 喷雾剂点燃距离试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21631_2008,危险品 喷雾剂封闭空间点燃试验方法,PDF_00521,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21631-2008_危险品 喷雾剂封闭空间点燃试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21632_2008,危险品 喷雾剂泡沫可燃性试验方法,PDF_00522,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21632-2008_危险品 喷雾剂泡沫可燃性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21750_2025,化学品 毒物代谢动力学试验方法,PDF_00523,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21750-2025_化学品 毒物代谢动力学试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21754_2025,化学品 28天(亚急性)吸入毒性试验方法,PDF_00524,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21754-2025_化学品 28天(亚急性)吸入毒性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21756_2008,工业用途的化学产品 固体物质相对自燃温度的测定,PDF_00526,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21756-2008_工业用途的化学产品 固体物质相对自燃温度的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21759_2025,化学品 慢性毒性试验方法,PDF_00527,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21759-2025_化学品 慢性毒性试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21766_2025,化学品 生殖发育毒性筛选试验方法,PDF_00528,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21766-2025_化学品 生殖发育毒性筛选试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21773_2025,化学品 体内哺乳动物红细胞微核试验方法,PDF_00529,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21773-2025_化学品 体内哺乳动物红细胞微核试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21775_2008,闪点的测定 闭杯平衡法,PDF_00530,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21775-2008_闪点的测定 闭杯平衡法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21786_2025,化学品 细菌回复突变试验方法,PDF_00533,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21786-2025_化学品 细菌回复突变试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21788_2025,化学品 慢性毒性与致癌性联合试验方法,PDF_00534,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21788-2025_化学品 慢性毒性与致癌性联合试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21791_2008,石油产品自燃温度测定法,PDF_00537,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21791-2008_石油产品自燃温度测定法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21792_2008,闪燃和非闪燃测定 闭杯平衡法,PDF_00538,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21792-2008_闪燃和非闪燃测定 闭杯平衡法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21793_2025,化学品 体外哺乳动物细胞基因突变试验方法,PDF_00539,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21793-2025_化学品 体外哺乳动物细胞基因突变试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21794_2025,化学品 体外哺乳动物细胞染色体畸变试验方法,PDF_00540,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21794-2025_化学品 体外哺乳动物细胞染色体畸变试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21818_2025,化学品 固有生物降解性 改进的MITI试验（II）,PDF_00541,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21818-2025_化学品 固有生物降解性 改进的MITI试验（II）.pdf,title_fuzzy_high,0.85
+STD_GB_T_21844_2008,化合物(蒸气和气体)易燃性浓度限值的标准试验方法,PDF_00542,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21844-2008_化合物(蒸气和气体)易燃性浓度限值的标准试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21846_2008,工业用化工产品 固体可燃性的确定,PDF_00543,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21846-2008_工业用化工产品 固体可燃性的确定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21847_2008,工业用化工产品 气体可燃性的确定,PDF_00544,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21847-2008_工业用化工产品 气体可燃性的确定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21848_2008,工业用化学品 爆炸危险性的确定,PDF_00545,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21848-2008_工业用化学品 爆炸危险性的确定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21849_2008,工业用化学品 固体和液体水解产生的气体可燃性的确定,PDF_00546,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21849-2008_工业用化学品 固体和液体水解产生的气体可燃性的确定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21850_2008,化工产品 固体和液体自燃性的确定,PDF_00547,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21850-2008_化工产品 固体和液体自燃性的确定.pdf,title_fuzzy_high,0.85
+STD_GB_T_21854_2025,化学品 鱼类早期生活阶段毒性试验,PDF_00548,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21854-2025_化学品 鱼类早期生活阶段毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_21860_2008,液体化学品自燃温度的试验方法,PDF_00550,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21860-2008_液体化学品自燃温度的试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_21929_2008,泰格闭口杯闪点测定法,PDF_00551,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 21929-2008_泰格闭口杯闪点测定法.pdf,title_fuzzy_high,0.85
+STD_GB_T_22225_2008,化学品危险性评价通则,PDF_00552,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22225-2008_化学品危险性评价通则.pdf,title_fuzzy_high,0.85
+STD_GB_T_22233_2008,化学品潜在危险性相关标准术语,PDF_00553,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22233-2008_化学品潜在危险性相关标准术语.pdf,title_fuzzy_high,0.85
+STD_GB_T_22511_2017,化工产品包装用铝瓶,PDF_00555,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22511-2017_化工产品包装用铝瓶.pdf,title_fuzzy_high,0.85
+STD_GB_T_22781_2008,烟花爆竹用钛粉关键指标的测定,PDF_00556,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22781-2008_烟花爆竹用钛粉关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22782_2008,烟花爆竹用氧化铜关键指标的测定,PDF_00557,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22782-2008_烟花爆竹用氧化铜关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22783_2008,烟花爆竹用硝酸钾关键指标的测定,PDF_00558,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22783-2008_烟花爆竹用硝酸钾关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22784_2008,烟花爆竹用铝镁合金粉关键指标的测定,PDF_00559,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22784-2008_烟花爆竹用铝镁合金粉关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22785_2008,烟花爆竹用铝粉关键指标的测定,PDF_00560,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22785-2008_烟花爆竹用铝粉关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22786_2008,烟花爆竹用高氯酸钾关键指标的测定,PDF_00561,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22786-2008_烟花爆竹用高氯酸钾关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22787_2008,烟花爆竹用冰晶石关键指标的测定,PDF_00562,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22787-2008_烟花爆竹用冰晶石关键指标的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_22809_2008,烟花爆竹 安全性能检测规程,PDF_00563,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22809-2008_烟花爆竹 安全性能检测规程.pdf,title_fuzzy_high,0.85
+STD_GB_T_22928_2008,烟花爆竹用纸,PDF_00565,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22928-2008_烟花爆竹用纸.pdf,title_fuzzy_high,0.85
+STD_GB_T_23955_2009,化学品命名通则,PDF_00566,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 23955-2009_化学品命名通则.pdf,title_fuzzy_high,0.85
+STD_GB_T_24775_2009,化学品安全评定规程,PDF_00568,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 24775-2009_化学品安全评定规程.pdf,title_fuzzy_high,0.85
+STD_GB_T_24776_2009,化学物质分组和交叉参照法,PDF_00569,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 24776-2009_化学物质分组和交叉参照法.pdf,title_fuzzy_high,0.85
+STD_GB_T_24778_2009,化学品鉴别指南,PDF_00570,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 24778-2009_化学品鉴别指南.pdf,title_fuzzy_high,0.85
+STD_GB_T_25035_2010,城镇燃气用二甲醚,PDF_00571,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 25035-2010_城镇燃气用二甲醚.pdf,title_fuzzy_high,0.85
+STD_GB_T_26073_2010,有毒与可燃性气体检测系统安全评价导则,PDF_00572,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 26073-2010_有毒与可燃性气体检测系统安全评价导则.pdf,title_fuzzy_high,0.85
+STD_GB_T_26195_2010,烟花爆竹 烟火药中砷的测定,PDF_00574,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 26195-2010_烟花爆竹 烟火药中砷的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_26196_2010,烟花爆竹 烟火药中碳含量的测定 高频-红外吸收法,PDF_00575,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 26196-2010_烟花爆竹 烟火药中碳含量的测定 高频-红外吸收法.pdf,title_fuzzy_high,0.85
+STD_GB_T_26197_2010,烟花爆竹用硫化锑,PDF_00576,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 26197-2010_烟花爆竹用硫化锑.pdf,title_fuzzy_high,0.85
+STD_GB_T_26198_2010,烟花爆竹用铁粉,PDF_00577,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 26198-2010_烟花爆竹用铁粉.pdf,title_fuzzy_high,0.85
+STD_GB_T_261_2021,闪点的测定 宾斯基-马丁闭口杯法,PDF_00573,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 261-2021_闪点的测定 宾斯基-马丁闭口杯法.pdf,title_fuzzy_high,0.85
+STD_GB_T_27602_2011,工业电雷管射频感度测定,PDF_00579,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27602-2011_工业电雷管射频感度测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_27835_2011,化学品危险性分类试验方法 12m跌落试验,PDF_00580,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27835-2011_化学品危险性分类试验方法 12m跌落试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_27836_2011,化学品危险性分类试验方法 外部火烧（篝火）试验,PDF_00581,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27836-2011_化学品危险性分类试验方法 外部火烧（篝火）试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_27837_2011,甲酸及其混合物危险特性分类方法,PDF_00582,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27837-2011_甲酸及其混合物危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_27838_2011,烷基磺酸和芳基磺酸类物质危险特性分类方法,PDF_00583,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27838-2011_烷基磺酸和芳基磺酸类物质危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_27839_2011,肼水溶液类物质危险特性分类方法,PDF_00584,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27839-2011_肼水溶液类物质危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_27847_2011,石油产品 闪点测定 阿贝尔-宾斯基闭口杯法,PDF_00585,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27847-2011_石油产品 闪点测定 阿贝尔-宾斯基闭口杯法.pdf,title_fuzzy_high,0.85
+STD_GB_T_27848_2011,液态沥青和稀释沥青 闪点测定 阿贝尔闭口杯法,PDF_00586,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27848-2011_液态沥青和稀释沥青 闪点测定 阿贝尔闭口杯法.pdf,title_fuzzy_high,0.85
+STD_GB_T_27862_2011,化学品危险性分类试验方法 气体和气体混合物燃烧潜力和氧化能力,PDF_00587,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 27862-2011_化学品危险性分类试验方法 气体和气体混合物燃烧潜力和氧化能力.pdf,title_fuzzy_high,0.85
+STD_GB_T_28885_2025,燃气服务导则,PDF_00588,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 28885-2025_燃气服务导则.pdf,title_fuzzy_high,0.85
+STD_GB_T_29877_2013,硝化甘油类物质危险特性分类方法,PDF_00589,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 29877-2013_硝化甘油类物质危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_29878_2013,硝化纤维素类物质危险特性分类方法,PDF_00590,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 29878-2013_硝化纤维素类物质危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_29879_2013,硝酸铵类物质危险特性分类方法,PDF_00591,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 29879-2013_硝酸铵类物质危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_29880_2013,乙胺水溶液物质危险特性分类方法,PDF_00592,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 29880-2013_乙胺水溶液物质危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_30000.31_2023,化学品分类和标签规范 第31部分：化学品作业场所警示性标志,PDF_00593,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 30000.31-2023_化学品分类和标签规范 第31部分：化学品作业场所警示性标志.pdf,title_fuzzy_high,0.85
+STD_GB_T_31270.18_2014,化学农药环境安全评价试验准则 第18部分：天敌两栖类急性毒性试验,PDF_00600,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31270.18-2014_化学农药环境安全评价试验准则 第18部分：天敌两栖类急性毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_31270.19_2014,化学农药环境安全评价试验准则 第19部分：非靶标植物影响试验,PDF_00601,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31270.19-2014_化学农药环境安全评价试验准则 第19部分：非靶标植物影响试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_31270.20_2014,化学农药环境安全评价试验准则 第20部分：家畜短期饲喂毒性试验,PDF_00603,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31270.20-2014_化学农药环境安全评价试验准则 第20部分：家畜短期饲喂毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_31270.21_2014,化学农药环境安全评价试验准则 第21部分：大型甲壳类生物毒性试验,PDF_00604,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31270.21-2014_化学农药环境安全评价试验准则 第21部分：大型甲壳类生物毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_31270.3_2014,化学农药环境安全评价试验准则 第3部分：光解试验,PDF_00605,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31270.3-2014_化学农药环境安全评价试验准则 第3部分：光解试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_31270.6_2014,化学农药环境安全评价试验准则 第6部分：挥发性试验,PDF_00608,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31270.6-2014_化学农药环境安全评价试验准则 第6部分：挥发性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_31514_2015,四氢化邻苯二甲酸酐危险特性分类方法,PDF_00613,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31516-2015_邻苯二甲酸酐危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_31516_2015,邻苯二甲酸酐危险特性分类方法,PDF_00612,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 31514-2015_四氢化邻苯二甲酸酐危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_325.1_2018,包装容器 钢桶 第1部分：通用技术要求,PDF_00615,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 325.1-2008_包装容器 钢桶 第1部分：通用技术要求.pdf,title_fuzzy_high,0.85
+STD_GB_T_325.2_2010,包装容器 钢桶 第2部分：最小总容量208L、210L和216.5L全开口钢桶,PDF_00617,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 325.2-2010_包装容器 钢桶 第2部分：最小总容量208L、210L和216.5L全开口钢桶.pdf,title_fuzzy_high,0.85
+STD_GB_T_33679_2026,人工影响天气用燃烧剂和致冷剂的存储技术条件,PDF_00618,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 33679-2026_人工影响天气用燃烧剂和致冷剂的存储技术条件.pdf,title_fuzzy_high,0.85
+STD_GB_T_34708_2017,化学品风险评估通则,PDF_00619,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 34708-2017_化学品风险评估通则.pdf,title_fuzzy_high,0.85
+STD_GB_T_34710.1_2017,混合气体的分类 第1部分：毒性分类,PDF_00620,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 34710.1-2017_混合气体的分类 第1部分：毒性分类.pdf,title_fuzzy_high,0.85
+STD_GB_T_34710.2_2018,混合气体的分类 第2部分：腐蚀性分类,PDF_00621,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 34710.2-2018_混合气体的分类 第2部分：腐蚀性分类.pdf,title_fuzzy_high,0.85
+STD_GB_T_34710.3_2018,混合气体的分类 第3部分：可燃性分类,PDF_00622,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 34710.3-2018_混合气体的分类 第3部分：可燃性分类.pdf,title_fuzzy_high,0.85
+STD_GB_T_34714_2017,化学品GHS标签和安全技术说明书的可理解性测试方法,PDF_00623,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 34714-2017_化学品GHS标签和安全技术说明书的可理解性测试方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_35750_2017,烟花爆竹 炭粉,PDF_00624,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 35750-2017_烟花爆竹 炭粉.pdf,title_fuzzy_high,0.85
+STD_GB_T_35756_2017,烟花爆竹 规格与命名,PDF_00625,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 35756-2017_烟花爆竹 规格与命名.pdf,title_fuzzy_high,0.85
+STD_GB_T_35757_2017,烟花爆竹 黏土,PDF_00626,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 35757-2017_烟花爆竹 黏土.pdf,title_fuzzy_high,0.85
+STD_GB_T_35760_2017,烟花爆竹 高氯酸钾,PDF_00627,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 35760-2017_烟花爆竹 高氯酸钾.pdf,title_fuzzy_high,0.85
+STD_GB_T_35761_2017,烟花爆竹用油墨（漆）中重金属含量的测试方法,PDF_00628,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 35761-2017_烟花爆竹用油墨（漆）中重金属含量的测试方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_35929_2018,包装 触摸危险标识 要求,PDF_00629,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 35929-2018_包装 触摸危险标识 要求.pdf,title_fuzzy_high,0.85
+STD_GB_T_37104_2018,包装 触摸危险警示 要求,PDF_00630,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 37104-2018_包装 触摸危险警示 要求.pdf,title_fuzzy_high,0.85
+STD_GB_T_38040_2019,烟花爆竹运输默认分类表,PDF_00631,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38040-2019_烟花爆竹运输默认分类表.pdf,title_fuzzy_high,0.85
+STD_GB_T_38141_2019,烟花爆竹 烘干系统技术要求,PDF_00632,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38141-2019_烟花爆竹 烘干系统技术要求.pdf,title_fuzzy_high,0.85
+STD_GB_T_38229_2019,磷酸三甲苯酯危险特性分类方法,PDF_00634,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38229-2019_磷酸三甲苯酯危险特性分类方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_38298_2019,固体化学品自动点火温度的试验方法,PDF_00635,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38298-2019_固体化学品自动点火温度的试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_38301_2019,可燃气体或蒸气极限氧浓度测定方法,PDF_00636,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38301-2019_可燃气体或蒸气极限氧浓度测定方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_38316_2019,有机过氧化物和自反应物质作功能力的试验方法,PDF_00637,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38316-2019_有机过氧化物和自反应物质作功能力的试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_38721_2020,烟花爆竹 混药设备通用技术要求,PDF_00638,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 38721-2020_烟花爆竹 混药设备通用技术要求.pdf,title_fuzzy_high,0.85
+STD_GB_T_39090_2020,危险品绝热储存试验方法,PDF_00639,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 39090-2020_危险品绝热储存试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_39093_2020,危险品热积累储存试验方法,PDF_00640,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 39093-2020_危险品热积累储存试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_39996_2021,烟花爆竹 烟火药发热量的测定,PDF_00641,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 39996-2021_烟花爆竹 烟火药发热量的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_40640.1_2021,化学品管理信息化 第1部分：数据交换,PDF_00642,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 40640.1-2021_化学品管理信息化 第1部分：数据交换.pdf,title_fuzzy_high,0.85
+STD_GB_T_40640.2_2021,化学品管理信息化 第2部分：信息安全,PDF_00643,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 40640.2-2021_化学品管理信息化 第2部分：信息安全.pdf,title_fuzzy_high,0.85
+STD_GB_T_40640.3_2021,化学品管理信息化 第3部分：电子标签应用,PDF_00644,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 40640.3-2021_化学品管理信息化 第3部分：电子标签应用.pdf,title_fuzzy_high,0.85
+STD_GB_T_40640.4_2021,化学品管理信息化 第4部分：化学品定位系统通用规范,PDF_00645,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 40640.4-2021_化学品管理信息化 第4部分：化学品定位系统通用规范.pdf,title_fuzzy_high,0.85
+STD_GB_T_40640.5_2021,化学品管理信息化 第5部分：化学品数据中心,PDF_00646,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 40640.5-2021_化学品管理信息化 第5部分：化学品数据中心.pdf,title_fuzzy_high,0.85
+STD_GB_T_41644_2022,烟花爆竹 检验检测方法,PDF_00647,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 41644-2022_烟花爆竹 检验检测方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_41693_2022,高关注化学物质评估判定导则,PDF_00648,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 41693-2022_高关注化学物质评估判定导则.pdf,title_fuzzy_high,0.85
+STD_GB_T_41774_2022,法庭科学 爆炸装置鉴定规程,PDF_00649,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 41774-2022_法庭科学 爆炸装置鉴定规程.pdf,title_fuzzy_high,0.85
+STD_GB_T_41775_2022,法庭科学 爆炸物鉴定术语,PDF_00650,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 41775-2022_法庭科学 爆炸物鉴定术语.pdf,title_fuzzy_high,0.85
+STD_GB_T_41777_2022,法庭科学 爆炸物爆炸威力检验方法,PDF_00651,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 41777-2022_法庭科学 爆炸物爆炸威力检验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_42368_2023,高温高压条件下可燃气体（蒸气）爆炸极限测定方法,PDF_00652,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 42368-2023_高温高压条件下可燃气体（蒸气）爆炸极限测定方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_43545_2023,危险货物检验安全规范 超级电容器,PDF_00653,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 43545-2023_危险货物检验安全规范 超级电容器.pdf,title_fuzzy_high,0.85
+STD_GB_T_44165.7_2025,消费品中重点化学物质检测方法 第7部分：多氯萘,PDF_00654,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44165.7-2025_消费品中重点化学物质检测方法 第7部分：多氯萘.pdf,title_fuzzy_high,0.85
+STD_GB_T_44165.8_2025,消费品中重点化学物质检测方法 第8部分：全氟辛烷磺酸（PFOS）和全氟辛酸（PFOA）,PDF_00655,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44165.8-2025_消费品中重点化学物质检测方法 第8部分：全氟辛烷磺酸（PFOS）和全氟辛酸（PFOA）.pdf,title_fuzzy_high,0.85
+STD_GB_T_44165.9_2025,消费品中重点化学物质检测方法 第9部分：六溴环十二烷,PDF_00656,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44165.9-2025_消费品中重点化学物质检测方法 第9部分：六溴环十二烷.pdf,title_fuzzy_high,0.85
+STD_GB_T_44394_2024,化学品粉尘爆炸危害识别和防护指南,PDF_00657,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44394-2024_化学品粉尘爆炸危害识别和防护指南.pdf,title_fuzzy_high,0.85
+STD_GB_T_44706_2024,化学品 沉积物-水系统中河蚬毒性试验,PDF_00658,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44706-2024_化学品 沉积物-水系统中河蚬毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_44707_2024,化学品 强化快速生物降解性试验,PDF_00659,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44707-2024_化学品 强化快速生物降解性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_44708_2024,化学品 蚯蚓繁殖毒性试验,PDF_00660,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 44708-2024_化学品 蚯蚓繁殖毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_45215_2025,危险货物 自反应物质和有机过氧化物引爆试验方法,PDF_00661,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45215-2025_危险货物 自反应物质和有机过氧化物引爆试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45216_2025,危险货物 自反应物质和有机过氧化物包装件爆燃试验方法,PDF_00662,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45216-2025_危险货物 自反应物质和有机过氧化物包装件爆燃试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45217_2025,危险货物 自反应物质和有机过氧化物包装件引爆试验方法,PDF_00663,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45217-2025_危险货物 自反应物质和有机过氧化物包装件引爆试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45218_2025,危险货物 自反应物质和有机过氧化物包装件热爆炸试验方法,PDF_00664,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45218-2025_危险货物 自反应物质和有机过氧化物包装件热爆炸试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45219_2025,危险货物 自反应物质和有机过氧化物爆燃试验方法,PDF_00665,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45219-2025_危险货物 自反应物质和有机过氧化物爆燃试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45237_2025,危险货物 自反应物质和有机过氧化物容器排气孔尺寸确定的试验方法,PDF_00666,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45237-2025_危险货物 自反应物质和有机过氧化物容器排气孔尺寸确定的试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45451.1_2025,包装 塑料桶 第1部分：公称容量为113.6L至220L的可拆盖（开口）桶,PDF_00667,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45451.1-2025_包装 塑料桶 第1部分：公称容量为113.6L至220L的可拆盖（开口）桶.pdf,title_fuzzy_high,0.85
+STD_GB_T_45453_2025,包装 药品包装的篡改验证特性,PDF_00668,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45453-2025_包装 药品包装的篡改验证特性.pdf,title_fuzzy_high,0.85
+STD_GB_T_45456_2025,包装 折叠纸盒折痕挺度的测定,PDF_00669,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45456-2025_包装 折叠纸盒折痕挺度的测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_45638_2025,使用条形码和二维符号的电子元器件产品包装标签,PDF_00670,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45638-2025_使用条形码和二维符号的电子元器件产品包装标签.pdf,title_fuzzy_high,0.85
+STD_GB_T_45702_2025,包装 危险货物运输包装 试验方法,PDF_00671,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45702-2025_包装 危险货物运输包装 试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_45911_2025,人工影响天气 作业用弹药存储安全要求,PDF_00672,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 45911-2025_人工影响天气 作业用弹药存储安全要求.pdf,title_fuzzy_high,0.85
+STD_GB_T_46136_2025,化学品 液态粪肥中的厌氧转化试验,PDF_00673,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 46136-2025_化学品 液态粪肥中的厌氧转化试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_46140_2025,化学品 水-沉积物系统中穗状狐尾藻毒性试验,PDF_00674,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 46140-2025_化学品 水-沉积物系统中穗状狐尾藻毒性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_46144_2025,化学品 鱼类细胞系急性毒性 虹鳟鳃细胞系（RTgill-W1）试验,PDF_00675,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 46144-2025_化学品 鱼类细胞系急性毒性 虹鳟鳃细胞系（RTgill-W1）试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_46250_2025,烟花爆竹生产企业防雷技术规范,PDF_00676,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 46250-2025_烟花爆竹生产企业防雷技术规范.pdf,title_fuzzy_high,0.85
+STD_GB_T_46549_2025,煤矿区煤层气地面抽采项目经济评价方法,PDF_00677,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 46549-2025_煤矿区煤层气地面抽采项目经济评价方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_46908_2025,包装 危险货物运输包装 塑料包装和塑料中型散装容器（IBCs）的相容性试验,PDF_00678,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 46908-2025_包装 危险货物运输包装 塑料包装和塑料中型散装容器（IBCs）的相容性试验.pdf,title_fuzzy_high,0.85
+STD_GB_T_47163_2026,烟花爆竹基本环境试验规范 自由跌落和交变湿热试验方法,PDF_00679,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47163-2026_烟花爆竹基本环境试验规范 自由跌落和交变湿热试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_47164_2026,烟花爆竹用烟火药中铝、镁、钾和钡含量的测定 电感耦合等离子体发射光谱（ICP-OES）法,PDF_00680,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47164-2026_烟花爆竹用烟火药中铝、镁、钾和钡含量的测定 电感耦合等离子体发射光谱（ICP-OES）法.pdf,title_fuzzy_high,0.85
+STD_GB_T_47167_2026,烟花爆竹 升空,PDF_00681,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47167-2026_烟花爆竹 升空.pdf,title_fuzzy_high,0.85
+STD_GB_T_47168_2026,烟花爆竹 玩具,PDF_00682,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47168-2026_烟花爆竹 玩具.pdf,title_fuzzy_high,0.85
+STD_GB_T_47169_2026,烟花爆竹 喷花,PDF_00683,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47169-2026_烟花爆竹 喷花.pdf,title_fuzzy_high,0.85
+STD_GB_T_47170_2026,烟花爆竹 架子烟花,PDF_00684,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47170-2026_烟花爆竹 架子烟花.pdf,title_fuzzy_high,0.85
+STD_GB_T_47171_2026,烟花爆竹 吐珠,PDF_00685,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47171-2026_烟花爆竹 吐珠.pdf,title_fuzzy_high,0.85
+STD_GB_T_47172_2026,烟花爆竹 旋转,PDF_00686,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47172-2026_烟花爆竹 旋转.pdf,title_fuzzy_high,0.85
+STD_GB_T_47173_2026,烟花爆竹 爆竹,PDF_00687,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47173-2026_烟花爆竹 爆竹.pdf,title_fuzzy_high,0.85
+STD_GB_T_47287_2026,烟花爆竹用烟火药密度测定,PDF_00688,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47287-2026_烟花爆竹用烟火药密度测定.pdf,title_fuzzy_high,0.85
+STD_GB_T_47320_2026,危险化学品企业防雷安全重大隐患判定,PDF_00689,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47320-2026_危险化学品企业防雷安全重大隐患判定.pdf,title_fuzzy_high,0.85
+STD_GB_T_47394_2026,供热燃气锅炉烟气冷凝热能回收装置,PDF_00690,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47394-2026_供热燃气锅炉烟气冷凝热能回收装置.pdf,title_fuzzy_high,0.85
+STD_GB_T_47548_2026,城镇压缩天然气（CNG）供气装置,PDF_00691,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 47548-2026_城镇压缩天然气（CNG）供气装置.pdf,title_fuzzy_high,0.85
+STD_GB_T_51455_2023,城镇燃气输配工程施工及验收标准,PDF_00692,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 51455-2023_城镇燃气输配工程施工及验收标准.pdf,title_fuzzy_high,0.85
+STD_GB_T_51474_2025,城镇燃气设施运行、维护和抢修安全技术标准,PDF_00693,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 51474-2025_城镇燃气设施运行、维护和抢修安全技术标准.pdf,title_fuzzy_high,0.85
+STD_GB_T_5332_2007,可燃液体和气体引燃温度试验方法,PDF_00694,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 5332-2007_可燃液体和气体引燃温度试验方法.pdf,title_fuzzy_high,0.85
+STD_GB_T_6543_2025,运输包装用单瓦楞纸箱和双瓦楞纸箱,PDF_00695,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 6543-2025_运输包装用单瓦楞纸箱和双瓦楞纸箱.pdf,title_fuzzy_high,0.85
+STD_GB_T_803_2008,空气中可燃气体爆炸指数测定方法,PDF_00696,/root/autodl-tmp/chemical_kb/data/pdf/标准/T 803-2008_空气中可燃气体爆炸指数测定方法.pdf,title_fuzzy_high,0.85
+STD_HG_2823_1997,一氟三氯甲烷包装钢桶,PDF_00215,/root/autodl-tmp/chemical_kb/data/pdf/标准/HG 2823-1997.pdf,standard_code_doc_id,1.0
+STD_HG_T_20660_2017,压力容器中化学介质毒性危害和爆炸危险程度分类标准,PDF_00216,/root/autodl-tmp/chemical_kb/data/pdf/标准/HG_T 20660-2017.pdf,standard_code_doc_id,1.0
+STD_JT_T_1123_2017,仅在散装时有危险的固体物质分类方法,PDF_00217,/root/autodl-tmp/chemical_kb/data/pdf/标准/JT_T 1123-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_0306.1_2024,出口烟花爆竹检验规程 第1部分：总则,PDF_00218,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.1-2024.pdf,standard_code_doc_id,1.0
+STD_SN_T_0306.2_2024,出口烟花爆竹检验规程 第2部分：产地检验,PDF_00219,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.2-2024.pdf,standard_code_doc_id,1.0
+STD_SN_T_0306.3_2024,出口烟花爆竹检验规程 第3部分：产品安全性检验,PDF_00220,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.3-2024.pdf,standard_code_doc_id,1.0
+STD_SN_T_0306.4_2024,出口烟花爆竹检验规程 第4部分：烟火药剂安全性能检验,PDF_00221,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.4-2024.pdf,standard_code_doc_id,1.0
+STD_SN_T_0306.5_2024,出口烟花爆竹检验规程 第5部分：型式试验,PDF_00223,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.5-2024.pdf,standard_code_doc_id,1.0
+STD_SN_T_0306.6_2024,出口烟花爆竹检验规程 第6部分：运输危险性定级,PDF_00222,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.6-2024.pdf,standard_code_doc_id,1.0
+STD_SN_T_0324_2014,海运出口危险货物小型气体容器包装检验规程,PDF_00224,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0324-2014.pdf,standard_code_doc_id,1.0
+STD_SN_T_0370.1_2009,出口危险货物包装检验规程 第1部分：总则,PDF_00225,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0370.1-2009.pdf,standard_code_doc_id,1.0
+STD_SN_T_0370.2_2009,出口危险货物包装检验规程 第2部分：性能检验,PDF_00226,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0370.2-2009.pdf,standard_code_doc_id,1.0
+STD_SN_T_0370.3_2012,进出口危险货物包装检验规程 第3部分：使用鉴定,PDF_00227,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0370.3-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_0760.1_2017,海运出口危险货物钢提桶包装检验规程 第1部分：使用鉴定,PDF_00228,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0760.1-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_0761.1_2011,出口危险品打火机检验规程,PDF_00229,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0761.1-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_0761.3_2011,出口危险品点火枪检验规程,PDF_00230,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0761.3-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_0893_2000,海运出口危险货物塑编集装袋性能检验规程,PDF_00231,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0893-2000.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.1_2013,出口危险货物中型散装容器检验规程 第1部分：总则,PDF_00232,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.1-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.2_2014,出口危险货物中型散装货物包装容器检验规程 第2部分：使用鉴定,PDF_00233,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.2-2014.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.4_2013,出口危险货物中型散装容器检验规程 第4部分：刚性塑料中型散装容器,PDF_00234,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.4-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.5_2013,出口危险货物中型散装容器检验规程 第5部分：木质中型散装容器,PDF_00235,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.5-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.6_2013,出口危险货物中型散装容器检验规程 第6部分：柔性中型散装容器,PDF_00236,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.6-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.7_2013,出口危险货物中型散装容器检验规程 第7部分：纤维板中型散装容器,PDF_00237,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.7-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_0987.8_2013,出口危险货物中型散装容器检验规程 第8部分：金属中型散装容器,PDF_00238,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0987.8-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_1027_2015,出口危险货物1L-25L气体容器 包装检验规程,PDF_00239,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1027-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_1651_2017,进出口液化石油气采样方法 手工法,PDF_00240,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1651-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_1725_2006,出口烟花爆竹术语,PDF_00241,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1725-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1726_2015,出口烟花爆竹分类,PDF_00242,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1726-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_1727_2006,出口烟花爆竹危险等级分类方法,PDF_00243,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1727-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.10_2014,出口烟花爆竹安全性能检验方法 第10部分：使用安全性能检验,PDF_00245,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.10-2014.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.1_2006,出口烟花爆竹安全性能检验方法 第1部分：总则,PDF_00244,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.1-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.2_2006,出口烟花爆竹安全性能检验方法 第2部分：75℃热稳定性试验,PDF_00246,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.2-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.3_2006,出口烟花爆竹安全性能检验方法 第3部分：低温稳定性试验,PDF_00247,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.3-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.4_2006,出口烟花爆竹安全性能检验方法 第4部分：抗振动试验,PDF_00248,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.4-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.5_2006,出口烟花爆竹安全性能检验方法 第5部分：跌落试验,PDF_00249,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.5-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.6_2006,出口烟花爆竹安全性能检验方法 第6部分：殉爆试验,PDF_00250,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.6-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.7_2006,出口烟花爆竹安全性能检验方法 第7部分：包装鉴定,PDF_00251,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.7-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1730.9_2014,出口烟花爆竹安全性能检验方法 第9部分：警句标签检验,PDF_00252,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1730.9-2014.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.11_2014,出口烟花爆竹用烟火药剂安全性能检验方法 第11部分：pH值测定方法,PDF_00254,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.11-2014.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.12_2014,出口烟花爆竹用烟火药剂安全性能检验方法 第12部分：时间-压力试验方法,PDF_00255,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.12-2014.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.1_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第1部分：总则,PDF_00253,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.1-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.2_2015,出口烟花爆竹用烟火药剂安全性能检验方法 第2部分：75℃热安定性测定,PDF_00256,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.2-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.3_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第3部分：爆发点测定,PDF_00257,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.3-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.4_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第4部分：禁用限用药物定性分析,PDF_00258,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.4-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.5_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第5部分：撞击感度测定,PDF_00259,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.5-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.6_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第6部分：摩擦感度测定,PDF_00260,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.6-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.7_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第7部分：吸湿性测定,PDF_00261,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.7-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1731.8_2006,出口烟花爆竹用焰火药剂安全性能检验方法 第8部分：着火温度测定,PDF_00262,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1731.8-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.10_2019,进出口危险货物分类试验方法 第10部分：毒性气体,PDF_00264,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.10-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.11_2019,进出口危险货物分类试验方法 第11部分：易燃固体,PDF_00265,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.11-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.12_2019,进出口危险货物分类试验方法 第12部分：易燃气体,PDF_00266,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.12-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.13_2019,进出口危险货物分类试验方法 第13部分：易燃液体,PDF_00267,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.13-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.14_2006,进出口危险货物分类试验方法 第14部分：锂电池组,PDF_00268,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.14-2006.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.15_2016,进出口危险货物分类试验方法 第15部分：自热固体,PDF_00269,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.15-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.16_2019,进出口危险货物分类试验方法 第16部分：硝酸盐类物质,PDF_00270,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.16-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.17_2013,进出口危险货物分类试验方法 第17部分：海洋污染物,PDF_00271,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.17-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.1_2017,进出口危险货物分类试验方法 第1部分：通则,PDF_00263,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.1-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.2_2019,进出口危险货物分类试验方法 第2部分：民用爆炸品,PDF_00272,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.2-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.3_2019,进出口危险货物分类试验方法 第3部分：氧化物,PDF_00273,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.3-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.4_2013,进出口危险货物分类试验方法 第4部分：腐蚀性物质,PDF_00274,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.4-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.5_2019,进出口危险货物分类试验方法 第5部分：气体混合物,PDF_00275,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.5-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.6_2019,进出口危险货物分类试验方法 第6部分：遇水放出易燃气体物质,PDF_00276,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.6-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.7_2013,进出口危险货物分类试验方法 第7部分：压缩气体,PDF_00277,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.7-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.8_2019,进出口危险货物分类试验方法 第8部分：有机过氧化物,PDF_00278,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.8-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1828.9_2019,进出口危险货物分类试验方法 第9部分：毒性物质,PDF_00279,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1828.9-2019.pdf,standard_code_doc_id,1.0
+STD_SN_T_1935.1_2007,出口危险货物罐式集装箱包装检验规程 第1部分：总则,PDF_00280,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1935.1-2007.pdf,standard_code_doc_id,1.0
+STD_SN_T_1935.2_2007,出口危险货物罐式集装箱包装检验规程 第2部分：性能检验,PDF_00281,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1935.2-2007.pdf,standard_code_doc_id,1.0
+STD_SN_T_1935.3_2007,出口危险货物罐式集装箱包装检验规程 第3部分：使用鉴定,PDF_00282,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1935.3-2007.pdf,standard_code_doc_id,1.0
+STD_SN_T_1936.1_2007,出口危险货物大包装检验方法 第1部分：总则,PDF_00283,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1936.1-2007.pdf,standard_code_doc_id,1.0
+STD_SN_T_1936.2_2007,出口危险货物大包装检验方法 第2部分：性能检验,PDF_00284,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1936.2-2007.pdf,standard_code_doc_id,1.0
+STD_SN_T_1936.3_2007,出口危险货物大包装检验方法 第3部分：使用鉴定,PDF_00285,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 1936.3-2007.pdf,standard_code_doc_id,1.0
+STD_SN_T_2164_2008,危险品急性经口毒性 固定剂量试验方法,PDF_00286,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2164-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2165_2008,危险品急性经口毒性试验方法,PDF_00287,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2165-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2166_2008,危险品急性吸入毒性试验方法,PDF_00288,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2166-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2167_2008,危险品生殖细胞致突变试验方法,PDF_00289,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2167-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2168_2008,危险品生殖毒性试验方法,PDF_00290,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2168-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2170_2008,危险品金属腐蚀性试验方法,PDF_00291,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2170-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2171_2008,危险品喷雾剂燃烧热试验方法,PDF_00292,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2171-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2173_2008,危险品易燃固体自热试验方法,PDF_00293,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2173-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2174_2008,危险品易燃液体闭杯闪点试验方法,PDF_00294,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2174-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2175_2008,危险品易燃液体持续燃烧试验方法,PDF_00295,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2175-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2176_2008,危险品易燃液体溶剂分离试验方法,PDF_00296,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2176-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2240_2008,危险品加速贮存试验-热分析法 差热分析法和热重分析法,PDF_00297,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2240-2008.pdf,standard_code_doc_id,1.0
+STD_SN_T_2244_2009,危险品自热物质自热试验方法,PDF_00298,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2244-2009.pdf,standard_code_doc_id,1.0
+STD_SN_T_2361.1_2009,进出口危险品货物包装安全规范 第1部分：有限数量,PDF_00299,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2361.1-2009.pdf,standard_code_doc_id,1.0
+STD_SN_T_2361.2_2009,进出口危险品货物包装安全规范 第2部分：感染性物质,PDF_00300,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2361.2-2009.pdf,standard_code_doc_id,1.0
+STD_SN_T_2414.1_2010,危险化学品的分类 第1部分：健康和环境危害,PDF_00301,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2414.1-2010.pdf,standard_code_doc_id,1.0
+STD_SN_T_2414.2_2010,危险化学品的分类 第2部分：物理危害,PDF_00302,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2414.2-2010.pdf,standard_code_doc_id,1.0
+STD_SN_T_2498.1_2010,进出口烟花爆竹制品基本环境试验规范 试验Db：交变湿热试验方法,PDF_00303,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2498.1-2010.pdf,standard_code_doc_id,1.0
+STD_SN_T_2498.2_2010,进出口烟花爆竹制品基本环境试验规范 试验Ed：自由跌落,PDF_00304,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2498.2-2010.pdf,standard_code_doc_id,1.0
+STD_SN_T_2502_2010,进出口危险品电池运输包装检验规程,PDF_00305,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2502-2010.pdf,standard_code_doc_id,1.0
+STD_SN_T_2543_2010,进出口危险货物标签,PDF_00306,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2543-2010.pdf,standard_code_doc_id,1.0
+STD_SN_T_2834_2011,危险品包装专业实验室技术要求,PDF_00307,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2834-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_2836_2011,进出口危险化学品安全试验方法 小型气体容器的渗漏率测定,PDF_00308,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2836-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_2880_2011,固体化学品的可燃性测定方法,PDF_00309,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2880-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_2902_2011,危险品热稳定性和空气稳定性的筛选实验,PDF_00310,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 2902-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3056.11_2011,烟花爆竹用化工原材料关键指标的测定 第11部分：铁粉,PDF_00311,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3056.11-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3056.13_2011,烟花爆竹用化工原材料关键指标的测定 第13部分：硝酸银,PDF_00312,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3056.13-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3056.14_2011,烟花爆竹用化工原材料关键指标的测定 第14部分：氧化铋,PDF_00313,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3056.14-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3056.15_2011,烟花爆竹用化工原材料关键指标的测定 第15部分：重铬酸钾,PDF_00314,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3056.15-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3056.6_2011,烟花爆竹用化工原材料关键指标的测定 第6部分：硫酸锶,PDF_00315,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3056.6-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3056.7_2011,烟花爆竹用化工原材料关键指标的测定 第7部分：硫酸铜,PDF_00316,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3056.7-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3057.1_2011,进出口烟花爆竹制品安全性能检验规范 第1部分：爆竹,PDF_00317,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3057.1-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3057.2_2011,进出口烟花爆竹制品安全性能检验规范 第2部分：烟雾烟花,PDF_00318,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3057.2-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3057.3_2013,出口烟花爆竹安全性能检验规范 大型地面礼花,PDF_00319,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3057.3-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3057.4_2013,出口烟花爆竹安全性能检验规范 罗马烛光,PDF_00320,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3057.4-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3060_2011,危险品风险管理通则,PDF_00321,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3060-2011.pdf,standard_code_doc_id,1.0
+STD_SN_T_3078.2_2015,化学品热稳定性测定 第2部分：热重分析法,PDF_00322,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3078.2-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_3083.2_2012,全球化学品统一分类和标签制度（GHS） 第2部分：标签和安全数据单的可理解性测试方法,PDF_00323,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3083.2-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3083.3_2017,全球化学品统一分类和标签制度（GHS） 第3部分：安全数据单编制导则,PDF_00325,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3083.3-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_3203_2012,进出口危险化学品检验规程 爆炸品 基本要求,PDF_00324,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3203-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3204_2012,进出口危险化学品检验规程 易燃气体 基本要求,PDF_00326,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3204-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3205_2012,进出口危险化学品检验规程 不燃气体 基本要求,PDF_00327,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3205-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3206_2012,进出口危险化学品检验规程 有毒气体 基本要求,PDF_00328,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3206-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3207_2012,进出口危险化学品检验规程 低闪点易燃液体基本要求,PDF_00329,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3207-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3208_2012,进出口危险化学品检验规程 中闪点易燃液体基本要求,PDF_00330,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3208-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3209_2012,进出口危险化学品检验规程 高闪点易燃液体基本要求,PDF_00331,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3209-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3210_2012,进出口危险化学品检验规程 易燃固体 基本要求,PDF_00332,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3210-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3211_2012,进出口危险化学品检验规程 自燃物品 基本要求,PDF_00333,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3211-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3212_2012,进出口危险化学品检验规程 遇水放出易燃气体的物质 基本要求,PDF_00334,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3212-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3213_2012,进出口危险化学品检验规程 氧化剂 基本要求,PDF_00335,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3213-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3214_2012,进出口危险化学品检验规程 有机过氧化物 基本要求,PDF_00336,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3214-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3215_2012,进出口危险化学品检验规程 毒害品 基本要求,PDF_00337,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3215-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3216_2012,进出口危险化学品检验规程 酸性腐蚀品 基本要求,PDF_00338,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3216-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3217_2012,进出口危险化学品检验规程 碱性腐蚀品 基本要求,PDF_00339,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3217-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3221_2012,进口危险化学品包装检验规程,PDF_00340,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3221-2012.pdf,standard_code_doc_id,1.0
+STD_SN_T_3522_2013,化学品风险评估通则,PDF_00341,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3522-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3629_2013,烟花爆竹制品基本环境试验规范,PDF_00342,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3629-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3656.1_2013,进出口危险化学品测试技术规范 第1部分：爆炸品,PDF_00343,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3656.1-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3656.2_2013,进出口危险化学品测试技术规范 第2部分：气体,PDF_00344,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3656.2-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3656.3_2013,进出口危险化学品测试技术规范 第3部分：易燃液体,PDF_00345,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3656.3-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3656.5_2013,进出口危险化学品测试技术规范 第5部分：氧化剂和有机过氧化物,PDF_00346,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3656.5-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3656.6_2013,进出口危险化学品测试技术规范 第6部分：急性毒性,PDF_00347,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3656.6-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_3735_2013,危险品分类试验方法 等温储存,PDF_00348,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3735-2013.pdf,standard_code_doc_id,1.0
+STD_SN_T_4149_2015,出口危险货物有限数量包装检验规程,PDF_00349,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4149-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4185_2015,进出口危险化学品检验规程 苯,PDF_00350,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4185-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4186_2015,进出口危险化学品检验规程 磷化氢,PDF_00351,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4186-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4187_2015,进出口危险化学品检验规程 硫化氢,PDF_00352,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4187-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4188_2015,进出口危险化学品检验规程 硝酸铵,PDF_00353,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4188-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4189_2015,进出口危险化学品检验规程 硝基苯,PDF_00354,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4189-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4190_2015,进出口危险化学品检验规程 甲醚,PDF_00355,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4190-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4191_2015,进出口危险化学品检验规程 甲醇,PDF_00356,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4191-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4192_2015,进出口危险化学品检验规程 甲苯二异氰酸酯,PDF_00357,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4192-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4193_2015,进出口危险化学品检验规程 甲苯,PDF_00358,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4193-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4194_2015,进出口危险化学品检验规程 天然气和甲烷,PDF_00359,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4194-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4195_2015,进出口危险化学品检验规程 甲基肼,PDF_00360,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4195-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4196_2015,进出口危险化学品检验规程 甲基叔丁基醚,PDF_00361,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4196-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4197_2015,进出口危险化学品检验规程 环氧氯丙烷,PDF_00362,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4197-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4198_2015,进出口危险化学品检验规程 环氧乙烷,PDF_00363,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4198-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4199_2015,进出口危险化学品检验规程 烯丙胺,PDF_00364,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4199-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4200_2015,进出口危险化学品检验规程 液化石油气,PDF_00365,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4200-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4201_2015,进出口危险化学品检验规程 汽油（含甲醇汽油、乙醇汽油）,PDF_00366,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4201-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4202_2015,进出口危险化学品检验规程 石脑油,PDF_00367,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4202-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4203_2015,进出口危险化学品检验规程 氰化钠,PDF_00368,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4203-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4204_2015,进出口危险化学品检验规程 氰化氢,PDF_00369,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4204-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4205_2015,进出口危险化学品检验规程 氯苯,PDF_00370,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4205-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4206_2015,进出口危险化学品检验规程 氯甲酸三氯甲酯,PDF_00371,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4206-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4207_2015,进出口危险化学品检验规程 氯甲基甲醚,PDF_00372,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4207-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4208_2015,进出口危险化学品检验规程 氯,PDF_00373,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4208-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4209_2015,进出口危险化学品检验规程 氨,PDF_00374,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4209-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4210_2015,进出口危险化学品检验规程 氢,PDF_00375,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4210-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4211_2015,进出口危险化学品检验规程 氟化氢、氢氟酸,PDF_00376,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4211-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4212_2015,进出口危险化学品检验规程 异氰酸甲酯,PDF_00377,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4212-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4213_2015,进出口危险化学品检验规程 四氯化钛,PDF_00378,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4213-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4214_2015,进出口危险化学品检验规程 六氯环戊二烯,PDF_00379,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4214-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4215_2015,进出口危险化学品检验规程 二硫化碳,PDF_00380,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4215-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4216_2015,进出口危险化学品检验规程 二氧化硫,PDF_00381,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4216-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4217_2015,进出口危险化学品检验规程 乙醛,PDF_00382,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4217-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4218_2015,进出口危险化学品检验规程 乙酸乙酯,PDF_00383,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4218-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4219_2015,进出口危险化学品检验规程 乙烯,PDF_00384,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4219-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4220_2015,进出口危险化学品检验规程 丙酮氰醇,PDF_00385,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4220-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4221_2015,进出口危险化学品检验规程 丙烯酸,PDF_00386,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4221-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4222_2015,进出口危险化学品检验规程 丙烯腈,PDF_00387,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4222-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4223_2015,进出口危险化学品检验规程 三氯甲烷,PDF_00388,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4223-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4224_2015,进出口危险化学品检验规程 三氯化磷,PDF_00389,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4224-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4225_2015,进出口危险化学品检验规程 一甲胺,PDF_00390,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4225-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4226_2015,进出口危险化学品检验规程 一氯甲烷,PDF_00391,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4226-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4227_2015,进出口危险化学品检验规程 一氧化碳,PDF_00392,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4227-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4228_2015,"进出口危险化学品检验规程 1,3-丁二烯",PDF_00393,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4228-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4229_2015,进出口危险化学品检验规程 丙烯,PDF_00394,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4229-2015.pdf,standard_code_doc_id,1.0
+STD_SN_T_4469_2016,进出口危险化学品检验规程 苯胺,PDF_00395,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4469-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4470_2016,进出口危险化学品检验规程 苯酚,PDF_00396,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4470-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4471_2016,进出口危险化学品检验规程 苯乙烯,PDF_00397,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4471-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4472_2016,进出口危险化学品检验规程 丙烯醛,PDF_00398,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4472-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4473_2016,进出口危险化学品检验规程 过氧乙酸,PDF_00399,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4473-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4474_2016,进出口危险化学品检验规程 环氧丙烷,PDF_00400,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4474-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4475_2016,进出口危险化学品检验规程 硫酸二甲酯,PDF_00401,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4475-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4476_2016,进出口危险化学品检验规程 氯乙烯,PDF_00402,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4476-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4477_2016,进出口危险化学品检验规程 乙酸乙烯酯,PDF_00403,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4477-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4478_2016,危险货物运输包装 危险货物包装及中型散货容器和大包装 ISO 9001实用指南,PDF_00404,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4478-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4608_2016,易燃液体爆炸点的测定,PDF_00405,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4608-2016.pdf,standard_code_doc_id,1.0
+STD_SN_T_4787_2017,化学品 气体和气体混合物的化学不稳定性分类方法,PDF_00406,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4787-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_4854_2017,进出口危险化学品检验规程 二甲胺,PDF_00407,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4854-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_4855_2017,进出口危险化学品检验规程 三氟化硼,PDF_00408,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4855-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_4856_2017,进出口危险化学品检验规程 三氧化硫,PDF_00409,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4856-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_4897_2017,危险货物运输包装 救助包装检验规程,PDF_00410,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4897-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_4898_2017,危险品 固体氧化性试验方法 重量法,PDF_00411,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 4898-2017.pdf,standard_code_doc_id,1.0
+STD_SN_T_5273_2020,进出口危险化学品 磷酸三甲苯酯危险特性分类方法,PDF_00412,/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 5273-2020.pdf,standard_code_doc_id,1.0
+STD_SY_5436_2016,井筒作业用民用爆炸物品安全规范,PDF_00413,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY 5436-2016.pdf,standard_code_doc_id,1.0
+STD_SY_5857_2013,石油物探地震作业民用爆炸物品管理规范,PDF_00414,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY 5857-2013.pdf,standard_code_doc_id,1.0
+STD_SY_6501_2010,浅海石油作业放射性及爆炸物品安全规程,PDF_00415,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY 6501-2010.pdf,standard_code_doc_id,1.0
+STD_SY_T_5497_2018,石油工业物资分类与代码,PDF_00416,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 5497-2018.pdf,standard_code_doc_id,1.0
+STD_SY_T_5857_2025,石油物探地震作业民用爆炸物品管理规范,PDF_00417,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 5857-2025.pdf,standard_code_doc_id,1.0
+STD_SY_T_6273_2024,油气井用起爆器材,PDF_00418,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 6273-2024.pdf,standard_code_doc_id,1.0
+STD_SY_T_6515_2010,露天热表面引燃液态烃类及其蒸气的风险评价,PDF_00419,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 6515-2010.pdf,standard_code_doc_id,1.0
+STD_SY_T_6753_2023,油气井用导爆索和传爆管通用技术条件,PDF_00420,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 6753-2023.pdf,standard_code_doc_id,1.0
+STD_SY_T_7433_2018,天然气的组成分析 激光拉曼光谱法,PDF_00421,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 7433-2018.pdf,standard_code_doc_id,1.0
+STD_SY_T_7676_2022,天然气 水合物生成温度的测定 模拟法,PDF_00422,/root/autodl-tmp/chemical_kb/data/pdf/标准/SY_T 7676-2022.pdf,standard_code_doc_id,1.0
+STD_T_CCSAS_022_2022,危险化学品企业泄漏管理导则,PDF_00697,/root/autodl-tmp/chemical_kb/data/pdf/标准/TCCSAS 022-2022 危险化学品企业泄漏管理导则.pdf,standard_code_code_field,1.0
+STD_T_CCSAS_047_2023,危险化学品编码与标识技术规范,PDF_00698,/root/autodl-tmp/chemical_kb/data/pdf/标准/TCCSAS 047-2023 危险化学品编码与标识技术规范.pdf,standard_code_code_field,1.0
+STD_T_CCSAS_048_2023,危险化学品电子标签选型技术规范,PDF_00699,/root/autodl-tmp/chemical_kb/data/pdf/标准/TCCSAS 048-2023 危险化学品电子标签选型技术规范.pdf,standard_code_code_field,1.0
+STD_T_CCSAS_055_2025,用差示扫描量热法测定化学品热稳定性的标准试验方法,PDF_00700,/root/autodl-tmp/chemical_kb/data/pdf/标准/TCCSAS 055-2025 用差示扫描量热法测定化学品热稳定性的标准试验方法.pdf,standard_code_code_field,1.0
+STD_T_CCSAS_057_2025,化学品热稳定性的测试方法 绝热加速量热法,PDF_00701,/root/autodl-tmp/chemical_kb/data/pdf/标准/TCCSAS 057-2025 化学品热稳定性的测试方法 绝热加速量热法.pdf,standard_code_code_field,1.0
+STD_WJ_T_9085_2024,工业电子雷管,PDF_00702,/root/autodl-tmp/chemical_kb/data/pdf/标准/WJ_T 9085-2024.pdf,standard_code_doc_id,1.0
+STD_WJ_T_9103_2024,工业电子雷管电压冲击测试方法,PDF_00703,/root/autodl-tmp/chemical_kb/data/pdf/标准/WJ_T 9103-2024.pdf,standard_code_doc_id,1.0
+STD_WJ_T_9104_2024,工业雷管抗跌落性能试验方法,PDF_00704,/root/autodl-tmp/chemical_kb/data/pdf/标准/WJ_T 9104-2024.pdf,standard_code_doc_id,1.0
+STD_WJ_T_9105_2024,工业雷管抗弯性能试验方法,PDF_00705,/root/autodl-tmp/chemical_kb/data/pdf/标准/WJ_T 9105-2024.pdf,standard_code_doc_id,1.0
+STD_WJ_T_9106_2024,民用爆炸物品生产销售企业生产安全事故应急预案编制导则,PDF_00706,/root/autodl-tmp/chemical_kb/data/pdf/标准/WJ_T 9106-2024.pdf,standard_code_doc_id,1.0
+STD_XF_T_536.1_2013,易燃易爆危险品火灾危险性分级及试验方法 第1部分：火灾危险性分级,PDF_00707,/root/autodl-tmp/chemical_kb/data/pdf/标准/XF_T 536.1-2013.pdf,standard_code_doc_id,1.0
+STD_XF_T_536.2_2005,易然易爆危险品火灾危险性分级及试验方法 第2部分：易燃固体分级试验方法,PDF_00708,/root/autodl-tmp/chemical_kb/data/pdf/标准/XF_T 536.2-2005.pdf,standard_code_doc_id,1.0
+STD_XF_T_536.3_2005,易燃易爆危险品火灾危险性分级及试验方法 第3部分：易于自燃的物质分级试验方法,PDF_00709,/root/autodl-tmp/chemical_kb/data/pdf/标准/XF_T 536.3-2005.pdf,standard_code_doc_id,1.0
+STD_XF_T_536.4_2005,易燃易爆危险品火灾危险性分级及试验方法 第4部分：遇水放出易燃气体物质分级试验方法,PDF_00710,/root/autodl-tmp/chemical_kb/data/pdf/标准/XF_T 536.4-2005.pdf,standard_code_doc_id,1.0
+STD_XF_T_536.5_2005,易燃易爆危险品火灾危险性分级及试验方法 第5部分：固体氧化性物质分级试验方法,PDF_00711,/root/autodl-tmp/chemical_kb/data/pdf/标准/XF_T 536.5-2005.pdf,standard_code_doc_id,1.0
+STD_XF_T_536.6_2010,易燃易爆危险品火灾危险性分级及试验方法 第6部分：液体氧化性物质,PDF_00712,/root/autodl-tmp/chemical_kb/data/pdf/标准/XF_T 536.6-2010.pdf,standard_code_doc_id,1.0
+STD_YB_T_4490_2015,钢铁企业停送燃气作业化学检验安全规范,PDF_00713,/root/autodl-tmp/chemical_kb/data/pdf/标准/YB_T 4490-2015.pdf,standard_code_doc_id,1.0

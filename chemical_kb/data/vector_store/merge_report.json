@@ -1,0 +1,33 @@
+{
+  "status": "MERGED",
+  "before": {
+    "main_vectors": 16491,
+    "main_metadata": 16491
+  },
+  "accident": {
+    "documents": 207,
+    "chunks": 8115,
+    "new_chunks": 8115,
+    "duplicate_chunks": 0
+  },
+  "after": {
+    "main_vectors": 24606,
+    "main_metadata": 24606
+  },
+  "compatibility": {
+    "dimension_match": true,
+    "index_type": "IndexFlatIP",
+    "normalized": true
+  },
+  "integrity_check": true,
+  "distribution": {
+    "document_type": {
+      "法规": 5320,
+      "标准": 11171,
+      "事故": 8115
+    }
+  },
+  "backup": {
+    "dir": "/root/autodl-tmp/chemical_kb/backup_before_accident_20260825_171659"
+  }
+}

@@ -1,0 +1,14 @@
+| 字段             | 作用      |
+| -------------- | ------- |
+| doc_id         | 唯一身份证   |
+| doc_type       | 区分标准/法规 |
+| code           | 编号      |
+| title          | 名称      |
+| status         | 有效状态    |
+| publish_date   | 发布日期    |
+| effective_date | 实施日期    |
+| issuer         | 发布机构    |
+| topic          | 主题分类    |
+| record_id      | 法规数据库ID |
+| attachment_id  | PDF匹配关键 |
+| pdf_path       | 以后填充    |

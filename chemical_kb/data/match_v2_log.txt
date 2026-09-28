@@ -1,0 +1,63 @@
+Match Log - 2026-07-26T19:25:30.281783
+============================================================
+[19:25:30] ============================================================
+[19:25:30] Document-PDF Matching v2 (fixed title cleaning)
+[19:25:30] ============================================================
+[19:25:30] Loading document_master.csv ...
+[19:25:30]   855 documents
+[19:25:30] Loading pdf_inventory.csv ...
+[19:25:30]   970 PDFs
+[19:25:30]   Standards:  615 docs / 730 PDFs
+[19:25:30]   Regulations: 240 docs / 240 PDFs
+[19:25:30] ============================================================
+[19:25:30] PHASE 1: Standard Code Matching
+[19:25:30]   PDF code index: 944 unique codes (fn-supplement: 357)
+[19:25:30]   Phase 1 matched: 389
+[19:25:30] ============================================================
+[19:25:30] PHASE 2: Regulation Code Matching
+[19:25:30]   Regulation codes in PDF filenames: 32
+[19:25:30]   Phase 2 matched: 29
+[19:25:30] ============================================================
+[19:25:30] PHASE 3: Attachment ID Matching
+[19:25:30]   Attachment IDs in PDF filenames: 0
+[19:25:30]   Phase 3 matched: 0
+[19:25:30] ============================================================
+[19:25:30] PHASE 4: Title Fuzzy Matching (rapidfuzz + multiprocessing)
+[19:25:30]   Before Phase 4: 437 docs / 552 PDFs
+[19:25:30]   Using 64 workers
+[19:25:30]   [standard] 226 docs x 341 PDFs = 77066 pairs
+[19:25:31]   [regulation] 211 docs x 211 PDFs = 44521 pairs
+[19:25:31]   Phase 4 high (>=85): 426
+[19:25:31]   Phase 4 medium (70-84): 7
+[19:25:31]   Phase 4 low (60-69): 3
+[19:25:31] ============================================================
+[19:25:31] PHASE 5: Unmatched Candidates
+[19:25:31]   Finally unmatched: 1 docs / 116 PDFs
+[19:25:31]   Candidates generated: 1 rows
+[19:25:31] ============================================================
+[19:25:31] Saving results ...
+[19:25:31]   -> /root/autodl-tmp/chemical_kb/data/document_pdf_mapping.csv (854 rows)
+[19:25:31]   -> /root/autodl-tmp/chemical_kb/data/unmatched_documents.csv (1 rows)
+[19:25:31] ============================================================
+[19:25:31] MATCHING STATISTICS
+[19:25:31] ============================================================
+[19:25:31]   Documents: 855 total
+[19:25:31]     Matched:   854 (99.9%)
+[19:25:31]     Unmatched: 1 (0.1%)
+[19:25:31]   Standard: 615 total, 615 matched, 0 unmatched (100.0%)
+[19:25:31]   Regulation: 240 total, 239 matched, 1 unmatched (99.6%)
+[19:25:31]   By match method:
+[19:25:31]     title_fuzzy_high: 426
+[19:25:31]     standard_code_doc_id: 269
+[19:25:31]     standard_code_code_field: 120
+[19:25:31]     regulation_code: 29
+[19:25:31]     title_fuzzy_medium: 7
+[19:25:31]     title_fuzzy_low: 3
+[19:25:31]   By confidence:
+[19:25:31]     0.60: 3
+[19:25:31]     0.70: 7
+[19:25:31]     0.85: 426
+[19:25:31]     0.95: 29
+[19:25:31]     1.00: 389
+[19:25:31] ============================================================
+[19:25:31] DONE

@@ -1,0 +1,390 @@
+{
+  "schema_version": "1.0",
+  "schema_name": "化工安全领域知识图谱 Schema v1",
+  "schema_name_en": "Chemical Safety Knowledge Graph Schema v1",
+  "domain": "化工/危险化学品安全",
+  "created_at": "2026-08-25",
+  "finalized_at": "2026-08-25",
+  "status": "finalized",
+  "scope": "仅 Schema 设计。不含 EDC、知识抽取实现、Neo4j、Cypher、图数据落地。",
+  "design_basis": "基于 chemical_kb 项目真实数据抽样：5 篇标准、5 篇法规、10 篇事故调查报告。",
+  "entity_types": [
+    {
+      "id": "chemical",
+      "name": "化学品",
+      "name_en": "Chemical",
+      "description": "危险化学品/危险物质，含单质、化合物、混合物、气体（如煤气）等。表示化学物质本体，是事故与标准法规桥接的核心对象。",
+      "attributes": [
+        {"name": "canonical_name", "type": "string", "description": "规范名（化学物质本体名，经 canonicalization 确定，如 氯/Chlorine）"},
+        {"name": "formula", "type": "string", "description": "分子式/标识符，如 Cl2"},
+        {"name": "cas_number", "type": "string", "description": "CAS 号，强对齐键（仅在真实数据/权威映射确认时填写）"},
+        {"name": "un_number", "type": "string", "description": "联合国危险货物编号 UN No."},
+        {"name": "catalog_no", "type": "string", "description": "危险化学品目录（2015版）序号"},
+        {"name": "hazard_property", "type": "string[]", "description": "危险特性：毒害/腐蚀/爆炸/燃烧/助燃 等"},
+        {"name": "is_hypertoxic", "type": "boolean", "description": "是否剧毒化学品"},
+        {"name": "physical_state", "type": "string", "description": "物态/相态 phase：gas/liquid/solid（液氯=liquid，氯气=gas）"},
+        {"name": "aliases", "type": "string[]", "description": "真正同义名称（跨语境可互换），如 保险粉=连二亚硫酸钠、水银=汞"},
+        {"name": "mentions", "type": "string[]", "description": "原始文本指称（含语境/物态，保留不强制归并），如 液氯/氯气/液态氯"}
+      ],
+      "examples": ["氯(Cl2)", "硫化氢", "苯", "连二亚硫酸钠(保险粉)", "四氟乙烯", "五氟碘乙烷", "硝酸", "硫酸", "一氧化碳", "苯酐", "硼酸"],
+      "source_docs": ["STD_DB32_T_3617_2019", "STD_AQ_3011_2007", "REG_ZV9X00FC1CC7BB445E4D", "ACC_aa76907ac753bc37", "ACC_a54a2bc1a40d7745"]
+    },
+    {
+      "id": "hazard_class",
+      "name": "危险类别",
+      "name_en": "HazardClass",
+      "description": "按 GHS/国标划分的危险类别，用于连接化学品与其分类标签规范（GB 30000 系列）。",
+      "attributes": [
+        {"name": "name", "type": "string", "description": "类别名，如 退敏爆炸物、易燃液体、急性毒性"},
+        {"name": "ghs_code", "type": "string", "description": "GHS 危险类别代码"},
+        {"name": "definition", "type": "string", "description": "类别定义文本"}
+      ],
+      "examples": ["退敏爆炸物", "爆炸物", "易燃液体", "急性毒性", "可燃液体", "毒性气体"],
+      "source_docs": ["STD_GB_30000.30_2025", "STD_DB37_T_4995_2025"]
+    },
+    {
+      "id": "enterprise",
+      "name": "企业/单位",
+      "name_en": "Enterprise",
+      "description": "生产经营单位，含生产/经营/使用/运输企业、施工/承包单位、检测/评价机构等。事故责任主体与安全义务主体。",
+      "attributes": [
+        {"name": "canonical_name", "type": "string", "description": "全称规范名"},
+        {"name": "aliases", "type": "string[]", "description": "简称，如 峻辰公司→淄博峻辰新材料科技有限公司"},
+        {"name": "credit_code", "type": "string", "description": "统一社会信用代码，强对齐键"},
+        {"name": "enterprise_type", "type": "string", "description": "生产/经营/使用/运输/施工/承包/中介机构/医疗机构 等"},
+        {"name": "region", "type": "string", "description": "所在省/市"},
+        {"name": "has_safety_license", "type": "boolean", "description": "是否取得安全生产许可证"}
+      ],
+      "examples": ["四川西艾氟科技有限公司", "芜湖融汇化工有限公司", "淄博峻辰新材料科技有限公司", "大庆康尼瑞生物科技有限公司", "贵州璟和化学工业有限责任公司", "义马气化厂", "信诺立兴(黄骅市)集团股份有限公司", "安徽司尔特化肥科技有限公司"],
+      "source_docs": ["ACC_d81abe9f3dc21611", "ACC_aa76907ac753bc37", "ACC_079f0344a601a660", "ACC_1f6a00493ef39c16"]
+    },
+    {
+      "id": "regulator",
+      "name": "监管部门",
+      "name_en": "Regulator",
+      "description": "负有危险化学品安全监督管理职责的部门（应急管理/公安/市场监管/生态环境/交通运输/卫生健康/工信等）。",
+      "attributes": [
+        {"name": "name", "type": "string", "description": "部门名称"},
+        {"name": "level", "type": "string", "description": "国家/省/市/县"},
+        {"name": "duty", "type": "string", "description": "监管职责描述"}
+      ],
+      "examples": ["应急管理部门", "公安机关", "市场监督管理部门", "生态环境主管部门", "交通运输主管部门", "卫生健康主管部门"],
+      "source_docs": ["REG_ZV9X09ADA20299EF5050", "REG_ZV9XD8544F5D58183AAE"]
+    },
+    {
+      "id": "equipment",
+      "name": "设备/设施",
+      "name_en": "Equipment",
+      "description": "装置、设备、设施、管道、安全附件、监测报警装置等。事故的物因素载体，也是标准技术要求的对象。",
+      "attributes": [
+        {"name": "name", "type": "string", "description": "设备名，含位号如 R1101A"},
+        {"name": "equipment_type", "type": "string", "description": "反应釜/储罐/锅炉/管道/干燥机/空分装置/鹤管/安全阀/监测报警 等"},
+        {"name": "model", "type": "string", "description": "型号规格"},
+        {"name": "medium", "type": "string", "description": "工作介质（化学品）"},
+        {"name": "design_pressure", "type": "string", "description": "设计压力"},
+        {"name": "is_special_equipment", "type": "boolean", "description": "是否特种设备（承压/机电类）"}
+      ],
+      "examples": ["反应釜(R1101A)", "液氯充装万向节(鹤管)", "储罐(V2002A)", "DZL型2吨蒸汽锅炉", "6000L双锥回转真空干燥机", "空分装置冷箱", "液氧贮槽", "脱酸脱氨塔", "RTO蓄热焚烧装置"],
+      "source_docs": ["ACC_d81abe9f3dc21611", "ACC_aa76907ac753bc37", "ACC_1f6a00493ef39c16", "ACC_78c6d062a4030433", "STD_GB_6222_2025"]
+    },
+    {
+      "id": "process",
+      "name": "工艺/工序",
+      "name_en": "Process",
+      "description": "生产工艺、工序、作业环节。是危险化工工艺管控与事故工艺致因的载体。",
+      "attributes": [
+        {"name": "name", "type": "string", "description": "工艺名"},
+        {"name": "is_key_hazardous_process", "type": "boolean", "description": "是否重点监管危险化工工艺（两重点一重大）"},
+        {"name": "process_type", "type": "string", "description": "硝化/氯化/氟化/重氮化/过氧化/充装/气化/制酸 等"}
+      ],
+      "examples": ["硝化工艺", "氯化工艺", "氟化工艺", "液氯充装", "液氯气化", "硫磺制酸", "煤焦油深加工"],
+      "source_docs": ["ACC_1f6a00493ef39c16", "ACC_9ff709766c9f71cb", "REG_ZV9XA395E3B5FE6E401A", "STD_DB32_T_3617_2019"]
+    },
+    {
+      "id": "site",
+      "name": "场所/区域",
+      "name_en": "Site",
+      "description": "物理场所或监管区域：厂区、车间、储罐区、充装台、防爆间、化工园区、有限空间、限定区域、沿江区域等。",
+      "attributes": [
+        {"name": "name", "type": "string", "description": "场所名"},
+        {"name": "site_type", "type": "string", "description": "厂区/车间/储罐区/充装台/防爆间/化工园区/有限空间/行政区域/沿江区域 等"},
+        {"name": "location", "type": "string", "description": "地理位置"}
+      ],
+      "examples": ["反应釜防爆间", "液氯充装台", "1#罐组防火堤", "进水闸门井(有限空间)", "首都功能核心区", "沿江区域"],
+      "source_docs": ["ACC_d81abe9f3dc21611", "ACC_a54a2bc1a40d7745", "STD_DB32_T_3617_2019", "REG_ZV9X00FC1CC7BB445E4D"]
+    },
+    {
+      "id": "major_hazard_source",
+      "name": "重大危险源",
+      "name_en": "MajorHazardSource",
+      "description": "构成重大危险源的生产装置、储存罐区等，按 GB 18218 辨识分级。法规与标准均有专项管控要求。",
+      "attributes": [
+        {"name": "name", "type": "string", "description": "危险源名称"},
+        {"name": "level", "type": "string", "description": "一级/二级/三级/四级"},
+        {"name": "chemicals", "type": "string[]", "description": "涉及危险化学品"},
+        {"name": "filed", "type": "boolean", "description": "是否已登记备案"}
+      ],
+      "examples": ["液氯储罐区(重大危险源)", "构成重大危险源的液氯生产装置", "康尼瑞公司原料罐区"],
+      "source_docs": ["REG_ZV9X09ADA20299EF5050", "STD_DB32_T_3617_2019", "ACC_1f6a00493ef39c16"]
+    },
+    {
+      "id": "accident",
+      "name": "事故",
+      "name_en": "Accident",
+      "description": "生产安全事故，是因果链与整改知识的核心锚点。",
+      "attributes": [
+        {"name": "title", "type": "string", "description": "事故报告标题"},
+        {"name": "accident_type", "type": "string", "description": "受控枚举：爆炸/火灾/中毒/窒息/灼烫/高处坠落/泄漏/机械伤害/其他"},
+        {"name": "accident_level", "type": "string", "description": "受控枚举：特别重大/重大/较大/一般"},
+        {"name": "occurred_at", "type": "string", "description": "发生时间"},
+        {"name": "death_count", "type": "int", "description": "死亡人数"},
+        {"name": "severe_injury_count", "type": "int", "description": "重伤人数"},
+        {"name": "minor_injury_count", "type": "int", "description": "轻伤人数"},
+        {"name": "missing_count", "type": "int", "description": "失踪人数"},
+        {"name": "direct_loss", "type": "string", "description": "直接经济损失"},
+        {"name": "accident_nature", "type": "string", "description": "事故性质，如 生产安全责任事故"},
+        {"name": "report_flag", "type": "string", "description": "是否瞒报/迟报/谎报"}
+      ],
+      "examples": ["西艾氟“5·3”较大爆炸事故(3死)", "融汇化工“8·29”氯气泄漏事故(19伤)", "义马气化厂“7·19”重大爆炸事故(15死16重伤)", "宿州“8·6”硫化氢中毒窒息事故(3死)"],
+      "source_docs": ["ACC_d81abe9f3dc21611", "ACC_aa76907ac753bc37", "ACC_a99c66676e30384c", "ACC_a54a2bc1a40d7745"]
+    },
+    {
+      "id": "causal_factor",
+      "name": "事故致因",
+      "name_en": "CausalFactor",
+      "description": "事故的直接原因、间接原因、管理原因等致因要素，是因果链的节点。",
+      "attributes": [
+        {"name": "description", "type": "string", "description": "致因描述"},
+        {"name": "causal_level", "type": "string", "description": "直接原因/间接原因"},
+        {"name": "factor_type", "type": "string", "description": "人的不安全行为/物的不安全状态/管理缺陷/环境因素"},
+        {"name": "category", "type": "string", "description": "超压/违章作业/设备失效/未采取防护/工艺异常/检测缺失/盲目施救/擅自改变条件 等"}
+      ],
+      "examples": ["锅炉超压运行", "违章动火作业", "擅自改变反应条件", "未正确系挂安全绳", "未通风未检测未防护下井", "应急救援人员盲目施救"],
+      "source_docs": ["ACC_1f6a00493ef39c16", "ACC_079f0344a601a660", "ACC_d81abe9f3dc21611", "ACC_7e8c4266be484f10", "ACC_9ff709766c9f71cb"]
+    },
+    {
+      "id": "measure",
+      "name": "措施",
+      "name_en": "Measure",
+      "description": "事故报告中的应急处置措施与整改/防范措施；也含法规标准中的管理要求动作。",
+      "attributes": [
+        {"name": "description", "type": "string", "description": "措施内容"},
+        {"name": "measure_type", "type": "string", "description": "应急处置/整改措施/防范措施/管理措施/技术措施"},
+        {"name": "responsible", "type": "string", "description": "责任单位/人"}
+      ],
+      "examples": ["对F1工序紧急停车并切断四氟乙烯供应", "严格执行动火作业票制度", "在二吸塔出口加装盲板"],
+      "source_docs": ["ACC_d81abe9f3dc21611", "ACC_9ff709766c9f71cb", "ACC_079f0344a601a660"]
+    },
+    {
+      "id": "standard",
+      "name": "标准",
+      "name_en": "Standard",
+      "description": "国家标准、行业标准、地方标准、团体标准等标准化文件（作为文档节点，条款另行建模）。",
+      "attributes": [
+        {"name": "code", "type": "string", "description": "标准号，如 AQ 3011-2007"},
+        {"name": "title", "type": "string", "description": "标准名称"},
+        {"name": "level", "type": "string", "description": "国家标准/行业标准/地方标准/团体标准"},
+        {"name": "mandatory", "type": "boolean", "description": "强制性/推荐性"},
+        {"name": "status", "type": "string", "description": "现行/废止"},
+        {"name": "publish_date", "type": "string", "description": "发布日期"},
+        {"name": "effective_date", "type": "string", "description": "实施日期"},
+        {"name": "issuer", "type": "string", "description": "发布/归口单位"}
+      ],
+      "examples": ["AQ 3011-2007 连二亚硫酸钠包装安全要求", "DB32/T 3617-2019 液氯使用安全技术规范", "DB37/T 4995-2025 装卸设施安全管理规范", "GB 30000.30-2025 退敏爆炸物", "GB 6222-2025 工业企业煤气安全规范"],
+      "source_docs": ["STD_AQ_3011_2007", "STD_DB32_T_3617_2019", "STD_DB37_T_4995_2025", "STD_GB_30000.30_2025", "STD_GB_6222_2025"]
+    },
+    {
+      "id": "regulation",
+      "name": "法规",
+      "name_en": "Regulation",
+      "description": "法律、行政法规、部门规章、地方性法规、地方政府规章、规范性文件等（文档节点，条款另行建模）。",
+      "attributes": [
+        {"name": "title", "type": "string", "description": "法规名称"},
+        {"name": "doc_no", "type": "string", "description": "文号，如 主席令第六十四号"},
+        {"name": "level", "type": "string", "description": "法律/行政法规/部门规章/地方性法规/地方政府规章/规范性文件"},
+        {"name": "publish_date", "type": "string", "description": "发布日期"},
+        {"name": "effective_date", "type": "string", "description": "施行日期"},
+        {"name": "issuer", "type": "string", "description": "发布机关"},
+        {"name": "status", "type": "string", "description": "现行/废止/修订"}
+      ],
+      "examples": ["中华人民共和国危险化学品安全法", "上海市危险化学品安全管理办法", "湖北省燃气管理条例", "北京市危险化学品禁止、限制、控制措施(2024年版)", "国务院安委会关于强化危险化学品“一件事”全链条安全管理的措施"],
+      "source_docs": ["REG_ZV9X09ADA20299EF5050", "REG_ZV9XD8544F5D58183AAE", "REG_ZV9X11FAD074A9180C4B", "REG_ZV9X00FC1CC7BB445E4D", "REG_ZV9XA395E3B5FE6E401A"]
+    },
+    {
+      "id": "clause",
+      "name": "条款",
+      "name_en": "Clause",
+      "description": "标准/法规的章、条、款、项、附录等结构化单元。条款级建模，避免把整份文档当一个节点。",
+      "attributes": [
+        {"name": "clause_number", "type": "string", "description": "条款号，如 6.3.1 / 第三条"},
+        {"name": "clause_type", "type": "string", "description": "章/条/款/项/附录"},
+        {"name": "text", "type": "string", "description": "条款原文"},
+        {"name": "parent_clause_number", "type": "string", "description": "上级条款号"},
+        {"name": "mandatory", "type": "boolean", "description": "是否强制性条款"}
+      ],
+      "examples": ["DB32/T 3617 第6.3.1条", "危险化学品安全法 第三条", "AQ 3011 第3.1.1.1条"],
+      "source_docs": ["STD_DB32_T_3617_2019", "REG_ZV9X09ADA20299EF5050", "STD_AQ_3011_2007"]
+    },
+    {
+      "id": "requirement",
+      "name": "安全要求",
+      "name_en": "Requirement",
+      "description": "从条款中规范化出的、可判定的安全要求命题（主体+模态+行为+条件+对象）。是事故与标准法规桥接的最小语义单元，使用稳定 requirement_id。",
+      "attributes": [
+        {"name": "requirement_id", "type": "string", "description": "稳定 ID，格式 {document_id}_{clause_number}_R{index}，如 DB32T3617-2019_6.3.1_R01（单条要求仍用 R01）"},
+        {"name": "text", "type": "string", "description": "要求原文"},
+        {"name": "normalized", "type": "string", "description": "规范化表达"},
+        {"name": "modality", "type": "string", "description": "应/应当/不得/禁止/宜/可以"},
+        {"name": "subject", "type": "string", "description": "义务主体/适用对象"},
+        {"name": "action", "type": "string", "description": "规定行为"},
+        {"name": "object", "type": "string", "description": "行为对象（如适用）"},
+        {"name": "condition", "type": "string", "description": "适用条件（如适用）"},
+        {"name": "quantitative_constraint", "type": "string", "description": "量化限值（如适用），如 ≤1.20kg/L、≤80%"},
+        {"name": "source_clause_id", "type": "string", "description": "来源条款 ID（对应 DERIVED_FROM → Clause）"}
+      ],
+      "examples": ["液氯贮槽接受液氯应小于1.20kg/L", "液氯汽车罐车卸载应采用液体装卸臂，不应使用软管", "危险化学品生产、储存、使用、经营、运输的安全管理适用本法"],
+      "source_docs": ["STD_DB32_T_3617_2019", "REG_ZV9X09ADA20299EF5050"]
+    }
+  ],
+  "relation_types": [
+    {"id": "has_clause", "name": "包含条款", "name_en": "HAS_CLAUSE", "domain": ["standard", "regulation"], "range": "clause", "description": "标准/法规包含某条款（Standard/Regulation -[HAS_CLAUSE]-> Clause）", "properties": ["order"]},
+    {"id": "parent_of", "name": "包含下级条款", "name_en": "PARENT_OF", "domain": "clause", "range": "clause", "description": "条款层级：章→条→款→项（Clause -[PARENT_OF]-> Clause）", "properties": []},
+    {"id": "references", "name": "引用", "name_en": "REFERENCES", "domain": ["clause", "standard", "regulation"], "range": ["standard", "regulation", "clause"], "description": "规范性引用文件/条款互引", "properties": ["reference_type"]},
+    {"id": "replaces", "name": "代替", "name_en": "REPLACES", "domain": ["standard", "regulation"], "range": ["standard", "regulation"], "description": "修订版代替旧版，如 GB 6222-2025 代替 GB 6222-2005", "properties": []},
+    {"id": "defines", "name": "定义", "name_en": "DEFINES", "domain": ["standard", "regulation", "clause"], "range": ["hazard_class", "chemical", "equipment", "process"], "description": "术语和定义条款定义某概念", "properties": []},
+    {"id": "derived_from", "name": "出自", "name_en": "DERIVED_FROM", "domain": "requirement", "range": "clause", "description": "要求抽取自某条款（Requirement -[DERIVED_FROM]-> Clause，唯一规范方向）", "properties": ["span"]},
+    {"id": "belongs_to_class", "name": "属于危险类别", "name_en": "BELONGS_TO_CLASS", "domain": "chemical", "range": "hazard_class", "description": "化学品属于某 GHS 危险类别", "properties": []},
+    {"id": "governs", "name": "规范", "name_en": "GOVERNS", "domain": ["standard", "regulation"], "range": ["chemical", "hazard_class", "equipment", "process", "site", "major_hazard_source", "enterprise"], "description": "标准/法规文档级规范某对象（文档级桥接；条款/要求级适用 APPLIES_TO）", "properties": ["scope"]},
+    {"id": "located_at", "name": "位于", "name_en": "LOCATED_AT", "domain": ["enterprise", "equipment"], "range": "site", "description": "企业/设备位于某场所或区域", "properties": []},
+    {"id": "has_equipment", "name": "拥有设备", "name_en": "HAS_EQUIPMENT", "domain": "enterprise", "range": "equipment", "description": "企业拥有/使用某设备", "properties": []},
+    {"id": "operates_process", "name": "运营工艺", "name_en": "OPERATES_PROCESS", "domain": "enterprise", "range": "process", "description": "企业运营某工艺", "properties": []},
+    {"id": "handles", "name": "涉危化品操作", "name_en": "HANDLES", "domain": "enterprise", "range": "chemical", "description": "企业生产/储存/使用/经营/运输某化学品", "properties": ["operation"]},
+    {"id": "has_hazard_source", "name": "构成重大危险源", "name_en": "HAS_HAZARD_SOURCE", "domain": "enterprise", "range": "major_hazard_source", "description": "企业构成某重大危险源", "properties": []},
+    {"id": "hazard_of", "name": "涉及化学品", "name_en": "HAZARD_OF", "domain": "major_hazard_source", "range": "chemical", "description": "重大危险源涉及的危险化学品", "properties": []},
+    {"id": "contains", "name": "储存/输送介质", "name_en": "CONTAINS", "domain": "equipment", "range": "chemical", "description": "设备储存/输送/盛装某化学品", "properties": ["quantity"]},
+    {"id": "used_in", "name": "用于工艺", "name_en": "USED_IN", "domain": "equipment", "range": "process", "description": "设备用于某工艺/工序", "properties": []},
+    {"id": "regulates", "name": "监管", "name_en": "REGULATES", "domain": "regulator", "range": "enterprise", "description": "监管部门监管某类企业（行政监管，区别于 GOVERNS 技术规范）", "properties": []},
+    {"id": "issued_by", "name": "由…发布", "name_en": "ISSUED_BY", "domain": ["regulation", "standard"], "range": "regulator", "description": "法规/标准由某机关/归口单位发布", "properties": []},
+    {"id": "occurred_in", "name": "发生于单位", "name_en": "OCCURRED_IN", "domain": "accident", "range": "enterprise", "description": "事故发生在某企业/单位", "properties": ["role"]},
+    {"id": "occurred_at", "name": "发生于场所", "name_en": "OCCURRED_AT", "domain": "accident", "range": "site", "description": "事故发生在某场所", "properties": []},
+    {"id": "involves_chemical", "name": "涉及化学品", "name_en": "INVOLVES_CHEMICAL", "domain": "accident", "range": "chemical", "description": "事故涉及某化学品", "properties": ["role"]},
+    {"id": "involves_equipment", "name": "涉及设备", "name_en": "INVOLVES_EQUIPMENT", "domain": "accident", "range": "equipment", "description": "事故涉及某设备", "properties": ["role"]},
+    {"id": "involves_process", "name": "涉及工艺", "name_en": "INVOLVES_PROCESS", "domain": "accident", "range": "process", "description": "事故涉及某工艺", "properties": ["role"]},
+    {"id": "direct_cause", "name": "直接原因", "name_en": "DIRECT_CAUSE", "domain": "accident", "range": "causal_factor", "description": "事故的直接原因（方向统一：Accident -[DIRECT_CAUSE]-> CausalFactor，语义=事故具有直接原因）", "properties": []},
+    {"id": "indirect_cause", "name": "间接原因", "name_en": "INDIRECT_CAUSE", "domain": "accident", "range": "causal_factor", "description": "事故的间接原因（方向统一：Accident -[INDIRECT_CAUSE]-> CausalFactor）", "properties": []},
+    {"id": "leads_to", "name": "导致", "name_en": "LEADS_TO", "domain": "causal_factor", "range": "causal_factor", "description": "致因之间的因果链传导（CausalFactor -[LEADS_TO]-> CausalFactor：管理缺陷→不安全行为/状态→能量释放）", "properties": ["order"]},
+    {"id": "relates_to", "name": "关联对象", "name_en": "RELATES_TO", "domain": "causal_factor", "range": ["chemical", "equipment", "process", "site", "enterprise", "major_hazard_source"], "description": "致因所关联的具体对象", "properties": ["role", "assertion_type"]},
+    {"id": "has_measure", "name": "有措施", "name_en": "HAS_MEASURE", "domain": "accident", "range": "measure", "description": "事故有应急处置/整改措施", "properties": ["measure_type"]},
+    {"id": "liability_of", "name": "责任主体", "name_en": "LIABILITY_OF", "domain": ["enterprise", "regulator"], "range": "accident", "description": "单位/部门对事故负有责任（Enterprise/Regulator -[LIABILITY_OF]-> Accident）", "properties": ["liability_type"]},
+    {"id": "based_on", "name": "依据", "name_en": "BASED_ON", "domain": "measure", "range": ["requirement", "clause", "standard", "regulation"], "description": "整改措施依据某条款/标准/法规（assertion_type 区分 explicit/inferred/human_confirmed）", "properties": ["assertion_type"]},
+    {"id": "violates", "name": "违反", "name_en": "VIOLATES", "domain": ["causal_factor", "accident"], "range": ["requirement", "clause", "standard", "regulation"], "description": "事故原因/事故违反了某要求或条款（桥接核心关系；assertion_type 区分 explicit/inferred/human_confirmed）", "properties": ["assertion_type"]},
+    {"id": "applies_to", "name": "适用于", "name_en": "APPLIES_TO", "domain": ["requirement", "clause"], "range": ["chemical", "equipment", "process", "site", "major_hazard_source", "enterprise"], "description": "条款/要求适用于某对象（条款级桥接；文档级规范用 GOVERNS）", "properties": ["condition"]}
+  ],
+  "canonicalization": {
+    "purpose": "将同一现实对象的多种指称（别名/俗称/简称/全称/多语言/多种写法）合并到唯一规范节点。属于未来 EDC 环节，本 Schema 仅定义对齐机制与强键字段，不在 v1 落地。",
+    "chemical_identity_vs_mention": "Chemical 表示化学物质本体（如 氯/Chlorine）。同一本体可因物态/语境有多种文本 mention（液氯/氯气/液态氯），可归一化到同一 Chemical identity，但原始 mention 与 physical_state/phase 必须保留，不得因归一化丢失物态信息（液氯 phase=liquid，氯气 phase=gas）。",
+    "true_synonym_alias": "仅真正可互换的同义名称可作为 alias（保险粉=连二亚硫酸钠、水银=汞）；上下文相关的物态表达（液氯 vs 氯气）不作无条件 alias merge。",
+    "strong_keys": {
+      "chemical": "cas_number / catalog_no / un_number",
+      "enterprise": "credit_code（统一社会信用代码）",
+      "standard": "code（标准号）",
+      "regulation": "doc_no（文号）+ title"
+    },
+    "strategy": [
+      "精确匹配 → 别名表匹配（真正同义）→ 规范化匹配（去空格/全半角/繁简转换）→ 外部权威对齐（CAS号、危险化学品目录、统一社会信用代码、标准号）"
+    ],
+    "requirement_identity": "Requirement 使用稳定 requirement_id（{document_id}_{clause_number}_R{index}），不以其文本作为唯一 ID；不同标准中内容相似的 Requirement 默认不自动 merge，v1 不引入 semantic_equivalent_to。",
+    "alias_store": "alias → canonical_id 映射表，由人工审核 + 未来 EDC 维护。",
+    "decoupled": "canonicalization 独立于图谱本体，图谱节点仅存 canonical_id、aliases[] 与 mentions[]。"
+  },
+  "provenance": {
+    "purpose": "每个节点/关系都可回溯到源文档与源 chunk，支撑可信度评估与人工复核。",
+    "required_fields": {
+      "node": ["source_doc_id", "source_chunk_id", "source_type", "page_start", "page_end"],
+      "edge": ["source_doc_id", "source_chunk_id", "source_type", "page_start", "page_end", "extraction_method"]
+    },
+    "optional_fields": ["section", "confidence", "created_at", "updated_at"],
+    "source_type": ["标准", "法规", "事故"],
+    "chunk_id_note": "标准/法规 chunk_id 形如 {doc_id}_p{page}_c{n}；事故 chunk_id 形如 {doc_id}_c{n} 且带 section/page_start/page_end 字段。",
+    "extraction_method": ["rule", "llm", "human", "manual"]
+  },
+  "assertion_model": {
+    "purpose": "抽取断言与审核元数据独立于业务实体/关系。业务图谱只承载 approved 事实，review/confidence 等元数据不塞入业务实体本体。",
+    "fields": {
+      "assertion_id": "断言唯一 ID",
+      "subject_id": "头实体 ID",
+      "predicate": "关系类型（relation id）",
+      "object_id": "尾实体 ID",
+      "source_chunk_id": "来源 chunk",
+      "extraction_method": "rule/llm/human/manual",
+      "confidence": "置信度",
+      "assertion_type": "explicit/inferred/human_confirmed",
+      "review_status": "pending/approved/rejected/modified",
+      "reviewed_by": "审核人",
+      "review_time": "审核时间",
+      "review_note": "审核意见"
+    },
+    "assertion_type_values": ["explicit", "inferred", "human_confirmed"],
+    "status_flow": "approved → 进入 production KG；pending → 进入审核池；rejected → 保留在审核/Case Repository，不进 production KG；modified → 保留原模型输出并生成 corrected assertion。",
+    "inferred_default": "inferred 断言（如 inferred VIOLATES）默认 review_status=pending，仅人工批准 approved 后进入正式可信 KG。"
+  },
+  "review": {
+    "purpose": "支持人工审核工作流。审核/抽取元数据放在 Assertion 层（见 assertion_model），业务实体/关系本体不承载 review 字段。",
+    "review_status": ["pending", "approved", "rejected", "modified"],
+    "status_flow": "approved 进入 production KG；pending 进入审核池；rejected 留审核池/Case Repository；modified 保留原输出并生成 corrected assertion。",
+    "merge_proposal": "冲突/重复节点用 merge_proposal 提交合并，由审核人裁决。"
+  },
+  "case_repository_compatibility": {
+    "purpose": "与 OneKE 风格 Case Repository（成功/失败/人工修正案例库）解耦兼容。",
+    "decoupling": "案例库与图谱分库存储；案例通过 canonical_id + external_ref 指向图谱节点，不内嵌图谱。",
+    "reserved_fields": ["case_id", "external_ref", "case_type", "feedback"],
+    "feedback_loop": "案例库中的人工修正可回流 canonicalization（别名纠正、错误合并纠正），但通过独立的反馈接口，不直接改图。"
+  },
+  "design_decisions": [
+    {
+      "id": "D1",
+      "question": "条款(Clause) 与 要求(Requirement) 是否分离建模",
+      "option_a": "方案A：条款即要求，Clause 上直接挂 modality/action 字段，不单独建 Requirement 节点",
+      "option_b": "方案B：Clause（文档结构单元）与 Requirement（可执行、可约束、可违反的规范性要求）分离，Requirement -(DERIVED_FROM)-> Clause",
+      "decision": "方案B",
+      "status": "resolved",
+      "reason": "一条款可含多条要求（如 6.3.1 含两条限值）；事故违反的是“要求”而非“条款”这一结构体；分离后 violation/整改依据关系更精确。代价是抽取成本更高、需人工校对。"
+    },
+    {
+      "id": "D2",
+      "question": "企业类型是否拆分为多个实体",
+      "option_a": "方案A：单一 Enterprise 实体 + enterprise_type / role 属性或关系属性（生产/经营/使用/运输/施工/承包）",
+      "option_b": "方案B：按角色拆分为 生产企业/施工承包单位/监管部门 等多个实体",
+      "decision": "方案A",
+      "status": "resolved",
+      "reason": "同一企业可同时具备多角色（生产+储存+使用），拆分会造成实体重复与跨角色关系混乱；用属性+关系(operation/role)区分更稳。监管部门作为独立 Regulator 实体（职责性质不同）。"
+    },
+    {
+      "id": "D3",
+      "question": "伤亡人员是否建模为 Person 实体",
+      "option_a": "方案A：伤亡仅作 Accident 属性（death_count / severe_injury_count / minor_injury_count / missing_count），不建 Person 节点",
+      "option_b": "方案B：建 Person 实体并关联伤亡/责任，需脱敏",
+      "decision": "方案A",
+      "status": "resolved",
+      "reason": "伤亡人数、直接经济损失足够支撑 v1 因果与整改分析；Person 涉及隐私与命名消歧，成本高收益暂不明显。责任认定 v1 先到单位级；Person 实体留 v2 候选。"
+    },
+    {
+      "id": "D4",
+      "question": "事故等级与类型的取值边界",
+      "option_a": "方案A：accident_type 用受控枚举（爆炸/火灾/中毒/窒息/灼烫/高处坠落/泄漏/机械伤害/其他），accident_level 用 特别重大/重大/较大/一般",
+      "option_b": "方案B：自由文本，不强制枚举",
+      "decision": "方案A",
+      "status": "resolved",
+      "reason": "受控枚举便于统计与检索；事故报告本身已按《生产安全事故报告和调查处理条例》分级分类。"
+    }
+  ],
+  "v2_candidates": [
+    "Person 实体（伤亡人员/责任人，脱敏）",
+    "Term 术语表实体（领域词表 + 定义，独立管理）",
+    "Document 统一父类（合并 Standard/Regulation 共同字段）",
+    "Consequence 后果实体（伤亡/经济损失/环境污染/设备损坏）",
+    "EnvironmentalPollution 环境污染后果",
+    "TemporalEvent 时间线事件（事故经过的细粒度时序）",
+    "semantic_equivalent_to 关系（跨标准相似 Requirement 的等价对齐）"
+  ]
+}

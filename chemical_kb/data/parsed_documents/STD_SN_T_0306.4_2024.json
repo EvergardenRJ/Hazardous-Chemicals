@@ -1,0 +1,53 @@
+{
+  "doc_id": "STD_SN_T_0306.4_2024",
+  "title": "出口烟花爆竹检验规程 第4部分：烟火药剂安全性能检验",
+  "document_type": "标准",
+  "pdf_path": "/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 0306.4-2024.pdf",
+  "page_count": 7,
+  "methods": [
+    "text"
+  ],
+  "char_count": 5436,
+  "pages": [
+    {
+      "page": 1,
+      "method": "text",
+      "text": "中华人民共和国出入境检验检疫行业标准\nSN/T 0306.4—2024\n代替SN/T 0306.4—2018\n出口烟花爆竹检验规程\n第4 部分：烟火药剂安全性能检验\nRules of the inspection of export fireworks—\nPart 4 : Safety performance test for pyrotechnic composition\n2024-12-16 发布\n2025-06-01 实施\nICS 71.100.30\nCCS  Y 88\n中华人民共和国海关总署\n发 布"
+    },
+    {
+      "page": 2,
+      "method": "text",
+      "text": "I\n前    言\n本文件按照GB/T 1.1—2020《标准化工作导则  第1 部分：标准化文件的结构和起草规则》的规\n定起草。\n本文件是SN/T 0306《出口烟花爆竹检验规程》的第4 部分。SN/T 0306 已经发布了以下部分：\n——第1 部分：总则；\n——第2 部分：产地检验；\n——第3 部分：产品安全性检验；\n——第4 部分：烟火药剂安全性能检验；\n——第5 部分：型式试验；\n——第6 部分：运输危险性定级。\n本文件代替SN/T 0306.4—2018《出口烟花爆竹检验规程  第4 部分：药剂安全性能检验》，与\nSN/T 0306.4—2018 相比，除结构调整和编辑性改动外，主要技术变化如下：\na） 更改了范围（见第1 章，2018 年版的第1 章），将3 种适用情况内容调整到 “样品要求”（见4.1，\n2018 年版的第1 章）；\nb）删除“烟火药剂”等3 项术语和定义，并调整为“GB 10631、GB/T 10632、SN/T 0306.1 界定\n的术语和定义适用于本文件”（见第3 章，2018 年版的第3 章）；\nc）增加了“样品随附资料要求”（见4.2）；\nd）将“数量应满足各相关测试项目的要求”更改为“表1 产品烟火药剂安全性检验样本量规定”\n（见4.3，2018 年版的4.1）；\ne）更改了检验内容，删除“75 ℃热安定性”“摩擦感度”“撞击感度”“爆发点”“着火温度”“吸\n湿率”\n“火焰感度”\n“静电感度”\n“水分”\n“pH 值”等11 项检验项目，增加“药量”\n“产品热安定性试验”\n“包\n件12 米跌落试验”等3 项检测项目（见第5 章，2018 年版的第5 章）；\nf）按检验内容更改了检验方法（见第5 章，2018 年版的第5 章）。\n请注意本文件的某些内容可能涉及专利。本文件的发布机构不承担识别专利的责任。\n本文件由中华人民共和国海关总署提出并归口。\n本文件起草单位：中华人民共和国长沙海关。\n本文件主要起草人：贺鹏、刘华兰、谭翠微、陈丽丽、郑西安、王鹏、邓伟超、江资成、彭丁、\n刘婵、杨玉环。\n本文件及其所代替文件的历次版本发布情况为：\n——1996 年首次发布为 SN 0545—1996《出口烟花爆竹  烟火药剂安全检验规程》；\n——2006 年第一次修订并入了SN 0306—1993《出口烟花爆竹检验规程》并拆分为5 个部分，\n本文件为SN/T 0306.4《出口烟花爆竹检验规程  第4 部分：烟火药剂安全性检验》；\n——2018年第二次修订将SN/T 0306.4《出口烟花爆竹检验规程  第4部分：烟火药剂安全性检验》\n拆分为SN/T 0306.3—2018《出口烟花爆竹检验规程\n第3 部分：产品安全性检验》、SN/T 0306.4—\n2018《出口烟花爆竹检验规程  第4 部分：烟火药剂安全性检验》，本文件为SN/T 0306.4《出口烟花\n爆竹检验规程  第4 部分：烟火药剂安全性检验》；\n——本次为第三次修订。"
+    },
+    {
+      "page": 3,
+      "method": "text",
+      "text": "II\n引    言\nSN/T 0306《出口烟花爆竹检验规程》拟由六个部分构成。\n——第1 部分：总则。\n——第2 部分：产地检验。\n——第3 部分：产品安全性检验。\n——第4 部分：烟火药剂安全性能检验。\n——第5 部分：型式试验。\n——第6 部分：运输危险性定级。\n本文件是SN/T 0306 的第4 部分，与第1 部分配合使用。"
+    },
+    {
+      "page": 4,
+      "method": "text",
+      "text": "1\n出口烟花爆竹检验规程\n第4 部分：烟火药剂安全性能检验\n1  范围\n本文件规定了出口烟花爆竹产品烟火药剂安全性检验的样品、检验内容、检验要求、检验方法\n和总体评定。\n本文件适用于出口烟花爆竹的产品烟火药剂安全性检验。\n本文件不适用于下列任一种危险性的评定：\na） 处在生产过程中烟火药剂的危险性；\nb） 因操作不当或违章操作所引起的危险；\nc） 因受静电或电磁场的影响所造成的危险；\nd） 其他非正常运输、贮存条件下的特殊危险性。\n2  规范性引用文件\n下列文件中的内容通过文中的规范性引用而构成本文件必不可少的条款。其中，注日期的引用文\n件，仅该日期对应的版本适用于本文件；不注日期的引用文件，其最新版本（包括所有的修改单）适\n用于本文件。\nGB 10631  烟花爆竹  安全与质量\nGB/T 10632  烟花爆竹  抽样检查规则\nGB/T 21242  烟花爆竹  禁限用药剂定性检测方法\nGB 50161  烟花爆竹工程设计安全标准\nSN/T0306.1  出口烟花爆竹检验规程  第1 部分：总则\n3  术语和定义\nGB 10631、GB/T 10632、SN/T 0306.1 界定的术语和定义适用于本文件。\n4  样品要求\n4.1  抽样\n以下特定条件下，可对出口烟花爆竹抽样进行烟火药剂安全性能检验：\na） 首次出口或出口烟花爆竹原材料、配方发生变化时；\nb） 长期出口的烟花爆竹产品，应每年进行一次；\nc） 其他有必要时。\n4.2  样品随附资料要求\n应提供以下技术资料："
+    },
+    {
+      "page": 5,
+      "method": "text",
+      "text": "2\na）产品图纸；\nb）产品化学成份表；\nc）产品执行标准。\n4.3   样品数量\n样品数量应满足相关项目的检测需要，最小样品量见表1。\n表1  产品烟火药剂安全性检验样本量规定\n项  目\n最小样品量\n药种、药量\n标称单个（发）药量：\n药量≤2 g，至少10 个（发）\n2 g ＜药量≤25 g，至少5 个（发）\n药量大于25 g，至少3 个（发）\n包件12 m 跌落试验\n3 件\n产品热安定性试验\n1 件\n5  检验\n5.1  检验内容\n烟火药剂安全性能检验项目包括药种、药量、产品热安定性试验、包件12 m 跌落试验等检测\n项目。\n5.2  检验要求\n5.2.1  出口烟花爆竹产品的烟火药剂禁限用化学成分应符合GB 10631 规定；出口烟花爆竹生产企业\n声明满足进口国（地区）标准时，应符合进口国（地区）技术法规关于禁限用药剂的要求。\n5.2.2  药量应符合GB 10631 规定的类别级别最大允许药量要求。\n5.2.3  包件12 m 跌落试验结果应符合5.3.3 的要求。\n5.2.4  产品热安定性试验结果应符合5.3.4 的要求。\n5.3  检验方法\n5.3.1  总则\n禁限用化学成分的定性分析按GB/T 21242 规定执行；禁限用烟火药剂定量检测方法见附录A。\n5.3.2  药品称量\n药量采用计量合格天平（0.01 g）称量。药量≤2 g，取10 个（发）样品分别称量记录，最大值\n为产品药量；2 g ＜药量≤25 g，取5 个（发）样品分别称量记录，最大值为产品药量；药量＞25 g，\n取3 个（发）样品分别称量记录，最大值为产品药量。\n5.3.3  包件12 m 跌落试验\n5.3.3.1  测试条件\n试验区应设有安全防护屏障，防护屏障应采用厚度≥300 mm 的钢筋混凝土结构或厚度≥1 m 的"
+    },
+    {
+      "page": 6,
+      "method": "text",
+      "text": "3\n防护土堤。防护屏障与跌落撞击中心点的距离应≤3 m，防护屏障高度应≥2 m。\n试验区边缘与建筑物的最小距离应≥30 m，安全操作距离应≥8 m。\n跌落撞击面在不小于600 mm 厚的混凝土基础上固定最小厚度为75 mm、布氏硬度不小于200 HB\n的钢板，表面应平整。\n撞击面的长和宽应不小于运输包装件尺寸的1.5 倍。\n5.3.3.2  测试程序\n将样品从（12±0.1） m 高（包装件底面至撞击面之间的距离）处自由下落至撞击面上，每件样品\n跌落一次，每次跌落时应改变样品的姿态，使样品箱的正面、侧面和底面分别正对撞击面。\n撞击后，应至少等待一定时间并确认安全后再接近样品，检查并记录样品的燃烧和爆炸情况。\n5.3.3.3  试验通过准则\n如包装件未出现燃烧或爆炸为合格，反之为不合格。\n5.3.4  产品热安定性试验\n5.3.4.1  测试条件\n试验应在抗爆间室完成，抗爆间室的结构应符合GB 50161 相关要求。\n恒温设备：能把把温度维持在（75±2）℃的自控安全型恒温箱或性能相当的其他烘箱设备, 并\n需具有防爆电气特性、通风、热失控保护装置、双重控温、足够大的容积和至少2 个点的温度实时记\n录装置。\n5.3.4.2  测试程序\n室温下将样品放入恒温设备中，测温探头与位于中央的制品或样品中央的管筒外壳接触，测温\n探头的引线接到记录仪上，将恒温箱内温度调节到（75±2）℃，保持48 h。记录制品的反应情况。\n5.3.4.3  试验通过的准则\n若试验未出现下列现象之一，为合格，反之为不合格：\n——试样燃烧或爆炸；\n——产生有色的烟或气体；\n——记录到试样与参比物的温度差≥3 ℃；\n——试样制品外壳或制品包装受损；\n——试样出现漏药。\n6  总体评定\n试验项目全部合格的，评定为合格；反之，为不合格。"
+    },
+    {
+      "page": 7,
+      "method": "text",
+      "text": "4\n附  录  A\n（资料性）\n禁限用烟火药剂定量检测方法\n禁限用烟火药剂定量检测方法见表A.1。\n表A.1  禁限用烟火药剂定量检测方法\n序号\n标准编号\n标准名称\n1\nISO 22863.2\nFireworks— Test methods for determination of specific chemical substances Part 2:\nHexachlorobenzene by gas chromatography\n2\nISO 22863.3\nFireworks—Test methods for determination of specific chemical substances Part 3: Lead and\nlead compounds by atomic absorption\n3\nISO 22863.4\nFireworks—Test methods for determination of specific chemical substances Part 4: Analysis\nof lead and lead compounds by X-ray Fluorescence spectrometry (XRF)\n4\nISO 22863.5\nFireworks—Test methods for determination of specific chemical substances Part 5: Analysis\nof lead and lead compounds by Inductively Coupled Plasma spectrometry (ICP)\n5\nISO 22863.6\nFireworks— Test methods for determination of specific chemical substances Part 6:\nZirconium with a particle size of less than 40 μm by Inductively Coupled Plasma Optical\nEmission Spectrometry (ICP-OES)\n6\nISO 22863.7\nFireworks—Test methods for determination of specific chemical substances Part 7: Chlorates\ncontent by chemical titration analysis\n7\nISO 22863.8\nFireworks—Test methods for determination of specific chemical substances Part 8: Arsenic\ncontent by hydride generation atomic fluorescence spectrometry\n8\nISO 22863.9\nFireworks—Test methods for determination of specific chemical substances Part 9: Mercury\ncontent by hydride generation atomic fluorescence spectrometry\n9\nISO 22863.10\nFireworks— Test methods for determination of specific chemical substances Part 10:\nNitrogen content in nitrocellulose by Iron(II) sulphate titration\n10\nSN/T 1732—2013\n烟花爆竹用烟火药剂"
+    }
+  ],
+  "status": "ACTIVE",
+  "code": "T0306.4-2024",
+  "source": "行业标准",
+  "topic": "/危险化学品管理/烟花爆竹",
+  "issuer": "海关总署"
+}

@@ -1,0 +1,16 @@
+{
+  "entity_candidates": [
+    {
+      "entity_type": "requirement",
+      "normalized_label": "液氯贮槽接受液氯应小于120kgl且液氯充装量应小于容器容积的80",
+      "canonical_ids": [
+        "requirement::DB32T3617-2019_6.3.1_R01",
+        "requirement::DB32T3617-2019_6.3.1_R02"
+      ],
+      "source_doc_ids": [
+        "STD_DB32_T_3617_2019"
+      ]
+    }
+  ],
+  "conflicts": []
+}

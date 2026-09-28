@@ -1,0 +1,313 @@
+{
+  "doc_id": "REG_ZV9X05AD86D78806AB69",
+  "title": "国家安全监管总局办公厅关于开展危险化学品重大危险源在线监控及事故预警系统建设试点工作的通知",
+  "document_type": "法规",
+  "pdf_path": "/root/autodl-tmp/chemical_kb/data/pdf/法规/国家安全监管总局办公厅关于开展危险化学品重大危险源在线监控及事故预警系统建设试点工作的通知--20161018.pdf",
+  "page_count": 59,
+  "methods": [
+    "text"
+  ],
+  "char_count": 30975,
+  "pages": [
+    {
+      "page": 1,
+      "method": "text",
+      "text": "国家安全监管总局办公厅关于开展\n危险化学品重大危险源在线监控\n及事故预警系统建设试点工作的通知\n安监总厅管三〔2016〕110 号\n天津、辽宁、江苏、浙江、安徽、福建、山东、广东、甘肃\n省（市）安全生产监督管理局：\n为贯彻落实《国务院安委会办公室关于印发标本兼治遏\n制重特大事故工作指南的通知》（安委办〔2016〕3 号）要\n求，根据《遏制危险化学品和烟花爆竹重特大事故工作意见》\n（安监总管三〔2016〕62 号）安排，国家安全监管总局决定\n组织开展危险化学品重大危险源在线监控及事故预警系统\n（以下简称“在线监控及事故预警系统”）建设试点工作。\n现将有关事项通知如下：\n一、试点地区\n天津市、福建省、山东省、甘肃省、辽宁省大连市、浙\n江省宁波市、广东省广州市、江苏省南京化工园区和扬州化\n工园区、安徽省东至县。\n二、试点工作主要任务\n（一）试用并完善《危险化学品重大危险源在线监控及\n-1-"
+    },
+    {
+      "page": 2,
+      "method": "text",
+      "text": "事故预警系统建设指南（试行）》（见附件1），明确在线\n监控及事故预警系统管理体制机制。\n（二）试用并完善《危险化学品重大危险源（储罐区、\n库区）在线监控及事故预警系统数据采集准则（试行）》（见\n附件2）和《危险化学品重大危险源在线监控及事故预警系\n统数据交换准则（试行）》（见附件3）。\n（三）国家安全监管总局开发完成功能统一、标准一致\n的在线监控及事故预警系统有关软件系统。\n（四）建立层次分明、责任清晰的在线监控及事故预警\n系统技术体系，并切实发挥应有作用。\n附件1、2、3 可从国家安全监管总局政府网站下载。\n三、其他事项\n（一）各试点地区要积极主动配合国家安全监管总局，\n按照在线监控及事故预警系统数据采集、交换准则，进行相\n关人员培训、交流座谈、需求分析和软件设计，确保建设标\n准统一，并配合做好有关标准完善、平台调试、软件优化等\n工作，确保试点工作顺利完成。\n（二）在线监控及事故预警系统建设以地方自建为主，\n国家安全监管总局将对验收合格的在线监控及事故预警系\n统的省（市）给予一定的资金奖励。\n附件：\n1.危险化学品重大危险源在线监控及事故预警系统建设\n指南（试行）\n-2-"
+    },
+    {
+      "page": 3,
+      "method": "text",
+      "text": "2.危险化学品重大危险源（储罐区、库区）在线监控及\n事故预警系统数据采集准则（试行）\n3.危险化学品重大危险源在线监控及事故预警系统数据\n交换准则（试行）\n国家安全监管总局办公厅\n2016 年10 月18 日\n-3-"
+    },
+    {
+      "page": 4,
+      "method": "text",
+      "text": "危险化学品重大危险源\n在线监控及事故预警\n附件1\n系统建设指南\n（试行）\n一、基本情况\n（一）建设背景。\n据统计，截至2015 年底，全国危险化学品生产、储存\n企业共有危险化学品重大危险源（以下简称重大危险源）1.2\n万余个，数量多、分布广、潜在安全风险大。近年来，国家\n安全监管总局研究制定了《危险化学品重大危险源监督管理\n暂行规定》（国家安全监管总局令第40 号公布，第79 号令\n修正）、《危险化学品重大危险源辨识》（GB18218）等一系\n列规章标准，不断强化重大危险源安全管理，重大危险源自\n动化设施、监测监控设施装备、日常安全管理等方面均取得\n了较大进步，并且部分地区企业建立了重大危险源监控系统\n中心。但综合分析，目前，我国重大危险源安全方面仍存在\n自动化及监测监控设施不完善、监控预警信息化水平低、政\n府安全监督管理困难、事故状态下无法及时获取有关信息等\n问题，特别是重大危险源监控信息化整体水平比较低，监控\n基础设施缺乏、政府和企业的信息网络不畅通、事故预警能\n力不足等情况日益突出，亟需建立国家-省-市-县-企业五级重\n大危险源在线监控及事故预警系统。\n-4-"
+    },
+    {
+      "page": 5,
+      "method": "text",
+      "text": "为贯彻落实《国务院安委会办公室关于印发标本兼治遏\n制重特大事故工作指南的通知》（安委办〔2016〕3 号）要\n求，进一步强化重大危险源安全管控，有效防范较大事故，\n坚决遏制重特大事故，根据《遏制危险化学品和烟花爆竹重\n特大事故工作意见》（安监总管三〔2016〕62 号）安排，国\n家安全监管总局决定在全国范围内实施重大危险源在线监\n控预警（以下简称“在线监控预警”）工程。\n（二）建设依据。\n1.《中华人民共和国安全生产法》（中华人民共和国主席\n令 第十三号）。\n2.《危险化学品安全管理条例》（国务院令第591 号）。\n3.《危险化学品重大危险源监督管理暂行规定》（总局令\n第40 号公布，第79 号令修正）。\n4.《危险化学品重大危险源辨识》（GB18218<最新修订\n版本>）。\n5.《危险化学品重大危险源安全监控通用技术规范》\n（AQ3035-2010）。\n6.《危险化学品重大危险源 罐区现场安全监控装备设置\n规范》（AQ3036-2010）。\n（三）建设目标。\n通过全国重大危险源在线监控及事故预警系统示范工\n程工作，力争实现：\n1.探讨并理顺定位准确、分级管理的“国家-省-市-县-企\n业”五级重大危险源在线监控及事故预警体制机制。\n-5-"
+    },
+    {
+      "page": 6,
+      "method": "text",
+      "text": "2.国家安全监管总局建立功能统一、标准一致的全国重\n大危险源在线监控及事故预警软件系统。\n3.建立层次分明、责任清晰的重大危险源在线监控及事\n故预警技术体系，通过数据采集系统实现企业重大危险源关\n键设施设备安全参数、视频信号、报警信息的数据采集和传\n输；区县（园区）实现属地重大危险源视频和各类参数报警\n信息集中监控管理和预警；市、省、国家可实现重大危险各\n类预警信息统计分析和管理，在需要情况下通过权限认证可\n以随时访问重大危险源现场实时信息。\n4.形成全国重大危险源在线监控及事故预警分布一张\n图。\n（四）硬件建设原则。\n“十一五”期间，国家安全监管总局建成实施了“国家安全\n生产信息系统”、“国家安全生产应急平台”等重点工程， 为各\n级安全监管监察机构提供了可互联互通的基本通道，为日常\n监管监察工作提供了信息化手段，发挥了重要的作用。本项\n目本着节约建设原则，充分利用已有的建设成果：\n1.基于已建成的安全生产监管监察网络系统，实现国家、\n省、市、区县（园区）各级数据的共享和交换。对于已建成\n网络的地区要充分利用现有网络，对于尚未建成网络的地区\n可以通过互联网+VPN 的方式实现数据的传输。\n2.基于已建成的数据中心和安全防护体系，实现应用系\n统的部署和安全防护。本项目的各级应用系统部署在各级数\n据中心中，通过在现有的安全防护体系中增加身份认证体系\n-6-"
+    },
+    {
+      "page": 7,
+      "method": "text",
+      "text": "和安全加密网关实现加密设备的管理和数据安全传输。\n3.基于已建成的数据交换平台实现国家、省、市、区县\n（园区）的数据共享和交换。对于已建成数据交换平台的地\n区可利用已有的平台进行数据传输，对于未建成数据交换平\n台的地区需配套建设数据交换平台实现数据传输。\n4.充分利用已建成的重大危险源监管系统。为避免重复\n建设，对于已建成重大危险源监管系统并且满足本项目数据\n采集要求的地区，可从已有的系统中采集重大危险源数据。\n5.充分利用已建成的企业安全参数和安全报警数据采集\n系统。为避免重复建设，对于已建成企业安全参数和安全报\n警数据采集系统并且满足本项目数据采集要求的地区，可从\n已有的系统中采集安全参数和安全报警数据。\n二、建设思路\n（一）系统逻辑架构。\n系统通过数据采集系统将企业重大危险源在线监控预\n警数据采集到各级监控中心。各级监控中心将采集的数据进\n行加工处理，建成面向分析主题的数据仓库，最后通过数据\n应用系统进行数据展示。系统架构如图1 所示。\n数据应用包括重大危险源分析、重大危险源报警分析、\n安全监控、重大危险源备案、安全管理和系统管理七大部分。\n1.重大危险源分析。基于重大危险源备案数据，对重大\n危险源的级别分布、类型分布、区域分布、可能造成事故死\n亡人数、逐年变化情况进行分析。\n-7-"
+    },
+    {
+      "page": 8,
+      "method": "text",
+      "text": "图1 系统逻辑架构\n2.重大危险源报警分析。基于重大危险源的在线监控预\n警数据，分析报警的区域分布、季节分布、行业分布、类型\n分布并挖掘报警与事故的关联关系。\n3.安全监控。实时监控企业重大危险源各监控设备的安\n全参数和视频图像。\n4.重大危险源备案。根据危险源备案管理要求，提供备\n案申请、备案登记、备案告知、核销申请、核销登记、核销\n告知以及信息统计功能。\n5.安全管理。实现重大危险源的日常和应急安全管理，\n具体包括隐患排查、设备检查、报警处置和任务管理等功能。\n6.系统管理。包括组织人员管理、权限管理、指标管理\n和日志管理等功能。\n（二）系统部署架构。\n系统采用分布式部署模式，即根据国家、省、市、区县\n-8-"
+    },
+    {
+      "page": 9,
+      "method": "text",
+      "text": "（园区）和企业各级监管职责，分别部署具有不同功能的应\n用系统。国家、省、市、区县（园区）和企业物理上组建成\n一个广域网，企业的监控参数和报警信息接入数据采集系统\n实现统一处理和保存，并通过4G 网络、Internet 或者光纤\n网络汇集到区县（园区）监控中心。区县（园区）的数据采\n用 VPN 技术上传市、省、国家监控中心。上级监控中心在\n需要情况下通过权限认证可以通过区县（园区）系统随时访\n问企业重大危险源现场视频和参数信息。系统部署架构如图\n2 所示。\n图2 系统部署架构\n-9-"
+    },
+    {
+      "page": 10,
+      "method": "text",
+      "text": "根据用户不同，将本系统划分为不同的版本，满足各级\n监管部门的监管需求，具体包括政府（国家、省、市）监管\n预警系统；区县（园区）在线监控预警系统；企业在线监控\n预警系统。具体的功能如下表所示。\n（三）数据交换架构。\n系统的数据交换采用前置交换模式，即在国家、省、市、\n区县（园区）和企业分别部署数据交换系统，数据交换系统\n首先实现与本地系统的数据集成，然后通过消息队列与上下\n级的数据交换系统实现数据交换。\n国家、省、市、区县（园区）和企业之间交换的是监控\n报警数据。国家、省、市、区县（园区）和企业之间的数据\n交换采用消息队列技术，为了保证数据安全，数据传输时进\n行加密处理。数据交换架构如图3 所示。\n-10-"
+    },
+    {
+      "page": 11,
+      "method": "text",
+      "text": "序号\n模块\n功   能\n面向用户\n数据需求\n国家\n省\n市\n区县\n企业\n1\n重\n大\n危\n险\n源\n分\n析\n危险源级别占比分析\n√\n√\n√\n√\n√\n企业按时上报重大危险源信\n息。\n2\n危险源易引发事故类型占比分析\n√\n√\n√\n√\n√\n3\n危险源区域分布分析\n√\n√\n√\n√\n√\n4\n危险源逐年变化趋势\n√\n√\n√\n√\n√\n5\n危险源可能造成的死亡人数分类统计\n√\n√\n√\n√\n√\n6\n重\n大\n危\n险\n源\n报\n警\n分\n析\n报警区域统计\n√\n√\n√\n√\n√\n通过数据采集系统接入企业的\n重大危险源在线监控预警系统，获\n取相关报警信息。\n7\n报警季节统计\n√\n√\n√\n√\n√\n8\n报警行业统计\n√\n√\n√\n√\n9\n报警设备类型统计\n√\n√\n10\n报警与事故转换关系分析\n√\n√\n√\n√\n√\n11\n安\n全\n安全参数监控\n√\n√\n国家、省、市监控中心在通过\n-11-"
+    },
+    {
+      "page": 12,
+      "method": "text",
+      "text": "12\n监 控\n视频监控\n√\n√\n授权的情况下访问区县（园区）的\n平台对企业的安全参数、视频进行\n在线监控。\n13\n安\n全\n管 理\n隐患排查\n√\n√\n区县组织企业开展隐患排查、\n设备检验等工作（设备信息仅提供\n给园区管委会）。\n14\n设备检验\n√\n√\n15\n报警处置\n√\n√\n报警处置。\n16\n任务管理\n√\n√\n√\n√\n√\n安全管理任务逐级下发和逐级汇\n报。\n17\n重\n大\n危\n险\n源\n备\n案\n备案申请\n√\n√\n1、系统部署在区县（园区），由企\n业完成申请；区县（园区）完成登\n记、审批；\n2、备案数据通过数据交换上报\n到上级监管部门。\n18\n备案登记\n√\n19\n备案告知\n√\n20\n核销申请\n√\n√\n21\n核销登记\n√\n-12-"
+    },
+    {
+      "page": 13,
+      "method": "text",
+      "text": "22\n核销告知\n√\n23\n信息统计\n√\n24\n系\n统\n管 理\n组织人员管理\n√\n√\n√\n√\n√\n管理本级系统的相关信息。\n25\n权限管理\n√\n√\n√\n√\n√\n26\n指标管理\n√\n√\n√\n√\n√\n27\n日志管理\n√\n√\n√\n√\n√\n28\n数\n据\n采集\n数据采集系统\n√\n企业安全在线监控预警数据接\n入\n-13-"
+    },
+    {
+      "page": 14,
+      "method": "text",
+      "text": "国家中心\n危险化学品重大危险源在线监控及事故预\n警系统（国家级）\n危险化学品重大危险源在线监控及事故预\n警系统（省级）\n省级中心\n危险化学品重大危险源在线监控及事故预\n警系统（市级）\n市级中心\n危险化学品重大危险源在线监控及事故预\n警系统（区县级）\n区县（园区）中心\n企业端\n数据采集系统\n视频\n温度\n压力\n浓度\n液位\n其他\n消息队列+数据加密\n消息队列+数据加密\n消息队列+数据加密\n接口调用\n接口调用\n接口调用\n消息队列+数据加密\n接口调用\n接口调用\n数据交换\n系统\n数据交换\n系统\n数据交换\n系统\n数据交换\n系统\n接口调用\n图3 数据交换架构\n（四）信息安全架构。\n系统信息安全涉及以下四个方面：\n1.数据采集系统等设备的接入安全控制；\n2.数据传输安全；\n3.数据采集系统与工厂生产网（工控网）间的安全隔离；\n4.部署在各级的系统设备安全防护。\n-14-"
+    },
+    {
+      "page": 15,
+      "method": "text",
+      "text": "数据采集系统是部署在工厂的数据采集前置设备，直接\n决定了数据采集的有效性、可靠性和安全性。因此首先需对\n数据采集系统进行合法性接入控制，并对其进行实时在线检\n测。其次，上级预警系统下发的查询指令也需要确保合法及\n有效。为此，通过建设核心的基于数字证书的加密设备认证\n体系，为每个加密设备及数据采集系统颁发数字证书，通过\n数字证书的鉴权及验签来保证加密设备及下达指令的合法\n性和有效性。\n数据采集系统采集的数据属于企业经营性数据，并涉及\n生产安全和环境安全，在传送给上级各个中心前，需进行数\n据加密，数据加密需采用国密算法。在接入4G、有线宽带\n网络时，需通过防火墙进行隔离。\n数据采集系统需要从工厂的自动化控制系统获取数据，\n为了保证工控系统以及生产网的安全，需在数据采集系统与\n工控网、生产网之间部署安全隔离防护设备（网闸以及工业\n防火墙等），避免重大危险源在线监控及事故预警系统对工\n控系统和生产管理系统的非法操作。\n国家、省、市、区县（园区）各级中心之间的数据传输\n将利用原有安全生产网，数据不再进行加密，数据安全依赖\n原有的安全生产网络予以保障。\n在国家级中心部署安全控制中心，负责数据采集系统、\n加密网关接入安全认证和在线实时检测。\n各级中心需要部署防火墙、入侵防御系统和防病毒系统\n等边界安全防护设备，提供包过滤、病毒查杀、入侵防御、\n-15-"
+    },
+    {
+      "page": 16,
+      "method": "text",
+      "text": "防DDOS 攻击以及内外网隔离等功能。信息安全架构如图4\n所示。\nUSB安全存储\n加密卡\n网闸\n数据采集系统\n工业防火墙\n控制系统\n数据采集系统\n生产区域1\nOPC server\n工业控制区域\n监控\n防火墙\n4G/Internet\n安全数\n据网关\n入侵防御\n系统\n防病毒\n系统\n防火墙\n业务\n系统\n业务\n系统\n外网交\n换机\n内网交\n换机\n防火墙\n县级中心\n入侵防御\n系统\n防病毒系\n统\n业务\n系统\n业务\n系统\n内网交\n换机\n防火墙\n市级中心\nVPN服务\n器\nVPN\n内网交\n换机\nVPN客户端\n安全数\n据网关\n入侵防御\n系统\n防病毒\n系统\n防火墙\n业务\n系统\n业务\n系统\n外网交\n换机\n内网交\n换机\n防火墙\n县级中心\n内网交\n换机\nVPN客户端\nUSB安全存储\n加密卡\n网闸\n数据采集系统\n工业防火墙\n控制系统\n数据采集系统\n生产区域1\nOPC server\n工业控制区域\n监控\n防火墙\nVPN\n入侵防御\n系统\n防病毒系\n统\n业务\n系统\n业务\n系统\n内网交\n换机\n防火墙\n省级中心\nVPN服务\n器\nVPN\n安全设备认证\n服务平台\n入侵防御\n系统\n防病毒系\n统\n业务\n系统\n业务\n系统\n内网交\n换机\n防火墙\n国家级中心\nVPN服务\n器\nKMC\nVPN\n视频数据\n工控采集数据\n工控采集数据\n视频数据\n图4 信息安全架构图\n三、建设内容\n（一）政府（国家、省、市）监管预警系统。\n预警系统主要包括重大危险源分析和重大危险源报警\n分析。\n-16-"
+    },
+    {
+      "page": 17,
+      "method": "text",
+      "text": "1.重大危险源分析。\n（1）重大危险源级别占比分析。\n统计重大危险源级别的数量和占比，其中国家系统分析\n全国范围的重大危险源，省、市系统分析所辖区域的重大危\n险源。\n（2）重大危险源可能引发事故类型占比分析。\n统计重大危险源可能引发事故类型的数量和占比，事故\n类型为火灾、爆炸、中毒三种。其中国家系统分析全国范围\n的重大危险源，省、市系统分析所辖区域的重大危险源。\n（3）重大危险源区域分布分析。\n统计重大危险源级别和可能引发事故类型的区域分布\n情况，国家系统分析全国范围内分布情况，省、市系统分析\n所辖区域的分布情况。\n（4）重大危险源逐年变化趋势。\n统计重大危险源逐年变化趋势，包括整体数量、级别占\n比和可能引发事故类型占比变化趋势。国家系统分析全国范\n围情况，省、市系统分析所辖区域情况。\n（5）重大危险源可能引发事故死亡人数分类统计。\n按事故死亡人数分类统计化工和危险化学品安全事故\n的逐年变化趋势。死亡人数按：0-9 人、10-29 人、30-99 人、\n100 人以上四种级别进行划分。\n2.重大危险源报警分析。\n（1）报警区域统计。\n统计重大危险源报警的区域分布情况，按不同范围进行\n-17-"
+    },
+    {
+      "page": 18,
+      "method": "text",
+      "text": "统计，满足不同层级监控中心的监管需要。\n（2）报警季节统计。\n统计报警的季节分布情况，包括报警总量的季节分布、\n各设备报警的季节分布，找出报警与季节的关系。同时，可\n统计报警在一天中的分布情况。\n（3）报警行业统计。\n按行业分类（如：某区域的精细化工、石油化工、煤化\n工等）统计报警的季节变化趋势，找出各行业安全报警与季\n节之间的关系。\n（4）报警设备类型统计。\n按设备类型（视频摄像头、温度传感器、压力传感器、\n液位传感器、气体浓度传感器）统计报警情况，既可以统计\n历史总量信息，也可实时监控变化情况。\n（二）区县（园区）在线监控预警系统。\n区县（园区）在线监控预警系统的功能包括安全监控子\n系统、预警子系统、安全管理子系统。\n1.安全监控子系统。\n（1）安全参数监控。\n监控特定企业、特定区域、特定设备的安全报警情况。\n国家、省、市监控中心可通过授权访问区县监控平台，在事\n故状态下了解企业情况。\n（2）视频监控。\n监控特定企业、特定区域、特定摄像头的实时和历史监\n控录像。国家、省、市监控中心可通过授权访问区县监控平\n-18-"
+    },
+    {
+      "page": 19,
+      "method": "text",
+      "text": "台，在事故状态下了解企业情况。\n2.预警子系统。\n基于所辖区域的重大危险源、报警信息和安全参数进行\n分析预警，分析主题和分析模型与政府（国家、省、市）监\n管预警系统一致，预警子系统应按照相关规定存储某个时间\n段的报警信息和安全参数信息，并支持具体分析和大数据统\n计挖掘。具体的报警指标阈值可根据区县（园区）情况进行\n调整。\n3.安全管理子系统。\n（1）在线监控预警监管。\n根据全国重大危险源在线监控预警工作管理需求，提供\n在线监控预警系统隐患排查活动、隐患监控、隐患整改通知、\n隐患整改报告、隐患治理项目等功能。\n（2）报警处置。\n根据区县（园区）的报警处置需求，提供信息查看、情\n况核实、预案处置、报告生成等功能。\n（3）任务管理。\n提供任务下达和任务报告功能，满足区县（园区）用户\n与上级和企业的工作沟通需要。\n（三）企业在线监控预警系统。\n企业监控预警系统的功能包括安全监控子系统、预警子\n系统、安全管理子系统和数据采集子系统。企业可自主开发\n在线监控预警系统，但应与区县（园区）监控预警系统互联\n互通；企业可利用园区的安全监控子系统、安全预警子系统\n-19-"
+    },
+    {
+      "page": 20,
+      "method": "text",
+      "text": "和安全管理子系统实现本企业的安全管理。\n1.安全监控子系统。\n（1）安全参数监控。\n监控特定区域、特定设备的安全参数和安全报警情况。\n（2）视频监控。\n监控特定区域、特定摄像头的实时和历史监控录像。\n2.预警子系统。\n基于企业的重大危险源、报警信息和安全参数进行分析\n预警，分析主题和分析模型与区县（园区）预警系统一致，\n预警子系统应按照相关规定存储某个时间段的报警信息和\n安全参数信息，并支持具体分析和大数据统计挖掘。具体的\n报警指标阈值可根据区县（园区）情况进行调整。\n3.安全管理子系统。\n（1）在线监控预警监管。\n根据全国重大危险源在线监控预警工作管理需求，提供\n在线监控预警系统隐患排查活动、隐患监控、隐患整改通知、\n隐患整改报告、隐患治理项目等功能。\n（2）报警处置。\n根据区县（园区）的报警处置需求，提供信息查看、情\n况核实、预案处置、报告生成等功能。\n（3）任务管理。\n提供任务下达和任务报告功能，满足区县（园区）用户\n与上级和企业的工作沟通需要。\n4.企业数据采集系统。\n-20-"
+    },
+    {
+      "page": 21,
+      "method": "text",
+      "text": "企业通过设置数据采集系统实现现场设备的数据采集、\n数据过滤、数据集成等功能，读取安全监控装置压力、液位、\n温度、可燃气体、有毒气体的安全参数和报警数据，实现视\n频信息的读取和视频摄像头的控制。\n数据采集系统是一款高性能服务器，由高性能硬件和智\n能数据采集软件共同组成：\n（1）硬件部分应满足以下条件：\n具备双处理器板，支持冗余备份。任一板卡故障时，另\n一板卡可自动接替。\n双路冗余供电，保证供电可靠性；双电源应互为热备份，\n单路电源输出能力大于1.5kW，并有足够的负载能力储备；\n整个系统可通过扩展CPU 实现处理能力提升。\n在上联通信中断24 小时以内，可将采集、处理后的数\n据存储；当通信恢复后，数据可上传到上级中心设备。\n应采用模块化设计，方便维护；硬件平台关键部件（单\n板、风机等）应采用FRU（现场更换单元）进行设计。\n应采用可扩展机框管理单元，通过IPMI 总线完成插箱\n内各节点板及风机的控制和管理。\n应具备USB 接口，并支持加密卡。\n2.软件部分应满足以下要求：\n在通信协议方面，应内嵌数据接口引擎，兼容\nOPC/RS232/RS485/ODBC/JDBC/COM/DCOM/COM+/EJ\nB 等主流数据接口、中间件，最大限度扩展系统集成能力。\n嵌入的专业数据过滤软件，可过滤无效信息。\n-21-"
+    },
+    {
+      "page": 22,
+      "method": "text",
+      "text": "为了节约建设成本，在满足上述技术要求的前提下，根\n据采集数据量、并发量、转发视频等业务对处理器、内存和\n存储的要求，企业配置高、中、低三档数据采集系统。\n（四）数据交换系统。\n根据本系统的数据交换架构设计，数据交换系统包括本\n地数据集成和数据传输两个组成部分。\n1.数据集成。\n采用WebService 接口方式与本地应用系统实现数据集\n成，集成的数据包括重大危险源备案数据、安全监控设备的\n安全参数和报警数据、上下级工作交流数据等。\n2.数据传输。\n采用消息队列+数据加密的方式保证数据在广域网中的\n安全传输。首先数据交换前置机将从本地系统中采集的数据\n封装成传输专用格式并加密，然后调用消息队列系统将数据\n传输给上级监控中心应用系统。\n-22-"
+    },
+    {
+      "page": 23,
+      "method": "text",
+      "text": "危险化学品重大危险源（储罐区、库区）\n在线监控及事故预警系统数据采集准则\n附件2\n（试行）\n1 范围\n本数据准则适用于全国危险化学品重大危险源在线监控及事故预警系统建设的危险\n化学品储罐区和库区现场安全监控装置安全参数和报警数据采集。\n2 规范性引用文件\n下列文件中的条款通过本准则的引用而成为本准则的条款。凡是注日期的引用文件，\n其随后所有的修改单（不包括勘误的内容）或修订版均不适用于本准则，然而，鼓励根据\n本准则达成协议的各方研究是否可使用这些文件的最新版本。凡是不注日期的引用文件，\n其最新版本适用于本准则。\nAQ3035-2010 危险化学品重大危险源安全监控通用技术规范\nAQ3036-2010 危险化学品重大危险源 罐区现场安全监控装备设置规范\n国家安全监管总局令（第40号发布、第79号修订） 危险化学品重大危险源监督管理\n暂行规定\n3 术语和定义\n下列术语和定义适用于本文件。\n3.1 储罐区\n由单个或多个储罐构成的区域。\n3.2 库区\n由单个或多个仓库构成的区域。\n3.3 常压储罐\n设计压力小于或等于6.9kPa（罐顶表压）的储罐。\n3.4 低压储罐\n设计压力大于6.9kPa 且小于0.1MPa（罐顶表压）的储罐。\n3.5 压力储罐\n设计压力大于或等于0.1MPa（罐顶表压）的储罐。\n3.6 全压力式储罐\n在常温和较高压力下盛装液化气体的储罐。\n3.7 半冷冻式储罐\n-23-"
+    },
+    {
+      "page": 24,
+      "method": "text",
+      "text": "在较低温度和较低压力下盛装液化气体的储罐。\n3.8 全冷冻式储罐\n在低温和较低压力下盛装液化气体的储罐。\n3.9 可燃气体\n在20 ℃和标准大气压101.3 kPa 时与空气混合有一定易燃范围的气体。\n3.10 有毒气体\n包括已知对人类健康造成危害的气体；半数致死浓度LC50 值不大于5000 mL/m³，判\n定对人类具有危害的气体。\n3.11 液化烃\n在15℃时，蒸气压大于0.1MPa 的烃类液体及其他类似的液体，不包括液化石油气。\n3.12 安全监控装备\n储罐区和库区危险因素（参数）监测报警和控制的相关装备。\n3.13 预警参数\n能够预测、预报，表征事物是否处于安全状态或影响事物安全状态的物理量或化学量\n参数。\n3.14 报警阈值\n安全监控装备触发报警的临界值。\n3.15 数据采集系统\n储罐区和库区安全监控装备安全参数和报警数据的采集前置机。\n4 预警参数采集要求\n4.1 储罐区\n（1）常压、低压储罐：罐内介质的液位、温度；罐区内的可燃气体、有毒气体浓度；\n罐区内视频。\n（2）压力储罐：罐内介质的压力、温度；罐区内的可燃气体、有毒气体浓度；罐区\n内视频。\n（3）全压力式储罐：罐内介质的压力、液位、温度；罐区内的可燃气体、有毒气体\n浓度；罐区内视频。\n（4）半冷冻式、全冷冻式储罐：罐内介质的压力、液位、温度；罐区内的可燃气体、\n有毒气体浓度；罐区内视频。\n4.2 库区\n根据对库区危险及有害因素的分析，采集参数为可燃气体浓度、有毒气体浓度、仓库\n外视频。\n5 储罐内温度\n5.1 采集对象\n采集对象为储罐内温度传感器报警阈值、温度报警数据和温度实时数据。\n-24-"
+    },
+    {
+      "page": 25,
+      "method": "text",
+      "text": "温度传感器报警阈值采集主要为了检查报警阈值设置是否合理、报警阈值是否存在随\n意更改问题；报警阈值分为两级，第一级报警阈值为正常工作温度的上限。第二级为第一\n级报警阈值的1.25-2 倍，且应低于介质闪点或燃点等危险值。\n温度传感器报警数据采集主要是为了检查储罐内温度是否异常；\n温度传感器实时数据采集主要是满足储罐内温度实时监控的需要，同时结合阈值还可\n以检查报警数据采集会否准确。\n5.2 采集方式\n采集方式以自动监控为主，数据采集系统通过DCS、PLC 等装置实时获取温度监控装\n置的测量数据，采集数据包括每个温度传感器的报警阈值、报警数据和实时数据。数据格\n式如下表1 所示：\n表1 温度监控装置的测量数据格式\n序号\n数据类型\n数据项\n单位\n说明\n1\n温度报警阈值数据\n传感器编号\n2\n第一级报警阈值\n℃\n3\n第二级报警阈值\n℃\n4\n温度报警数据\n传感器编号\n5\n报警类型\n1.过程报警\n2.系统报警\n6\n报警说明\n7\n报警时间\n8\n报警温度\n℃\n9\n温度实时数据\n传感器编号\n10\n温度值\n℃\n5.3 采集频次\n温度传感器报警阈值的采集频次为每小时1 次；温度报警数据的采集频次为每分钟1\n次，发生报警后，报警数据的采集频次为每10 秒钟1 次；温度数据的采集为每分钟1 次。\n6 储罐内压力\n6.1 采集对象\n采集对象为储罐内压力传感器的报警阈值、报警数据和实时数据。\n压力传感器报警阈值采集主要为了检查报警阈值设置是否合理、报警阈值是否存在随\n意更改问题；报警阈值分为两级，第一级报警阈值为正常工作压力的上限，第二级为容器\n设计压力的80%，并应低于安全阀设定值。\n压力传感器报警数据采集主要是为了检查压力传感器是否正常工作、储罐内压力是否\n异常。\n-25-"
+    },
+    {
+      "page": 26,
+      "method": "text",
+      "text": "压力传感器实时数据采集主要是满足储罐内压力实时监控的需要，同时结合阈值还可\n以检查报警数据采集会否准确。\n6.2 采集方式\n采集方式以自动采集为主，数据采集系统通过DCS、PLC 等装置实时获取压力监控装\n置的数据。\n采集数据包括每个压力传感器的报警阈值、报警数据和实时数据。数据格式如下表2\n所示：\n表2 压力监控装置的测量数据格式\n序号\n数据类型\n数据项\n单位\n说明\n1\n压力报警阈值数据\n传感器编号\n2\n第一级报警阈值\nkPa\n3\n第二级报警阈值\nkPa\n4\n压力报警数据\n传感器编号\n5\n报警类型\n1、过程报警\n2、系统报警\n6\n报警说明\n7\n报警时间\n8\n报警压力\nkPa\n9\n压力实时数据\n传感器编号\n10\n压力值\nkPa\n6.3 采集频次\n压力传感器报警阈值的采集频次为每小时1 次；压力报警数据的采集频次为每分钟1\n次，发生报警后，报警数据的采集频次为每10 秒钟1 次；压力数据的采集为每分钟1 次。\n7 储罐内液位\n7.1 采集对象\n采集对象为储罐内液位传感器报警阈值、报警数据和实时数据。\n液位传感器报警阈值采集主要为了检查报警阈值设置是否合理、报警阈值是否存在随\n意更改问题；报警阈值分为高位限和低位限。\n液位传感器报警数据采集主要是为了检查液位传感器是否正常工作、储罐内液位是否\n异常。\n液位传感器实时数据采集主要是满足储罐内液位实时监控的需要，同时结合阈值还可\n以检查报警数据采集会否准确。\n7.2 采集方式\n-26-"
+    },
+    {
+      "page": 27,
+      "method": "text",
+      "text": "采集方式以自动监控为主，数据采集系统通过DCS、PLC 等装置实时获取液位监控装\n置的测量数据，采集数据包括每个液位传感器的报警阈值、报警数据和实时数据。数据格\n式如下表3 所示：\n表3 液位监控装置的测量数据格式\n序号\n数据类型\n数据项\n单位\n说明\n1\n液位报警阈\n值数据\n传感器编号\n2\n高位限报警阈值\ncm\n3\n低位限报警阈值\ncm\n4\n液位报警数\n据\n传感器编号\n5\n报警类型\n1、过程报警\n2、系统报警\n6\n报警说明\n7\n报警时间\n8\n报警液位\ncm\n9\n液位实时数\n据\n传感器编号\n10\n液位\ncm\n7.3 采集频次\n液位传感器报警阈值的采集频次为每小时1 次；液位报警数据的采集频次为每分钟1\n次，发生报警后，报警数据的采集频次为每10 秒钟1 次；液位实时数据的采集为每分钟1\n次，发生报警后，实时数据的采集频次为每10 秒钟1 次。\n8 罐区和库区可燃气体\n8.1 采集对象\n采集对象为罐区可燃气体传感器报警阈值和、报警数据和实时数据。\n可燃气体传感器报警阈值采集主要为了检查报警阈值设置是否合理、报警阈值是否存\n在随意更改问题；报警阈值分为两级，第一级报警阈值不高于25% LEL，第二级报警阈值\n不高于50% LEL。\n可燃气体传感器报警数据采集主要是为了检查可燃气体传感器是否正常工作、罐区可\n燃气体浓度是否异常。\n可燃气体传感器实时数据采集主要是满足罐区可燃气体浓度实时监控的需要，同时结\n合阈值还可以检查报警数据采集会否准确。\n8.2 采集方式\n采集方式以自动监控为主，数据采集系统通过DCS、PLC 等装置实时获取可燃气体监\n控装置的测量数据，采集数据包括每个可燃气体传感器的报警阈值、报警数据和实时数据。\n数据格式如下表4 所示：\n-27-"
+    },
+    {
+      "page": 28,
+      "method": "text",
+      "text": "表4 可燃气体监控装置的测量数据格式\n序号\n数据类型\n数据项\n单位\n说明\n1\n可燃气体报\n警阈值数据\n传感器编号\n2\n第一级报警阈值\n%LEL（爆炸下限）\n3\n第二级报警阈值\n%LEL（爆炸下限）\n4\n可燃气体报\n警数据\n传感器编号\n5\n报警类型\n1、过程报警\n2、系统报警\n6\n报警说明\n7\n报警时间\n8\n报警值\n%LEL（爆炸下限）\n9\n可燃气体实\n时数据\n传感器编号\n10\n可燃气体浓度\n%LEL（爆炸下限）\n8.3 采集频次\n可燃气体传感器报警阈值的采集频次为每小时1 次；可燃气体报警数据的采集频次为\n每分钟1 次，发生报警后，报警数据的采集频次为每10 秒钟1 次；可燃气体实时数据的\n采集为每分钟1 次，发生报警后，实时数据的采集频次为每10 秒钟1 次。\n9 罐区和库区有毒气体\n9.1 采集对象\n采集对象为罐区有毒气体传感器报警阈值、报警数据和实时数据。\n有毒气体传感器报警阈值采集主要为了检查报警阈值设置是否合理、报警阈值是否存\n在随意更改问题；报警阈值分为两级，第一级报警阈值为最高允许浓度的75%，当最高允\n许浓度较低，现有采集报警仪器灵敏度达不到要求的情况，第一级报警阈值可适当提高，\n其前提是既能有效采集报警，又能避免职业中毒；第二级报警值为最高允许浓度的2 -3 倍。\n有毒气体报警数据采集主要是为了检查有毒气体传感器是否正常工作、罐区有毒气体\n浓度是否异常；通过比对有毒气体浓度测量值和报警阈值判断罐区有毒气体浓度是否异\n常。\n有毒气体传感器实时数据采集主要是满足罐区有毒气体浓度实时监控的需要，同时结\n合阈值还可以检查报警数据采集会否准确。\n9.2 采集方式\n采集方式以自动监控为主，数据采集系统通过DCS、PLC 等装置实时获取有毒气体监\n控装置的测量数据，采集数据包括每个有毒气体传感器的报警阈值、报警数据和实时数据。\n数据格式如下表5 所示：\n-28-"
+    },
+    {
+      "page": 29,
+      "method": "text",
+      "text": "表5 有毒气体监控装置的测量数据格式\n序号\n数据类型\n数据项\n单位\n说明\n1\n有毒气体报\n警阈值数据\n传感器编号\n2\n有毒气体类型\n3\n第一级报警阈值\nmg/m³\n4\n第二级报警阈值\nmg/m³\n5\n有毒气体报\n警数据\n传感器编号\n6\n报警类型\n1、过程报警\n2、系统报警\n7\n报警说明\n8\n报警时间\n9\n有毒气体类型\n10\n报警值\nmg/m³\n11\n有毒气体实\n时数据\n传感器编号\n12\n有毒气体浓度\nmg/m³\n9.3 采集频次\n有毒气体传感器报警阈值的采集频次为每小时1 次；有毒气体报警数据的采集频次为\n每分钟1 次，发生报警后，报警数据的采集频次为每10 秒钟1 次；有毒气体实时数据的\n采集为每分钟1 次，发生报警后，实时数据的采集频次为每10 秒钟1 次。\n10 罐区和库区视频监控\n10.1 采集对象\n采集对象为罐区视频监控数据。\n10.2 采集方式\n采集方式以自动监控为主，数据采集系统通过集成视频管理系统实时获取视频监控数\n据。数据格式如下表6 所示：\n表6 视频监控装置的测量数据格式\n序号\n数据项\n说明\n1\n监控装置编号\n2\n实时视频\n监控设备当前的监控视频\n3\n录像视频\n监控设备录制的监控视频\n4\n视频图像\n视频截图\n5\n视频控制（可选）\n云台全方位（左右/上下）移动及镜头变倍、变焦控制\n10.3 采集频次\n数据采集系统集成视频管理系统，随时可以调取实时视频和录像数据，数据采集系统\n并不存储视频数据。\n-29-"
+    },
+    {
+      "page": 30,
+      "method": "text",
+      "text": "全国危险化学品重大危险源\n在线监控及事故预警系统数据交换\n附件3\n准则\n(试行)\n1 概述\n本数据准则旨在定义危险化学品重大危险源在线监控预警数据在企业、区县\n（园区）、市、省、国家各级监控中心的数据交换标准，以达到数据的统筹管理，\n更有效的保证数据的实时性、安全性与有效性。\n1.1 交换方式\n本系统的数据交换采用前置交换模式，即在国家、省、市、区县（园区）和\n企业分别部署数据交换系统，数据交换系统首先实现与本地系统的数据集成，然\n后通过消息队列与上下级的数据交换系统实现数据交换。\n国家、省、市、区县（园区）之间交换的是危险化学品重大危险源监管预警\n数据；区县（园区）和企业之间交换的是在线监控数据。\n国家、省、市、区县（园区）和企业之间的数据交换采用消息队列技术，为\n了保证数据安全，数据传输时进行加密处理。\n-30-"
+    },
+    {
+      "page": 31,
+      "method": "text",
+      "text": "接口调用\n系统\n数据交换\n系统\n数据交换\n系统\n数据交换\n系统\n数据交换\n接口调用\n接口调用\n数据加密\n+\n消息队列\n接口调用\n接口调用\n接口调用\n数据加密\n+\n消息队列\n数据加密\n+\n消息队列\n数据加密\n+\n消息队列\n其他\n液位\n浓度\n压力\n温度\n视频\n数据采集系统\n企业端\n中心\n）\n园区\n（\n区县\n）\n区县级\n（\n警系统\n危险化学品重大危险源在线监控及事故预\n市级中心\n）\n市级\n（\n警系统\n危险化学品重大危险源在线监控及事故预\n省级中心\n）\n省级\n（\n警系统\n危险化学品重大危险源在线监控及事故预\n）\n国家级\n（\n警系统\n危险化学品重大危险源在线监控及事故预\n国家中心\n1.2 省级中心数据交换系统与应用系统的接口函数简述\n函数类别\n函数名称\n函数概述\n数据交换系统接\n口函数\nsetCompanyInfo\n提供重大危险源申报企业信息\nsetDangerousSourceInfo\n提供重大危险源特征信息\nsetMonitoringEquipmentInfo\n提供监控设备信息\nsetAlertInfo\n提供报警信息\nsetTaskExecutionInfo\n提供任务完成情况\n应用接口函数\nsetTaskInfo\n提供任务信息\n-31-"
+    },
+    {
+      "page": 32,
+      "method": "text",
+      "text": "1.3 市级中心数据交换系统与应用系统的接口函数简述\n函数类别\n函数名称\n函数概述\n前置机接口函数\nsetCompanyInfo\n提供重大危险源申报企业信息\nsetDangerousSourceInfo\n提供重大危险源特征信息\nsetMonitoringEquipmentInfo\n提供监控设备信息\nsetAlertInfo\n提供报警信息\nsetTaskExecution\n提供任务完成情况\n应用接口函数\nsetTaskInfo\n提供任务信息\n1.4 区县（园区）中心数据交换系统与应用系统的接口函数简述\n函数类别\n函数名称\n函数概述\n前置机接口函数\nsetCompanyInfo\n提供重大危险源申报企业信息\nsetDangerousSourceInfo\n提供重大危险源特征信息\nsetMonitoringEquipmentInfo\n提供监控设备信息\nsetAlertInfo\n提供报警信息\nsetTaskExecution\n提供任务完成情况\n应用接口函数\nsetTaskInfo\n提供任务信息\n1.5 数据采集系统与监控系统的接口函数简述\n数据采集系统中内置了与视频监控、液位、压力、有毒气体、可燃气体等监\n控设备。其中视频监控需要通过视频监控系统提供的接口对视频信息进行操作。\n其他的液位、压力、可燃气体、有毒气体只需要通过其服务器端获取设备列表和\n接受报警信息，不需要控制设备。\n-32-"
+    },
+    {
+      "page": 33,
+      "method": "text",
+      "text": "函数类型\n函数名称\n函数概述\n通用\nGetServer\n获得第三方系统服务器连接句柄，需要连接\n到服务器\nGetSendorList\n获得第三方系统里定义的传感器或摄像头\n列表信息\ngetAlertInfo\n获取传感器的报警信息\n视频监控\nStartLiveVideo\n播放视频监控子系统上摄像机的实时视频\nPanTiltZoom\n控制第三方监控系统摄像机的PTZ 移动\nCaptureImage\n抓取第三方视频系统上的图像图片来存储\n到本地\nSendRecordedVideoRequest\n播放录像及对录像进行控制操作\nStartLiveVideo\n播放视频监控子系统上摄像机的实时视频\nExportVideoToFile\n从第三方视频监控系统里下载录像图像到\n本地里\n1.6 数据采集系统安全接口函数简述\n通过建设核心的基于数字证书的加密设备认证体系，为每个加密设备及数据\n采集系统颁发数字证书，通过数字证书的鉴权及验签来保证加密设备及下达指令\n的合法性和有效性。\n数据采集系统采集的数据属于企业经营性数据，并涉及生产安全和环境安\n全，在传送给上级各个中心前，需要进行数据加密，数据加密需采用国密算法。\n在接入4G、有线宽带网络时，需要通过防火墙进行隔离。\n函数类型\n函数名称\n函数概述\n通用\nencryptData\n数据加密接口\nsignData\n签名接口\nverifySignedData\n验签接口\n1.7 加密网关接口函数简述\n在国家、省、市、区县（园区）各级部署加密网关，实现数据的加密传输，\n-33-"
+    },
+    {
+      "page": 34,
+      "method": "text",
+      "text": "同时在国家中心部署安全控制中心，负责数据采集系统、加密网关接入安全认证\n和在线实时检测。\n函数类型\n函数名称\n函数概述\n通用\nencryptData\n数据加密接口\ndecryptData\n数据解密接口\nsignData\n签名接口\nverifySignedData\n验签接口\n2 接口调用函数详细描述\n2.1 省级中心数据交换系统与应用系统的接口函数详细描述\n2.1.1 上报重大危险源申报企业接口说明\n1. 方法名称：setCompanyInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ncompanyInfo\nString\n不允许\n将企业信息以xml 形式进行描述，\nString 方式进行传输\n（1）参数CompanyInfo 示例，具体数据项参考危险化学品重大危险源企业信\n息。\n<Parameter Name=\"申报企业信息\">\n<Items>\n<Item Name=\"法人单位名称\">xxxxxx</Item>\n<Item Name=\"填报单位名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n3. 返回值说明\n-34-"
+    },
+    {
+      "page": 35,
+      "method": "text",
+      "text": "返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</Description>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.1.2 上报重大危险源特征信息接口说明\n1. 方法名称：setDangerousSourceInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ndangerouSourceInfo String\n不允许\n将危险源信息以xml 形式进行描述，以\nString 方式进行传输\n（1）参数dangerouSourceInfo 示例，具体数据项参考危险化学品重大危险源\n基本特征信息。\n<Parameter Name=\"基本特征信息\">\n<Items>\n<Item Name=\"填报单位名称\">xxxxxx</Item >\n<Item Name=\"重大危险源名称\">xxxxxx</Item >\n<Item Name=\"危险化学品信息列表\">\n<ItemList>\n<Item Name=\"危险化学品序号\"> xxxxxx</Item >\n。。。。。\n</ItemList>\n</Item >\n-35-"
+    },
+    {
+      "page": 36,
+      "method": "text",
+      "text": "</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.1.3 上报监控设备信息接口说明\n1. 方法名称：setMonitoringEquipmentInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\nmonitoringEquipmentInfo String\n不允许\n将监控设备信息以xml 形式进行描\n述，以String 方式进行传输\n（1）参数monitoringEquipmentInfo 示例，具体数据项参考危险化学品重大\n危险源监控设备信息。\n<Parameter Name=\"监控设备信息\">\n<Items>\n<Item Name=\"设备编号\">xxxxxx</Item >\n<Item Name=\"设备名称\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n-36-"
+    },
+    {
+      "page": 37,
+      "method": "text",
+      "text": "</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.1.4 上报监控设备报警信息接口说明\n4. 方法名称：setAlertInfo\n5. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\nalertInfo\nString\n不允许\n将监控设备报警信息以xml 形式进行描\n述，以String 方式进行传输\n（1）参数alertInfo 示例，具体数据项参考危险化学品重大危险源报警信息。\n<Parameter Name=\"报警信息\">\n<Items>\n<Item Name=\"报警设备编号\">xxxxxx</Item >\n<Item Name=\"报警类型\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n6. 返回值说明\n-37-"
+    },
+    {
+      "page": 38,
+      "method": "text",
+      "text": "返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.1.5 上报任务完成情况接口说明\n1. 方法名称：setTaskExecutionInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ntaskExecutionInfo String\n不允许\n将任务完成情况以xml 形式进行描述，\n以String 方式进行传输\n（1）参数taskExecutionInfo 示例。\n<Parameter Name=\"任务完成情况\">\n<Items>\n<Item Name=\"任务ID\">xxxxxx</Item >\n<Item Name=\"任务完成人\">xxxxxx</Item >、\n<Item Name=\"任务完成时间\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n-38-"
+    },
+    {
+      "page": 39,
+      "method": "text",
+      "text": "返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.1.6 下达任务接口说明\n1. 方法名称：setTaskInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ntaskInfo\nString\n不允许\n将任务情况以xml 形式进行描述，以\nString 方式进行传输\n（1）参数taskInfo 示例。\n<Parameter Name=\"任务信息\">\n<Items>\n<Item Name=\"任务ID\">xxxxxx</Item >\n<Item Name=\"任务下达人\">xxxxxx</Item >、\n<Item Name=\"任务下达时间\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n-39-"
+    },
+    {
+      "page": 40,
+      "method": "text",
+      "text": "<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.2 市级中心数据交换系统与应用系统的接口函数详细描述\n2.2.1 上报重大危险源申报企业接口说明\n1. 方法名称：setCompanyInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ncompanyInfo\nString\n不允许\n将企业信息以xml 形式进行描述，以\nString 方式进行传输\n（1）参数CompanyInfo 示例，具体数据项参考危险化学品重大危险源企业信\n息。\n<Parameter Name=\"申报企业信息\">\n<Items>\n<Item Name=\"法人单位名称\">xxxxxx</Item>\n<Item Name=\"填报单位名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n-40-"
+    },
+    {
+      "page": 41,
+      "method": "text",
+      "text": "<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</Description>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.2.2 上报重大危险源特征信息接口说明\n1. 方法名称：setDangerousSourceInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ndangerouSourceInfo String\n不允许\n将危险源信息以xml 形式进行描述，以\nString 方式进行传输\n（1）参数dangerouSourceInfo 示例，具体数据项参考危险化学品重大危险源\n基本特征信息。\n<Parameter Name=\"基本特征信息\">\n<Items>\n<Item Name=\"填报单位名称\">xxxxxx</Item >\n<Item Name=\"重大危险源名称\">xxxxxx</Item >\n<Item Name=\"危险化学品信息列表\">\n<ItemList>\n<Item Name=\"危险化学品序号\"> xxxxxx</Item >\n。。。。。\n</ItemList>\n</Item >\n</Items>\n</ Parameter >\n-41-"
+    },
+    {
+      "page": 42,
+      "method": "text",
+      "text": "3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.2.3 上报监控设备信息接口说明\n1. 方法名称：setMonitoringEquipmentInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\nmonitoringEquipmentInfo String\n不允许\n将监控设备信息以xml 形式进行描\n述，以String 方式进行传输\n（1）参数monitoringEquipmentInfo 示例，具体数据项参考危险化学品重大\n危险源监控设备信息。\n<Parameter Name=\"监控设备信息\">\n<Items>\n<Item Name=\"设备编号\">xxxxxx</Item >\n<Item Name=\"设备名称\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n-42-"
+    },
+    {
+      "page": 43,
+      "method": "text",
+      "text": "返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.2.4 上报监控设备报警信息接口说明\n1. 方法名称：setAlertInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\nalertInfo\nString\n不允许\n将监控设备报警信息以xml 形式进行描\n述，以String 方式进行传输\n（1）参数alertInfo 示例，具体数据项参考危险化学品重大危险源报警信息。\n<Parameter Name=\"报警信息\">\n<Items>\n<Item Name=\"报警设备编号\">xxxxxx</Item >\n<Item Name=\"报警类型\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n-43-"
+    },
+    {
+      "page": 44,
+      "method": "text",
+      "text": "<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.2.5 上报任务完成情况接口说明\n1. 方法名称：setTaskExecutionInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ntaskExecutionInfo String\n不允许\n将任务完成情况以xml 形式进行描述，\n以String 方式进行传输\n（1）参数taskExecutionInfo 示例。\n<Parameter Name=\"任务完成情况\">\n<Items>\n<Item Name=\"任务ID\">xxxxxx</Item >\n<Item Name=\"任务完成人\">xxxxxx</Item >、\n<Item Name=\"任务完成时间\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n-44-"
+    },
+    {
+      "page": 45,
+      "method": "text",
+      "text": "<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.2.6 下达任务接口说明\n1. 方法名称：setTaskInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ntaskInfo\nString\n不允许\n将任务情况以xml 形式进行描述，以\nString 方式进行传输\n（1）参数taskInfo 示例。\n<Parameter Name=\"任务信息\">\n<Items>\n<Item Name=\"任务ID\">xxxxxx</Item >\n<Item Name=\"任务下达人\">xxxxxx</Item >、\n<Item Name=\"任务下达时间\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n-45-"
+    },
+    {
+      "page": 46,
+      "method": "text",
+      "text": "<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.3 区县（园区）中心数据交换系统与应用系统的接口函数详细\n描述\n2.3.1 上报重大危险源申报企业接口说明\n1. 方法名称：setCompanyInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ncompanyInfo\nString\n不允许\n将企业信息以xml 形式进行描述，以\nString 方式进行传输\n（1）参数CompanyInfo 示例，具体数据项参考危险化学品重大危险源企业信\n息。\n<Parameter Name=\"申报企业信息\">\n<Items>\n<Item Name=\"法人单位名称\">xxxxxx</Item>\n<Item Name=\"填报单位名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n-46-"
+    },
+    {
+      "page": 47,
+      "method": "text",
+      "text": "<Info>\n<Description >xxxxxx</Description>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.3.2 上报重大危险源特征信息接口说明\n1. 方法名称：setDangerousSourceInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ndangerouSourceInfo String\n不允许\n将危险源信息以xml 形式进行描述，以\nString 方式进行传输\n（1）参数dangerouSourceInfo 示例，具体数据项参考危险化学品重大危险源\n基本特征信息。\n<Parameter Name=\"基本特征信息\">\n<Items>\n<Item Name=\"填报单位名称\">xxxxxx</Item >\n<Item Name=\"重大危险源名称\">xxxxxx</Item >\n<Item Name=\"危险化学品信息列表\">\n<ItemList>\n<Item Name=\"危险化学品序号\"> xxxxxx</Item >\n。。。。。\n</ItemList>\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n-47-"
+    },
+    {
+      "page": 48,
+      "method": "text",
+      "text": "返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.3.3 上报监控设备信息接口说明\n1. 方法名称：setMonitoringEquipmentInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\nmonitoringEquipmentInfo String\n不允许\n将监控设备信息以xml 形式进行描\n述，以String 方式进行传输\n（1）参数monitoringEquipmentInfo 示例，具体数据项参考危险化学品重大\n危险源监控设备信息。\n<Parameter Name=\"监控设备信息\">\n<Items>\n<Item Name=\"设备编号\">xxxxxx</Item >\n<Item Name=\"设备名称\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n-48-"
+    },
+    {
+      "page": 49,
+      "method": "text",
+      "text": "返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.3.4 上报监控设备报警信息接口说明\n1. 方法名称：setAlertInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\nalertInfo\nString\n不允许\n将监控设备报警信息以xml 形式进行描\n述，以String 方式进行传输\n（1）参数alertInfo 示例，具体数据项参考危险化学品重大危险源报警信息。\n<Parameter Name=\"报警信息\">\n<Items>\n<Item Name=\"报警设备编号\">xxxxxx</Item >\n<Item Name=\"报警类型\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n-49-"
+    },
+    {
+      "page": 50,
+      "method": "text",
+      "text": "<Info>\n<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.3.5 上报任务完成情况接口说明\n1. 方法名称：setTaskExecutionInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ntaskExecutionInfo String\n不允许\n将任务完成情况以xml 形式进行描述，\n以String 方式进行传输\n（1）参数taskExecutionInfo 示例。\n<Parameter Name=\"任务完成情况\">\n<Items>\n<Item Name=\"任务ID\">xxxxxx</Item >\n<Item Name=\"任务完成人\">xxxxxx</Item >、\n<Item Name=\"任务完成时间\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n-50-"
+    },
+    {
+      "page": 51,
+      "method": "text",
+      "text": "<Description >xxxxxx</token>\n</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.3.6 下达任务接口说明\n1. 方法名称：setTaskInfo\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nusername\nString\n不允许\n登录名\npassword\nString\n不允许\n密码\ntaskInfo\nString\n不允许\n将任务情况以xml 形式进行描述，以\nString 方式进行传输\n（1）参数taskInfo 示例。\n<Parameter Name=\"任务信息\">\n<Items>\n<Item Name=\"任务ID\">xxxxxx</Item >\n<Item Name=\"任务下达人\">xxxxxx</Item >、\n<Item Name=\"任务下达时间\">xxxxxx</Item >\n。。。。。\n</Item >\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：\n<Result Status=\"true\">\n<Info>\n<Description >xxxxxx</token>\n-51-"
+    },
+    {
+      "page": 52,
+      "method": "text",
+      "text": "</Info>\n</Result>\n（1） Status 的值有True 和False 两种。\n（2） Description 为返回值得描述信息。\n2.4 数据采集系统与监控系统的接口函数详细描述\n2.4.1 获取第三方系统服务器接口说明\n1. 方法名称：getServer\n获得视频监控系统供应商的服务器连接句柄，需要连接到服务器\n2. 参数内容：\n参数名称\n类型\n说明\nServer\nServerBase，该类中的关键属性有：\nUserName- 服务器的登录\nID ；\nPassword-服务器的登录密码； Port-\n服务器的端口号\n服务器对象实例\nstatusMessage ref String\n引用字符串为得到状态信息所用\n3. 返回值：返回int 类型的，如连接第三方服务器不成功返回为0。\n2.4.2 获取传感器列表接口说明\n1. 方法名称：GetSensorList\n获得第三方系统服务器里定义的传感器列表信息\n2. 参数内容：\n参数名称\n类型\n说明\nserver\nVServerBase，该类中的关键属性有：\nUserName- 服务器的登录\nID ；\nPassword-服务器的登录密码； Port-\n服务器的端口号\n服务器对象实例\nstatusMessage ref String\n引用字符串为得到状态信息所用\n3. 返回值：\n返回SensorDeviceCollection 类型，为传感器列表信息。\n2.4.3 获取传感器报警接口说明\n1. 方法名称：getAlertInfo\n接收第三方传感器提交的报警信息。\n-52-"
+    },
+    {
+      "page": 53,
+      "method": "text",
+      "text": "2. 参数内容：\n参数名称\n类型\n说明\nserver\nVServerBase，该类中的关键属性有：\nUserName- 服务器的登录\nID ；\nPassword-服务器的登录密码； Port-\n服务器的端口号\n服务器对象实例\nstatusMessage ref String\n引用字符串为得到状态信息所用\n3.返回值：\n返回AlertCollection 类型，为报警列表信息。\n2.4.4 播放实时视频接口说明\n1. 方法名称：StartLiveVideo\n播放视频监控子系统上摄像机的实时视频。\n2. 参数内容：\n参数名称\n类型\n说明\ncameraHandle\nint\n视频监控子系统上摄像头句柄信息\n3. 返回值：返回boolean 类型，如果播放成功为True，失败为False。\n2.4.5 控制PTZ 移动接口说明\n1. 方法名称：PanTiltZoom\n通过该方法来控制第三方监控系统摄像机的PTZ 移动。\n2. 参数内容：\n参数名称\n类型\n说明\nsensorID\nint\n视频监控子系统上摄像头的ID\npanSpeed\nint\n摄像机水平速度\ntiltSpeed\nint\n摄像机的倾斜速度\nzoomSpeed\nint\n摄像机的变倍速\n3. 返回值：返回bool 类型，如果操作成功为True，失败为False。\n2.4.6 抓取图片接口说明\n1. 方法名称：CaptureImage\n通过该方法来抓取第三方视频系统上的图像图片来存储到本地。\n2. 参数内容：\n-53-"
+    },
+    {
+      "page": 54,
+      "method": "text",
+      "text": "参数名称\n类型\n说明\nserver\nVideoServerBase，该类中的关键属性\n有：UserName-视频服务器的登录\nID；Password-视频服务器的登录密\n码； Port-视频服务器的端口号\n服务实例\nchannelNum\nint\n摄像机通道ID\nvideoFilePath\nString\n存储抓取图片的本地位置\nstatusMessage ref String\n返回状态消息\n3. 返回值：返回bool 类型，如果抓图成功为True，失败为False。\n2.4.7 播放录像接口说明\n1. 方法名称：SendRecordedVideoRequest\n通过该方法来播放录像及对录像进行控制操作。\n2. 参数内容：\n参数名称\n类型\n说明\nServer\nVideoServerBase，该类中的关键属性\n有：UserName-视频服务器的登录\nID；Password-视频服务器的登录密\n码； Port-视频服务器的端口号\n服务的实例。\ncameraUid\nString\n摄像机ID\nvideoControl\nMessagePanel\n录像控制需用的MessagePanel\nstatusMessage ref String\n状态信息\naction\nPlaybackActions\n录像控制命令\narguments\nparams object[]\n参数集合\n3. 返回值：返回object 类型，返回播放录像或控制录像后的对象实例。\n2.4.8 导出视频接口说明\n1. 方法说明：ExportVideoToFile\n从第三方视频监控系统里下载录像图像到本地里。\n2. 参数内容：\n3. 返回值：返回bool 类型，如果下载成功为True，失败为False。\n-54-"
+    },
+    {
+      "page": 55,
+      "method": "text",
+      "text": "参数名称\n类型\n说明\nServer\nVideoServerBase，该类中的关键属性有：UserName-\n视频服务器的登录ID；Password-视频服务器的登\n录密码； Port-视频服务器的端口号\n服务的实\ncameraUid\nString\n摄像机ID\nstartPosition\nDateTime\n录像开始时间\nendPosition\nDateTime\n录像结束时间\nvideoFilePath\nString\n下载到本地的路径信息\n2.5 数据采集系统安全接口函数详细描述\n2.5.1 数据加密接口说明\n1. 方法名称：encryptData\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\ncompanyInfo\nString\n不允许\n将企业信息以xml 形式进行描述，以\nString 方式进行传输\norganizationInfo\nString\n不允许\n将安监组织信息以xml 形式进行描述，\n以String 方式进行传输\nsrcData\nbyte[]\n不允许\n待加密数据明文\n（1）参数CompanyInfo 示例，具体数据项参考危险化学品重大危险源企业信\n息。\n<Parameter Name=\"申报企业信息\">\n<Items>\n<Item Name=\"法人单位名称\">xxxxxx</Item>\n<Item Name=\"填报单位名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n（2）参数organizationInfo 示例。\n<Parameter Name=\"安监组织信息\">\n<Items>\n<Item Name=\"安监组织名称\">xxxxxx</Item>\n。。。。。\n-55-"
+    },
+    {
+      "page": 56,
+      "method": "text",
+      "text": "</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：byte[]\n返回值说明：加密后的密文数据\n2.5.2 签名接口说明\n1. 方法名称：signData\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\ncompanyInfo\nString\n不允许\n将企业信息以xml 形式进行描述，以\nString 方式进行传输\nsrcData\nbyte[]\n不允许\n待签名数据原文\n（1）参数CompanyInfo 示例，具体数据项参考危险化学品重大危险源企业信\n息。\n<Parameter Name=\"申报企业信息\">\n<Items>\n<Item Name=\"法人单位名称\">xxxxxx</Item>\n<Item Name=\"填报单位名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：Base64 编码的签名结果\n2.5.3 验签接口说明\n1. 方法名称：verifySignedData\n2. 参数说明\n-56-"
+    },
+    {
+      "page": 57,
+      "method": "text",
+      "text": "参数名称\n取值类型\n允许为空\n说明\nsignedDataBase64\nString\n不允许\nBase64 编码的签名结果\n3. 返回值说明\n返回类型：Boolean\n返回值说明：成功返回true，否则返回false\n2.6 加密网关接口函数详细描述\n2.6.1 数据加密接口说明\n1. 方法名称：encryptData\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nrecerverInfo\nString\n不允许\n将接收者信息以xml 形式进行描述，以\nString 方式进行传输\norganizationInfo\nString\n不允许\n将发送数据的组织信息以xml 形式进行\n描述，以String 方式进行传输\nsrcData\nbyte[]\n不允许\n待加密数据明文\n（1）参数recerverInfo 示例。\n<Parameter Name=\"接收者信息\">\n<Items>\n<Item Name=\"接收者名称\">xxxxxx</Item>\n<Item Name=\"接收者扩展信息\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n（2）参数organizationInfo 示例。\n<Parameter Name=\"安监组织信息\">\n<Items>\n<Item Name=\"安监组织名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n-57-"
+    },
+    {
+      "page": 58,
+      "method": "text",
+      "text": "3. 返回值说明\n返回类型：byte[]\n返回值说明：加密后的密文数据\n2.6.2 数据解密接口说明\n1. 方法名称：decryptData\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nrecerverInfo\nString\n不允许\n将接收者信息以xml 形式进行描述，以\nString 方式进行传输\nsrcData\nbyte[]\n不允许\n待解密数据\n（1）参数recerverInfo 示例。\n<Parameter Name=\"接收者信息\">\n<Items>\n<Item Name=\"接收者名称\">xxxxxx</Item>\n<Item Name=\"接收者扩展信息\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：byte[]\n返回值说明：解密后的明文数据\n2.6.3 签名接口说明\n1. 方法名称：signData\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\norganizationInfo\nString\n不允许\n将安监组织信息以xml 形式进行描述，\n以String 方式进行传输\nsrcData\nbyte[]\n不允许\n待签名数据原文\n（1）参数organizationInfo 示例。\n<Parameter Name=\"安监组织信息\">\n-58-"
+    },
+    {
+      "page": 59,
+      "method": "text",
+      "text": "<Items>\n<Item Name=\"安监组织名称\">xxxxxx</Item>\n。。。。。\n</Items>\n</ Parameter >\n3. 返回值说明\n返回类型：String\n返回值说明：Base64 编码的签名结果\n2.6.4 验签接口说明\n1. 方法名称：verifySignedData\n2. 参数说明\n参数名称\n取值类型\n允许为空\n说明\nsignedDataBase64\nString\n不允许\nBase64 编码的签名结果\n3. 返回值说明\n返回类型：Boolean\n返回值说明：成功返回true，否则返回false\n-59-"
+    }
+  ],
+  "status": "ACTIVE",
+  "code": "安监总厅管三〔2016〕110号",
+  "source": "法规",
+  "topic": "/危险化学品管理/安全管理要求",
+  "issuer": "国家安全生产监督管理总局"
+}

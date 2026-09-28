@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "status": "prototype_v0.1_runtime",
+  "name": "EDC + R Pipeline v1 运行时配置 (Prototype v0.1)",
+  "description": "Task C 原型实际跑通单个 chunk 时使用的运行参数，区别于 edc_r_pipeline_v1.json（设计定义，draft）。本文件为可复现运行配置。",
+  "created_at": "2026-08-25",
+  "schema_version": "1.0",
+
+  "environment": {
+    "project_root": "/root/autodl-tmp/chemical_kb",
+    "python_interpreter": "/root/miniconda3/envs/kb/bin/python",
+    "note": "必须用 kb 环境，base 缺 faiss/sentence-transformers"
+  },
+
+  "schema": {
+    "path": "data/kg/schema_v1.json",
+    "entity_count": 15,
+    "relation_count": 32,
+    "status": "finalized"
+  },
+
+  "models": {
+    "embedding": {
+      "name": "bge-m3",
+      "model_path": "/root/autodl-tmp/models/bge-m3",
+      "dim": 1024,
+      "normalized": true
+    },
+    "llm": {
+      "name": "Qwen3-4B-Instruct-2507",
+      "temperature": 0.2,
+      "max_new_tokens": 2048
+    },
+    "reranker": {
+      "name": "bge-reranker-v2-m3",
+      "used_in_v0_1": false
+    }
+  },
+
+  "schema_retriever": {
+    "index_dir": "data/kg/schema_index/",
+    "index_type": "IndexFlatIP",
+    "normalized": true,
+    "dim": 1024,
+    "ntotal": 47,
+    "top_k_entities": 8,
+    "top_k_relations": 12,
+    "search_strategy": "single_search_k_ntotal_then_split_by_schema_kind"
+  },
+
+  "case_retriever": {
+    "enabled_in_v0_1": false,
+    "note": "本阶段为空，按 spec 允许"
+  },
+
+  "document_router": {
+    "routes": {
+      "accident": ["source_type=accident", "doc_id 前缀 ACC"],
+      "standard": ["code 前缀 GB/AQ/DB/HG", "doc_id 前缀 STD"],
+      "regulation": ["doc_id 前缀 REG"],
+      "unknown": "兜底"
+    }
+  },
+
+  "rule_preprocessor": {
+    "fields": [
+      "section", "death_count", "injury_count", "severe_injury_count",
+      "minor_injury_count", "missing_count", "standard_codes", "cas_numbers",
+      "dates", "clause_numbers", "modalities", "quantitative_expressions"
+    ]
+  },
+
+  "extractor": {
+    "strategy": "hybrid_schema_guided_open_span",
+    "llm": "Qwen3-4B-Instruct-2507",
+    "temperature": 0.2,
+    "max_new_tokens": 2048,
+    "retry_once_on_parse_fail": true,
+    "json_parse_methods": ["json.loads", "code_fence", "object_scan", "failed"]
+  },
+
+  "definer": {
+    "use_llm": false,
+    "predicate_map_size": "40+",
+    "direction_values": ["TEXT_AS_IS", "SCHEMA_INVERTED"],
+    "fallback": "unresolved（诚实标注未命中，不强制映射）"
+  },
+
+  "canonicalizer": {
+    "use_llm": false,
+    "layers": ["rule", "chemical_dictionary", "llm_fallback(可选，默认关闭)"],
+    "chemical_dict_size": "40+",
+    "provisional_id_format": "{type}::<normalized>::<doc_id>",
+    "note": "未命中词典的实体为 provisional，仅本文档内稳定，不做跨文档合并"
+  },
+
+  "assertion_builder": {
+    "review_status_default": "pending",
+    "assertion_type": ["explicit", "inferred", "human_confirmed"],
+    "dedup_key": ["subject_id", "predicate", "object_id"],
+    "direction_check": "domain/range 二次校验 + _orient 自动交换"
+  },
+
+  "validator": {
+    "checks": [
+      "subject_type_valid",
+      "object_type_valid",
+      "predicate_valid",
+      "domain_range_valid",
+      "literal_property_valid",
+      "canonical_id_nonempty",
+      "provenance_nonempty",
+      "dedup"
+    ],
+    "on_fail": "mark_validation_failed_not_delete"
+  },
+
+  "output": {
+    "dir": "data/kg/output/",
+    "files": {
+      "candidate_assertions": "{prefix}candidate_assertions.jsonl",
+      "validation_failed": "{prefix}validation_failed.jsonl",
+      "unresolved_relations": "{prefix}unresolved_relations.jsonl",
+      "full_result": "{prefix}pipeline_result.json"
+    },
+    "prefixes": ["accident_", "standard_"]
+  }
+}

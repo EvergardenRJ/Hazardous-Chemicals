@@ -1,0 +1,128 @@
+{
+  "doc_id": "STD_SN_T_3203_2012",
+  "title": "进出口危险化学品检验规程 爆炸品 基本要求",
+  "document_type": "标准",
+  "pdf_path": "/root/autodl-tmp/chemical_kb/data/pdf/标准/SN_T 3203-2012.pdf",
+  "page_count": 22,
+  "methods": [
+    "ocr"
+  ],
+  "char_count": 17214,
+  "pages": [
+    {
+      "page": 1,
+      "method": "ocr",
+      "text": "SN\n中华人民共和国出入境检验检疫行业标准\nSN/T 3203-2012\n进出口危险化学品检验规程\n爆炸品基本要求\nInspection rules for import and export dangerous chemical products-\nExplosives—General requirements\n2012-05-07发布\n2012-06-01实施\n中华人民共和国\n发布\n国家质量监督检验检疫总局"
+    },
+    {
+      "page": 2,
+      "method": "ocr",
+      "text": "SN/T3203-2012\n前言\n本标准按照GB/T1.1一2009给出的规则起草。\n本标准由国家认证认可监督管理委员会提出并归口。\n本标准起草单位：中华人民共和国湖南出人境检验检疫局、中华人民共和国广西出人境检验检疫\n局、中华人民共和国江西出人境检验检疫局。\n本标准主要起草人：肖家勇、刘劲彪、谭爱喜、肖焕新、张光辉、占春瑞、刘捷光、徐军。"
+    },
+    {
+      "page": 3,
+      "method": "ocr",
+      "text": "SN/T3203--20.12\n引言\n随着社会发展和技术进步，危险化学品种类也日益增多，其安全规范的涉及面也愈加广泛，在我国\n现有发布的《危险化学品名录》国家安全生产监督管理局公告2003年第1号)中有3800多种不同种\n类的危险化学品。：同时，联合国《关于危险货物运输的建议书规章范本》和《全球化学品统一分类和标\n签制度》(GHS)对危险化学品运输、包装和标签等也有相关要求，并对危险化学品种类给出明确的规\n定。爆炸品按照联合国《关于危险货物运输的建议书规章范本》归类为第1类危险货物，其中既包括\n具有整体爆炸危险的爆炸物质，也有具有极小爆炸危险的和无重大危险的爆炸物质。国务院2011年\n3月发布的《危险化学品安全管理条例》(国务院第591号令）明确了检验检疫部门负责对进出口危险化\n学品及其包装实施检验。国家质量监督检验检疫总局2012年2月29日发布的《关于进出口危险化学\n品及其包装检验监管有关问题的公告》（2012年第30号公告)第四条指出了进出口危险化学品及其包\n装可按照国家质检总局指定的技术规范、标准要求实施检验监管，为确保检验检疫相关业务工作的有效\n开展，规范进出口危险化学品检验工作程序，需要制定本标准。\n本标准作为进出口爆炸品检验规程通用技术标准，可以指导检验人员按照国家质检总局《进出口危\n险化学品及包装检验监管有关问题的公告》（2012年第30号公告）要求对危险化学品爆炸品实施检验\n监管。\n本标准确定的基本内容能指导标准制定工作者正确全面地确立进出口危险化学品检验规程标准的\n研究内容和技术要素，使标准达到系统性、科学性、适用性和可操作性的要求。"
+    },
+    {
+      "page": 4,
+      "method": "ocr",
+      "text": "SN/T3203—2012\n进出口危险化学品检验规程\n爆炸品基本要求\n警告：使用本标准的人员应充分掌握了爆炸品的安全知识，具有相关的检验和检测工作经验。本标\n准并未罗列所有可能的安全问题，使用者有责任采用适当的安全和健康措施，并保证符合国\n家有关法律法规规定的条件。\n1范围\n本标准规定了进出口危险化学品中爆炸品的术语和定义、要求、检验、判定与处置。\n本标准适用于对进出口危险化学品中爆炸品的检验。爆炸品名录参见附录A。\n2规范性引用文件\n下列文件对于本文件的应用是必不可少的。凡是注日期的引用文件，仅注日期的版本适用于本文\n件。凡是不注日期的引用文件，其最新版本(包括所有的修改单)适用于本文件。\nGB/T2828.1计数抽样检验程序第1部分：按接收质量限（AQL)检索的逐批检验抽样计划\nGB/T6678化工产品采样总则\nGB/T6679固体化工产品采样通则\nGB/T6680液体化工品采样通则\nGB15258化学品安全标签编写规定\nSN/T0370.3出口危险货物包装检验规程第3部分使用鉴定\nSN/T1828.2进出口危险货物分类试验方法第2部分：民用爆炸品\nSN/T3074.1进出口危险化学品测试技术规范第1部分：爆炸品\nSN/T3221进口危险化学品包装检验规程\n危险化学品名录（国家安全生产监督管理局公告2003年第1号）\n关于危险货物运输的建议书试验和标准手册(联合国)\n关于危险货物运输的建议书规章范本（联合国)\n全球化学品统一分类和标签制度（联合国）\n3术语和定义\n下列术语和定义适用于本文件。\n3.1\n爆炸物质（或混合物）explosivesubstances（ormixtures）\n能通过化学反应在内部产生一定速度、一定温度与压力的气体，且对周围环境具有破坏作用的一种\n固体或液体物质(或其混合物)。\n3.2\n爆炸品explosive\n含有一种或几种爆炸性物质的物品。"
+    },
+    {
+      "page": 5,
+      "method": "ocr",
+      "text": "SN/T3203-2012\n3.3\n具有整体爆炸危险的爆炸物质explosive substanceswithamassexplosionhazard\n实际上瞬间影响到几乎全部载荷爆炸的爆炸物质和物品。\n3.4\n具有极小爆炸危险的爆炸物质explosive substanceswithaminorexplosionhazard\n有燃烧危险并兼有局部爆炸危险或局部进射危险之一或兼有这两种危险，但无整体爆炸危险的物\n质和物品。\n3.5\n无重大危险的爆炸物质explosive substances without significant hazard\n不造成重大危险的物质和物品在运输过程中一且点燃或引发，只造成较小的危险。危险效应主要\n限于包件本身，并且估计不会有较大的碎片射出，射程也不远。外部火烧不会引起包件几乎全部内装物\n的瞬间爆炸。\n3.6\n标签label\n关于危险产品的一组适当的书面、印刷或图形信息要素，因为与目标部门相关而被选定，它们附于\n或印刷在危险产品的直接容器或它的外部包装上。\n3.7\n安全数据单safety data shieets;SDS\n提供关于物质或混合物的综合信息，供在工作场所化学品控制管理框架内使用。作为关于包括环\n境危险在内的各种危险的信息源并使从业人员从中获得有关安全防范的建议。\n4要求\n4.1文件和资料要求\n申请单位向检验检疫机构报检时;应按照《危险化学品名录》中的品名申报，同时还应提供如下文件\n和资料：\na）《出口危险化学品生产企业符合性声明》或《进口危险化学品经营企业符合性声明》;\nb）对需要添加抑制剂或稳定剂的产品，应提供实际添加抑制剂或稳定剂的名称、数量等说明；\nd）附有输人国家或地区官方语言的危险公示标签样本与安全数据单(SDS)样本,并提供对应的\n中文翻译件（出口产品适用），示例参见附录C与附录D；\ne）《出境货物运输包装性能检验结果单》（出口产品适用)；\nf）中文危险公示标签与安全数据单(SDS)(进口产品适用）,示例参见附录C与附录D;\ng）其他相关资料。\n4.2检验要求\n4.2.1产品危险特性按SN/T3074.1实施检验。\n4.2.2产品的成分构成信息：化学名称、普通名称、同物异名及混合物的临界水平的所有成分的化学名\n称和浓度范围应与4.1b)、4.1c)、4.1d)或4.1f)相--致。\n4.2.3产品的物理特性、化学特性应与4.1b)、4.1c)、4.1d)或4.1f)相一致。\n4.2.4产品的品质、数量、重量应符合安全、卫生、健康、环境保护、防止欺诈等要求。\n2"
+    },
+    {
+      "page": 6,
+      "method": "ocr",
+      "text": "SN/T3203-2012\n4.3分类要求\n4.3.1分类试验方法按照SN/T1828.2或《关于危险货物运输的建议书试验和标准手册》中10.3.2\n进行。如已确定为爆炸物质(或混合物),则可直接按照《关于危险货物运输的建议书试验和标准手\n册》中系列6试验确定危险级别。\n类爆炸品”、“危险货物一览表”的相关规定，还应符合《全球化学品统一分类和标签制度》“爆炸品”、“健\n康危险”与“环境危险”的相关规定。\n4.3.3产品应依据《关于危险货物运输的建议书规章范本》中第4.1章的规定，确定与其相适应的包\n装及相应设计型号和单件质量，并与-41c)-致\n4.4危险公示信息要求\n4.4.1产品随附的安全数据单的制造商-供应商及-产品信息真实、齐全、有效,并与 4.1d)或 4.1f)相一\n致；安全性信息完整、准确，应至少包含《全球化学品统一分类和标签制度》规定的16 项基本信息：\na）物质或化合物和供应商的标识；\nb）危险标识；\nc）．成分构成/成分信息；\nd）急救措施；\ne）消防措施；\nf）事故排除措施；\ng）搬运和存储；\nh）接触控制/人身保护；\ni）物理和化学特性；\nj）稳定性和反应性；\nk）毒理学信息；\n1）生态信息；\nm）处置考虑；\nn）运输信息；\no）管理信息；\np）其他信息（包括关于安全数据单编制和修订的信息）。\n4.4.2在产品包装的醒目位置，应加贴<拴挂或喷印符合《关于危险货物运输的建议书规章范本》的运\n输标记和《全球化学品统一分类和标签制度》的危险公示标签，进口产品的标签还应符合GB15258的\n要素，并应真实准确。\n4.5包装要求\n产品包装应符合SN/T0370.3、SN/T3221或《关于危险货物运输的建议书规章范本》相关\n规定。\n4.6抽样要求\n4.6.1应由专业人员采用符合法律法规要求的抽样专用器具进行抽样。抽样及样品的制备应在有安\n全防护措施条件下进行；样品的运输和储存应符合安全防护的要求；样品量不得超过安全防护允许的\n限制。\n3"
+    },
+    {
+      "page": 7,
+      "method": "ocr",
+      "text": "SN/T3203-2012\n4.6.2同--报检单同一规格产品为一检验批，以检验批为单位。\n4.6.3成分鉴别按照GB/T6678确定抽样数量和样品数量，液体产品成分鉴别抽样应按GB/T6680\n的要求进行抽样；固体产品成分鉴别抽样应按GB/T6679的要求进行抽样。样品应该根据样品主副危\n险性保存于清洁干燥并加贴标签的密封合适的样品容器中。\n4.6.4现场核查危险公示信息抽样方法见附录E,核查时应避免高温、震动和静电环境。\n5检验\n5.1资料审查\n核查报检文件和资料是否符合4.1的要求。\n5.2现场检验\n5.2.1产品包装件上标记的品名、危险类别或项别、次要危险性是否符合4.1a）、4.1b)和4.1c)的\n要求。\n5.2.2产品的安全数据单（SDS）、危险公示标签是否齐全，相应内容是否一致并符合4.1c）、4.1d）、\n4.1e)和4.1f)的要求。\n5.2.3产品危险公示信息是否符合4.4的要求。\n5.2.4需实验室检测，则按4.6.3进行抽样。\n5.3实验室检测\n对抽取的样品按4.2.1、4.3.1要求进行检测。\n6判定及处置\n6.1按第5章检验，符合要求的判为合格。若有一项不符合要求的即判定该检验批为不合格。\n6.2对经检验合格的出口危险化学品出具《出境货物通关单》或《出境货物换证凭单》，并在《出境货物\n通关单》及《出境货物换证凭单》备注栏内注明对应的《出境危险货物运输包装使用鉴定结果单》编号。\n6.3对经检验合格的进口危险化学品及包装出具《入境货物检验检疫证明》等合格证明。\n6.4对经检验不合格的进口危险化学品及其包装出具《检验检疫处理通知书》。如经标签整改、使用救\n助包装等技术处理，能够符合货物运输、销售及使用安全规定的，检验检疫机构可视情况，通知当事人进\n行整改。\n6.5对经检验不合格的出口危险化学品或其包装，出具《出境货物不合格通知单》，不准出口。"
+    },
+    {
+      "page": 8,
+      "method": "ocr",
+      "text": "SN/T 3203-2012\n附录A\n（资料性附录）\n爆炸品名录\n表A.1\n具有整体爆炸危险的爆炸物质产品名录\n序号\n中文名称\n别名\n英文名称\nUN编号\n选氮(化)钡(干的或含水\nbarium azide (dry or wetted with less than\n0224\n(%05>\n50% water by mass)\n选氮(化)铅(含水或水加\nlead azide ( wetted with not less than 20% wa-\n2\n0129\n乙醇≥20%)\nter or mixture of alcohol and water by mass)\n重氮甲烷\n3\ndiazo.methane\ndiazodinitrophenol ( wetted with not less than\n二硝基重氮酚（含水或水\n重氮二硝\n40% water or mixture of alcohol and water by\n4\n0074\n加乙醇≥40%)\n基苯酚\nmass)\nlead styphnate （lead trinitroresorresorcinate）\n三硝基间苯二酚铅（含水\n5\n收敛酸铅\n(wetted with not less than 20% water or mix-\n0130\n或水加乙醇≥20%)\nture of alcohol and water by mass)\nguanyl\nnitrosamino-guanylidene\nhydrazine\n胖基亚硝氨基胖基叉肼\n6\n(wetted with not less than 30% water by\n0113\n（含水≥30%）\nmass)\n胖基亚硝氨基胖基四氮\nguanyl nitrosamino-guanyltetrazene( tetrazene)\n四氮烯；\n烯（含水或水加乙醇\n(wetted with not less than 30% water or mix-\n0114\n特屈拉辛\n≥30%)\nture of alcohol and water by mass)\nmercury fulminate (wetted with not less than\n雷(酸)汞(含水或水加乙\n8\n20% water or mixture of alcohol and water by\n一\n0135\n醇≥20%)\nmass)\nperchloric  acid\n（concentr\nation\nmore\n高氯酸(浓度>72%)\n一\nthan 72%)\n硝基腻（干的或含水\nnitroguanidine （picrite）（dry or wetted with\n10\n橄苦岩\n0282\n<20%)\nless than 20% water by mass)\n11\n硝基脲\nnitro urea\n0147\n硝基脲（干的或含水\nnitro urea (dry or wetted with less than 20%\n12\n0220\n<20%)\nwater by mass)\n13\n硝酸重氮苯\nbenzenediazonium nitrate\n硝化淀粉（干的或含水\nnitrostarch (dry or wetted with less than 20%\n14\n0146\n<20%)\nwater by mass)\n硝化纤维素（干的或含水\nnitrocellulose(dry or wetted with less than\n15\n0340\n(或乙醇)<25%）\n25% water or alcohol by mass)\n5"
+    },
+    {
+      "page": 9,
+      "method": "ocr",
+      "text": "SN/T 3203-2012\n表A.1 (续)\n别名\n英文名称\nUN编号\n序号\n中文名称\n硝化纤维素（含增塑剂\nnitrocellulose unmodified or plusticized ( with\n0341\n16\nless than 18% plasticizing substance by mass)\n<18%)\n硝化丙三醇（含不挥发、\nnitroglycerin desensitized ( with not less than\n硝化甘油；甘油\n不溶于水的钝感剂\n40% non-volatile water-insolute phlegmatizer\n0143\n17\n三硝酸酯\n≥40%)\nby mass)\n硝化丙三醇乙醇溶液（含\n硝化甘油\nntroglycerimsolution-ml alcohol ( with more\n0144\n18\n乙醇溶液\nthan 1% but not more than 10% nitroglycerin)\n硝化甘油1%～10%)\n2,4,6-三硝基甲苯（干的\ntrinitrotoluuene( TNT)(dry or wetted with less\n19\n梯恩梯(TNT)\n0209\n或含水<30%)\n30%waterby ma\n2,4,6-三硝基甲苯与铝混\n特里托纳尔\n0390\n20\ntritonal\n合物\n三硝基甲苯与三硝基苯\ntrinitrotoluuene_(TNT)\n, and trinitrobenzene\n21\n0388\n混合物\n三硝基甲苯\n三硝基甲苯与六硝基-1,\ntrinitrotoluuene(TNT)_and hexanitrostilbene\n与六硝基\n0388\n22\n2-二苯乙烯混合物\nmixture\n芪混合物\n三硝基甲苯与三硝基苯\n硝基甲苯与\nfrinitrotoluuene（TNT）\nand trinitrobenzene\n和六硝基-1,2-二苯乙烯\n三硝基苯和六\n0389\n23\nmixture andhexanitrostilbene mixture\n混合物\n硝基芪混合物\n三硝基甲苯与硝基萘混\ntrinitrofoluuene (TNT)\nandnitronaphthalene\n24\n梯萘炸药\n合物\nmixture\n特屈儿\ntrinitropheny\nmethyl-nitramine(tetryl)\n0208\n25\n2,4,6-三硝基苯甲硝胺\n环三次甲基三硝胺（含水\n黑索金；\ngen; RDX)(wetted with not less than 15% wa-\n26\n0072\n≥15%)\n旋风炸药\nter by mass)\n环三次甲基三硝胺(钝感\ncyclotrimethylene-trinitramine\n（cyclonite;\n0483\n27\n的）\nhexogen;RDX)(desensitized)\n环三次甲基三硝胺与三\nhexolite(hexotol) (dry or wetted with less than\n28\n硝基甲苯混合物（干的或\n黑索雷特\n0118\n15% water by mass)\n含水<15%)\n黑索金与梯恩\n环三次甲基三硝胺与三\n梯和铝粉混合\n29\nhexotonal\n0393\n硝基甲苯和铝粉混合物\n炸药；\n黑索托纳尔"
+    },
+    {
+      "page": 10,
+      "method": "ocr",
+      "text": "SN/T3203-2012\n表A.1 (续)\n序号\n中文名称\n别名\n英文名称\nUN编号\ncyclotrimethylene trinitramine( cyclonite; hexogen;\n环三次甲基三硝胺与环\nRDX） and cyclotetramethylene-tetranitramine\n四次甲基四硝胺混合物\n黑索金与奥克\n30\n(HMX;octogen） mixture (wetted with not less\n0391\n（含水≥15%或含钝感剂\n托金混合物\nthan 15% water or with not less than 10%\n≥10%)\nphlegmatizer by mass)\ncycloretramethylene-tetraniramine(HMX; oc-\n环四次甲基四硝胺（含水\n奥克托金\n31\ntogen）（wetted with not less\ns than 15% water\n0226\n≥15%)\n(HMX)\nby mass)\n环四次甲基四硝胺（钝感\ntetramethylene-tetranitramine (HMX; octo-\n32\ncycl\n0484\n的）\ngen)(desensitize\n环四次甲基四硝胺与三\n奥克托金\noctolifte(octol)(dry-or\nted with less than\n33\n硝基甲苯混合物（干的或\n与梯恩梯混合炸\n0266\n15% water by mass)\n含水<15%)\n药；奥克雷特\npentaerythrite_tetranitratepentaerythritol tet-\n季戊四醇四硝酸酯(含水\nranitrate;petn)(wetted with not less than\n≥ 25%或含钝感剂\n34\n泰安；喷梯尔\n0150\n25%\n-d  u ss ru m ro s\n≥15%)\nzer by mass)\nntaerythrite-tetranitrate\npentaerythritol tet-\n季戊四醇四硝酸酯（含蜡\n35\nanitrate;\npetn）（with not\nless than. 7% wax\n0411\n≥7%)\noymass)\nthritetetr\nranitrate(\nentaerythritol\n季戊四醇四硝酸酯与三\n泰安与梯恩\nrotoluuene(TNT)\ntetranitrat\n36\n硝基甲苯混合物（干的或\n梯混合炸药；彭\n0151\nmixt\n(dry\nwettedv\nless than 15% wa-\n含<15%)\n托雷特\n二硝基(苯)酚(干的或含\ndinitrophenol（dry or wetted with less than\n37\n0076\n水<15%)\n15% water by mass)\n二硝基间苯二酚（干的或\ndinitroresorcinol (dry or wetted with less than\n38\n0078\n含水<15%)\n15% water by mass)\n1,3,5-三硝基苯（干的或\ntrinitrobenene (dry or wetted with less than\n39\n均三硝基苯\n0214\n含水<30%)\n30% water by mass)\n40\n2,4,6-三硝基二甲苯\ntrinitrotoluene\n41\n2,4,6-三硝基氯(化)苯\n苦基氯\ntrinitrochlorobenezene(picryl chloride)\n0155\n2,4，6-三硝基苯酚（干的\ntrinitrophenol( picric acid）(dry or wetted with\n42\n苦味酸\n0154\n或含水<30%）\nless than 30% water by mass)\n7"
+    },
+    {
+      "page": 11,
+      "method": "ocr",
+      "text": "SN/T 3203-—2012\n表A.1(续)\n别名\n英文名称\nUN编号\n序号\n中文名称\n43\n2,4,6-三硝基苯酚钠\n苦味酸钠\nnitrophenol\n2,4,6-三硝基苯酚铵（干\nammonium picrate(dry or wetted with less\n44\n苦味酸铵\n0004\n的或含水<10%)\nthan 10% water by mass)\n三硝基间甲酚\ntrinitro-m-cresol\n0216\n45\n一\n0219，\n46\n2,4,6-三硝基间苯二酚\n收敛酸\ntrinitroresorcinol (styphnic acid)\n0394\n47\n三硝基苯甲醚\n三硝基茴香醚\ntrinitroanisole\n0213\n三硝基苯乙醚\ntrinitrophenetole\n0218\n48\n2,4,6-三硝基苯甲酸（干\n三硝基安\ntrinitrobenzoic acid (dry or wetted with less\n0215\n49\n的或含水<30%）\n息香酸\nthan 30% water by mass)\n50\n三硝基苯磺酸\ntrinitrobenzene sulphonic acid\n0386\n51\n2,4,6-三硝基苯磺酸钠\n一\ntrinitrobenzenesulfonic acid\n52\n2,4,6-三硝基苯胺\n苦基胺\ntrinitroaniline(picramide)\n0153\n2,3,4,6-四硝基苯胺\ntetranitroaniline\n0207\n53\n54\n三硝基酮\ntrinitrofluorenone\n0387\n三硝基萘\n一\ntrinitronaphthalene\n0217\n56\n四硝基萘\ntetranitro-naphthalene\n57\n四硝基萘胺\n一\ntetranitro-naphthalene( picramide)\n-\n六硝炸药；\n六硝基二苯胺\nhexanitrodiphenylamine(dipicryamine,hexyl)\n0079\n58\n二苦基胺\n59\n六硝基二苯胺铵盐\n曙黄\ndipicrylamine ammonium salt\n六硝基二苯硫(于的或含\ndipicryl sulphide (dry or wetted with less than\n60\n二苦基硫\n0401\n水<10%)\n10% water by mass)\n61\n六硝基-1,2-二苯乙烯\n六硝基芪\nhexanitrostilbene\n0392\nmannitol hexanitrate（nitromannite）wetted\n甘露糖醇六硝酸酯(含水\n62\n六硝基甘露醇\nwith not less than 40% watcr or mixture of al-\n0133\n或水加乙醇≥40%)\ncohol and water by mass\n二乙二醇二硝酸酯（含不\ndiethyeneglycol dinitrate,desensitized ( with not\n二甘醇二\n63\n挥发、不溶于水的钝感剂\nless than 25% non-volatile, water-insoluble\n0075\n硝酸酯\n≥25%)\nphlegmatizer by mass)\n64\n甲基丙烯酸三硝基乙酯\ntrinitroethyl methac\n一\n硝基连三\n65\n5-硝基苯并三唑\n5-nitrobenzotriazole\n0385\n氮杂\n8"
+    },
+    {
+      "page": 12,
+      "method": "ocr",
+      "text": "SN/T 3203—2012\n表A.1 (续)\n序号\n中文名称\n别名\n英文名称\nUN编号\n66\n高氯酸铵\nammonium perchorate\n0402\n硝酸铵（含可燃物\nammonium nitrate(with more than 0.2%\n>0.2%，包括以碳计算\ncombustible substances，including any organic\n67\n0222\n的任何有机物，但不包括\nsubstancecalculatedascarbon，tothe\n任何其他添加剂)\nexclusion of any other added substance)\n硝酸铵肥料（比硝酸铵\nammoniumnitratefertilizer(moreexplosive\n（含可燃物>0.2%，包括\nthan ammonium nitrate (with more than 0.2%\n68\n以碳计算的任何有机物，\ncombustible substances，including any organic\n0223\n但不包括任何其他添加\nsubstancecalculatedascarbon，tothe\n剂)更易爆炸)\nexclusion of any other added substance ）)\n69\n硝铵炸药\n铵梯炸药\nammonium nitrate explosives\n注：表中物质暂无UN编号的,应通过主管部门认可的UN编号文件或通过特性分类鉴别试验确定该物质的正\n确UN编号。\n表A.2\n2具有极小爆炸危险的爆炸物质产品名录\n中文名称\n别名\n序号\n英文名称\nUN编号\n1\n二亚硝基苯\n一\ndinitrosobenzene\n0406\n二硝基邻甲(苯)酚钠(干\ndinitro-o-cresolate(dry or wetted with less\n0234\n2\n的或含水<15%）\nthan 15% water by mass)\n硝基芳香族衍生物钾盐\npotassium salts of aromatic nitroderivatives\n0158\n3\n(爆炸性的）\n(explosive)\n二硝基(苯)酚碱金属盐\ndinitrophenolates alkalimetals(dry or wetted\n0077\n4\n一\n（干的或含水<15%）\nwith less than 15% water by mass)\nsodium picramate (dry or wetted with less than\n4,6-二硝基-2-氨基苯酚\n5\n苦氨酸钠\n0235\n钠(干的或含水<20%）\n20% water by mass)\n4,6-二硝基-2-氨基苯酚\nzirconium picramate (dry or wetted with less\n苦氨酸锆\n0236\n6\n锆（干的或含水<20%）\nthan 20% water by mass)\n7\n硝化二乙醇胺火药\nnitrodiethanolamine gunpowder\n一\n硝化纤维素（含乙醇\nnitrocellulose(wettedwith not less than 25%\n0342\n8\n≥25%)\nalcohol by mass)\n硝化纤维素（含增塑剂\nnitrocellulose (with not less than 13% plastici-\n0343\n9\n≥18%)\nzing substans by mass)\n10\n硝铵炸药\n铵梯炸药\nammonium nitrate explosives\n0475\n注：表中物质暂无UN编号的，应通过主管部门认可的UN编号文件或通过特性分类鉴别试验确定该物质的正\n确UN编号。\n9"
+    },
+    {
+      "page": 13,
+      "method": "ocr",
+      "text": "SN/T 3203--2012\n表A.3无重大危险的爆炸物质产品名录\n序号\n中文名称\n别名\n英文名称\nUN编号\n四唑并-1-乙酸\n四氮杂茂-1-乙酸\n1\ntetrazol-l-acetic acid\n0407\n2\n5-硫基四唑并-1-乙酸\n5-mercaptotetrazol -1- acetic Acid\n0448\n10"
+    },
+    {
+      "page": 14,
+      "method": "ocr",
+      "text": "SN/T 3203—2012\n附录B\n(资料性附录)\n危险特性分类鉴别报告示例\nB.1危险化学品特性分类鉴别报告示例\n危险化学品特性分类鉴别报告\n地址：\n电话：\n= :\n传真：\n中文名称\n高氯酸铵\n货物名称\n英文名称\nammonium perchorate\n申请单位\n生产单位\nXXX\n样品数量\n××\n分析/试验要求\n危险品化学品特性分类鉴别\n《关于危险货物运输的建议书\n规章范本》、《关于危险货物运输的建议书\n试验和标准手\n检测依据\n册》、《全球化学品统-分类和标签制度》\n基本理化性质\n物理性状：无色或白色结晶，有刺激气\n10.\n水溶性：\n是\n1.\n分配系数\n不适用\n2.\n相对分子质量：117.50\n11.\n3.熔点：\n12.\n可燃性：\n4.沸点：\n闪点：\n5.分解温度：\n爆炸极限(体积分数，%)：\n6.蒸气压力：\n爆炸上限：\n7.相对密度（水=1)(g/cm²）：1.95\n爆炸下限：\n8.蒸气密度：\n15.自燃温度！\n9.脂溶性：否\n16.爆炸性：\n二、分类鉴别试验\n（一）物理危害\n1.爆炸物：是\n9.发火液体：不适用\n2.易燃气体：不适用\n10.发火固体：否\n3.易燃气溶胶：不适用\n11．自反应物质和混合物：否\n4.氧化气体：不适用\n12.遇水放出易燃气体的物质和混合物：否\n5.高压气体：不适用\n13.氧化性液体：不适用\n6．易燃液体：不适用\n14.氧化性固体：是\n7.易燃固体：否\n15.有机过氧化物：否\n8．自反应物质和混合物：否\n16.金属腐蚀剂：否\n11"
+    },
+    {
+      "page": 15,
+      "method": "ocr",
+      "text": "SN/T 3203--2012\n（二）健康危害\n1.急性毒性；\n6.致癌性：\n2.皮肤腐蚀/刺激：\n7.生殖毒性：\n3.严重眼损伤/眼刺激：\n8.特定目标器官系统毒性（单次接触)：\n4.呼吸或皮肤敏化作用：\n9.特定目标器官系统毒性（重复接触）：\n5.生殖细胞致突变性：\n10．吸入危险：\n（三）环境危害\n危害水生环境：\n2.破坏臭氧层：\n三、鉴定结论\n正式运输名称：高氯酸铵，固态\n联合国编号：UN0402,UN1442\n2.\n3.联合国危验货物建议书分类类别：主危险性1.1，副危险性5.1\n4.包装类别：Ⅱ类\n5.GHS分类：\n检验员：\n审核：\n实验室盖章：\n日期：\n注：1．无实验室盖章,此报告无效。\n2.本报告部分复印无效。\nB.2爆炸品分类鉴别报告示例\n爆炸品分类鉴别报告\n中文名称\n爆炸品品名\n货物名称\n英文名称\n委托单位\n×xx\n生产单位\n×××\n分析/试验要求\n爆炸品特性分类鉴别\n样品数量\nx×g\n《关于危险货物运输的建议书规章范本》、\n检测依据\n收样日期\n××××年××月××日\n《关于危险货物运输的建议书试验和标准手册》\n检测地点\n×××\n检测日期\n××××年××月××日\n12"
+    },
+    {
+      "page": 16,
+      "method": "ocr",
+      "text": "SN/T 3203—2012\n一、基本理化性质\n1．物理性状：\n10．水溶性：是\n2.相对分子质量：\n11．分配系数：不适用\n3.熔点：\n12.可燃性：\n4.初沸点：\n13.闪点：\n5.分解温度：\n14.爆炸极限(体积分数/%)：\n6．蒸气压力：\n爆炸上限：\n7.相对密度（水=1)(g/cm²）：\n爆炸下限：\n15.自燃温度：\n8.蒸气密度：\n9．脂溶性：\n16．爆炸性：\n二、分类鉴别试验\n1．爆炸物：\n9．发火液体：\n是\n否\n2.易燃气体：\n否\n10.发火固体：\n否\n3.易燃气溶胶：\n11．自反应物质和混合物：\n否\n4.氧化气体：\n否\n12.遇水放出易燃气体的物质和混合物：否\n5.高压气体：\n否\n13.氧化性液体：否\n6.易燃液体：\n否\n14.氧化性固体：否\n7．易燃固体：\n否\n15.有机过氧化物：否\n8．自反应物质和混合物：\n16．金属腐蚀剂：否\n否\n三、爆炸品危险级别试验\n1.6a试验\n1. 1\n是\n口\n否\n口\n2.6b试验\n1. 1\n是\n口\n否\n3.6c试验\n1. 1\n口\n1. 2\n口\n1.3\n口\n1.4\n口\n4.6d试验\n1.4S是\n口\n否\n口\n四、鉴定结论\n1.正式运输名称：×××\n2.联合国编号：×××\n3.危险货物类别：1．×\n4.建议包装类别：×类\n检验员：\n审核：\n实验室盖章：\n日期：\n注：1．无实验室盖章，此报告无效。\n2.本报告部分复印无效。\n13"
+    },
+    {
+      "page": 17,
+      "method": "ocr",
+      "text": "SN/T 3203--2012\n正式运输名称：高氯酸铵\n处置内容物/容器…\n运输象形图\n贮存.\nUN 0402\n贮存\n处置\n远离热源/火花/明火/热表面。禁止吸烟；\n危险公示标签示例——高氯酸铵\n容器和接收设备接地/等势联接；\n不得研磨/冲击/…/摩擦；\n火烧到爆炸物时切勿救火。\n用.…保持湿润；\n火灾时撤离现场;\n火灾时可能爆炸；\n（资料性附录）\n戴防护面具。\n象形图\n危险说明\n爆炸物：整体爆炸危险。\n方范说明\n信号词\n帐\n预防\n反应\n危险\n附\n防\n××××\n装载日期：××××\n××××\n×xx××××x×××××××x\n有效期：××××年××月××\n批号：\n公司名称\n产品名称：高氯酸铵\n装载重量:××××\n国家、州、城市、邮编\n×X××·重\n紧急呼叫电话\n年××月××日\n街名及号码\n使用说明：\n电话号码\n编码：\n毛\n14"
+    },
+    {
+      "page": 18,
+      "method": "ocr",
+      "text": "SN/T 3203—2012\n附录D\n(资料性附录）\n安全数据单样例\n表D.1安全数据单样例-一高氯酸铵\n1.全球统一制度产品标识符：高氯酸铵。\n2.其他标识手段：过氯酸铵。\n物质或化合物和供应商\n3.使用建议和限制：\n的标识\n4.供应商的详细情况（包括名称、地址、电话号码等）：\n5.紧急电话号码：.\n1.危险性分类：第1.1类具有整体爆炸危险的爆炸物质\n2.\na）象形图：\nb）信号词：危险；\n危险标识\nc）侵人途径：吸人、食人、经皮吸收；\n2\nd）健康危害：粉尘对眼睛、皮肤、呼吸系统有刺激作用；\ne）环境危害：。\n3.燃爆危险：强氧化剂。与易氧化物、硫磺、亚硫酸氢钠、还原剂接触能引起燃烧\n或爆炸\n1.商品名称：高氯酸铵。\n2.普通名称、同物异名等：过氯酸铵。\n3.组分：高氯酸铵含量>99.0%。\n4.有效成分的化学分子式：NH,CIO。\n成分构成/成分信息\n5.相对分子质量：117.50。\n6.在20℃时的物理状态：固态。\n7.在正常运输温度下的外观：白色粉末。\n8.CAS号:7790-98-9\n1.皮肤接触：脱去被污染的衣着，用大量流动清水冲洗。\n2.眼睛接触：提起眼脸，用流动清水或生理盐水冲洗。就医。\n急救措施\n3.吸人：迅速脱离现场至空气新鲜处。保持呼吸道通畅。如呼吸困难，给输氧。\n如呼吸停止，立即进行人工呼吸。就医。\n4.食人：饮足量温水。催吐，就医\n1.危险特性：爆炸品，强氧化剂。与还原剂、有机物、易燃物(如硫、磷或金属粉末）\n等混合可形成爆炸性混合物。急剧加热时可发生爆炸。\n2.燃烧产物：氮氧化物和氯化物烟雾。\n消防措施\n5\n3.适当(和不适当)的灭火介质：雾状水、砂土。\n4.化学品产生的具体危险（如任何危险燃烧品的性质)。\n5.消防人员的特殊保护设备和防范措施\n15"
+    },
+    {
+      "page": 19,
+      "method": "ocr",
+      "text": "SN/T3203--2012\n表D.1(续)\n1.个人防护：不要吸人蒸气/浮质。避免产生和吸人其粉尘。当粉尘浓度过高时，\n处理人员戴自给式呼吸器，穿一般作业工作服。不要直接接触泄漏物；\n2.环境保护措施：化学品未经处理严禁向环境排放；\n事故排除措施\n3.清洁/吸收措施：采用安全的方法将泄漏物收集回收。勿使泄漏物与有机物、还\n6\n原剂、易燃物接触。小量泄漏：避免扬尘，小心扫起，收集转移至安全场所，也可\n以用大量水冲洗，洗水稀释后放人废水系统。大量泄漏：收集回收或运至废物\n处理场所处置\n操作注意事项：贮存于阴凉、干燥的不燃材料建造的库房中，与可燃物、硫磺、含碳\n物品、微细金属粉末、有机物、或其他易氧化物以及无机酸隔离储运。不可存放在\n搬运和存储\n7\n容易起火地点，避免受热防止受潮。操作人员应经过专门培训，严格遵守操作规\n程。搬运时，轻装轻卸，切勿猛撞\n1.最高容许浓度。\n2.监测方法。\n3.工程控制：生产过程密闭，加强通风。提供安全淋浴和洗眼设备。\n4.呼吸系统防护：可能接触其粉尘时，建议佩戴头罩型电动送风过滤式防尘呼\n吸器。\n接触控制/人身保护\n5.眼睛防护：呼吸系统防护中已用防护。\n6.身体防护：穿聚乙烯防毒服。\n7.手防护：戴橡胶手套。\n8.其他：工作现场禁止吸烟、进食和饮水。工作毕，淋浴更衣。保持良好的卫生\n习惯。\n1.外观与性状：无色或白色固体。\n2.气味：有刺激气味。\n3.熔点(℃)。\n4.沸点(℃)。\n5.相对密度（水=1)(g/cm²）。\n6.相对蒸气密度(空气=1)。\n7.饱和蒸气压(kPa)。\n8.燃烧热(kJ/mol)。\n物理和化学特性\n9.临界温度(℃)。\n10.临界压力（MPa)。\n11.辛醇/水分配系数的对数值。\n12.引燃温度(℃)。\n13.爆炸极限：爆炸上限(体积分数/%)。\n爆炸下限(体积分数/%)。\n14.溶解性：溶于水、丙酮。微溶于醇。不溶于醋酸乙酯、乙醚。有潮解性。\n15．主要用途：用于制造炸药、烟火，并用作分析试剂、氧化剂。\n16.其他理化性质：略\n16"
+    },
+    {
+      "page": 20,
+      "method": "ocr",
+      "text": "SN/T3203—2012\n表D.1(续)\n1.稳定性：加热分解，受剧热或猛烈撞击能引起爆炸。\n2.避免接触条件：高热，剧烈撞击。\n3.禁配物：强还原剂、活性金属粉末、易燃或可燃物(如硫、磷)。\n10\n稳定性和反应性\n4.危险分解产物：氮氧化物和氯化物。\n5.聚合危害：不能发生。\n6.其他信息：吸湿\n1．急性毒性：\n口服：大鼠LDso:3500mg/kg;\n腹腔：小鼠LDso:190Cmg/kg。\n2.其他资料：略。\n11\n毒理学信息\n3.吸人后：刺激。\n4.皮肤接触后：微刺激。\n5.眼接触后：微刺激。\n6．食人后：致命。\n7.其他数据：略。\n1．生态毒性(水生和陆生，如果有)。\n2.持久性和降解性。\n12\n生态信息\n3.生物积累潜力。\n4.在土壤中的流动性。\n5．其他不利效应。\n废物残留的说明和关于它们的安全搬运和处置方法的信息，包括任何污染包装的\n13\n处置考虑\n处置。\n1.UN编号：0402\n2.包装标志：1.1D爆炸品。\n3.包装类别：Ⅱ类。\n14\n运输信息\n4.包装方法：装入两层纸袋或塑料袋，袋口扎紧，再装人厚度为0.7mm的钢桶\n内，容器口应密封牢固。每桶净重不超过50kg；按零担运输时，钢桶外应再加\n透笼木箱；螺纹口玻璃瓶、塑料瓶或塑料袋外普通木箱。\n5.海洋污染：是\n1.国内法规：《化学危险物品安全管理条例》等，针对化学危险品的安全使用、生\n产、储存、运输、装卸等方面均作了相应规定；GB13690《化学品分类和危险性公\n15\n管理信息\n示通则》将该物质划为第1.1类爆炸品。\n2.国际法规：《国际海运危险货物规则》等\n其他信息，包括关于安全\n1.编制安全数据单最新修订本的日期：……。\n16\n数据单编制和修订的\n2.安全数据单中使用的缩略语和首字母缩写的索引/说明：……。\n信息\n3.编写安全数据单使用的数据的主要参考文献和资料来源：…\n17"
+    },
+    {
+      "page": 21,
+      "method": "ocr",
+      "text": "SN/T3203--2012\n附录E\n（规范性附录）\n现场核查公示信息抽样表\n表E.1现场核查公示信息抽样表\n单位为件\n批量范围\n抽样数量\n1~8\n2\n9~15\n3\n16~25\n5\n26~50\n8\n51~90\n13\n91~150\n20\n151~280\n32\n281~500\n50\n501~1200\n80\n1201~3200\n125\n200\n3201~10000\n注：按照GB/T2828.1的一般检验水平进行抽样。\n18"
+    },
+    {
+      "page": 22,
+      "method": "ocr",
+      "text": "中华人民共和国出人境检验检疫\n行业标准\n进出口危险化学品检验规程\n爆炸品基本要求\nSN/T3203--2012\n中国标准出版社出版\n北京市朝阳区和平里西街甲2号（100013)\n北京市西城区三里河北街16号（100045)\n总编室：（010)64275323\n网址www.spc.net.cn\n中国标准出版社秦皇岛印刷厂印刷\n开本880×12301/16印张1.5字数37千字\n2013年4月第一版2013年4月第一次印刷\n印数1--1600\nSN/T3203-2012\n书号：155066·2-25047定价27.00元"
+    }
+  ],
+  "status": "ACTIVE",
+  "code": "T3203-2012",
+  "source": "行业标准",
+  "topic": "/危险化学品管理/危害性测定",
+  "issuer": "国家质量监督检验检疫总局"
+}

@@ -1,0 +1,917 @@
+[
+  {
+    "schema_id": "chemical",
+    "schema_kind": "entity",
+    "name": "Chemical",
+    "name_zh": "化学品",
+    "definition": "危险化学品/危险物质，含单质、化合物、混合物、气体（如煤气）等。表示化学物质本体，是事故与标准法规桥接的核心对象。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "canonical_name",
+      "formula",
+      "cas_number",
+      "un_number",
+      "catalog_no",
+      "hazard_property",
+      "is_hypertoxic",
+      "physical_state",
+      "aliases",
+      "mentions"
+    ],
+    "examples": "氯(Cl2) 硫化氢 苯 连二亚硫酸钠(保险粉) 四氟乙烯 五氟碘乙烷 硝酸 硫酸 一氧化碳 苯酐 硼酸",
+    "embedding_text": "Chemical。化学品。危险化学品/危险物质，含单质、化合物、混合物、气体（如煤气）等。表示化学物质本体，是事故与标准法规桥接的核心对象。。关键词: canonical_name, formula, cas_number, un_number, catalog_no, hazard_property, is_hypertoxic, physical_state, aliases, mentions。示例: 氯(Cl2) 硫化氢 苯 连二亚硫酸钠(保险粉) 四氟乙烯 五氟碘乙烷 硝酸 硫酸 一氧化碳 苯酐 硼酸"
+  },
+  {
+    "schema_id": "hazard_class",
+    "schema_kind": "entity",
+    "name": "HazardClass",
+    "name_zh": "危险类别",
+    "definition": "按 GHS/国标划分的危险类别，用于连接化学品与其分类标签规范（GB 30000 系列）。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "name",
+      "ghs_code",
+      "definition"
+    ],
+    "examples": "退敏爆炸物 爆炸物 易燃液体 急性毒性 可燃液体 毒性气体",
+    "embedding_text": "HazardClass。危险类别。按 GHS/国标划分的危险类别，用于连接化学品与其分类标签规范（GB 30000 系列）。。关键词: name, ghs_code, definition。示例: 退敏爆炸物 爆炸物 易燃液体 急性毒性 可燃液体 毒性气体"
+  },
+  {
+    "schema_id": "enterprise",
+    "schema_kind": "entity",
+    "name": "Enterprise",
+    "name_zh": "企业/单位",
+    "definition": "生产经营单位，含生产/经营/使用/运输企业、施工/承包单位、检测/评价机构等。事故责任主体与安全义务主体。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "canonical_name",
+      "aliases",
+      "credit_code",
+      "enterprise_type",
+      "region",
+      "has_safety_license"
+    ],
+    "examples": "四川西艾氟科技有限公司 芜湖融汇化工有限公司 淄博峻辰新材料科技有限公司 大庆康尼瑞生物科技有限公司 贵州璟和化学工业有限责任公司 义马气化厂 信诺立兴(黄骅市)集团股份有限公司 安徽司尔特化肥科技有限公司",
+    "embedding_text": "Enterprise。企业/单位。生产经营单位，含生产/经营/使用/运输企业、施工/承包单位、检测/评价机构等。事故责任主体与安全义务主体。。关键词: canonical_name, aliases, credit_code, enterprise_type, region, has_safety_license。示例: 四川西艾氟科技有限公司 芜湖融汇化工有限公司 淄博峻辰新材料科技有限公司 大庆康尼瑞生物科技有限公司 贵州璟和化学工业有限责任公司 义马气化厂 信诺立兴(黄骅市)集团股份有限公司 安徽司尔特化肥科技有限公司"
+  },
+  {
+    "schema_id": "regulator",
+    "schema_kind": "entity",
+    "name": "Regulator",
+    "name_zh": "监管部门",
+    "definition": "负有危险化学品安全监督管理职责的部门（应急管理/公安/市场监管/生态环境/交通运输/卫生健康/工信等）。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "name",
+      "level",
+      "duty"
+    ],
+    "examples": "应急管理部门 公安机关 市场监督管理部门 生态环境主管部门 交通运输主管部门 卫生健康主管部门",
+    "embedding_text": "Regulator。监管部门。负有危险化学品安全监督管理职责的部门（应急管理/公安/市场监管/生态环境/交通运输/卫生健康/工信等）。。关键词: name, level, duty。示例: 应急管理部门 公安机关 市场监督管理部门 生态环境主管部门 交通运输主管部门 卫生健康主管部门"
+  },
+  {
+    "schema_id": "equipment",
+    "schema_kind": "entity",
+    "name": "Equipment",
+    "name_zh": "设备/设施",
+    "definition": "装置、设备、设施、管道、安全附件、监测报警装置等。事故的物因素载体，也是标准技术要求的对象。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "name",
+      "equipment_type",
+      "model",
+      "medium",
+      "design_pressure",
+      "is_special_equipment"
+    ],
+    "examples": "反应釜(R1101A) 液氯充装万向节(鹤管) 储罐(V2002A) DZL型2吨蒸汽锅炉 6000L双锥回转真空干燥机 空分装置冷箱 液氧贮槽 脱酸脱氨塔 RTO蓄热焚烧装置",
+    "embedding_text": "Equipment。设备/设施。装置、设备、设施、管道、安全附件、监测报警装置等。事故的物因素载体，也是标准技术要求的对象。。关键词: name, equipment_type, model, medium, design_pressure, is_special_equipment。示例: 反应釜(R1101A) 液氯充装万向节(鹤管) 储罐(V2002A) DZL型2吨蒸汽锅炉 6000L双锥回转真空干燥机 空分装置冷箱 液氧贮槽 脱酸脱氨塔 RTO蓄热焚烧装置"
+  },
+  {
+    "schema_id": "process",
+    "schema_kind": "entity",
+    "name": "Process",
+    "name_zh": "工艺/工序",
+    "definition": "生产工艺、工序、作业环节。是危险化工工艺管控与事故工艺致因的载体。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "name",
+      "is_key_hazardous_process",
+      "process_type"
+    ],
+    "examples": "硝化工艺 氯化工艺 氟化工艺 液氯充装 液氯气化 硫磺制酸 煤焦油深加工",
+    "embedding_text": "Process。工艺/工序。生产工艺、工序、作业环节。是危险化工工艺管控与事故工艺致因的载体。。关键词: name, is_key_hazardous_process, process_type。示例: 硝化工艺 氯化工艺 氟化工艺 液氯充装 液氯气化 硫磺制酸 煤焦油深加工"
+  },
+  {
+    "schema_id": "site",
+    "schema_kind": "entity",
+    "name": "Site",
+    "name_zh": "场所/区域",
+    "definition": "物理场所或监管区域：厂区、车间、储罐区、充装台、防爆间、化工园区、有限空间、限定区域、沿江区域等。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "name",
+      "site_type",
+      "location"
+    ],
+    "examples": "反应釜防爆间 液氯充装台 1#罐组防火堤 进水闸门井(有限空间) 首都功能核心区 沿江区域",
+    "embedding_text": "Site。场所/区域。物理场所或监管区域：厂区、车间、储罐区、充装台、防爆间、化工园区、有限空间、限定区域、沿江区域等。。关键词: name, site_type, location。示例: 反应釜防爆间 液氯充装台 1#罐组防火堤 进水闸门井(有限空间) 首都功能核心区 沿江区域"
+  },
+  {
+    "schema_id": "major_hazard_source",
+    "schema_kind": "entity",
+    "name": "MajorHazardSource",
+    "name_zh": "重大危险源",
+    "definition": "构成重大危险源的生产装置、储存罐区等，按 GB 18218 辨识分级。法规与标准均有专项管控要求。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "name",
+      "level",
+      "chemicals",
+      "filed"
+    ],
+    "examples": "液氯储罐区(重大危险源) 构成重大危险源的液氯生产装置 康尼瑞公司原料罐区",
+    "embedding_text": "MajorHazardSource。重大危险源。构成重大危险源的生产装置、储存罐区等，按 GB 18218 辨识分级。法规与标准均有专项管控要求。。关键词: name, level, chemicals, filed。示例: 液氯储罐区(重大危险源) 构成重大危险源的液氯生产装置 康尼瑞公司原料罐区"
+  },
+  {
+    "schema_id": "accident",
+    "schema_kind": "entity",
+    "name": "Accident",
+    "name_zh": "事故",
+    "definition": "生产安全事故，是因果链与整改知识的核心锚点。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "title",
+      "accident_type",
+      "accident_level",
+      "occurred_at",
+      "death_count",
+      "severe_injury_count",
+      "minor_injury_count",
+      "missing_count",
+      "direct_loss",
+      "accident_nature",
+      "report_flag"
+    ],
+    "examples": "西艾氟“5·3”较大爆炸事故(3死) 融汇化工“8·29”氯气泄漏事故(19伤) 义马气化厂“7·19”重大爆炸事故(15死16重伤) 宿州“8·6”硫化氢中毒窒息事故(3死)",
+    "embedding_text": "Accident。事故。生产安全事故，是因果链与整改知识的核心锚点。。关键词: title, accident_type, accident_level, occurred_at, death_count, severe_injury_count, minor_injury_count, missing_count, direct_loss, accident_nature, report_flag。示例: 西艾氟“5·3”较大爆炸事故(3死) 融汇化工“8·29”氯气泄漏事故(19伤) 义马气化厂“7·19”重大爆炸事故(15死16重伤) 宿州“8·6”硫化氢中毒窒息事故(3死)"
+  },
+  {
+    "schema_id": "causal_factor",
+    "schema_kind": "entity",
+    "name": "CausalFactor",
+    "name_zh": "事故致因",
+    "definition": "事故的直接原因、间接原因、管理原因等致因要素，是因果链的节点。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "description",
+      "causal_level",
+      "factor_type",
+      "category"
+    ],
+    "examples": "锅炉超压运行 违章动火作业 擅自改变反应条件 未正确系挂安全绳 未通风未检测未防护下井 应急救援人员盲目施救",
+    "embedding_text": "CausalFactor。事故致因。事故的直接原因、间接原因、管理原因等致因要素，是因果链的节点。。关键词: description, causal_level, factor_type, category。示例: 锅炉超压运行 违章动火作业 擅自改变反应条件 未正确系挂安全绳 未通风未检测未防护下井 应急救援人员盲目施救"
+  },
+  {
+    "schema_id": "measure",
+    "schema_kind": "entity",
+    "name": "Measure",
+    "name_zh": "措施",
+    "definition": "事故报告中的应急处置措施与整改/防范措施；也含法规标准中的管理要求动作。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "description",
+      "measure_type",
+      "responsible"
+    ],
+    "examples": "对F1工序紧急停车并切断四氟乙烯供应 严格执行动火作业票制度 在二吸塔出口加装盲板",
+    "embedding_text": "Measure。措施。事故报告中的应急处置措施与整改/防范措施；也含法规标准中的管理要求动作。。关键词: description, measure_type, responsible。示例: 对F1工序紧急停车并切断四氟乙烯供应 严格执行动火作业票制度 在二吸塔出口加装盲板"
+  },
+  {
+    "schema_id": "standard",
+    "schema_kind": "entity",
+    "name": "Standard",
+    "name_zh": "标准",
+    "definition": "国家标准、行业标准、地方标准、团体标准等标准化文件（作为文档节点，条款另行建模）。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "code",
+      "title",
+      "level",
+      "mandatory",
+      "status",
+      "publish_date",
+      "effective_date",
+      "issuer"
+    ],
+    "examples": "AQ 3011-2007 连二亚硫酸钠包装安全要求 DB32/T 3617-2019 液氯使用安全技术规范 DB37/T 4995-2025 装卸设施安全管理规范 GB 30000.30-2025 退敏爆炸物 GB 6222-2025 工业企业煤气安全规范",
+    "embedding_text": "Standard。标准。国家标准、行业标准、地方标准、团体标准等标准化文件（作为文档节点，条款另行建模）。。关键词: code, title, level, mandatory, status, publish_date, effective_date, issuer。示例: AQ 3011-2007 连二亚硫酸钠包装安全要求 DB32/T 3617-2019 液氯使用安全技术规范 DB37/T 4995-2025 装卸设施安全管理规范 GB 30000.30-2025 退敏爆炸物 GB 6222-2025 工业企业煤气安全规范"
+  },
+  {
+    "schema_id": "regulation",
+    "schema_kind": "entity",
+    "name": "Regulation",
+    "name_zh": "法规",
+    "definition": "法律、行政法规、部门规章、地方性法规、地方政府规章、规范性文件等（文档节点，条款另行建模）。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "title",
+      "doc_no",
+      "level",
+      "publish_date",
+      "effective_date",
+      "issuer",
+      "status"
+    ],
+    "examples": "中华人民共和国危险化学品安全法 上海市危险化学品安全管理办法 湖北省燃气管理条例 北京市危险化学品禁止、限制、控制措施(2024年版) 国务院安委会关于强化危险化学品“一件事”全链条安全管理的措施",
+    "embedding_text": "Regulation。法规。法律、行政法规、部门规章、地方性法规、地方政府规章、规范性文件等（文档节点，条款另行建模）。。关键词: title, doc_no, level, publish_date, effective_date, issuer, status。示例: 中华人民共和国危险化学品安全法 上海市危险化学品安全管理办法 湖北省燃气管理条例 北京市危险化学品禁止、限制、控制措施(2024年版) 国务院安委会关于强化危险化学品“一件事”全链条安全管理的措施"
+  },
+  {
+    "schema_id": "clause",
+    "schema_kind": "entity",
+    "name": "Clause",
+    "name_zh": "条款",
+    "definition": "标准/法规的章、条、款、项、附录等结构化单元。条款级建模，避免把整份文档当一个节点。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "clause_number",
+      "clause_type",
+      "text",
+      "parent_clause_number",
+      "mandatory"
+    ],
+    "examples": "DB32/T 3617 第6.3.1条 危险化学品安全法 第三条 AQ 3011 第3.1.1.1条",
+    "embedding_text": "Clause。条款。标准/法规的章、条、款、项、附录等结构化单元。条款级建模，避免把整份文档当一个节点。。关键词: clause_number, clause_type, text, parent_clause_number, mandatory。示例: DB32/T 3617 第6.3.1条 危险化学品安全法 第三条 AQ 3011 第3.1.1.1条"
+  },
+  {
+    "schema_id": "requirement",
+    "schema_kind": "entity",
+    "name": "Requirement",
+    "name_zh": "安全要求",
+    "definition": "从条款中规范化出的、可判定的安全要求命题（主体+模态+行为+条件+对象）。是事故与标准法规桥接的最小语义单元，使用稳定 requirement_id。",
+    "subject_types": [],
+    "object_types": [],
+    "aliases": [],
+    "keywords": [
+      "requirement_id",
+      "text",
+      "normalized",
+      "modality",
+      "subject",
+      "action",
+      "object",
+      "condition",
+      "quantitative_constraint",
+      "source_clause_id"
+    ],
+    "examples": "液氯贮槽接受液氯应小于1.20kg/L 液氯汽车罐车卸载应采用液体装卸臂，不应使用软管 危险化学品生产、储存、使用、经营、运输的安全管理适用本法",
+    "embedding_text": "Requirement。安全要求。从条款中规范化出的、可判定的安全要求命题（主体+模态+行为+条件+对象）。是事故与标准法规桥接的最小语义单元，使用稳定 requirement_id。。关键词: requirement_id, text, normalized, modality, subject, action, object, condition, quantitative_constraint, source_clause_id。示例: 液氯贮槽接受液氯应小于1.20kg/L 液氯汽车罐车卸载应采用液体装卸臂，不应使用软管 危险化学品生产、储存、使用、经营、运输的安全管理适用本法"
+  },
+  {
+    "schema_id": "has_clause",
+    "schema_kind": "relation",
+    "name": "HAS_CLAUSE",
+    "name_zh": "包含条款",
+    "definition": "标准/法规包含某条款（Standard/Regulation -[HAS_CLAUSE]-> Clause）",
+    "subject_types": [
+      "standard",
+      "regulation"
+    ],
+    "object_types": [
+      "clause"
+    ],
+    "aliases": [],
+    "keywords": [
+      "order"
+    ],
+    "examples": "",
+    "embedding_text": "HAS_CLAUSE。包含条款。标准/法规包含某条款（Standard/Regulation -[HAS_CLAUSE]-> Clause）。主体类型: standard, regulation。客体类型: clause。关键词: order"
+  },
+  {
+    "schema_id": "parent_of",
+    "schema_kind": "relation",
+    "name": "PARENT_OF",
+    "name_zh": "包含下级条款",
+    "definition": "条款层级：章→条→款→项（Clause -[PARENT_OF]-> Clause）",
+    "subject_types": [
+      "clause"
+    ],
+    "object_types": [
+      "clause"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "PARENT_OF。包含下级条款。条款层级：章→条→款→项（Clause -[PARENT_OF]-> Clause）。主体类型: clause。客体类型: clause"
+  },
+  {
+    "schema_id": "references",
+    "schema_kind": "relation",
+    "name": "REFERENCES",
+    "name_zh": "引用",
+    "definition": "规范性引用文件/条款互引",
+    "subject_types": [
+      "clause",
+      "standard",
+      "regulation"
+    ],
+    "object_types": [
+      "standard",
+      "regulation",
+      "clause"
+    ],
+    "aliases": [],
+    "keywords": [
+      "reference_type"
+    ],
+    "examples": "",
+    "embedding_text": "REFERENCES。引用。规范性引用文件/条款互引。主体类型: clause, standard, regulation。客体类型: standard, regulation, clause。关键词: reference_type"
+  },
+  {
+    "schema_id": "replaces",
+    "schema_kind": "relation",
+    "name": "REPLACES",
+    "name_zh": "代替",
+    "definition": "修订版代替旧版，如 GB 6222-2025 代替 GB 6222-2005",
+    "subject_types": [
+      "standard",
+      "regulation"
+    ],
+    "object_types": [
+      "standard",
+      "regulation"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "REPLACES。代替。修订版代替旧版，如 GB 6222-2025 代替 GB 6222-2005。主体类型: standard, regulation。客体类型: standard, regulation"
+  },
+  {
+    "schema_id": "defines",
+    "schema_kind": "relation",
+    "name": "DEFINES",
+    "name_zh": "定义",
+    "definition": "术语和定义条款定义某概念",
+    "subject_types": [
+      "standard",
+      "regulation",
+      "clause"
+    ],
+    "object_types": [
+      "hazard_class",
+      "chemical",
+      "equipment",
+      "process"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "DEFINES。定义。术语和定义条款定义某概念。主体类型: standard, regulation, clause。客体类型: hazard_class, chemical, equipment, process"
+  },
+  {
+    "schema_id": "derived_from",
+    "schema_kind": "relation",
+    "name": "DERIVED_FROM",
+    "name_zh": "出自",
+    "definition": "要求抽取自某条款（Requirement -[DERIVED_FROM]-> Clause，唯一规范方向）",
+    "subject_types": [
+      "requirement"
+    ],
+    "object_types": [
+      "clause"
+    ],
+    "aliases": [],
+    "keywords": [
+      "span"
+    ],
+    "examples": "",
+    "embedding_text": "DERIVED_FROM。出自。要求抽取自某条款（Requirement -[DERIVED_FROM]-> Clause，唯一规范方向）。主体类型: requirement。客体类型: clause。关键词: span"
+  },
+  {
+    "schema_id": "belongs_to_class",
+    "schema_kind": "relation",
+    "name": "BELONGS_TO_CLASS",
+    "name_zh": "属于危险类别",
+    "definition": "化学品属于某 GHS 危险类别",
+    "subject_types": [
+      "chemical"
+    ],
+    "object_types": [
+      "hazard_class"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "BELONGS_TO_CLASS。属于危险类别。化学品属于某 GHS 危险类别。主体类型: chemical。客体类型: hazard_class"
+  },
+  {
+    "schema_id": "governs",
+    "schema_kind": "relation",
+    "name": "GOVERNS",
+    "name_zh": "规范",
+    "definition": "标准/法规文档级规范某对象（文档级桥接；条款/要求级适用 APPLIES_TO）",
+    "subject_types": [
+      "standard",
+      "regulation"
+    ],
+    "object_types": [
+      "chemical",
+      "hazard_class",
+      "equipment",
+      "process",
+      "site",
+      "major_hazard_source",
+      "enterprise"
+    ],
+    "aliases": [],
+    "keywords": [
+      "scope"
+    ],
+    "examples": "",
+    "embedding_text": "GOVERNS。规范。标准/法规文档级规范某对象（文档级桥接；条款/要求级适用 APPLIES_TO）。主体类型: standard, regulation。客体类型: chemical, hazard_class, equipment, process, site, major_hazard_source, enterprise。关键词: scope"
+  },
+  {
+    "schema_id": "located_at",
+    "schema_kind": "relation",
+    "name": "LOCATED_AT",
+    "name_zh": "位于",
+    "definition": "企业/设备位于某场所或区域",
+    "subject_types": [
+      "enterprise",
+      "equipment"
+    ],
+    "object_types": [
+      "site"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "LOCATED_AT。位于。企业/设备位于某场所或区域。主体类型: enterprise, equipment。客体类型: site"
+  },
+  {
+    "schema_id": "has_equipment",
+    "schema_kind": "relation",
+    "name": "HAS_EQUIPMENT",
+    "name_zh": "拥有设备",
+    "definition": "企业拥有/使用某设备",
+    "subject_types": [
+      "enterprise"
+    ],
+    "object_types": [
+      "equipment"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "HAS_EQUIPMENT。拥有设备。企业拥有/使用某设备。主体类型: enterprise。客体类型: equipment"
+  },
+  {
+    "schema_id": "operates_process",
+    "schema_kind": "relation",
+    "name": "OPERATES_PROCESS",
+    "name_zh": "运营工艺",
+    "definition": "企业运营某工艺",
+    "subject_types": [
+      "enterprise"
+    ],
+    "object_types": [
+      "process"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "OPERATES_PROCESS。运营工艺。企业运营某工艺。主体类型: enterprise。客体类型: process"
+  },
+  {
+    "schema_id": "handles",
+    "schema_kind": "relation",
+    "name": "HANDLES",
+    "name_zh": "涉危化品操作",
+    "definition": "企业生产/储存/使用/经营/运输某化学品",
+    "subject_types": [
+      "enterprise"
+    ],
+    "object_types": [
+      "chemical"
+    ],
+    "aliases": [],
+    "keywords": [
+      "operation"
+    ],
+    "examples": "",
+    "embedding_text": "HANDLES。涉危化品操作。企业生产/储存/使用/经营/运输某化学品。主体类型: enterprise。客体类型: chemical。关键词: operation"
+  },
+  {
+    "schema_id": "has_hazard_source",
+    "schema_kind": "relation",
+    "name": "HAS_HAZARD_SOURCE",
+    "name_zh": "构成重大危险源",
+    "definition": "企业构成某重大危险源",
+    "subject_types": [
+      "enterprise"
+    ],
+    "object_types": [
+      "major_hazard_source"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "HAS_HAZARD_SOURCE。构成重大危险源。企业构成某重大危险源。主体类型: enterprise。客体类型: major_hazard_source"
+  },
+  {
+    "schema_id": "hazard_of",
+    "schema_kind": "relation",
+    "name": "HAZARD_OF",
+    "name_zh": "涉及化学品",
+    "definition": "重大危险源涉及的危险化学品",
+    "subject_types": [
+      "major_hazard_source"
+    ],
+    "object_types": [
+      "chemical"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "HAZARD_OF。涉及化学品。重大危险源涉及的危险化学品。主体类型: major_hazard_source。客体类型: chemical"
+  },
+  {
+    "schema_id": "contains",
+    "schema_kind": "relation",
+    "name": "CONTAINS",
+    "name_zh": "储存/输送介质",
+    "definition": "设备储存/输送/盛装某化学品",
+    "subject_types": [
+      "equipment"
+    ],
+    "object_types": [
+      "chemical"
+    ],
+    "aliases": [],
+    "keywords": [
+      "quantity"
+    ],
+    "examples": "",
+    "embedding_text": "CONTAINS。储存/输送介质。设备储存/输送/盛装某化学品。主体类型: equipment。客体类型: chemical。关键词: quantity"
+  },
+  {
+    "schema_id": "used_in",
+    "schema_kind": "relation",
+    "name": "USED_IN",
+    "name_zh": "用于工艺",
+    "definition": "设备用于某工艺/工序",
+    "subject_types": [
+      "equipment"
+    ],
+    "object_types": [
+      "process"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "USED_IN。用于工艺。设备用于某工艺/工序。主体类型: equipment。客体类型: process"
+  },
+  {
+    "schema_id": "regulates",
+    "schema_kind": "relation",
+    "name": "REGULATES",
+    "name_zh": "监管",
+    "definition": "监管部门监管某类企业（行政监管，区别于 GOVERNS 技术规范）",
+    "subject_types": [
+      "regulator"
+    ],
+    "object_types": [
+      "enterprise"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "REGULATES。监管。监管部门监管某类企业（行政监管，区别于 GOVERNS 技术规范）。主体类型: regulator。客体类型: enterprise"
+  },
+  {
+    "schema_id": "issued_by",
+    "schema_kind": "relation",
+    "name": "ISSUED_BY",
+    "name_zh": "由…发布",
+    "definition": "法规/标准由某机关/归口单位发布",
+    "subject_types": [
+      "regulation",
+      "standard"
+    ],
+    "object_types": [
+      "regulator"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "ISSUED_BY。由…发布。法规/标准由某机关/归口单位发布。主体类型: regulation, standard。客体类型: regulator"
+  },
+  {
+    "schema_id": "occurred_in",
+    "schema_kind": "relation",
+    "name": "OCCURRED_IN",
+    "name_zh": "发生于单位",
+    "definition": "事故发生在某企业/单位",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "enterprise"
+    ],
+    "aliases": [],
+    "keywords": [
+      "role"
+    ],
+    "examples": "",
+    "embedding_text": "OCCURRED_IN。发生于单位。事故发生在某企业/单位。主体类型: accident。客体类型: enterprise。关键词: role"
+  },
+  {
+    "schema_id": "occurred_at",
+    "schema_kind": "relation",
+    "name": "OCCURRED_AT",
+    "name_zh": "发生于场所",
+    "definition": "事故发生在某场所",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "site"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "OCCURRED_AT。发生于场所。事故发生在某场所。主体类型: accident。客体类型: site"
+  },
+  {
+    "schema_id": "involves_chemical",
+    "schema_kind": "relation",
+    "name": "INVOLVES_CHEMICAL",
+    "name_zh": "涉及化学品",
+    "definition": "事故涉及某化学品",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "chemical"
+    ],
+    "aliases": [],
+    "keywords": [
+      "role"
+    ],
+    "examples": "",
+    "embedding_text": "INVOLVES_CHEMICAL。涉及化学品。事故涉及某化学品。主体类型: accident。客体类型: chemical。关键词: role"
+  },
+  {
+    "schema_id": "involves_equipment",
+    "schema_kind": "relation",
+    "name": "INVOLVES_EQUIPMENT",
+    "name_zh": "涉及设备",
+    "definition": "事故涉及某设备",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "equipment"
+    ],
+    "aliases": [],
+    "keywords": [
+      "role"
+    ],
+    "examples": "",
+    "embedding_text": "INVOLVES_EQUIPMENT。涉及设备。事故涉及某设备。主体类型: accident。客体类型: equipment。关键词: role"
+  },
+  {
+    "schema_id": "involves_process",
+    "schema_kind": "relation",
+    "name": "INVOLVES_PROCESS",
+    "name_zh": "涉及工艺",
+    "definition": "事故涉及某工艺",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "process"
+    ],
+    "aliases": [],
+    "keywords": [
+      "role"
+    ],
+    "examples": "",
+    "embedding_text": "INVOLVES_PROCESS。涉及工艺。事故涉及某工艺。主体类型: accident。客体类型: process。关键词: role"
+  },
+  {
+    "schema_id": "direct_cause",
+    "schema_kind": "relation",
+    "name": "DIRECT_CAUSE",
+    "name_zh": "直接原因",
+    "definition": "事故的直接原因（方向统一：Accident -[DIRECT_CAUSE]-> CausalFactor，语义=事故具有直接原因）",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "causal_factor"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "DIRECT_CAUSE。直接原因。事故的直接原因（方向统一：Accident -[DIRECT_CAUSE]-> CausalFactor，语义=事故具有直接原因）。主体类型: accident。客体类型: causal_factor"
+  },
+  {
+    "schema_id": "indirect_cause",
+    "schema_kind": "relation",
+    "name": "INDIRECT_CAUSE",
+    "name_zh": "间接原因",
+    "definition": "事故的间接原因（方向统一：Accident -[INDIRECT_CAUSE]-> CausalFactor）",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "causal_factor"
+    ],
+    "aliases": [],
+    "keywords": [],
+    "examples": "",
+    "embedding_text": "INDIRECT_CAUSE。间接原因。事故的间接原因（方向统一：Accident -[INDIRECT_CAUSE]-> CausalFactor）。主体类型: accident。客体类型: causal_factor"
+  },
+  {
+    "schema_id": "leads_to",
+    "schema_kind": "relation",
+    "name": "LEADS_TO",
+    "name_zh": "导致",
+    "definition": "致因之间的因果链传导（CausalFactor -[LEADS_TO]-> CausalFactor：管理缺陷→不安全行为/状态→能量释放）",
+    "subject_types": [
+      "causal_factor"
+    ],
+    "object_types": [
+      "causal_factor"
+    ],
+    "aliases": [],
+    "keywords": [
+      "order"
+    ],
+    "examples": "",
+    "embedding_text": "LEADS_TO。导致。致因之间的因果链传导（CausalFactor -[LEADS_TO]-> CausalFactor：管理缺陷→不安全行为/状态→能量释放）。主体类型: causal_factor。客体类型: causal_factor。关键词: order"
+  },
+  {
+    "schema_id": "relates_to",
+    "schema_kind": "relation",
+    "name": "RELATES_TO",
+    "name_zh": "关联对象",
+    "definition": "致因所关联的具体对象",
+    "subject_types": [
+      "causal_factor"
+    ],
+    "object_types": [
+      "chemical",
+      "equipment",
+      "process",
+      "site",
+      "enterprise",
+      "major_hazard_source"
+    ],
+    "aliases": [],
+    "keywords": [
+      "role",
+      "assertion_type"
+    ],
+    "examples": "",
+    "embedding_text": "RELATES_TO。关联对象。致因所关联的具体对象。主体类型: causal_factor。客体类型: chemical, equipment, process, site, enterprise, major_hazard_source。关键词: role, assertion_type"
+  },
+  {
+    "schema_id": "has_measure",
+    "schema_kind": "relation",
+    "name": "HAS_MEASURE",
+    "name_zh": "有措施",
+    "definition": "事故有应急处置/整改措施",
+    "subject_types": [
+      "accident"
+    ],
+    "object_types": [
+      "measure"
+    ],
+    "aliases": [],
+    "keywords": [
+      "measure_type"
+    ],
+    "examples": "",
+    "embedding_text": "HAS_MEASURE。有措施。事故有应急处置/整改措施。主体类型: accident。客体类型: measure。关键词: measure_type"
+  },
+  {
+    "schema_id": "liability_of",
+    "schema_kind": "relation",
+    "name": "LIABILITY_OF",
+    "name_zh": "责任主体",
+    "definition": "单位/部门对事故负有责任（Enterprise/Regulator -[LIABILITY_OF]-> Accident）",
+    "subject_types": [
+      "enterprise",
+      "regulator"
+    ],
+    "object_types": [
+      "accident"
+    ],
+    "aliases": [],
+    "keywords": [
+      "liability_type"
+    ],
+    "examples": "",
+    "embedding_text": "LIABILITY_OF。责任主体。单位/部门对事故负有责任（Enterprise/Regulator -[LIABILITY_OF]-> Accident）。主体类型: enterprise, regulator。客体类型: accident。关键词: liability_type"
+  },
+  {
+    "schema_id": "based_on",
+    "schema_kind": "relation",
+    "name": "BASED_ON",
+    "name_zh": "依据",
+    "definition": "整改措施依据某条款/标准/法规（assertion_type 区分 explicit/inferred/human_confirmed）",
+    "subject_types": [
+      "measure"
+    ],
+    "object_types": [
+      "requirement",
+      "clause",
+      "standard",
+      "regulation"
+    ],
+    "aliases": [],
+    "keywords": [
+      "assertion_type"
+    ],
+    "examples": "",
+    "embedding_text": "BASED_ON。依据。整改措施依据某条款/标准/法规（assertion_type 区分 explicit/inferred/human_confirmed）。主体类型: measure。客体类型: requirement, clause, standard, regulation。关键词: assertion_type"
+  },
+  {
+    "schema_id": "violates",
+    "schema_kind": "relation",
+    "name": "VIOLATES",
+    "name_zh": "违反",
+    "definition": "事故原因/事故违反了某要求或条款（桥接核心关系；assertion_type 区分 explicit/inferred/human_confirmed）",
+    "subject_types": [
+      "causal_factor",
+      "accident"
+    ],
+    "object_types": [
+      "requirement",
+      "clause",
+      "standard",
+      "regulation"
+    ],
+    "aliases": [],
+    "keywords": [
+      "assertion_type"
+    ],
+    "examples": "",
+    "embedding_text": "VIOLATES。违反。事故原因/事故违反了某要求或条款（桥接核心关系；assertion_type 区分 explicit/inferred/human_confirmed）。主体类型: causal_factor, accident。客体类型: requirement, clause, standard, regulation。关键词: assertion_type"
+  },
+  {
+    "schema_id": "applies_to",
+    "schema_kind": "relation",
+    "name": "APPLIES_TO",
+    "name_zh": "适用于",
+    "definition": "条款/要求适用于某对象（条款级桥接；文档级规范用 GOVERNS）",
+    "subject_types": [
+      "requirement",
+      "clause"
+    ],
+    "object_types": [
+      "chemical",
+      "equipment",
+      "process",
+      "site",
+      "major_hazard_source",
+      "enterprise"
+    ],
+    "aliases": [],
+    "keywords": [
+      "condition"
+    ],
+    "examples": "",
+    "embedding_text": "APPLIES_TO。适用于。条款/要求适用于某对象（条款级桥接；文档级规范用 GOVERNS）。主体类型: requirement, clause。客体类型: chemical, equipment, process, site, major_hazard_source, enterprise。关键词: condition"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "doc_id": "REG_ZV9XAD7F47D312F367A6",
+  "title": "民用爆炸物品品名表",
+  "document_type": "法规",
+  "pdf_path": "/root/autodl-tmp/chemical_kb/data/pdf/法规/20061109--民用爆炸物品品名表（2006年）.pdf",
+  "page_count": 4,
+  "methods": [
+    "text"
+  ],
+  "char_count": 1629,
+  "pages": [
+    {
+      "page": 1,
+      "method": "text",
+      "text": "中华人民共和国国防科学技术工业委员会\n中华人民共和国公安部\n公\n告\n2006 年第1 号\n根据《民用爆炸物品安全管理条例》第二条的规定，国\n防科工委、公安部制订了《民用爆炸物品品名表》，现予以\n公布，请遵照执行。\n二○○六年十一月九日\n民用爆炸物品品名表\n序号\n名称\n英文名称\n备注\n一、工业炸药\n1\n硝化甘油炸药\nNitroglycerine,NG\n甘油三硝酸酯类混合炸药\n2\n铵梯类炸药\nAmmonite\n含铵梯油炸药\n3\n多孔粒状铵油炸药\n4\n改性铵油炸药\n5\n膨化硝铵炸药\nExpanded AN explosive\n6\n其他铵油类炸药\n含粉状铵油、铵松蜡、铵沥\n蜡炸药等"
+    },
+    {
+      "page": 2,
+      "method": "text",
+      "text": "序号\n名称\n英文名称\n备注\n7\n水胶炸药\nWater gel explosive\n8\n乳化炸药（胶状）\nEmulsion\n9\n粉状乳化炸药\nPowdery emulsive\n10\n乳化粒状铵油炸药\n重铵油炸药\n11\n粘性炸药\n12\n含退役火药炸药\n含退役火药的乳化、浆状、\n粉状炸药\n13\n其他工业炸药\n14\n震源药柱\nSeismic charge\n15\n震源弹\n16\n人工影响天气用燃爆器材\n含炮弹、火箭弹等、限生产、\n购买、销售、运输管理\n17\n矿岩破碎器材\n18\n中继起爆具\nPrimer\n19\n爆炸加工器材\n20\n油气井用起爆器\n21\n聚能射孔弹\nPerforating charge\n22\n复合射孔器\nPerforator\n23\n聚能切割弹\n24\n高能气体压裂弹\n25\n点火药盒"
+    },
+    {
+      "page": 3,
+      "method": "text",
+      "text": "序号\n名称\n英文名称\n备注\n26\n其它油气井用爆破器材\n27\n其它炸药制品\n二、工业雷管\n28\n工业火雷管\nFlash detonator\n29\n工业电雷管\nElectric detonator\n含普通电雷管和煤矿许用电\n雷管\n30\n导爆管雷管\nDetonator with\nshock\n-conducting tube\n31\n半导体桥电雷管\n32\n电子雷管\nElectron-delay detonat\nor\n33\n磁电雷管\nMagnetoelectric detona\ntor\n34\n油气井用电雷管\n35\n地震勘探电雷管\n36\n继爆管\n37\n其它工业雷管\n三、工业索类火工品\n38\n工业导火索\nIndustrial blasting fu\nse\n39\n工业导爆索\nIndustrial Detonating\nfuse\n40\n切割索\nLinear shaped charge\n41\n塑料导爆管\nShock-conducting tube\n42\n引火线"
+    },
+    {
+      "page": 4,
+      "method": "text",
+      "text": "序号\n名称\n英文名称\n备注\n四、其它民用爆炸物品\n43\n安全气囊用点火具\n44\n其它特殊用途点火具\n45\n特殊用途烟火制品\n46\n其它点火器材\n47\n海上救生烟火信号\n五、原材料\n48\n梯恩梯(TNT)/2，4，6-三\n硝基甲苯\nTrinitrotoluene,TNT\n限于购买、销售、运输管理\n49\n工业黑索今(RDX)/环三亚\n甲基三硝胺\nHexogen,RDX\n限于购买、销售、运输管理\n50\n苦味酸/2，4，6-三硝基苯\n酚\nPicric acib\n限于购买、销售、运输管理\n51\n民用推进剂\n限于购买、销售、运输管理\n52\n太安(PETN)/季戊四醇四\n硝酸酯\nPentaerythritol\ntetr\nanitrate, PETN\n限于购买、销售、运输管理\n53\n奥克托今（HMX）\nOctogen,HMX\n限于购买、销售、运输管理\n54\n其它单质猛炸药\nExplosive compound\n限于购买、销售、运输管理\n55\n黑火药\nBlack power\n用于生产烟花爆竹的黑火药\n除外，限于购买、销售、运\n输管理\n56\n起爆药\nInitiating explosive\n57\n延期器材\n58\n硝酸铵\nAmmonium nitrate,AN\n限于购买、销售审批管理\n59\n国防科工委、公安部认为\n需要管理的其他民用爆炸\n物品"
+    }
+  ],
+  "status": "ACTIVE",
+  "code": "2006年第1号公告",
+  "source": "法规",
+  "topic": "/危险化学品管理/名录;/危险化学品管理/民用爆炸品;/原料及产品/火工产品",
+  "issuer": "国防科学技术工业委员会;公安部"
+}

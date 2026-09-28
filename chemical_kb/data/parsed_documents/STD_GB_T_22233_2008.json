@@ -1,0 +1,83 @@
+{
+  "doc_id": "STD_GB_T_22233_2008",
+  "title": "化学品潜在危险性相关标准术语",
+  "document_type": "标准",
+  "pdf_path": "/root/autodl-tmp/chemical_kb/data/pdf/标准/T 22233-2008_化学品潜在危险性相关标准术语.pdf",
+  "page_count": 13,
+  "methods": [
+    "ocr"
+  ],
+  "char_count": 7866,
+  "pages": [
+    {
+      "page": 1,
+      "method": "ocr",
+      "text": "ICS13.300\nA80\n中华人民共和国国家标准\nGB/T 22233-2008\n化学品潜在危险性相关标准术语\nStandard terminology relating to hazard potential of chemicals\n2008-06-19发布\n2009-02-01实施\n中华人民共和国国家质量监督检验检疫总局\n发布\n中国国家标准化管理委员会\n数码防优"
+    },
+    {
+      "page": 2,
+      "method": "ocr",
+      "text": "GB/T22233-2008\n前言\n本标准等同采用ASTME1445一2003《化学品潜在危险性相关标准术语》(英文版)。\n为了方便使用，进行了下列编辑性的修改：\na）将原标准中章标题编号后的“.\"去掉；\nc）增加了汉语拼音索引 。\n本标准由全国危险化学品管理标准化技术委员会(SAC/TC 251)提出并归口。\n本标准起草人:陈会明、王晓兵、王军兵、梅建、郝楠、周玮、崔海容、孙鑫、张君玺、王睁。\n本标准为首次发布。"
+    },
+    {
+      "page": 3,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n化学品潜在危险性相关标准术语\n1  范围\n本标准规定了化学品潜在危险性领域的术语。\n本标准旨在共同理解和标准化,通过统一术语帮助排除有效技术交流中的障碍。\n2规范性引用文件\n下列文件中的条款,通过本标准的引用而成为本标准的条款。凡是注日期的引用文件,其随后所有\n的修改单(不包括勘误的内容)或修订版均不适用于本标准，然而，鼓励根据本标准达成协议的各方研究\n是否可使用这些文件的最新版本。凡是不注日期的引用文件，其最新版本适用于本标准。\nGB/T22232一2008化学物质的热稳定性测定差示扫描量热法\nASTME 476封闭的冷凝系统中热不稳定性的试验方法\nASTME487化学材料的恒温稳定性的试验方法\nASTME659液体化学品自燃温度的试验方法\nASTME680固态危险物的跌落撞击敏感度的试验方法\nASTME681化合物(蒸气和气体)易燃性浓度限值的试验方法\nASTME698热不稳定材料的阿仑尼乌斯动态恒量的试验方法\nASTM E 771材料自发加热趋势的试验方法\nASTME918温度和压力升高时化学药品易燃极限的测定试验\nASTME1226可燃粉尘用压力和压力提高率的试验方法\nASTM E 1231热不稳定材料危害潜在灵敏值计算的实施规程\nASTME1232化学药品易燃极限温度的试验方法\nASTME1491尘云的最低自燃温度的试验方法\nASTME1515易燃粉尘最小爆炸浓度的试验方法\nASTM E 2012二进制化学兼容图表制备的指南\nASTME2019空气中尘雾最小点火能量的试验方法\nASTME2021尘埃层热表面燃烧温度的试验方法\nASTME 2046用热分析法测定反应感应时间的试验方法\n3术语和定义\n3. 1\n绝热分解温度上升adiabatic decomposition temperature rise\n(T)d\n名词一计算样品将达到的温度,判断是否所有的分解反应(热)都被样品本身吸收。值越高潜在\n危险越大。\n[ASTM E 1231]\n3. 2\n测砧anvil\n名词一测试样品或盛装剩余样品的平滑坚固的表面。\n[ASTM E 680]"
+    },
+    {
+      "page": 4,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n3.3\n阿仑尼乌斯方程式Arrhenius equation\nk=Ze-E/T其中k 是特定的反应速率常数,单位是 min-';Z 是指前因子,单位是 min-;E 是阿累\n尼乌斯活化能,单位是J/mol;R 是气体常数,为 8.32J/(mol·K);T是热力学温度。\n[ASTM E 698]\n3.4\n自燃 autoignition\n名词一在没有外界的引燃来源如火花和火焰时产生的放热的氧化反应,使物质在空气中燃烧释放\n出热量。\n[ASTM E 659]\n3.5\n自燃温度autoignition temperature\n名词一在特定的试验条件下发生自燃的最低温度。\n[ASTM E 659]\n讨论一自燃温度也可称自然着火点、自发火温度，自动着火温度并可缩写为 AIT及 SIT。AIT 是\n物质在大气压下不借助外来能源如火花或火焰在大空气中产生热火焰引燃的最低温度。易燃混合物的\n最低温度肯定提高,放热的氧化反应的加热速率将失去平衡,热量损失到环境中去并引发燃烧。\n3.6\n适应性\ncompatibility\n名词一在特定接触情况下材料不发生特定结果(通常是危害的)的能力。\n[ASTM E 2012]\n3.7\n恒温稳定(CTS)值\nconstant-temperature stability(CTS) value\n名词一在试验条件下化学品化合或混合保持2h不再出现可测量到的放热反应时的最高温度。\n[ASTM E 487]\n3.8\n冷火焰\ncool-flame\n名词一在自然温度(AIT)下发出的弱的淡蓝色的冷光火火焰。\n讨论一在富含水蒸气的空气中，烃和氧化烃混合物产生冷火焰。他们是多级点燃过程的第一部分。\n[ASTM E 659]\n3.9\n临界半值厚度criticalhalf thickness\na\n名词一在无干扰容器中测定样品的半值厚度,其中损失到环境中的热量比保留的热量少。这个温\n度积累导致了热失控反应。\n[ASTM E 1231]\n3.10\n临界温度critical temperature\nT.\n名词一测定无干扰容器的最低温度,其中损失到环境中的热量比保留的热量少,导致内部温度的积\n累。这个温度积累导致了热失控反应。\n[ASTM E 1231]\n讨论一这个描述假设热量完全在反应边界转移。如果反应发生在密闭容器中就不符合这个条件，\n2"
+    },
+    {
+      "page": 5,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n如多个容器堆在一起或为运输装人容器。这个优良指数由于低估了热导系数则低估了危险。\n3. 11\n爆燃指数deflagration index\nKst\n名词一1.0 m²标准体积dp/dt的最大值。在粉尘浓度适当时测定。K用如下立方关系式定义：\nKs = (dp/dt)max V1/3\n式中：\np一一压力;\nt--—时间；\nV—体积。\n[ASTM E 1226]\n3.12\n差示扫描量热计differential scanning calorimetry(DSC)\n名词一用物质和参照物中输人的能量差测量温度的仪器，物质和参照物受到温度程序的控制。\n[ASTM E 698]\n讨论一两种方法，能量补偿差示扫描热计(能量补偿DSC)和热流量差示扫描热计(热流量DSC)，\n可依使用的测量方法区分。\n3.13\n差热分析仪differential thermal analysis(DTA)\n名词一测量物质和参照物温度差的仪器，物质和参照物受到温度程序的控制。\n[ASTM E 698]\n3.14\n(dp/dt)a\n名词一在单个燃爆过程中压力升高的最高速率。\n[ASTM E 1226]\n3. 15\n(dp/dt)mx\n名词-一在粉尘浓度适当的燃爆过程中测试每单位时间内压力升高速率增加的最大值。\n[ASTM E 1226]\n3. 16\n落锤dropweight\n质量。\n[ASTM E 680]\n3.17\nDTA(DSC) 曲线DTA(DSC) curve\n名词一一个热分析的纪录,把温度差(△T)或能量差(△q)绘制在纵坐标上并把温度或时间绘制在\n横坐标上(见图 3 和图 4)。\n[GB/T 22232--2008]\n3.18\n粉尘浓度dust concentration\n名词一粉尘总量除以测试箱的内部体积。\n[ASTM E 1491]\n3"
+    },
+    {
+      "page": 6,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n3. 19\n外推起始温度extrapolated onset temperature\n名词一按照经验，该温度是从外推基线(峰前)和峰的主要一端的交点得来的。\n[GB/T 22232—2008]\n3.20\n闪点\nflashpoint\n名词一在特定的试验条件下校准到 101.3 kPa(760 mm Hg,1 013 mbar)压力,用点燃源点燃样品\n的蒸气使其燃烧的最低温度。\n[ASTM E 1232]\n3.21\n一般速率定律\ngeneral rate law\ndC/dt = k(1 - C)\"\n式中：\nC\n转换分数；\nt—\n一时间，单位为分钟；\nn-——反应级数。\n[ASTM E 698]\n3.22\n套筒guidebushing\n名词一环绕、排列并把中间重量固定在适当位置的钢套。\n[ASTM E 680]\n3.23\n导向系统guide system\n名词一引导落锤下落的铁轨、金属线和轴。\n[ASTM E 680]\n3.24\n粉尘层热表面点燃温度hot-surface ignition temperature of a dust layer\n名词一引起粉尘层燃烧的热板的最低温度。\n[ASTM E 2021]\n3.25\nH50 值\nH50 value\n名词一试验中用布鲁斯上升下降法确定反应概率50%时的下降高度。\n[ASTM E 680]\n3.26\n点燃ignition\n名词一-开始燃烧。\n[ASTM E 659]\n3.27\n点燃延迟时间\nJ ignition delay time\n名词一在开始加热材料到它燃烧之间的时间间隔。把样品插人瓶中和点燃之间有几秒钟的时间。\n它在最低自燃温度时达到最大,也被称做燃烧滞后。\n[ASTM E 659]"
+    },
+    {
+      "page": 7,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n3.28\n点燃延迟时间ignition delay time\ntd\n名词一从粉尘在试验仪器中开始扩散过程(扩散气体开始进人箱体时)到点燃源起作用之间时间间\n[ASTM E 1226]\n3.29\n粉尘层的点燃ignition of a dust layer\n名词一一种材料在测试情况下自热成燃烧的起始状态。\n[ASTM E 2021]\n3.30\n点燃时间\n]  ignition time\n名词一在开始加热到最高温度点或达到着火燃烧之间的时间。\n[ASTM E 2021]\n3.31\n撞击装置或机器\nimpact apparatus or machine\n名词一包括基础部分、引导线、电磁起落机及工具的所有装置。\n[ASTM E 680]\n3.32\n撞击工具impact tool\n名词一落锤、中间锤和砧座。\n[ASTM E 680]\n3.33\n易燃性下限或燃烧下限lower limit of flammability or lower flammable limit(LFL)\n名词一在特定实验条件下气体氧化剂产生火焰的可燃性物质的最低浓度。\n[ASTM E 681]\n3.34\n易燃性温度下限lower temperature limit of flammability(LTL)\n生火焰时,校准到 101.3kPa(760 mm Hg,1 013 mbar)下的最低温度。\n[ASTM E 1232]\n3.35\n最低自燃温度minimum autoignition temperature(MAIT)\n名词一在特定的实验条件下粉尘可自燃的最低温度。\n[ASTM E 1491]\n3. 36\n最小点燃能量minimum ignition energy\n名词一在特定实验条件下恰好能使给定的混合燃料混合物燃烧的电容器放出的电能。\n[ASTM E 2019]\n3.37\n起始温度onset temperature\n名词一和首先观察到已建立的基线有偏差的温度。\n[GB/T 22232-2008]"
+    },
+    {
+      "page": 8,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n3.38\nPa\n名词一在单独燃爆过程中达到的最大爆炸压力(在点燃时容器中的压力)。\n[ASTM E 1226]\n3.39\nPigniton\n名词一在点燃时的绝对压力。\n[ASTM E 1515]\n3.40\nPea.a\n名词一在单独燃爆过程中达到的最大爆炸压力(绝对压力)。\n[ASTM E 1515]\n3.41\n△Pignitor\n名词一由于自燃引起容器内压力的升高。\n[ASTM E 1515]\n3.42\nPmax\n名词一在对最适当浓度的被测粉尘燃爆过程中达到的最大压力(在点燃时容器中的压力)。Pmα是\n由一系列大量的浓度测试确定的。\n[ASTM E 1226]\n3.43\npeak\n名词一是单个过程产生的 DTA或 DSC 曲线的一部分。它通常用和已建立的基准线偏差、最大偏\n差和重建的基准线来描述，重建的基准线并不必和之前的峰相同。\n[ASTM E 698]\n3. 44\n峰 peak\n名词一是单个过程产生的加热曲线的一部分。它通常用和已建立的基准线偏差、最大偏差和重建\n的基准线来描述，重建的基准线并不必和之前的峰相同。\n[GB/T 22232—2008]\n讨论一这里有个实例，扫描温度观察到在一个高温的吸热后紧接着-个放热曲线。这种竞争性反\n应使得很难找到真正的峰和起始温度，有时是不可能找到的。\n3.45\n峰温度\npeak temperature\n名词一DTA 或 DSC 曲线最大偏差相关的温度。\n[GB/T 22232—2008]\n3.46\n压力比\npressure ratio\nPR\n名词一定义为PR=（Pex,一△Pignitor)/ Pignition\n[ASTM E 1515]\n6"
+    },
+    {
+      "page": 9,
+      "method": "ocr",
+      "text": "GB/T 22233—-2008\n3. 47\n火焰蔓延propagation of flame\n名词一从点火源到容器壁火焰向上向外的移动,可用肉眼观察到。\n[ASTM E 918]\n3.48\n火焰蔓延反应propagation of flames\n名词一使初始绝对压力升高至少7%的燃烧反应。\nP2/P ≥ 1. 07\n[ASTM E 1232]\n讨论一这7%压力的升高相当于每初始压力大气压在0.007MPa(1pisa)。\n3.49\n反应reaction\n名词一伴随有吸热或放热变的任何材料的转变。\n[GB/T 22232—2008]\n3.50\n反应诱导时间（RIT)值reaction induction time(RIT）value\n名词一化学化合物或混合物在发生特定的放热反应前,可能在等温条件下维持的时间。\n[ASTM E 2046]\n3.51\n场景\nscenario\n名词一可能发生的化合物材料潜在无意结合的过程的详细物理描述。\n[ASTM E 2012]\n\"3.52\n火花放电spark discharge\n名词一在两个不同电势的导体之间发生的瞬间不连续的放电。在两个单离子导体之间的空隙处\n放电。\n[ASTM E 2019]\n3.53\n自发热或自热 spontaneous heating or self heating\n名词一材料由于缓慢或不完全的反应导致温度高于其环境温度的放热反应。\n[ASTM E 771]\n3.54\n自发热温度或自热温度spontaneous heating temperature or self-heating temperature\n名词一在特定实验条件下产生自发热或自热时的最低温度。这个温度是指反应的最初阶段材料的\n自燃温度。\n[ASTM E 771]\n3.55\n承击面striking surface\n名词一用于测试样品的中间体工具的坚硬、平滑、圆形的底表面。\n[ASTM E 680]"
+    },
+    {
+      "page": 10,
+      "method": "ocr",
+      "text": "GB/T22233-2008\n3.56\n温度升高\ntemperature rise\n△T\n名词一Tm和热板层最初设定温度之间的差。\n[ASTM E 2021]\n3.57\n极限温度threshold temperature\n名词一△T相对T曲线下滑变化趋势处表明放热反应时的温度,这时样品开始自发放热。\n[ASTME 476]\n3.58\n热击穿时间\ntime-to-thermal-runaway\ntc\n名词一在绝热的容器(也就是和环境之间无热交换)中测定放热反应达到热击穿点时所需的时间。\n[ASTM E 1231]\n3.59\nTmax\n名词一在实验过程中测到的最高温度。\n[ASTM E 2021]\n3. 60\n口实验unconfined test\n名词一测试样品直接放在平台上，不受边界约束的实验。\n[ASTM E 680]\n3.61\n易燃性上限或发火上限upper limit of flammability or upper flammable limit(UFL)\n名词一在特定的实验室条件下能使易燃物和气态氧化剂的均匀混合物产生火焰时易燃物的最大\n浓度。\n[ASTM E 681]"
+    },
+    {
+      "page": 11,
+      "method": "ocr",
+      "text": "GB/T 22233-2008\n汉语拼\n音索\n引1\n(dp/dt)ez\n... 3.14\n粉尘浓度\n3. 18\n. r(2P/dp)\n·3.15\n···\n..... 3.43\nDTA(DSC)曲线\n.. 3. 17\n峰\n.. 3. 44\nH50 值\n· 3.25\n峰温度\n3.45\nPa\n.. 3.38\nPa,a\n.. 3.40\nH\nPignition\n3.39\nPmax\n·3.42\n恒温稳定(CTS)值\nTmx\n3.59\n火花放电\n3.52\n△Pigntor\n3.41\n火焰蔓延\n3.47\n······\n火焰蔓延反应\n...... 3.48\nA\nJ\n阿累尼乌斯方程式\n3.3\n极限温度\n... 3.57\nB\n绝热分解温度上升·\n3.1\n爆燃指数\n3.11\nL\nc\n冷火焰·\n3.8\n测砧\n临界半值厚度·\n...3.9\n差热分析仪\n3.13\n临界温度\n3.10\n·\n差示扫描量热计\n3.12\n落锤\n3.51\nQ\n承击面\n3.55\n口实验\n3.60\n起始温度\n3.37\nD\nR\n导向系统\n.... 3.23\n热击穿时间\n..... 3.58\n点燃\n3.26\nS\n点燃时间\n· 3.30\n点燃延迟时间\n3.27\n闪点\n·\n3. 20\n点燃延迟时间\n3.28\n适应性··\n... 3.6\nF\nT\n反应\n.... 3.49\n套筒\n.... 3.22\n反应诱导时间(RIT)值\n. 3.50\nW\n粉尘层的点燃\n3.29\n粉尘层热表面点火温度\n外推起始温度\n3. 19\n9"
+    },
+    {
+      "page": 12,
+      "method": "ocr",
+      "text": "GB/T 22233—2008\n.. 3.56\n自发热温度或自热温度\n3.54\n温度升高\n撞击工具\n3.32\nY\n撞击装置或机器\n3.31\n3. 46\n自燃\n3.4\n压力比·\n一般速率定律\n3.21\n自燃温度\n3.61\n最低自燃温度\n3.35\n易燃性上限或发火上限\n······\n3.34\n最小点燃能量\n.... 3.36\n易燃性温度下限····\n易燃性下限或燃烧下限\n3.33\nZ\n自发热或自热\n3.53\n10"
+    },
+    {
+      "page": 13,
+      "method": "ocr",
+      "text": "-2008\nGB/T 22233-\n中华人民共和国\n国家标准\n化学品潜在危险性相关标准术语\nGB/T 22233-—2008\n中国标准出版社出版发行\n北京复兴门外三里河北街16 号\n邮政编码：100045\n网址 www. spc. net. cn\n电话：68523946 68517548\n中国标准出版社秦皇岛印刷厂印刷\n各地新华书店经销\n开本880×12301/16印张1字数20千字\n2008年9月第一版2008年9月第一次印刷\n书号：155066·1-33359定价16.00元\n如有印装差错\n由本社发行中心调换\n版权专有\n侵权必究\n举报电话：（010)68533533\nGB/T 22233-2008"
+    }
+  ],
+  "status": "ACTIVE",
+  "code": "GB/T 22233-2008",
+  "source": "国家标准",
+  "topic": "/通用安全管理/风险管理  ;  /危险化学品管理/安全管理要求",
+  "issuer": "/国家标准化管理委员会  ;  /国家质量监督检验检疫总局"
+}

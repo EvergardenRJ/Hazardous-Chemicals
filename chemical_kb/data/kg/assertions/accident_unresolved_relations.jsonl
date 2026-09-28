@@ -1,0 +1,4 @@
+{"relation_id": "r1", "predicate_surface": "超过", "subject_surface": "压力", "subject_type": "causal_factor", "object_surface": "万向节(鹤管)", "object_type": "equipment", "evidence_quote": "由于充装液氯压力超过万向节减薄部位的承载能力"}
+{"relation_id": "r5", "predicate_surface": "进行", "subject_surface": "融汇化工", "subject_type": "enterprise", "object_surface": "液氯", "object_type": "chemical", "evidence_quote": "融汇化工在万向节（鹤管）存在局部严重减薄情况下进行液氯充装作业"}
+{"relation_id": "r6", "predicate_surface": "含有", "subject_surface": "万向节(鹤管)", "subject_type": "equipment", "object_surface": "液氯", "object_type": "chemical", "evidence_quote": "进行液氯充装作业"}
+{"relation_id": "r7", "predicate_surface": "涉及", "subject_surface": "液氯", "subject_type": "chemical", "object_surface": "中毒", "object_type": "causal_factor", "evidence_quote": "引起人员中毒"}

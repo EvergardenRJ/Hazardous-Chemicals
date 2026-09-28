@@ -1,0 +1,4 @@
+# Neo4j 连接配置（本地开发默认值；生产环境请用环境变量 NEO4J_PASSWORD 覆盖，勿硬编码到代码）
+neo4j_uri: bolt://localhost:7687
+neo4j_user: neo4j
+neo4j_password: "CHANGE_ME"  # Set NEO4J_PASSWORD in the environment
