@@ -68,3 +68,23 @@ in the graph and relation editor. The old source database and all derived
 content remain on the server. Manual edits of legacy relations also remain in
 this private review file. Back up this file and the SQLite database before
 turning off the server.
+
+
+To cover relationships newly implied by all 152 imported documents, use a
+separate resumable corpus checkpoint after the main GPU extraction completes:
+
+```bash
+python scripts/kg/extract_corpus.py --metadata data/legacy/chunks_metadata.json   --db data/legacy/corpus.sqlite --batch-size 4
+python scripts/kg/audit_corpus_candidates.py --metadata data/legacy/chunks_metadata.json   --db data/legacy/corpus.sqlite --static-only
+python scripts/kg/audit_corpus_candidates.py --metadata data/legacy/chunks_metadata.json   --db data/legacy/corpus.sqlite --batch-size 4
+python -m scripts.legacy_publish_corpus --dry-run
+python -m scripts.legacy_publish_corpus
+```
+
+The extraction checkpoint starts with 7,927 queued chunks. The publication
+gate requires passing extraction validation, exact source evidence, a valid
+semantic audit decision, and current-schema validation. Its output remains in
+the private `data/legacy/reviewed.jsonl` file. Re-run the extractor with
+`--retry-failed` for failed chunks; its default mode processes queued chunks
+only. Preserve `corpus.sqlite`, `reembed.sqlite`, private indexes and review
+JSONL in the server's persistent backup directory.

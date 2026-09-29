@@ -129,6 +129,7 @@ def save_failure(db, chunk_id, status, error, elapsed):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
+    parser.add_argument("--metadata", type=Path, default=METADATA)
     parser.add_argument("--limit", type=int, default=0, help="Maximum chunks this run; 0 means all")
     parser.add_argument("--batch-size", type=int, default=1, help="GPU inference batch size")
     parser.add_argument("--max-seconds", type=int, default=0, help="Stop cleanly after this time; 0 means no limit")
@@ -136,7 +137,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--recheck-evidence", action="store_true", help="Recalculate evidence matches for stored candidates")
     args = parser.parse_args()
-    rows = json.loads(METADATA.read_text(encoding="utf-8"))
+    rows = json.loads(args.metadata.read_text(encoding="utf-8"))
     db = connect(args.db)
     total = prepare(db, rows)
     print("inventory", total, "chunks", len({r.get('doc_id') for r in rows}), "documents", flush=True)

@@ -90,6 +90,7 @@ def parse_result(raw,items):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--db',type=Path,default=DB)
+    p.add_argument('--metadata',type=Path,default=META)
     p.add_argument('--batch-size',type=int,default=4,help='Number of review prompts per GPU batch')
     p.add_argument('--items-per-prompt',type=int,default=10)
     p.add_argument('--limit-prompts',type=int,default=0)
@@ -97,7 +98,7 @@ def main():
     p.add_argument('--static-only',action='store_true',help='Run schema and evidence checks without using GPU')
     args=p.parse_args()
     db=connect(args.db)
-    texts={r['chunk_id']:str(r.get('text') or '') for r in json.loads(META.read_text(encoding='utf-8'))}
+    texts={r['chunk_id']:str(r.get('text') or '') for r in json.loads(args.metadata.read_text(encoding='utf-8'))}
     rows=db.execute('''SELECT a.assertion_id,a.chunk_id,a.validation_status,a.evidence_ok,a.payload
         FROM assertions a LEFT JOIN candidate_audits v ON a.assertion_id=v.assertion_id
         WHERE v.assertion_id IS NULL ORDER BY a.chunk_id,a.assertion_id''').fetchall()
