@@ -88,3 +88,9 @@ the private `data/legacy/reviewed.jsonl` file. Re-run the extractor with
 `--retry-failed` for failed chunks; its default mode processes queued chunks
 only. Preserve `corpus.sqlite`, `reembed.sqlite`, private indexes and review
 JSONL in the server's persistent backup directory.
+
+
+After publishing reviewed relations, run
+`python scripts/kg/sync_to_neo4j.py` when Neo4j is available. The sync reads
+the current private review revisions and removes legacy Neo4j edges that were
+later rejected. The Explorer page reads the private review file directly.

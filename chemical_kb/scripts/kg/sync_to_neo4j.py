@@ -8,6 +8,7 @@
 - rejected → 不进入正常关系网络
 节点按 canonical_id MERGE，关系按 assertion_id MERGE，重复运行不重复创建。
 """
+import json
 import sys
 from pathlib import Path
 
@@ -16,6 +17,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from core.kg.neo4j_store import Neo4jStore
 from core.kg.review_manager import ReviewManager
+from core.kg.relation_catalog import approved_assertions
 
 
 def load_assertions():
@@ -37,6 +39,14 @@ def load_assertions():
             if a.get("assertion_id"):
                 rows.append(a)
         # rejected 跳过
+    private = PROJECT_ROOT / "data/legacy/reviewed.jsonl"
+    if private.exists():
+        with private.open(encoding="utf-8") as stream:
+            revisions = [json.loads(line) for line in stream if line.strip()]
+        for assertion in approved_assertions(revisions):
+            item = dict(assertion)
+            item["review_status"] = "approved"
+            rows.append(item)
     return rows
 
 
@@ -50,6 +60,18 @@ def main():
     before_r = store.count_relations()
 
     assertions = load_assertions()
+    private = PROJECT_ROOT / "data/legacy/reviewed.jsonl"
+    if private.exists():
+        active = [a["assertion_id"] for a in assertions
+                  if str(a.get("assertion_id") or "").startswith(("LEGACYREL:", "LEGACYCORPUS:"))]
+        with store.connect().session() as session:
+            session.run("""
+                MATCH ()-[r]->()
+                WHERE (r.assertion_id STARTS WITH 'LEGACYREL:'
+                    OR r.assertion_id STARTS WITH 'LEGACYCORPUS:')
+                  AND NOT r.assertion_id IN $active
+                DELETE r
+            """, active=active).consume()
     print(f"待同步断言: {len(assertions)}")
     for a in assertions:
         try:
