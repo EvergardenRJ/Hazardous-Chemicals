@@ -13,7 +13,9 @@ The importer reads the source database without modifying it. It copies only
 documents, versions, chunks, entities, and relationships into
 `hazmat_legacy.sqlite`. It excludes `app_config` (which may contain API keys),
 `index_jobs`, and `knowledge_bases`. It writes `chunks_metadata.json` for
-keyword retrieval and document listing. These generated files are private and
+document listing. `build-index` creates a separate ignored
+`data/legacy/keyword.sqlite` for old document retrieval and rebuilds the
+original public keyword index from original metadata only. These generated files are private and
 must stay out of GitHub.
 
 The old 1024-dimensional vectors came from `text-embedding-v4`; they are kept

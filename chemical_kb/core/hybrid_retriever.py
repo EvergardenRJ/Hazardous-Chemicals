@@ -14,6 +14,7 @@ class HybridRetriever:
         self.vector_store = vector_store
         self.reranker = reranker
         self.keyword = KeywordIndex(keyword_path or BASE_DIR / "data/search/keyword.sqlite")
+        self.legacy_keyword = KeywordIndex(BASE_DIR / "data/legacy/keyword.sqlite")
         self.graph_service = graph_service
         self.review_path = Path(review_path or BASE_DIR / "data/kg/review/reviewed.jsonl")
         self._legacy_vector_store = None
@@ -105,7 +106,10 @@ class HybridRetriever:
             vector = np.asarray(vector, dtype="float32")
         routes = {
             "vector": self._vector_search(vector, search_top_k),
-            "keyword": self.keyword.search(question, limit=search_top_k),
+            "keyword": fuse_rrf({
+                "main": self.keyword.search(question, limit=search_top_k),
+                "legacy": self.legacy_keyword.search(question, limit=search_top_k),
+            }, limit=search_top_k),
             "graph": self._graph_search(question, limit=search_top_k),
         }
         fused = fuse_rrf(routes, at=as_of, limit=search_top_k)

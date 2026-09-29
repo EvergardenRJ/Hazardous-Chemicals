@@ -22,7 +22,7 @@ from core.config import BASE_DIR, VECTOR_METADATA
 from core.entity_registry import EntityRegistry
 from core.kg.relation_catalog import current_relations, validate_assertion
 from core.kg.schema_manager import SchemaManager
-from core.knowledge import KeywordIndex, _approved, active_at, entity_candidates, export_graph, find_conflicts
+from core.knowledge import KeywordIndex, _approved, active_at, entity_candidates, export_graph, find_conflicts, fuse_rrf
 
 ROOT = BASE_DIR
 DIST = ROOT / "explorer_web" / "dist"
@@ -196,7 +196,10 @@ def search():
         return jsonify({"nodes": [], "evidence": []})
     graph = _graph("all")
     matching_nodes = [n for n in graph["nodes"] if query.casefold() in (n["label"] + " " + n["id"]).casefold()][:12]
-    evidence = KeywordIndex(ROOT / "data/search/keyword.sqlite").search(query, limit=8)
+    evidence = fuse_rrf({
+        "main": KeywordIndex(ROOT / "data/search/keyword.sqlite").search(query, limit=8),
+        "legacy": KeywordIndex(ROOT / "data/legacy/keyword.sqlite").search(query, limit=8),
+    }, limit=8)
     return jsonify({"nodes": matching_nodes, "evidence": evidence})
 
 

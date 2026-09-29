@@ -25,6 +25,13 @@ legacy_approved_edges = sum(str(row["id"]).startswith("LEGACYREL:")
 if audit.get("approved", 0) == 0:
     assert legacy_approved_edges == 0
 assert (ROOT / "data/search/keyword.sqlite").exists()
+assert (ROOT / "data/legacy/keyword.sqlite").exists()
+with sqlite3.connect(ROOT / "data/search/keyword.sqlite") as public_index:
+    assert public_index.execute(
+        "SELECT COUNT(*) FROM docs WHERE chunk_id LIKE 'LEGACY:%'"
+    ).fetchone()[0] == 0
+with sqlite3.connect(ROOT / "data/legacy/keyword.sqlite") as private_index:
+    assert private_index.execute("SELECT COUNT(*) FROM docs").fetchone()[0] == 7927
 print(json.dumps({
     "summary_documents": summary["documents"],
     "summary_chunks": summary["chunks"],

@@ -26,12 +26,17 @@ def main():
     if args.action == "build-index":
         with open(VECTOR_METADATA, encoding="utf-8") as stream:
             rows = json.load(stream)
-        if LEGACY_METADATA.exists():
-            with LEGACY_METADATA.open(encoding="utf-8") as stream:
-                rows.extend(json.load(stream))
         dest = BASE_DIR / "data/search/keyword.sqlite"
         KeywordIndex(dest).build(rows)
-        print(json.dumps({"indexed": len(rows), "path": str(dest)}, ensure_ascii=False))
+        result = {"public_indexed": len(rows), "public_path": str(dest)}
+        if LEGACY_METADATA.exists():
+            with LEGACY_METADATA.open(encoding="utf-8") as stream:
+                legacy_rows = json.load(stream)
+            private_dest = BASE_DIR / "data/legacy/keyword.sqlite"
+            KeywordIndex(private_dest).build(legacy_rows)
+            result.update({"private_indexed": len(legacy_rows),
+                           "private_path": str(private_dest)})
+        print(json.dumps(result, ensure_ascii=False))
         return
     manager = ReviewManager()
     reviewed = manager.get_reviewed()
