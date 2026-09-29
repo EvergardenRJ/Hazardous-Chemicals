@@ -20,6 +20,7 @@ from flask import Flask, Response, jsonify, request, send_from_directory
 
 from core.config import BASE_DIR, VECTOR_METADATA
 from core.entity_registry import EntityRegistry
+from core.legacy_source import document_body_metadata, body_chunk_metadata
 from core.kg.relation_catalog import current_relations, validate_assertion
 from core.kg.schema_manager import SchemaManager
 from core.knowledge import KeywordIndex, _approved, active_at, entity_candidates, export_graph, find_conflicts, fuse_rrf
@@ -259,6 +260,8 @@ def relation_source(assertion_id):
     assertion = item["assertion"]
     chunk_id = assertion.get("source_chunk_id", "")
     chunk = next((row for row in _metadata() if row.get("chunk_id") == chunk_id), None)
+    if chunk is None:
+        chunk = document_body_metadata(chunk_id) or body_chunk_metadata(chunk_id)
     related = [x["assertion_id"] for x in current_relations(reviewed, pending)
                if x["assertion"].get("source_chunk_id") == chunk_id]
     return jsonify({"chunk": chunk, "source_chunk_id": chunk_id,

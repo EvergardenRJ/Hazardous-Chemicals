@@ -27,6 +27,7 @@ def main():
     result = {
         "main": corpus(BASE_DIR / "data/kg/batch_extraction/corpus.sqlite"),
         "legacy_corpus": corpus(legacy / "corpus.sqlite"),
+        "legacy_body_corpus": corpus(legacy / "body_corpus.sqlite"),
     }
     old_db = legacy / "hazmat_legacy.sqlite"
     if old_db.exists():

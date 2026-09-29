@@ -56,14 +56,18 @@ def relation_options(schema: SchemaManager) -> list[dict]:
 def candidates(db: sqlite3.Connection) -> dict[str, list[tuple]]:
     rows = db.execute("""
         SELECT r.id,r.source_entity,r.relation_type,r.target_entity,
-               e.chunk_id,e.excerpt,d.id,c.text
+               e.chunk_id,e.excerpt,
+               COALESCE(body.document_id,v.document_id) AS document_id,
+               COALESCE(body.content,c.text) AS source_text
         FROM graph_relationships r
         JOIN legacy_relation_audits a ON a.relation_id=r.id
         JOIN legacy_relation_evidence e ON e.relation_id=r.id
-        JOIN chunks c ON c.id=e.chunk_id
-        JOIN document_versions v ON v.id=c.document_version_id
-        JOIN documents d ON d.id=v.document_id
+        LEFT JOIN chunks c ON c.id=e.chunk_id AND e.match_kind<>'document_body'
+        LEFT JOIN document_versions v ON v.id=c.document_version_id
+        LEFT JOIN document_versions body
+          ON body.id=substr(e.chunk_id,8) AND e.match_kind='document_body'
         WHERE a.decision='needs_semantic_review'
+          AND COALESCE(body.document_id,v.document_id) IS NOT NULL
         ORDER BY r.id,e.chunk_id
     """)
     groups = defaultdict(list)
@@ -104,8 +108,10 @@ def assess(model, schema, options, row):
         return "needs_review", "Model returned unknown schema type or relation", None
     if not schema.validate_relation_domain(subject_type, predicate, object_type):
         return "needs_review", "Schema domain/range mismatch", None
-    if not exact_quote(quote, source, target, full_text):
-        return "needs_review", "Exact quote or endpoints not found in source chunk", None
+    if not exact_quote(quote, source, target, excerpt) or not exact_quote(
+        quote, source, target, full_text
+    ):
+        return "needs_review", "Exact quote or endpoints not found in old document evidence", None
     second_prompt = json.dumps({
         "source_passage": excerpt,
         "proposed_assertion": {"subject": source, "subject_type": subject_type,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resumeable BGE-M3 embedding of private legacy chunks into a separate FAISS index."""
+"""Resumable BGE-M3 embedding of complete old document body windows."""
 from __future__ import annotations
 
 import argparse
@@ -13,7 +13,7 @@ import numpy as np
 from core.config import BASE_DIR, EMBED_MODEL
 
 ROOT = BASE_DIR / "data/legacy"
-META = ROOT / "chunks_metadata.json"
+META = ROOT / "body_chunks_metadata.json"
 CHECKPOINT = ROOT / "reembed.sqlite"
 INDEX = ROOT / "faiss.index"
 

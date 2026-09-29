@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 from core.config import BASE_DIR
 from core.knowledge import KeywordIndex, fuse_rrf, _approved
+from core.legacy_source import document_body_metadata, body_chunk_metadata
 
 
 class HybridRetriever:
@@ -22,7 +23,7 @@ class HybridRetriever:
     def _vector_search(self, vector, limit):
         results = self.vector_store.search(vector, top_k=limit)
         legacy_index = BASE_DIR / "data/legacy/faiss.index"
-        legacy_metadata = BASE_DIR / "data/legacy/chunks_metadata.json"
+        legacy_metadata = BASE_DIR / "data/legacy/body_chunks_metadata.json"
         if self._legacy_vector_store is None and legacy_index.exists() and legacy_metadata.exists():
             from core.vector_store import VectorStore
             self._legacy_vector_store = VectorStore(legacy_index, legacy_metadata)
@@ -51,12 +52,17 @@ class HybridRetriever:
             if not any(len(label) >= 2 and label in question for label in labels):
                 continue
             chunk_id = str(assertion.get("source_chunk_id") or "")
-            if chunk_id in seen or chunk_id not in lookup:
+            if chunk_id in seen:
+                continue
+            source_meta = lookup.get(chunk_id) or body_chunk_metadata(chunk_id) or document_body_metadata(chunk_id)
+            if not source_meta:
                 continue
             seen.add(chunk_id)
-            meta = {**lookup[chunk_id],
-                    "valid_from": assertion.get("valid_from") or lookup[chunk_id].get("valid_from"),
-                    "valid_to": assertion.get("valid_to") or lookup[chunk_id].get("valid_to")}
+            if chunk_id.startswith("LEGACY:DOCVER:"):
+                source_meta = {**source_meta, "text": assertion.get("source_text_quote") or ""}
+            meta = {**source_meta,
+                    "valid_from": assertion.get("valid_from") or source_meta.get("valid_from"),
+                    "valid_to": assertion.get("valid_to") or source_meta.get("valid_to")}
             results.append({"score": float(assertion.get("confidence") or 0), "metadata": meta})
             if len(results) >= limit:
                 break
@@ -84,15 +90,23 @@ class HybridRetriever:
                     "MATCH (a)-[r]-(b) WHERE a.canonical_id IN $ids "
                     "AND r.review_status = 'approved' AND r.source_chunk_id IS NOT NULL "
                     "RETURN r.source_chunk_id AS chunk_id, r.source_doc_id AS doc_id, "
-                    "r.valid_from AS valid_from, r.valid_to AS valid_to "
+                    "r.valid_from AS valid_from, r.valid_to AS valid_to, "
+                    "r.source_text_quote AS quote "
                     "LIMIT $limit", ids=ids, limit=limit)
                 matches = list(recs)
             lookup = {str(m.get("chunk_id")): m for m in self.vector_store.metadata
                       if m.get("chunk_id")}
+            legacy_metadata = BASE_DIR / "data/legacy/chunks_metadata.json"
+            if legacy_metadata.exists():
+                for meta in json.loads(legacy_metadata.read_text(encoding="utf-8")):
+                    lookup[str(meta.get("chunk_id"))] = meta
             results = []
             for rec in matches:
-                meta = lookup.get(str(rec["chunk_id"]))
+                cid = str(rec["chunk_id"])
+                meta = lookup.get(cid) or body_chunk_metadata(cid) or document_body_metadata(cid)
                 if meta:
+                    if cid.startswith("LEGACY:DOCVER:"):
+                        meta = {**meta, "text": rec.get("quote") or ""}
                     meta = {**meta, "valid_from": rec.get("valid_from") or meta.get("valid_from"),
                             "valid_to": rec.get("valid_to") or meta.get("valid_to")}
                     results.append({"score": 1.0, "metadata": meta})
