@@ -30,12 +30,20 @@ class HybridRetriever:
         return sorted(results, key=lambda item: item["score"], reverse=True)[:limit]
 
     def _graph_search_local(self, question, limit=30):
-        if not self.review_path.exists():
+        legacy_reviews = BASE_DIR / "data/legacy/reviewed.jsonl"
+        if not self.review_path.exists() and not legacy_reviews.exists():
             return []
-        with self.review_path.open(encoding="utf-8") as stream:
-            reviews = [json.loads(line) for line in stream if line.strip()]
+        reviews = []
+        for path in (self.review_path, legacy_reviews):
+            if path.exists():
+                with path.open(encoding="utf-8") as stream:
+                    reviews.extend(json.loads(line) for line in stream if line.strip())
         lookup = {str(meta.get("chunk_id")): meta for meta in self.vector_store.metadata
                   if meta.get("chunk_id")}
+        legacy_metadata = BASE_DIR / "data/legacy/chunks_metadata.json"
+        if legacy_metadata.exists():
+            for meta in json.loads(legacy_metadata.read_text(encoding="utf-8")):
+                lookup[str(meta.get("chunk_id"))] = meta
         results, seen = [], set()
         for assertion in _approved(reviews):
             labels = (assertion.get("subject_label", ""), assertion.get("object_label", ""))

@@ -73,6 +73,13 @@ def main() -> None:
                       "remaining": len(remaining)}, ensure_ascii=False), flush=True)
     if args.dry_run:
         return
+    for entry in Path("/proc").glob("[0-9]*/cmdline"):
+        try:
+            command = entry.read_bytes()
+        except OSError:
+            continue
+        if b"scripts/kg/extract_corpus.py" in command and entry.parent.name != str(os.getpid()):
+            raise SystemExit("Full-corpus GPU extraction is still running; re-embedding deferred")
     selected = remaining[:args.limit] if args.limit else remaining
     if selected:
         from sentence_transformers import SentenceTransformer

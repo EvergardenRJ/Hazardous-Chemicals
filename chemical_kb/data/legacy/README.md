@@ -50,3 +50,19 @@ sufficient evidence. Existing graph counts will not increase on import.
 Import inventory at initial inspection: 152 documents, 7,927 chunks,
 1,994 old entity rows and 3,613 old relationship rows. The private
 `manifest.json` records the actual source checksum and output counts.
+
+
+When GPU extraction has stopped, review the 74 source candidates privately:
+
+```bash
+python -m scripts.legacy_semantic_review --dry-run
+python -m scripts.legacy_semantic_review
+```
+
+The semantic reviewer requires an exact source quote containing both endpoints,
+a current-schema domain/range match, and a second independent judgment. Any
+approved revisions are saved in ignored `data/legacy/reviewed.jsonl` and appear
+in the graph and relation editor. The old source database and all derived
+content remain on the server. Manual edits of legacy relations also remain in
+this private review file. Back up this file and the SQLite database before
+turning off the server.

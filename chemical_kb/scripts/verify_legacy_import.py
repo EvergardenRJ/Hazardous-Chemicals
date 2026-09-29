@@ -20,7 +20,10 @@ with app.test_client() as client:
     search = client.get("/api/search", query_string={"q": title[:8]}).get_json()
     graph = client.get("/api/graph", query_string={"mode": "approved"}).get_json()
 assert any(row["doc_id"].startswith("LEGACY:") for row in docs["items"])
-assert not any(str(row["id"]).startswith("LEGACY:") for row in graph["edges"])
+legacy_approved_edges = sum(str(row["id"]).startswith("LEGACYREL:")
+                            for row in graph["edges"])
+if audit.get("approved", 0) == 0:
+    assert legacy_approved_edges == 0
 assert (ROOT / "data/search/keyword.sqlite").exists()
 print(json.dumps({
     "summary_documents": summary["documents"],
@@ -29,5 +32,5 @@ print(json.dumps({
     "keyword_legacy_hit": any(item["metadata"]["doc_id"].startswith("LEGACY:")
                               for item in search["evidence"]),
     "legacy_relation_audits": audit,
-    "legacy_approved_edges": 0,
+    "legacy_approved_edges": legacy_approved_edges,
 }, ensure_ascii=False))

@@ -29,6 +29,8 @@ DIST = ROOT / "explorer_web" / "dist"
 WIKI_ROOT = ROOT / "data" / "wiki"
 REVIEW_ROOT = ROOT / "data" / "kg" / "review"
 LEGACY_METADATA = ROOT / "data" / "legacy" / "chunks_metadata.json"
+LEGACY_REVIEWS = ROOT / "data" / "legacy" / "reviewed.jsonl"
+_legacy_review_lock = threading.Lock()
 app = Flask(__name__, static_folder=None)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 _model_lock = threading.Lock()
@@ -68,7 +70,8 @@ def _metadata():
 
 
 def _reviews():
-    return _read_jsonl(REVIEW_ROOT / "reviewed.jsonl"), _read_jsonl(REVIEW_ROOT / "pending.jsonl")
+    reviewed = _read_jsonl(REVIEW_ROOT / "reviewed.jsonl") + _read_jsonl(LEGACY_REVIEWS)
+    return reviewed, _read_jsonl(REVIEW_ROOT / "pending.jsonl")
 
 
 def _graph(mode="all", as_of=None):
@@ -281,7 +284,7 @@ def review_assertion(assertion_id):
     from core.kg.case_builder import CaseBuilder
     from core.kg.case_repository import CaseRepository
     manager = ReviewManager()
-    reviewed, pending = manager.get_reviewed(), manager.get_pending()
+    reviewed, pending = _reviews()
     current = next((item for item in current_relations(reviewed, pending)
                     if item["assertion_id"] == assertion_id), None)
     if current is None:
@@ -314,6 +317,12 @@ def review_assertion(assertion_id):
         "schema_version": assertion.get("schema_version", ""), "review_version": "explorer-v2",
         "test_only": False,
     }
+    if assertion_id.startswith("LEGACYREL:"):
+        record["review_id"] = "REV_LEGACY_EDIT:" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%f")
+        LEGACY_REVIEWS.parent.mkdir(parents=True, exist_ok=True)
+        with _legacy_review_lock, LEGACY_REVIEWS.open("a", encoding="utf-8") as stream:
+            stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+        return jsonify({"record": record, "case_created": False})
     record = manager.submit_review(record)
     case = CaseBuilder().build_from_review(record)
     if case:
