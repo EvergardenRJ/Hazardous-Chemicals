@@ -16,6 +16,18 @@ class HybridRetriever:
         self.keyword = KeywordIndex(keyword_path or BASE_DIR / "data/search/keyword.sqlite")
         self.graph_service = graph_service
         self.review_path = Path(review_path or BASE_DIR / "data/kg/review/reviewed.jsonl")
+        self._legacy_vector_store = None
+
+    def _vector_search(self, vector, limit):
+        results = self.vector_store.search(vector, top_k=limit)
+        legacy_index = BASE_DIR / "data/legacy/faiss.index"
+        legacy_metadata = BASE_DIR / "data/legacy/chunks_metadata.json"
+        if self._legacy_vector_store is None and legacy_index.exists() and legacy_metadata.exists():
+            from core.vector_store import VectorStore
+            self._legacy_vector_store = VectorStore(legacy_index, legacy_metadata)
+        if self._legacy_vector_store is not None:
+            results.extend(self._legacy_vector_store.search(vector, top_k=limit))
+        return sorted(results, key=lambda item: item["score"], reverse=True)[:limit]
 
     def _graph_search_local(self, question, limit=30):
         if not self.review_path.exists():
@@ -84,7 +96,7 @@ class HybridRetriever:
         if not isinstance(vector, np.ndarray):
             vector = np.asarray(vector, dtype="float32")
         routes = {
-            "vector": self.vector_store.search(vector, top_k=search_top_k),
+            "vector": self._vector_search(vector, search_top_k),
             "keyword": self.keyword.search(question, limit=search_top_k),
             "graph": self._graph_search(question, limit=search_top_k),
         }

@@ -9,6 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from core.config import BASE_DIR, VECTOR_METADATA
+
+LEGACY_METADATA = BASE_DIR / "data/legacy/chunks_metadata.json"
 from core.knowledge import KeywordIndex, entity_candidates, find_conflicts, export_graph, _approved
 from core.kg.review_manager import ReviewManager
 from core.entity_registry import EntityRegistry
@@ -24,6 +26,9 @@ def main():
     if args.action == "build-index":
         with open(VECTOR_METADATA, encoding="utf-8") as stream:
             rows = json.load(stream)
+        if LEGACY_METADATA.exists():
+            with LEGACY_METADATA.open(encoding="utf-8") as stream:
+                rows.extend(json.load(stream))
         dest = BASE_DIR / "data/search/keyword.sqlite"
         KeywordIndex(dest).build(rows)
         print(json.dumps({"indexed": len(rows), "path": str(dest)}, ensure_ascii=False))

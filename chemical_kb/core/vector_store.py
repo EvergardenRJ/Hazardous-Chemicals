@@ -13,17 +13,17 @@ from core.config import (
 class VectorStore:
 
 
-    def __init__(self):
+    def __init__(self, index_path=None, metadata_path=None):
 
         print("加载FAISS")
 
         self.index = faiss.read_index(
-            str(VECTOR_INDEX)
+            str(index_path or VECTOR_INDEX)
         )
 
 
         with open(
-            VECTOR_METADATA,
+            metadata_path or VECTOR_METADATA,
             "r",
             encoding="utf-8"
         ) as f:

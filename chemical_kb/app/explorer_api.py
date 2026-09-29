@@ -28,6 +28,7 @@ ROOT = BASE_DIR
 DIST = ROOT / "explorer_web" / "dist"
 WIKI_ROOT = ROOT / "data" / "wiki"
 REVIEW_ROOT = ROOT / "data" / "kg" / "review"
+LEGACY_METADATA = ROOT / "data" / "legacy" / "chunks_metadata.json"
 app = Flask(__name__, static_folder=None)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 _model_lock = threading.Lock()
@@ -56,15 +57,14 @@ def _read_jsonl(path):
 
 
 @lru_cache(maxsize=2)
-def _metadata_cached(mtime):
-    return _read_json(VECTOR_METADATA, [])
+def _metadata_cached(vector_mtime, legacy_mtime):
+    return _read_json(VECTOR_METADATA, []) + _read_json(LEGACY_METADATA, [])
 
 
 def _metadata():
-    try:
-        return _metadata_cached(VECTOR_METADATA.stat().st_mtime_ns)
-    except FileNotFoundError:
-        return []
+    vector_mtime = VECTOR_METADATA.stat().st_mtime_ns if VECTOR_METADATA.exists() else 0
+    legacy_mtime = LEGACY_METADATA.stat().st_mtime_ns if LEGACY_METADATA.exists() else 0
+    return _metadata_cached(vector_mtime, legacy_mtime)
 
 
 def _reviews():

@@ -242,3 +242,7 @@ chemical_kb/backup_before_accident_*/
 chemical_kb/explorer_web/node_modules/
 !chemical_kb/explorer_web/dist/
 !chemical_kb/explorer_web/dist/**
+
+# Private legacy corpus, old vectors, and relation review state
+chemical_kb/data/legacy/**
+!chemical_kb/data/legacy/README.md
