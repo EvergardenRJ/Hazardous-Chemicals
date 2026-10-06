@@ -21,7 +21,9 @@ from core.kg.validator import AssertionValidator
 
 class KGExtractionPipeline:
     def __init__(self, schema_manager=None, retriever=None, verbose=False,
-                 use_definer_llm=False, use_canonicalizer_llm=False, case_retriever=None):
+                 use_definer_llm=False, use_canonicalizer_llm=False, case_retriever=None,
+                 case_top_k_success=3, case_top_k_failure=3,
+                 strict_case_retrieval=False):
         self.sm = schema_manager or SchemaManager()
         self.router = DocumentRouter()
         self.rule_extractor = RuleExtractor()
@@ -32,6 +34,9 @@ class KGExtractionPipeline:
         self.validator = AssertionValidator(schema_manager=self.sm)
         self.retriever = retriever  # 可选；None 时跳过 Schema Retriever
         self.case_retriever = case_retriever  # 可选；None 时跳过 Case Retriever
+        self.case_top_k_success = case_top_k_success
+        self.case_top_k_failure = case_top_k_failure
+        self.strict_case_retrieval = strict_case_retrieval
         self.verbose = verbose
         # 累计统计（用于回传第 10 节 JSON 解析统计）
         self.parse_stats = {"json.loads": 0, "code_fence": 0, "object_scan": 0,
@@ -99,9 +104,12 @@ class KGExtractionPipeline:
         try:
             return self.case_retriever.retrieve(
                 text, doc_type, self._source_type(doc_type),
-                top_k_success=3, top_k_failure=3,
+                top_k_success=self.case_top_k_success,
+                top_k_failure=self.case_top_k_failure,
             )
         except Exception:
+            if self.strict_case_retrieval:
+                raise
             return None
 
     def _finish_draft(self, chunk, metadata, doc_type, rule_annotations,

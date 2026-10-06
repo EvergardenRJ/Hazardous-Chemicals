@@ -54,6 +54,13 @@ def connect(path):
             FOREIGN KEY(chunk_id) REFERENCES chunks(chunk_id)
         );
         CREATE INDEX IF NOT EXISTS assertions_chunk ON assertions(chunk_id);
+        CREATE TABLE IF NOT EXISTS chunk_pipeline (
+            chunk_id TEXT PRIMARY KEY, pipeline_mode TEXT NOT NULL,
+            schema_entities INTEGER NOT NULL, schema_relations INTEGER NOT NULL,
+            success_cases INTEGER NOT NULL, failure_cases INTEGER NOT NULL,
+            updated_at TEXT NOT NULL,
+            FOREIGN KEY(chunk_id) REFERENCES chunks(chunk_id)
+        );
     """)
     return db
 
@@ -89,12 +96,24 @@ def status_summary(db):
             "evidence_matched": candidates[1] or 0}
 
 
+def record_pipeline(db, chunk_id, result, mode):
+    schema = result.get("schema_context") or {}
+    cases = result.get("case_context") or {}
+    db.execute("""INSERT OR REPLACE INTO chunk_pipeline
+        (chunk_id,pipeline_mode,schema_entities,schema_relations,success_cases,failure_cases,updated_at)
+        VALUES(?,?,?,?,?,?,?)""", (
+        chunk_id, mode, len(schema.get("entities") or []),
+        len(schema.get("relations") or []),
+        len(cases.get("success_cases") or []),
+        len(cases.get("failure_cases") or []), now(),
+    ))
+
 def evidence_in_text(quote, text):
     """Ignore OCR line wraps and spaces while preserving character order."""
     return bool(quote) and re.sub(r"\s+", "", str(quote)) in re.sub(r"\s+", "", str(text))
 
 
-def save_result(db, chunk, result, elapsed):
+def save_result(db, chunk, result, elapsed, mode="baseline-v1"):
     chunk_id = chunk["chunk_id"]
     text = str(chunk.get("text") or "")
     assertions = result.get("assertions") or []
@@ -116,14 +135,16 @@ def save_result(db, chunk, result, elapsed):
             error=NULL, updated_at=? WHERE chunk_id=?""",
             (status, len(assertions), passed, evidence,
              len(result.get("unresolved_relations") or []), elapsed, now(), chunk_id))
+        record_pipeline(db, chunk_id, result, mode)
     return status, len(assertions), passed, evidence
 
 
-def save_failure(db, chunk_id, status, error, elapsed):
+def save_failure(db, chunk_id, status, error, elapsed, mode="baseline-v1"):
     with db:
         db.execute("""UPDATE chunks SET status=?,attempt=attempt+1,error=?,
             elapsed_seconds=?,updated_at=? WHERE chunk_id=?""",
             (status, str(error)[:2000], elapsed, now(), chunk_id))
+        record_pipeline(db, chunk_id, {}, mode)
 
 
 def main():
@@ -134,6 +155,10 @@ def main():
     parser.add_argument("--batch-size", type=int, default=1, help="GPU inference batch size")
     parser.add_argument("--max-seconds", type=int, default=0, help="Stop cleanly after this time; 0 means no limit")
     parser.add_argument("--retry-failed", action="store_true")
+    parser.add_argument("--edc-r-case", action="store_true",
+                        help="Use CPU Schema and verified Success/Failure Case retrieval")
+    parser.add_argument("--case-success-k", type=int, default=2)
+    parser.add_argument("--case-failure-k", type=int, default=2)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--recheck-evidence", action="store_true", help="Recalculate evidence matches for stored candidates")
     args = parser.parse_args()
@@ -156,7 +181,19 @@ def main():
     if args.dry_run:
         return
     from core.kg.pipeline import KGExtractionPipeline
-    pipeline = KGExtractionPipeline(retriever=None)
+    mode = "edc-r-case-v1" if args.edc_r_case else "baseline-v1"
+    if args.edc_r_case:
+        from core.kg.retrieval_runtime import load_retrievers
+        schema_retriever, case_retriever = load_retrievers()
+        pipeline = KGExtractionPipeline(
+            retriever=schema_retriever, case_retriever=case_retriever,
+            case_top_k_success=max(0, args.case_success_k),
+            case_top_k_failure=max(0, args.case_failure_k),
+            strict_case_retrieval=True,
+        )
+    else:
+        pipeline = KGExtractionPipeline(retriever=None)
+    print("pipeline_mode", mode, flush=True)
     eligible = {"queued"}
     if args.retry_failed:
         eligible.update(("error", "extraction_failed"))
@@ -167,6 +204,7 @@ def main():
         selected = selected[:args.limit]
     started = time.monotonic()
     processed = 0
+    consecutive_failures = 0
     size = max(1, args.batch_size)
     for offset in range(0, len(selected), size):
         if args.max_seconds and time.monotonic() - started >= args.max_seconds:
@@ -193,19 +231,22 @@ def main():
         for chunk in group:
             chunk_id = chunk["chunk_id"]
             if not str(chunk.get("text") or "").strip():
-                kind, count, passed, evidence = save_result(db, chunk, {"assertions": []}, 0)
+                kind, count, passed, evidence = save_result(db, chunk, {"assertions": []}, 0, mode=mode)
             else:
                 result = outputs.get(chunk_id)
                 if isinstance(result, Exception) or result is None:
-                    save_failure(db, chunk_id, "error", repr(result), elapsed_each)
+                    save_failure(db, chunk_id, "error", repr(result), elapsed_each, mode=mode)
                     kind, count, passed, evidence = "error", 0, 0, 0
                 elif result.get("status") == "extraction_failed":
-                    save_failure(db, chunk_id, "extraction_failed", "LLM extraction failed", elapsed_each)
+                    save_failure(db, chunk_id, "extraction_failed", "LLM extraction failed", elapsed_each, mode=mode)
                     kind, count, passed, evidence = "extraction_failed", 0, 0, 0
                 else:
-                    kind, count, passed, evidence = save_result(db, chunk, result, elapsed_each)
+                    kind, count, passed, evidence = save_result(db, chunk, result, elapsed_each, mode=mode)
             processed += 1
             states[chunk_id] = kind
+            consecutive_failures = consecutive_failures + 1 if kind in ("error", "extraction_failed") else 0
+            if args.edc_r_case and consecutive_failures >= 8:
+                raise RuntimeError("Eight consecutive failures with EDC+R+Case; stopped to protect the queue")
             if processed <= 5 or processed % 20 == 0:
                 print(f"{processed} {chunk_id} {kind} assertions={count} passed={passed} "
                       f"evidence={evidence} seconds~={elapsed_each:.1f}", flush=True)

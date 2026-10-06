@@ -206,7 +206,7 @@ class Extractor:
 
         case_block = ""
         if case_str:
-            case_block = ("\n【历史案例上下文】（人工审核过的成功/失败经验；失败为负例，不要照抄）\n"
+            case_block = ("\n【历史案例上下文】（来自已核对审核记录的成功/失败经验；失败为负例，不要照抄）\n"
                           + case_str + "\n")
 
         return f"""{task}

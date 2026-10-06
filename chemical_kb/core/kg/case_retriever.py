@@ -104,7 +104,7 @@ def format_success_cases(cases):
             "Input: " + str(c.get("source_text", "")) + "\n"
             "Correct Output: " + assertion_to_str(a) + "\n"
             "Schema Relation: " + str(c.get("relation", "")) + "\n"
-            "Why This Is Correct: human approved"
+            "Why This Is Correct: linked verified review record"
         )
     return "\n".join(blocks)
 
