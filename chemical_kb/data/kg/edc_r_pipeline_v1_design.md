@@ -1,740 +1,124 @@
-# Chemical Safety KG Construction Pipeline v1 设计文档
+# Alpha 化工安全知识图谱：EDC+R 设计与现行抽取流程
 
-- 版本：v1.0（设计稿）
-- 状态：draft（仅设计，不落地）
-- 日期：2026-08-25
-- 依赖：`schema_v1.json`（已 finalized，15 实体 / 32 关系）
-- 本文档只做设计，不实现、不批量抽取、不改 core/、不建 Neo4j。
+- 文件沿用 `edc_r_pipeline_v1_design.md`，便于原有引用定位；原始 v1.0 设计稿（2026-08-25）保存在 [历史原稿](edc_r_pipeline_v1_design_20260825_archive.md)，本文只描述当前实现与差距。
+- 修订：2026-10-06；性质：**现行实现说明 + 未完成设计清单**，不是一次新的抽取任务。
+- 适用项目：`/root/autodl-tmp/chemical_kb`；Schema：`data/kg/schema_v1.json`（15 类实体、32 类关系）。
+- 本文中的数量是 2026-10-06 的断点快照。实时进度以服务器执行 `python -m scripts.legacy_progress` 的结果为准。
 
----
+## 1. 与原设计相比，现在哪里不同
 
-## 0. 一句话定位
+原稿设想“规则优先 + Schema/Case 检索增强 + LLM 兜底，所有断言全部人工审核，并从人工结果构建 Success/Failure Case”。当前已实现 EDC 的主要模块，但**全库批处理并不是完整 EDC+R+Case 闭环**：它调用 `KGExtractionPipeline(retriever=None)`，未传入 `case_retriever`；`Definer` 和 `Canonicalizer` 的 LLM 兜底默认也未开启。Schema Retriever、Case Retriever 等模块存在，不能据此推断它们已参与这次全库抽取。
 
-**「规则优先 + 检索增强 + LLM 兜底」的 EDC 抽取流水线，所有候选知识先入 Candidate Layer，经人工审核后才进入 Production KG，并把每一次审核结果沉淀为 Success/Failure Case，反哺下一轮抽取。**
+当前批量路线为：
 
----
-
-## 1. 总体架构与完整数据流
-
-```
-Document (标准/法规/事故)
-  │
-  ▼
-Chunk Router  ──── source_type 路由（标准 / 法规 / 事故）
-  │
-  ▼
-Rule Preprocessor  ── regex/章节规则，产出 rule_annotations（不消耗 LLM）
-  │
-  ▼
-Schema Retrieval  ── Schema Repository（15 实体 + 32 关系，BGE-M3 索引）
-  │
-  ▼
-Case Retrieval  ─── Success/Failure Case Repository（分开检索）
-  │
-  ▼
-Extract  ───────── 半开放抽取：entity mentions + relation phrases + 事件/因果表达 + 属性
-  │
-  ▼
-Define   ───────── 开放 predicate → 自然语言定义 → 候选 schema relation + 方向 + confidence
-  │
-  ▼
-Canonicalize ───── mention → normalization → exact/alias → retrieval → LLM 消歧 → canonical entity
-  │
-  ▼
-Schema Validation ─ 自动校验（domain/range/required/provenance/去重）
-  │
-  ▼
-Candidate Assertions ── 进入 Review Layer（不直接进 KG）
-  │
-  ▼
-Human Review ────── approval / reject / modify
-  │
-  ├─→ Approved Assertions ─→ Production KG（approved 层）
-  │
-  └─→ Review Result ─→ Case Builder ─→ Success/Failure Repository ─→ Embedding ─→ Case Retriever ─→ 下一轮
+```text
+已解析文档的切片元数据
+  → 按文档轮转选择 queued 切片
+  → Document Router + Rule Extractor
+  → Qwen 批量提取 mentions / 关系短语 / 属性 / 条款与要求
+  → Definer（词典与类型/方向规则）+ Canonicalizer（规则/词典，未决者保留 provisional）
+  → Assertion Builder + Schema Validator
+  → SQLite 候选层（记录校验结果和原文引句是否命中）
+  → 静态检查 + 独立的 Qwen 语义审核
+  → 发布前再次核验来源、Schema、审核方法和重复项
+  → reviewed.jsonl 的 approved 版本 → Explorer 图谱；Neo4j 可选同步
 ```
 
-### 关键分层（贯穿全设计）
+“抽取出候选”“通过 Schema”“引句匹配”“语义审核有效”“已发布图谱”是不同状态，不可用候选数代替已审核关系数。
 
-| 层 | 位置 | 内容 | 谁可写 |
+## 2. 当前数据范围与断点
+
+| 数据集 | 来源和范围 | 断点 / 私有位置 | 2026-10-06 状态 |
 |---|---|---|---|
-| Candidate / Review Layer | `data/kg/assertions/`（review_status=pending/modified/rejected） | 未定稿候选 | pipeline |
-| Production KG | `data/kg/assertions/`（review_status=approved）+ `data/kg/canonical_entities/` | 定稿事实 | 仅人工 |
+| 主库 | `data/vector_store/index_metadata.json`；1,061 份文档、24,606 个切片 | `data/kg/batch_extraction/corpus.sqlite` | `done=713`、`empty=1,184`、`extraction_failed=309`、`queued=22,400`；抽取进程与自动跟进已暂停 |
+| 主库候选 | 从上述已处理切片产生 | 同一 SQLite 的 `assertions`、`candidate_audits` | 候选 17,506；原文引句匹配 15,410；审核记录 100（`valid=7`、`reject=3`、`needs_review=90`）。这些数字不代表已发布数量 |
+| 旧文档正文 | 152 份旧文档的 `document_versions.content`，仅提取文本，无原 DOC/DOCX/PDF 二进制 | 私有 `data/legacy/hazmat_legacy.sqlite`、`body_chunks_metadata.json`、`body_corpus.sqlite` | 以 1,800 字符窗口、600 字符重叠生成 2,775 片；全部 queued |
+| 旧关系 | 旧库 3,613 条关系，需重新找证据 | 私有 `legacy_relation_audits` 等表 | 110 条找到邻近原文，待语义审核；3,503 条缺邻近原文证据；不会因导入而自动入图 |
+| 旧正文向量 | BGE-M3 重建，与旧 `text-embedding-v4` 向量分开 | 私有 `data/legacy/reembed.sqlite`、`faiss.index` | 0 / 2,775，尚未开始 |
 
-`pending` 与 `approved` 逻辑分层、物理分状态，绝不混写。
+旧库的 7,927 个历史切片可用于关键词检索和追溯，但它们没有覆盖旧文档的全部正文；`data/legacy/corpus.sqlite` 的旧切片队列不作为本次**完整正文**抽取队列。旧正文已加入私有关键词索引；抽取关系和重建向量是后续独立任务。旧库及其派生索引、审核结果不上传公开 GitHub。
 
----
+最新已知主库持久快照：`/autodl-fs/data/alpha-corpus-checkpoints/corpus_paused_20261004_093143.sqlite`。恢复时先检查现有主库；仅主库缺失或损坏才使用通过完整性检查的快照。
 
-## 2. EDC 在本项目的映射
+## 3. 主库切片抽取：现在实际做了什么
 
-### 2.1 Extract —— 采用「半开放（hybrid / schema-guided open-span）」
+入口：`scripts/kg/extract_corpus.py`。输入是**已经解析、切片、建立元数据的文本**；这个阶段不重新读取 PDF、DOC 或 DOCX。它按文档轮转，每份文档先处理一个切片，再进入下一轮，避免长文档独占前期处理。当前运行习惯是 GPU 每批 4 片，单个 Qwen 进程；`--batch-size 4` 不等于 4 个独立模型进程。
 
-**推荐：半开放。** 既不是纯 Open IE（召回噪声大、方向难控），也不是纯 schema-guided（漏掉 schema 外的真实表达、过早约束）。Extract 阶段**不 canonicalize、不强制映射 relation**，只做结构化提及抽取。
+每片经过 `core/kg/pipeline.py`：
 
-**分 source_type 微调：**
+1. `DocumentRouter` 根据文档类型区分事故、标准、法规等；`RuleExtractor` 提取可确定的编号、数值、模态词和章节提示。
+2. `Extractor` 让 Qwen 生成实体提及、开放关系短语、属性和规范要求。批量输出若解析失败会退回逐片处理；仍失败则记录 `extraction_failed` 或 `error`，不伪造关系。
+3. `Definer` 将开放谓词映射到现有 Schema，并用主客体类型判断方向；默认使用词典/规则，不对每个谓词再调用 LLM。无法可靠映射的内容保持未决。
+4. `Canonicalizer` 使用化学品词典和部分强标识规则；其余实体可能保留带文档 ID 的 `provisional` 身份。**这一步尚不能视为全局实体去重完成**。
+5. `AssertionBuilder` 构造带 `source_doc_id`、`source_chunk_id`、`source_text_quote` 的断言；`AssertionValidator` 写入 Schema 校验结果。
+6. `extract_corpus.py` 去掉空白后检查引句是否为来源切片的连续子串，写入 `evidence_ok`。这一检查只能证明引句出现过，**不能单独证明关系语义和方向正确**。
 
-| source_type | Extract 策略 | 输出重点 |
+每个切片及其候选在同一 SQLite 事务中保存。状态含 `queued`、`done`、`empty`、`extraction_failed`、`error`；默认只选 `queued`。待 queued 全部处理后，才用 `--retry-failed` 单独重试失败切片。中断后从现有 SQLite 继续，不重新导入或清空结果。
+
+## 4. 候选审核与发布：两道独立闸门
+
+### 4.1 主库候选
+
+`scripts/kg/audit_corpus_candidates.py` 只审核尚无审核记录的候选：
+
+- 静态阶段：Schema 未通过或引句不匹配者标 `needs_review`，不进入自动有效集合。
+- 语义阶段：将原文、候选断言和关系定义一起交给 Qwen，检查主客体、谓词方向、限定条件及数值。结果为 `valid`、`reject` 或 `uncertain`，连同方法、时间和理由写入 `candidate_audits`。`--static-only` 只做静态检查；语义阶段另行运行，且会占用 GPU。
+
+审核脚本**不直接写图谱**。`scripts/kg/publish_audited_corpus.py` 仅接收 `valid` 且 `method=llm-semantic-v1` 的记录，并重新核对 Schema、来源文档/切片 ID、原文引句和重复三元组；通过后向 `data/kg/review/reviewed.jsonl` 追加 approved 审核版本，先保存旧文件备份。运行前应先 `--dry-run`。
+
+这条批量发布路径是**模型语义审核 + 确定性门禁**，`reviewed_by` 记为 `alpha-semantic-audit`；并非原稿所写的“每条都由真人手工点击批准”。页面上的人工审核/修订仍是另一条可用路径。如要求所有新关系最终经人确认，应将批量发布改为导入人工待审队列，不能把模型 `valid` 当作人工签核。本文件只记录现状，不改变该治理规则。
+
+### 4.2 旧库原有关系
+
+`scripts/legacy_relation_audit.py` 在旧切片与全部 152 份文档正文中寻找主客体邻近的来源片段；同现不等于关系成立，因此它只恢复证据候选，批准数仍为 0。`scripts/legacy_semantic_review.py` 再将旧谓词映射到当前 Schema，检查 domain/range、含双方名称的逐字引句，以及第二次独立语义判断。只有通过者才进入私有 `data/legacy/reviewed.jsonl`；无证据的 3,503 条不能直接入图。
+
+### 4.3 旧文档全文新抽取
+
+旧库关系复审之外，完整正文切片在独立 `body_corpus.sqlite` 中走与主库相同的抽取及候选审核。执行时必须同时指定 `--metadata data/legacy/body_chunks_metadata.json` 和 `--db data/legacy/body_corpus.sqlite`；通过 `scripts.legacy_publish_corpus` 的来源、Schema、语义审核和去重检查后，才写入私有审核版本。不能把历史的 `data/legacy/corpus.sqlite` 队列误当全文队列。
+
+## 5. 旧设计中 R 与 Case 的真实状态
+
+| 原稿设计 | 当前状态 | 后续若启用需核验 |
 |---|---|---|
-| 事故 | 半开放 | entity mentions、relation/事件短语、因果链表达、属性值 |
-| 标准/法规 | schema-guided（强结构） | Clause / Requirement 骨架（modality 由 rule 预打标） |
+| Schema Retriever：BGE-M3 检索 Schema 元素并注入抽取 Prompt | 仓库中有 `schema_retriever.py` 和 Schema 索引，但全库入口传 `retriever=None`，本轮未注入 | 对比同一金标准样本中有/无检索的正确率与时延；不能只凭模块存在声称已启用 |
+| Success / Failure Case 检索与反思 | 有 Case Repository、Retriever、Builder 模块；全库入口未传 `case_retriever` | 先确认 verified case 质量、权限和数量，再做分组检索与消融；Failure 必须区分错误输出和正确修订 |
+| Entity Repository 向量消歧 + 全局实体去重 | 当前 Canonicalizer 以词典/规则及文档内 provisional ID 为主；全局实体注册与冲突治理是另外的后处理/审核路径 | 强 ID、别名和跨文档消歧须有可回溯依据；避免误合并 |
+| 每条候选全部人工审核 | 页面支持人工查看、修订和版本历史；批量流程目前可由模型语义审核后发布 | 明确最终批准权限；对高风险关系至少做人审抽样或设最终人工闸门 |
+| 审核结果自动生成 Case 并反馈下一片 | 模块存在，但全库批处理未形成自动闭环 | 需单独验证闭环不会放大错误，建立金标准和错误复发率指标 |
 
-**Extract 输出中间结构（不落库，纯内存/临时）：**
+项目的**问答/检索**另有关键词、向量、图检索与 RRF 融合。它与这里的**关系抽取时 Schema/Case 检索注入**不是同一条调用路径，不能混为一谈。
 
-```jsonc
-ExtractionDraft {
-  "chunk_id": "ACC_..._c0001",
-  "source_metadata": { /* doc_id, source_type, title, section, page_start, page_end */ },
-  "rule_annotations": [ /* Rule 层产出，如 modality、cas、death_count、clause_no */ ],
-  "entity_mentions": [
-    {
-      "mention_id": "m_001",
-      "surface": "液氯",
-      "span": [12, 14],          // optional，OCR offset 不稳，仅参考
-      "type_hint": "chemical",   // 弱类型提示，非最终定论
-      "context": "液氯充装万向节密封失效导致氯气泄漏",
-      "section": "直接原因"
-    }
-  ],
-  "relation_phrases": [
-    { "phrase": "导致", "subject_surface": "密封失效", "object_surface": "氯气泄漏", "section": "直接原因" }
-  ],
-  "event_causal_expressions": [ /* 事故经过的时序/因果链片段 */ ],
-  "attribute_mentions": [ /* 死亡人数、经济损失、CAS、标准号等（可与 rule 重叠） */ ]
-}
-```
+## 6. 图谱、存储与可追溯性
 
-**铁律：Extract 阶段不 canonicalize、不改写 surface、不丢弃 mention。** 所有「液氯/氯气/液态氯」都以原文形式保留，交给 Canonicalize 阶段。
-
-### 2.2 Define —— 开放 predicate → 定义 → 候选 relation + 方向
-
-**职责：把 Extract 产出的开放关系短语，先给自然语言定义，再映射到 schema relation，并显式解决方向问题。**
-
-**输入：** `open_predicates`（含 subject/object surface、上下文、section）+ `schema_context`（Schema Retriever 返回的候选 relation 定义）。
-
-**输出：**
-
-```jsonc
-{
-  "open_predicate": "导致",
-  "definition": "一个因果因素使另一个事件或因素发生",
-  "candidates": [
-    {
-      "schema_relation": "LEADS_TO",
-      "subject_role": "原因因素",      // 文本主语扮演的角色
-      "object_role": "结果因素",       // 文本宾语扮演的角色
-      "direction": "TEXT_AS_IS",       // 或 SCHEMA_INVERTED
-      "confidence": 0.87
-    },
-    {
-      "schema_relation": "DIRECT_CAUSE",
-      "subject_role": "事故",
-      "object_role": "因果因素",
-      "direction": "SCHEMA_INVERTED",  // 文本「因素→导致→事故」需反转为 Accident→DIRECT_CAUSE→CausalFactor
-      "confidence": 0.90
-    }
-  ],
-  "notes": "需结合 section（直接原因）与 subject/object 实体类型判定"
-}
-```
-
-**方向判定规则（核心）：**
-
-- 文本语言方向 ≠ schema 关系方向，必须显式给 `direction`。
-- 「某因素 **导致** 事故」：文本主语=因素（CausalFactor）、文本宾语=事故（Accident）；schema 方向是 `Accident -DIRECT_CAUSE-> CausalFactor`，故 `direction = SCHEMA_INVERTED`。
-- 「设备 A **造成** 设备 B 损坏」：若两者同为 CausalFactor，则 `CausalFactorA -LEADS_TO-> CausalFactorB`，`direction = TEXT_AS_IS`。
-- 判定依据优先级：section 先验（直接/间接原因）> subject/object 实体类型 > 谓词语义。
-
-### 2.3 Canonicalize —— mention → canonical entity 身份
-
-**职责：把 surface mention 解析到本体实体，产出（canonical_id + 类型 + 强标识符 + confidence）。**
-
-**输入：** `mentions`（含 surface/type_hint/context/section）+ `context`（chunk）。
-
-**输出：**
-
-```jsonc
-{
-  "mention_id": "m_001",
-  "surface": "液氯",
-  "canonical": {
-    "entity_id": "CHM_chlorine",        // 或候选列表
-    "entity_type": "chemical",
-    "identifiers": { "cas": "7782-50-5", "formula": "Cl2" },
-    "physical_state": "liquid",         // 从 surface 保留的 phase 信息
-    "canonical_name": "氯"
-  },
-  "confidence": 0.95,
-  "match_level": "exact_id",            // exact_id / alias / retrieval / llm_disambiguated / unresolved
-  "needs_review": false
-}
-```
-
-`match_level` 由低到高：`exact_id`（CAS/标准号/信用码强命中）→ `alias`（词典别名）→ `retrieval`（Entity Repository 向量候选）→ `llm_disambiguated`（LLM 从候选消歧）→ `unresolved`（强制人工）。
-
----
-
-## 3. Retrieval 设计（R）
-
-### 3.1 Schema Retriever —— 检索对象 = Schema Repository
-
-**Schema Repository**：从 `schema_v1.json` 派生 15 实体 + 32 关系记录，每条记录含可检索的 `embedding_text`。
-
-每条 schema 元素记录字段：
-
-```jsonc
-{
-  "schema_element_id": "REL_direct_cause",
-  "kind": "relation",                    // entity | relation
-  "name": "DIRECT_CAUSE",
-  "definition": "事故的直接原因，指向一个因果因素",
-  "subject_types": ["accident"],
-  "object_types": ["causal_factor"],
-  "positive_examples": ["罐体腐蚀穿孔直接导致泄漏", "违章动火直接引发爆炸"],
-  "negative_examples": ["应急处置措施（非原因）"],
-  "aliases": ["直接导致", "直接原因", "直接引发"],
-  "keywords": ["原因", "引发", "泄漏"],
-  "embedding_text": "<name>\n<definition>\n<positive_examples>\n<keywords>"   // 拼接后编码
-}
-```
-
-- **query**：chunk text（标准）或 Extract 后的 `relation_phrases`（增强，短语级更聚焦）。
-- **TopK**：`top_k_entities = 8`、`top_k_relations = 12`（默认值，可调）。
-- **ranking**：BGE-M3 归一化向量内积（IndexFlatIP = 余弦）+ 可选 bge-reranker-v2-m3 精排。
-- **为何用 BGE-M3 可行**：项目已用 BGE-M3（max_seq 1024、normalize、IndexFlatIP），schema 元素文本短，编码开销小；definition/positive_examples 提供足够语义区分度。Schema 数量小（47 条），全量检索即可，无需近似索引。
-
-### 3.2 Case Retriever —— Success / Failure 分开检索
-
-- **query 表示**：chunk text（主）+ `type_hint`/开放短语（辅助，用于 schema_overlap/entity_type_overlap 信号）。
-- **分开检索：是。** Success 与 Failure 用**独立向量索引**（或同库 + `case_type` 硬过滤），各自返回 `top_k_success`（默认 3）与 `top_k_failure`（默认 3），绝不混排。原因：二者语义作用不同（正例演示 vs 反例约束），混排会互相稀释。
-
-### 3.3 Canonicalization Retriever —— v1 需要，但轻量
-
-**判断：需要。** 理由：
-
-- Chemical/Enterprise/Standard 有强 ID（CAS / 信用代码 / 标准号 / 文号），**规则 + 词典即可精确命中**，几乎不需检索。
-- **Equipment / Process / 部分 Chemical 无强 ID**，必须靠 Entity Repository 向量候选 + LLM 消歧（例如「液氯充装万向节」不是 chemical，是 equipment）。
-- v1 建 `data/kg/canonical_entities/` 轻量 Entity Repository（无需独立重索引，复用 BGE-M3），按实体类型分字典文件；检索仅在 `exact_id/alias` 未命中时触发。
-
----
-
-## 4. Document Router 与 Rule + LLM 分工
-
-### 4.1 Document Router
-
-按 `source_type` 路由到不同 Extract strategy（标准 → 结构化 Clause/Requirement；法规 → 同上；事故 → 半开放事件/因果）。路由依据 chunk 的 `document_type`/`doc_type` 字段（已在 chunk 层打标，无需 LLM）。
-
-### 4.2 Rule + LLM 混合（明确分工）
-
-**Rule Layer 负责（确定性、零 LLM）：**
-
-1. 标准号：`GB/T?\s?\d{4,5}([-—]\d{4})?`、`DB\d{2}/?T?\s?\d+`、`HG/T?\s?\d+` 等
-2. CAS：`\d{2,7}-\d{2}-\d`
-3. 事故伤亡：`(\d+)\s*人死亡`、`(\d+)\s*人受伤`、`(\d+)\s*人失踪`
-4. Clause 编号：`第[一二三…0-9]+条`、`\d+(\.\d+)+`
-5. Requirement modality：`应|应当|必须|不得|禁止|严禁`
-6. 事故章节识别：`直接原因|间接原因|应急处置|整改措施|防范措施`（chunk 已有 `section` 字段，直接读）
-
-**LLM Layer 负责（语义、需上下文）：**
-
-1. Chemical / Equipment / Process 实体识别与属性
-2. 开放因果/事件关系抽取（造成/导致/引发/涉及/未执行/违反）
-3. 开放 predicate → schema relation 映射（Define）
-4. Canonicalization 消歧（rule + retrieval 候选之上）
-5. Requirement 的 subject/action/object/condition 语义切分（modality 已 rule 打标）
-
----
-
-## 5. 事故 Pipeline（section-aware）
-
-利用 chunk 的 `section` 字段做**章节先验**，显著降低 LLM 关系类型错判：
-
-| section（正则命中） | 抽取先验 |
-|---|---|
-| 直接原因 / 事故原因 | causal factors → `Accident -DIRECT_CAUSE-> CausalFactor` |
-| 间接原因 | `Accident -INDIRECT_CAUSE-> CausalFactor` |
-| 事故经过 / 事故发生经过 | 事件链：`involves_chemical/equipment/process`、`CausalFactor -LEADS_TO-> CausalFactor` |
-| 应急处置 | `Accident -HAS_MEASURE-> Measure{measure_type=应急}` |
-| 整改措施 / 防范措施 / 事故防范措施 | `Measure{measure_type=整改}` |
-| 人员伤亡 / 伤亡情况 | accident 属性 `death_count/severe_injury_count/minor_injury_count/missing_count`（rule） |
-| 经济损失 | accident 属性 `economic_loss`（rule） |
-| 基本情况 / 事故概况 | accident 元数据（title/date/site/enterprise/chemical/category） |
-| 责任认定 / 责任追究 | `Enterprise -LIABILITY_OF-> Accident`（D3 无 Person 实体） |
-
-**原则：章节先验只是「默认优先」，不是「强制」**；LLM 仍可基于句子语义覆盖，但需输出 `section` 作为 provenance 与审计依据。
-
----
-
-## 6. 标准 / 法规 Pipeline（Clause / Requirement）
-
-1. **Clause 抽取**：Clause 编号（rule）+ 条款文本 + 层级（`parent_of`）。
-2. **Requirement 抽取**：从 Clause 文本切出规范要求。
-
-**Requirement 结构化字段：**
-
-```jsonc
-{
-  "requirement_id": "DB32T3617-2019_6.3.1_R01",   // {doc_id}_{clause_no}_R{index}
-  "text": "液氯贮槽接受液氯应小于1.20kg/L。",
-  "normalized": "液氯贮槽接受液氯 < 1.20 kg/L",
-  "modality": "应",                                  // rule 打标：应/应当/必须/不得/禁止
-  "subject": "液氯贮槽",
-  "action": "接受液氯",
-  "object": null,
-  "condition": null,
-  "quantitative_constraint": "< 1.20 kg/L",
-  "source_clause_id": "DB32T3617-2019_6.3.1"
-}
-```
-
-**派生关系（由 Define 阶段映射，方向已锁定于 schema）：**
-
-- `Requirement -APPLIES_TO-> Entity`（如 `→ Equipment:液氯贮槽`）
-- `Requirement -DERIVED_FROM-> Clause`
-- `Clause -HAS_CLAUSE 逆 →`（即 `Standard/Regulation -HAS_CLAUSE-> Clause`）
-
----
-
-## 7. Assertion 模型
-
-候选知识**不直接进 KG**，统一生成 `CandidateAssertion`。
-
-**字段（完善版）：**
-
-```jsonc
-{
-  "assertion_id": "ASN_<chunk_id>_<seq>",
-  // 主体/谓词/客体
-  "subject": "canonical_id 或 surface 占位",
-  "predicate": "DIRECT_CAUSE | has_cas | ...",   // schema relation 或属性名
-  "object": "canonical_id | literal",
-  "subject_type": "accident",
-  "object_type": "causal_factor | literal",
-  "object_kind": "entity | literal",              // 属性断言 vs 关系断言的分水岭
-  // provenance
-  "source_doc_id": "ACC_...",
-  "source_chunk_id": "ACC_..._c0001",
-  "source_text_quote": "液氯充装万向节密封失效导致氯气泄漏。",
-  "source_type": "事故",
-  "page_start": 12,
-  "page_end": 12,
-  "span_start": 3, "span_end": 21,                // optional，OCR offset 不稳
-  "section": "直接原因",
-  // 版本与方法
-  "schema_version": "1.0",
-  "extraction_method": "edc_r",                    // edc_r | rule | human
-  "assertion_type": "explicit",                    // explicit | inferred | human_confirmed
-  "confidence": 0.91,
-  // 状态
-  "review_status": "pending",                      // pending | approved | rejected | modified
-  "reviewed_by": null, "review_time": null, "review_note": null,
-  "validation_status": null, "validation_errors": [],
-  "created_at": "2026-08-25"
-}
-```
-
-**实体属性 extraction 与 relation assertion 是否同一模型：是（统一 Assertion 模型）。**
-
-- **关系断言**：`object_kind = entity`，predicate ∈ 32 schema relations。
-- **属性断言**：`object_kind = literal`，predicate ∈ 属性名（`has_cas`、`has_formula`、`has_physical_state`、`death_count`、`economic_loss` 等），object 为 literal + `value_type` + `unit`。
-
-统一模型的好处：一条审核流、一个 Case Repository、一次去重，属性与关系只在 `object_kind`/`predicate` 语义上区分。
-
----
-
-## 8. Schema Validation（人工审核前的自动闸门）
-
-候选断言在进入 Human Review 前必须自动校验，至少：
-
-1. `subject_type` ∈ 15 实体（合法）
-2. `predicate` ∈ 32 关系 ∪ 属性名白名单（合法）
-3. `object_type` 合法（entity 时 ∈ 15 实体；literal 时有 value_type）
-4. relation `domain/range` 合法（subject_type ∈ domain、object_type ∈ range）
-5. required property 检查（如 requirement 必须有 requirement_id；relation 断言必须有 canonical id 或 surface + confidence）
-6. canonical id 检查（entity 断言须能回溯到 canonical_entity 或标记 unresolved）
-7. provenance 检查（source_chunk_id / source_text_quote / source_doc_id 非空）
-8. duplicate assertion 检查（同 subject+predicate+object+source 去重）
-
-**不合法：不删除**，置 `validation_status = failed` + `validation_errors[]`，进入 `validation_failed` 队列，之后可沉淀为 Failure Case（error_type=relation_type_error/schema_violation/…）。
-
----
-
-## 9. Canonicalization Pipeline（详细）
-
-```
-mention
-  ↓ normalization          （去空白/全半角/括号统一）
-  ↓ exact ID match         （CAS regex / 标准号 regex / 信用码 regex / 文号）
-  ↓ alias match            （canonical dictionary：别名 → canonical）
-  ↓ retrieval candidates   （Entity Repository BGE-M3 向量，TopK=5）
-  ↓ LLM disambiguation     （候选 + context → 选一或判新实体）
-  ↓ confidence + match_level
-  ↓ human review if uncertain（confidence < θ 或 unresolved）
-  ↓ canonical entity
-```
-
-**分类型强 ID 优先级：**
-
-| 类型 | 优先匹配键 |
-|---|---|
-| Chemical | CAS → UN 编号 → 目录号 → canonical dictionary → retrieval |
-| Enterprise | 信用代码 → 精确全名 → 别名 → retrieval |
-| Standard | code（GB/DB/HG…） |
-| Regulation | doc_no + title |
-| Equipment | 无强 ID：mention + context + type + 所属 enterprise 联合 canonicalize（retrieval + LLM） |
-| Process | 同 Equipment，弱 ID |
-
-**低 confidence 处理：** `confidence < θ`（默认 0.85）或 `match_level ∈ {retrieval, llm_disambiguated, unresolved}` → `needs_review = true`，进入人工审核；canonical 未决时断言 object 保留 surface + `unresolved` 标记。
-
----
-
-## 10. Define Repository（谓词定义是否持久化）
-
-**推荐：方案 B —— 持久化到 `predicate_definition_repository`，但 v1 采用「带缓存的临时生成」起步。**
-
-理由：`造成/导致/引发/诱发/引起/致使` 等高频因果谓词在 861 篇文档中重复出现极多；每次 LLM 重定义+重映射是纯浪费，且结果应可复用、可人工校验、可积累成领域谓词词典。
-
-- 首次遇到开放谓词 → LLM 定义+映射 → 写入 repository（`status=pending`）。
-- 后续命中 → 直接复用（跳过 LLM），人工可审核为 `verified`。
-- 数据结构：
-
-```jsonc
-{
-  "predicate": "导致",
-  "definition": "一个因果因素使另一个事件或因素发生",
-  "mappings": [
-    { "schema_relation": "DIRECT_CAUSE", "direction_rule": "SCHEMA_INVERTED", "usage_count": 18 },
-    { "schema_relation": "LEADS_TO", "direction_rule": "TEXT_AS_IS", "usage_count": 7 }
-  ],
-  "status": "pending",       // pending | verified | deprecated
-  "verified_by": null
-}
-```
-
----
-
-## 11. Human Review 工作流
-
-### 审核单位 = **assertion 级**（每条 CandidateAssertion 一个审核单元）
-
-- **entity 级**：entity 的 canonical 正确性**随其所属 assertion 一起审核**；未被任何 assertion 引用的孤立实体（高价值 mention）单独进 review 队列。
-- **chunk 级：不直接审核**。整个 chunk 标 failure 会损失其中的正确经验（用户已明确）。
-
-### 审核人看到什么（明确界面要素）
-
-```
---------------------------------
-原文：液氯充装万向节密封失效导致氯气泄漏。
-[章节] 直接原因   [来源] ACC_xxx_c0001  p12
-候选实体：
-  [Chemical] 液氯 → canonical 氯  (state=liquid, CAS 7782-50-5)  conf=0.96
-  [Equipment] 液氯充装万向节   conf=0.82
-  [CausalFactor] 密封失效   conf=0.88
-  [Accident] 氯气泄漏事故   conf=0.90
-候选 Assertion：
-  1. Accident -[INVOLVES_CHEMICAL]-> Chemical(氯)  conf=0.96   [接受][修改][拒绝]
-  2. Accident -[DIRECT_CAUSE]-> 密封失效          conf=0.91   [接受][修改][拒绝]
---------------------------------
-```
-
-### 审核状态机
-
-`pending → approved | rejected | modified`；`modified` 必须附 `corrected_output` + `review_note`。
-
-### v1 是否全部人工审核：**是（全部人工）**
-
-当前阶段重点是**确保正确**，不是吞吐。但设计 confidence threshold 作为「以后自动 approve」的预留：
-
-- `confidence ≥ 0.95` 且 `assertion_type=explicit` 且 `match_level=exact_id/alias` 且 schema 合法 → 标 `auto_approve_candidate`，v1 **仍进人工队列**（仅排序置顶/高亮），不真正自动通过。
-- 待 Case Repository 稳定、Failure Recurrence Rate 下降后，再评估放开。
-
----
-
-## 12. Case Repository 设计
-
-### 12.1 类型：Success / Failure，Corrected 不独立
-
-**Corrected Case 不是独立类型**，而是 failure_case 内嵌 `corrected_output` 字段。理由：纠正只有和错误配对才有学习价值；独立类型导致信息断裂与重复。
-
-### 12.2 Case 粒度：**两层（chunk 级容器 + assertion 级最小单元）**
-
-- **存储/检索单元 = assertion 级**（一条错误断言 = 一条 failure case；一个通过 chunk 的每条正确断言可汇成 success case，但 success 更常以 chunk 级示范存储）。
-- **chunk 级**只作为 provenance/上下文容器（source_text、source_metadata），不参与判定。
-
-### 12.3 Success Case 结构（必要字段）
-
-```jsonc
-{
-  "case_id": "SC_...",
-  "case_type": "success",
-  "task_type": "accident_extract | standard_extract | define | canonicalize",
-  "source_doc_id": "ACC_...", "source_chunk_id": "ACC_..._c0001",
-  "source_type": "事故", "source_text": "…原文…",
-  "schema_version": "1.0",
-  "schema_context": [ /* 检索到的相关 schema 元素 */ ],
-  "model_output": { /* 模型原始输出（extraction draft / assertions） */ },
-  "reviewed_output": { /* 人工确认后的最终输出 */ },
-  "entities": [...], "relations": [...],
-  "quality_score": 0.95,
-  "case_status": "verified",       // pending | verified | deprecated
-  "created_at": "2026-08-25"
-}
-```
-
-### 12.4 Failure Case 结构（必要字段 + 内嵌纠正）
-
-```jsonc
-{
-  "case_id": "FC_...",
-  "case_type": "failure",
-  "task_type": "accident_extract | define | canonicalize",
-  "source_doc_id": "...", "source_chunk_id": "...", "source_type": "事故",
-  "source_text": "…原文…",
-  "model_output": { /* 错误输出 */ },
-  "wrong_assertion": { "predicate": "DIRECT_CAUSE", "subject": "...", "object": "..." },
-  "corrected_assertion": { /* 人工纠正后的正确断言 */ },
-  "error_type": "relation_direction_error",   // 见 error taxonomy
-  "error_reason": "文本主语=因素，应反转为 Accident→DIRECT_CAUSE",
-  "review_comment": "…",
-  "schema_element": "REL_direct_cause",
-  "canonicalization_error": null,             // canonicalization_error 类型时填充
-  "case_status": "verified",
-  "created_at": "2026-08-25"
-}
-```
-
-### 12.5 Error Taxonomy（评审：合理，微调后采用）
-
-12 类中，`canonicalization_error` 与 `attribute_error` 是「属性/实体」级错误，其余为「关系/输出」级错误，边界清晰、可自动归因。微调：
-
-- `hallucination` 与 `entity_extra` 有重叠，定义上区分：`hallucination` = 输出在原文无任何支撑（凭空捏造）；`entity_extra` = 实体存在但非本句/本任务应抽取。
-- `provenance_error` 与 `schema_violation` 通常可被 Schema Validation 自动捕获，二者更多作为 **validation 阶段产出的 failure**，而非仅人工标注。
-
-最终 taxonomy（12 类）：
-
-| error_type | 含义 |
-|---|---|
-| entity_missing | 漏抽实体 |
-| entity_extra | 多抽/不应抽的实体 |
-| entity_type_error | 实体类型错判 |
-| relation_missing | 漏抽关系 |
-| relation_extra | 多抽关系 |
-| relation_type_error | 关系类型错判 |
-| relation_direction_error | 关系方向错（subject/object 颠倒） |
-| canonicalization_error | 实体归一化错（同指未合并 / 错合并） |
-| attribute_error | 属性值/单位/约束错 |
-| provenance_error | 出处/引用/页码错 |
-| hallucination | 原文无支撑的捏造 |
-| schema_violation | domain/range/字段不合 schema |
-
-### 12.6 Case 存储：**方案 C（metadata 统一 + 向量索引按 case_type 分开）**
-
-- **metadata**：统一一个 `cases.jsonl`（或 `success_cases.jsonl` + `failure_cases.jsonl` 分文件但同一 schema），统一治理 case_status、去重、审计。
-- **向量索引**：按 `case_type` 分 `success.index` / `failure.index`（各自 `embeddings.npy`），满足 Success/Failure 独立 TopK。
-- 方案 A（完全统一索引）混排不可取；方案 B（完全分开存储）治理碎片化。**方案 C 取二者之长，为 v1 推荐。**
-
-### 12.7 Case 学习闭环
-
-- **Success Case 作用**：positive demonstration（正向 few-shot，示范正确抽取/映射/归一化）。
-- **Failure Case 作用**：negative constraint + reflection（反例约束，显式告诉模型「别这样做」）。
-- **进入 Repository 条件**：只有 `case_status = verified`（人工审核完成）才进入检索池；`pending` 不参与；发现错后置 `deprecated`，**不删除历史**。
-
-### 12.8 防止错误案例诱导模型（标准格式）
-
-Failure Case 进入 prompt 必须显式区分「错误输出」与「正确纠正」，否则模型会把错误三元组当正例学。标准模板：
-
-```
-Previous Failure:
-  Input:          <原文/chunk>
-  Incorrect Output: <模型错误输出>
-  Why Incorrect:  <error_type + error_reason>
-  Corrected Output: <人工纠正>
-  Rule Learned:   <抽象出的规则，如：直接原因句中主语=因素须反转为 Accident-DIRECT_CAUSE->
-Current Task:
-  <当前 chunk>
-```
-
-### 12.9 Case Retrieval Ranking（公式框架，权重后调）
-
-```
-score = w1·semantic_similarity
-      + w2·schema_overlap        (case 涉及的 schema 元素与当前 chunk 检索 schema 的 Jaccard)
-      + w3·entity_type_overlap   (case 实体类型与当前 mention 类型的重叠)
-      + w4·source_type_match     (事故/标准/法规 是否一致，0/1)
-      + w5·task_type_match       (extract/define/canonicalize 是否一致，0/1)
-      + w6·case_quality          (quality_score / 编辑距离修正)
-      (+ w7·recency, optional)
-```
-
-- `source_type_match`、`task_type_match` 作为**硬过滤**（不匹配直接排除）再排序；`case_quality` 作为质量加权。
-- 本阶段只给框架，权重由后续消融实验确定。
-
----
-
-## 13. Production KG 与 Review KG 分层
-
-| 层 | 存储 | review_status 取值 |
+| 层 | 当前存储 | 作用 |
 |---|---|---|
-| Candidate / Review Layer | `data/kg/assertions/` | pending / modified / rejected / validation_failed |
-| Production KG | `data/kg/assertions/`（仅 approved）+ `data/kg/canonical_entities/` | approved |
+| 主库候选 | `data/kg/batch_extraction/corpus.sqlite` 的 `chunks`、`assertions`、`candidate_audits` | 保留抽取结果、失败及审核理由；候选尚不等于图谱关系 |
+| 主库已审核版本 | `data/kg/review/reviewed.jsonl` | approved / modified / rejected 的版本历史；有效投影供 Explorer 使用 |
+| 旧库正文与证据 | 私有 `data/legacy/hazmat_legacy.sqlite`、`body_chunks_metadata.json`、`body_corpus.sqlite` | 旧文档正文、重切片、旧关系证据和独立断点 |
+| 旧库已审核版本 | 私有 `data/legacy/reviewed.jsonl` | 旧关系及旧全文抽取合格关系的审核版本 |
+| Neo4j | `scripts/kg/sync_to_neo4j.py` 可选择同步 | 当前不是抽取断点的唯一来源；连接不可用时仍能从审核 JSONL 展示图谱 |
 
-- pending 与 approved **物理分状态、逻辑分层**，绝不混写。
-- v1 **不建 Neo4j**，Production KG 用本地 JSONL 表达节点+边（逻辑图模型），后续再决定是否落地到图数据库。
+关系的来源应保留文档/切片 ID、逐字引句及审核版本。时间字段（如 `valid_from`、`valid_to`）只有在来源明确支持时填写；不能把审核时间当作关系生效时间。图谱上的节点/边数取决于有效审核版本，不随候选 SQLite 自动增加。
 
----
+## 7. 继续运行时的顺序与边界
 
-## 14. Prompt 架构（模板结构，不写全量几千字）
+当前**暂停**；修改本文档不会启动任何 GPU 任务。恢复前先查是否已有抽取进程、现有主库完整性和最新在线快照；只有主库缺失或损坏才恢复快照。不要覆盖其他窗口正在修改的代码。
 
-| Prompt | 输入 | 输出 JSON schema（要点） | 必要约束 | 失败处理 |
-|---|---|---|---|---|
-| `extract_accident_prompt` | chunk text + source_metadata + rule_annotations + schema_context + case_context | `{entity_mentions[], relation_phrases[], event_causal_expressions[], attribute_mentions[]}` | 不 canonicalize、不丢弃 surface、保留 section | 无结构化 JSON → 重试 1 次；仍失败 → 降级 rule-only 并标 `extraction_method=rule` |
-| `extract_standard_prompt` | clause 文本 + rule(编号/modality) + schema_context | `{clauses[], requirements[]}`（含 requirement 全字段） | requirement_id 必填；modality 以 rule 为准 | 同上 |
-| `define_prompt` | open_predicates + schema_context（候选 relation） | `{predicate, definition, candidates[]{schema_relation, subject_role, object_role, direction, confidence}}` | 必须显式给 direction；候选关系必须来自 schema_context | 无法映射 → 保留开放谓词 + `schema_relation=null`，标 `relates_to` 兜底并进 review |
-| `canonicalize_prompt` | mentions + entity_repo 候选 + context | `{mention_id, canonical{}, confidence, match_level, needs_review}` | 只从候选或词典选；不可凭空造 CAS/编号 | unresolved → needs_review=true |
-| `case_augmented_extract_prompt` | 同 extract + top_k success（正例）+ top_k failure（Previous Failure 格式） | 同 extract | failure 必须按「错误/纠正」分离展示 | 同上 |
-| `case_reflection_prompt` | current output + 检索到的 failure case | `{violations[], revisions[], final_output}` | 只对照 Rule Learned 修，不改已正确部分 | 无违规 → 原样返回 |
+1. 主库：只续跑 `queued`；完成后单独重试 `error` / `extraction_failed`，核对仍失败的原因。
+2. 主库审核：先静态检查，再运行语义审核；`publish_audited_corpus.py --dry-run` 核查数量，按既定审核权限决定是否发布。
+3. 旧关系复审：检查 110 条有来源候选的语义和 Schema；3,503 条无邻近证据者保留 `needs_source`，不批量批准。
+4. 旧全文：仅用 `body_chunks_metadata.json` + `body_corpus.sqlite` 续跑 2,775 片，随后静态/语义审核、dry-run、发布合格关系。
+5. 向量：GPU 空闲时用 `scripts.legacy_reembed` 对 2,775 个旧正文切片重建 BGE-M3 私有 FAISS；它改善检索，不代替关系审核。
+6. 同步与备份：按需同步 Neo4j；SQLite 写入期间用在线 backup API 生成快照并执行 `PRAGMA integrity_check`。主库快照放 `/autodl-fs/data/alpha-corpus-checkpoints/`，旧库私有备份放 `/autodl-fs/data/alpha-legacy-import/`。不得只复制有 WAL 写入中的主文件。
 
-每个 prompt 均需：输入占位、输出 JSON schema、约束清单、失败降级路径四要素。
+单个 Qwen GPU 重任务依次运行，避免同时抽取、语义审核和向量重建争用显存。旧 `text-embedding-v4` 向量不与 BGE-M3 索引混用。主库完整进度另见 `docs/CORPUS_RELATION_RUN.md`，旧库操作细节见 `data/legacy/README.md`。
 
----
+## 8. 验收口径与未完成事项
 
-## 15. 推荐目录架构（不实现，仅推荐）
+- 覆盖：主库 `queued=0`；失败切片已重试或逐项留有原因；旧全文 2,775 片也达到同样状态。不能用“有候选”代替“全库覆盖”。
+- 证据：每条发布断言能回查来源文档、切片和逐字引句；Schema、方向、限定条件及数值检查有审核记录。
+- 发布：实际有效关系数按 reviewed 版本与图谱投影统计，分别报告主库、旧关系复审、旧全文新抽取；报告拒绝、未决和无来源数量。
+- 检索：旧正文的私有关键词索引与 BGE-M3 FAISS 均可查询；不泄露旧正文到 GitHub。
+- 质量：建立跨事故、标准、法规的人工金标准，统计实体/关系精确率和召回率、无来源率、方向错误、跨来源冲突、误合并及人工修订率。目前没有足够证据宣称原稿的 A–F 消融、Case 学习闭环或 Failure Recurrence Rate 已完成。
 
-```
-core/kg/
-  schema_manager.py        # 加载 schema_v1.json → Schema Repository
-  schema_retriever.py      # Schema 元素 BGE-M3 索引 + TopK
-  document_router.py       # source_type 路由
-  rule_extractor.py        # Rule Layer（regex/章节先验）
-  extractor.py             # Extract（半开放）
-  definer.py               # Define（开放谓词 → relation 映射 + 方向）
-  canonicalizer.py         # Canonicalize（mention → entity）
-  entity_repository.py     # Entity Repository（字典 + 向量候选）
-  assertion.py             # CandidateAssertion 数据结构
-  validator.py             # Schema Validation
-  case_repository.py       # Case 读写 + case_status 治理
-  case_retriever.py        # Success/Failure 分开检索 + ranking
-  case_builder.py          # 从 review 结果构建 case
-  review_manager.py        # Human Review 状态机
-  pipeline.py              # 编排 EDC+R 主流程
-
-data/kg/
-  schema_v1.json
-  cases/
-    cases.jsonl            # 统一 metadata
-    success_embeddings.npy / success.index
-    failure_embeddings.npy / failure.index
-  assertions/
-    candidate_assertions.jsonl     # pending/modified/rejected/validation_failed
-    approved_assertions.jsonl      # Production KG（approved）
-  canonical_entities/
-    chemical.json / enterprise.json / equipment.json / standard.json / regulation.json
-  predicate_definition_repository.jsonl
-  schema_repository.json    # schema_v1.json 派生 + embedding_text
-
-configs/kg/
-  pipeline_config.yaml      # 阈值/TopK/权重/开关
-  prompts.yaml             # prompt 模板
-
-scripts/kg/
-  build_schema_repository.py
-  build_case_index.py
-  run_pipeline.py
-  eval_pipeline.py
-```
-
-（现有 `core/`、`FAISS`、`Streamlit`、RAG 均不动；`core/kg/` 为新增独立子包。）
-
----
-
-## 16. 核心模块接口（只签名，不实现）
-
-```python
-SchemaRetriever.retrieve(text, top_k_entities=8, top_k_relations=12) -> SchemaContext
-
-CaseRetriever.retrieve(text, task_type, source_type, top_k_success=3, top_k_failure=3) -> CaseContext
-
-Extractor.extract(text, schema_context, case_context, source_metadata) -> ExtractionDraft
-
-Definer.define(open_predicates, schema_context) -> list[RelationMapping]
-
-Canonicalizer.canonicalize(mentions, context) -> list[CanonicalResult]
-
-AssertionValidator.validate(assertions, schema) -> ValidationReport
-
-CaseBuilder.build_from_review(original_output, reviewed_output) -> Case
-
-CaseRepository.add(case) / .get(case_id) / .deprecate(case_id) / .list(status=...)
-
-ReviewManager.submit(assertion) / .review(assertion_id, decision, corrected_output) -> Case
-
-DocumentRouter.route(chunk_metadata) -> strategy
-```
-
----
-
-## 17. 评估实验设计
-
-### 17.1 对照实验（评审：合理，保留为递增消融）
-
-| 实验 | 配置 | 回答的问题 |
-|---|---|---|
-| A | Schema-guided baseline | 纯 schema 约束下限 |
-| B | EDC | EDC 三段式增益 |
-| C | EDC + Schema Retrieval | Schema R 增益 |
-| D | EDC + Schema R + Success Cases | 正例 few-shot 增益 |
-| E | EDC + Schema R + Success + Failure | 反例 reflection 增益 |
-| F | 完整（EDC + R + Case + Human Feedback） | 全栈上限 |
-
-**固定同一个小规模 test set（标注黄金标准）**，保证可比性。D 作为 Success-only 消融有独立价值，保留。
-
-### 17.2 消融（Ablation）
-
-去掉 Schema Retrieval / Success Case / Failure Case / Canonicalization Retrieval / Human Feedback，各测一次，比较：准确率、错误复发率、人工审核成本。
-
-### 17.3 Evaluation Metrics
-
-- Entity P / R / F1
-- Relation P / R / F1
-- Canonicalization Accuracy（canonical 实体解析正确率）
-- Schema Violation Rate（进入人工前未通过 validation 的占比）
-- Hallucination Rate（无原文支撑的断言占比）
-- Human Correction Rate（被人工修改/拒绝的占比）
-- Review Acceptance Rate（直接接受的占比）
-- Case Retrieval Hit Rate（检索到的 case 中「确与当前样本同类」的占比）
-- **Failure Recurrence Rate**
-
-### 17.4 Failure Recurrence Rate 定义
-
-> 某类错误（同 error_type + 同 schema_element/谓词模式）**进入 Failure Repository 之后**，后续出现的**相似样本**中再次犯**同类错误**的比例。
-
-即：把「历史已纠正的同类错误」作为锚，衡量 Case Memory 是否真正抑制了同类错误复发。这是本项目最具区分度的指标——它直接量化「学习闭环」是否有效，而非单看静态准确率。
-
-### 17.5 Human Effort Metrics（人工成本，不能只看准确率）
-
-- 平均每 chunk 审核时间
-- 平均每 100 assertions 修改数量
-- 自动通过率（auto_approve_candidate 占比）
-- 人工修改率 / 人工拒绝率
-- **Case Memory 加入后审核时间是否下降**（直接证明 Case Repository 是否真的减轻人工）
-
----
-
-## 18. 当前设计风险
-
-1. **Qwen3-4B 是 4B 小模型**，半开放抽取 + 方向判定 + 消歧的可靠性存疑，需在 Prototype 阶段实测其结构化 JSON 遵循度，必要时加 JSON 约束/少样本。
-2. **Case 冷启动**：初期无 verified case，Case Retrieval 为空，F 实验早期与 E 无差别；需先积累「种子 case」（人工标注 30–50 条）。
-3. **Failure 诱导风险**：错误案例展示不当会反向诱导；必须严格走「Previous Failure 错误/纠正分离」模板（§12.8），并在 Prototype 中验证 Failure Recurrence Rate 不升反降。
-4. **OCR 文本质量**：事故报告 OCR 噪声高，offset 不稳，provenance 以 quote+chunk_id 为主、span 为辅（§7）。
-5. **Schema 覆盖边界**：schema 只 32 关系，开放世界存在无法映射的谓词，`relates_to` 兜底会积累「弱关系」，需在 review 中监控其占比。
-
----
-
-## 19. 下一步建议（只给建议，不执行）
-
-- **是否立即批量处理 861 文档：否。**
-- **是否先做小规模 Prototype：是。**
-- **建议文档量：30–50 篇**（事故 ~15、标准 ~15、法规 ~10，覆盖三种 source_type + 各 error_type 出现面），先跑通 EDC+R+Review+Case 闭环，标黄金标准，产出 A–F 实验首轮数据，再决定放量。
-
----
-
-（完）
+原稿提出的完整 EDC+R+Case 体系仍可作为后续演进方向，但启用前必须通过同一金标准和安全闸门验证，不能让设计意图覆盖当前代码与数据库事实。
