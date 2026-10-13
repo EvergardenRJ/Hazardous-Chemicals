@@ -58,3 +58,18 @@ ssh -N -L 8504:127.0.0.1:8503 -p 47157 root@connect.westc.seetacloud.com
 前端生产构建通过；关系审计覆盖 41 条既有断言，全部可以回查来源原文。最新版审核结果为 39 条有效、2 条撤销，旧版本与审计前备份保留。页面提供 3D 图谱、完整关系目录和 Light / Dark 主题。
 
 
+
+## Dashboard 与数据集说明
+
+新增多维分析与数据说明入口，支持图表联动、透视表、原文追溯、关键词 A/B 比较、动态视图及完整范围 CSV。总览不展示抽取状态。
+
+数据说明提供详细、紧凑和按列三种文件预览，包含实际字段、完整记录的分布统计、缺失情况及真实分页样例。原始资料、模型、索引、数据库和审核数据不随本次更新上传。图表下方的多标签提示行已移除，去重规则仍可在统计说明中查看。
+
+新增只读接口位于 /api/dashboard/。ECharts 固定为 6.1.0；构建与启动沿用上面的流程。
+
+在项目根目录运行隔离数据测试：
+
+    python -m unittest discover -s tests -p test_dashboard_visualization.py
+    python -m unittest discover -s tests -p test_data_catalog.py
+
+测试使用临时数据目录。不要将顶层历史 test_document_manager.py 作为无副作用测试运行。

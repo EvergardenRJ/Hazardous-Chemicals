@@ -346,7 +346,7 @@ export function LibraryWorkspace() {
   </section>;
 }
 
-export function WikiWorkspace() {
+export function WikiWorkspace({initialEntity=''}={}) {
   const [entities, setEntities] = useState([]);
   const [entity, setEntity] = useState('');
   const [input, setInput] = useState('');
@@ -361,6 +361,7 @@ export function WikiWorkspace() {
   const loadList = () => api('/api/wiki').then(d=>setEntities(d.entities||[])).catch(e=>setError(e.message));
   const loadDetail = (name) => api('/api/wiki/' + encodeURIComponent(name)).then(d=>{setDetail(d);setEntity(name);setSelectedSection(d.sections?.[0]?.section||'');}).catch(e=>setError(e.message));
   useEffect(()=>{loadList();},[]);
+  useEffect(()=>{if(initialEntity)loadDetail(initialEntity);},[initialEntity]);
   const section = detail?.sections?.find(s=>s.section===selectedSection);
   useEffect(()=>{setEdited(section?.content || '');},[selectedSection,detail]);
   async function generate() {

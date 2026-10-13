@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Activity, ArrowRight, BookOpen, Check, ChevronDown, CircleHelp, Command,
   Download, FileText, FlaskConical, GitMerge, LayoutDashboard, Maximize2, Network,
@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import GraphCanvas, { TYPE_COLORS } from './GraphCanvas.jsx';
 import { api, compactNumber, sourceLabel, today, validAt } from './api';
+const DashboardWorkspace = lazy(()=>import('./DashboardWorkspace.jsx'));
 import {
   AskWorkspace, LibraryWorkspace, ResolutionWorkspace, ReviewWorkspace,
   WikiWorkspace, WorkspaceHeading
@@ -14,6 +15,8 @@ import {
 
 const NAV = [
   { id:'overview', label:'总览', hint:'Overview', icon:LayoutDashboard },
+  { id:'analysis', label:'多维分析', hint:'Dashboard Explore', icon:SlidersHorizontal },
+  { id:'data', label:'数据说明', hint:'Data Definitions', icon:CircleHelp },
   { id:'graph', label:'图谱探索', hint:'Explorer', icon:Network },
   { id:'ask', label:'智能检索', hint:'Analyze', icon:Search },
   { id:'review', label:'断言审核', hint:'Review', icon:ShieldCheck },
@@ -41,62 +44,6 @@ function StatusChip({ children, tone='blue' }) {
 function Metric({ label, value, icon: Icon, tone='blue' }) {
   return <div className="metric-tile" data-tone={tone}><div className="metric-icon"><Icon size={18}/></div>
     <strong>{compactNumber(value)}</strong><span>{label}</span></div>;
-}
-
-function Welcome({ summary, onNavigate }) {
-  const cards = [
-    { id:'graph', eyebrow:'PRIMARY WORKSPACE', title:'知识图谱探索', text:'在可交互关系网络里聚焦实体、追踪路径与来源。', icon:Network, primary:true },
-    { id:'ask', eyebrow:'ANALYZE', title:'智能检索', text:'将关键词、语义向量与图谱证据融合为答案。', icon:Search },
-    { id:'review', eyebrow:'GOVERNANCE', title:'断言审核', text:'核对来源原文，决定知识是否进入生产图谱。', icon:ShieldCheck },
-    { id:'resolve', eyebrow:'ENRICH', title:'实体与冲突', text:'跨来源去重、冲突核查与 PROV-O 导出。', icon:GitMerge },
-    { id:'library', eyebrow:'SOURCES', title:'文档库', text:'浏览标准法规、事故报告与来源片段。', icon:FileText },
-    { id:'wiki', eyebrow:'DOSSIERS', title:'化学品 Wiki', text:'阅读并逐节审核安全知识专辑。', icon:BookOpen }
-  ];
-  return <main className="welcome-page workspace-scroll">
-    <div className="hero">
-      <div className="hero-copy"><div className="hero-kicker"><span className="pulse-dot"/> CHEMICAL KNOWLEDGE INTELLIGENCE</div>
-        <h1>让每一条知识<br/><em>都能追溯来源。</em></h1>
-        <p>以图谱为中心，连接化学品、事故、法规和安全措施。沿关系探索，按生效时点检索，在证据链中做决定。</p>
-        <div className="hero-actions"><button className="button button--primary button--large" onClick={()=>onNavigate('graph')}>进入图谱探索 <ArrowRight size={18}/></button>
-          <button className="button button--ghost button--large" onClick={()=>onNavigate('ask')}>开始检索</button></div>
-        <div className="hero-caption"><span className="hero-caption-line"/> LIVE DATASET · NO SIMULATED FACTS</div>
-      </div>
-      <div className="hero-visual" aria-hidden="true">
-        <div className="visual-topbar"><span/><span/><span/><div>KNOWLEDGE / NETWORK</div></div>
-        <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet">
-          <defs><radialGradient id="hGlow"><stop stopColor="#4aa3ff" stopOpacity=".35"/><stop offset="1" stopColor="#4aa3ff" stopOpacity="0"/></radialGradient></defs>
-          <circle cx="300" cy="215" r="170" fill="url(#hGlow)"/>
-          <g className="hero-grid-lines"><path d="M0 110H600M0 210H600M0 310H600M100 0V420M200 0V420M300 0V420M400 0V420M500 0V420"/></g>
-          <g className="hero-relations">
-            <path d="M300 205L160 112M300 205L433 118M300 205L463 285M300 205L170 312M160 112L116 215M433 118L509 195M170 312L294 357M463 285L294 357"/>
-          </g>
-          <g className="hero-nodes">
-            <circle cx="300" cy="205" r="19" className="hero-node hero-node--core"/><circle cx="160" cy="112" r="10" className="hero-node hero-node--cyan"/>
-            <circle cx="433" cy="118" r="12" className="hero-node hero-node--mint"/><circle cx="463" cy="285" r="10" className="hero-node hero-node--amber"/>
-            <circle cx="170" cy="312" r="11" className="hero-node hero-node--rose"/><circle cx="116" cy="215" r="6" className="hero-node hero-node--muted"/>
-            <circle cx="509" cy="195" r="7" className="hero-node hero-node--muted"/><circle cx="294" cy="357" r="8" className="hero-node hero-node--muted"/>
-          </g>
-          <g className="hero-labels"><text x="327" y="199">KNOWLEDGE CORE</text><text x="86" y="96">STANDARDS</text>
-            <text x="443" y="110">CHEMICALS</text><text x="475" y="309">RISK</text><text x="91" y="338">INCIDENTS</text></g>
-        </svg>
-        <div className="floating-card floating-card--top"><Sparkles size={14}/><div><strong>Evidence connected</strong><small>Traceable by source</small></div></div>
-        <div className="floating-card floating-card--bottom"><Activity size={14}/><div><strong>Temporal graph</strong><small>Explore valid-time context</small></div></div>
-      </div>
-    </div>
-    <div className="overview-metrics">
-      <Metric label="知识片段" value={summary?.chunks} icon={FileText}/>
-      <Metric label="已审核实体" value={summary?.nodes} icon={Network} tone="mint"/>
-      <Metric label="已审核关系" value={summary?.edges} icon={GitMerge} tone="amber"/>
-      <Metric label="待审断言" value={summary?.pending} icon={ShieldCheck} tone="rose"/>
-    </div>
-    <div className="coverage-note"><ShieldCheck size={17}/><span>关系抽取覆盖 <strong>{summary?.relation_source_docs ?? 0} / {compactNumber(summary?.documents)} 文档</strong>、<strong>{summary?.relation_source_chunks ?? 0} / {compactNumber(summary?.chunks)} 片段</strong>。当前关系来自已处理的来源片段，其余文档尚待抽取。{summary?.batch_extraction && <small>全库批处理已完成 {(summary.batch_extraction.chunks.done||0)+(summary.batch_extraction.chunks.empty||0)} / {compactNumber(summary.chunks)} 片段，暂存候选 {compactNumber(summary.batch_extraction.staged_candidates)} 条。</small>}</span></div>
-    <div className="section-heading"><div><span className="eyebrow">WORKSPACES</span><h2>进入工作区</h2></div><div className="section-heading-line"/></div>
-    <div className="workspace-cards">{cards.map(({id,eyebrow,title,text,icon:Icon,primary})=>
-      <button key={id} className={`workspace-card ${primary?'workspace-card--primary':''}`} onClick={()=>onNavigate(id)}>
-        <div className="card-top"><span>{eyebrow}</span><Icon size={primary?26:20}/></div>
-        <div><h3>{title}</h3><p>{text}</p></div><ArrowRight className="card-arrow" size={19}/></button>)}</div>
-    <div className="capability-band"><strong>INTELLIGENCE LAYER</strong><span>混合检索 / RRF</span><span>时态证据</span><span>全局实体归一</span><span>跨来源冲突</span><span>PROV-O 溯源</span></div>
-  </main>;
 }
 
 function buildPath(nodes, edges, start, end) {
@@ -268,6 +215,7 @@ export default function App() {
   const [asOf,setAsOf]=useState(today);
   const [paletteOpen,setPaletteOpen]=useState(false);
   const [seedQuestion,setSeedQuestion]=useState('');
+  const [wikiEntity,setWikiEntity]=useState('');
   const [graphFocus,setGraphFocus]=useState('');
   const [theme,setTheme]=useState(()=>{
     try { return localStorage.getItem('alpha-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); }
@@ -297,10 +245,11 @@ export default function App() {
     return ()=>{window.removeEventListener('hashchange',onHash);window.removeEventListener('keydown',onKey);};
   },[]);
   const navigate=useCallback(id=>{window.location.hash=id;setPage(id);setPaletteOpen(false);},[]);
+  const openWiki=useCallback(entity=>{setWikiEntity(entity);navigate('wiki');},[navigate]);
   const askFromGraph=useCallback(question=>{setSeedQuestion(question);navigate('ask');},[navigate]);
   const focusGraph=useCallback(id=>{setGraphFocus(id);navigate('graph');},[navigate]);
   return <div className="app-shell">
-    <aside className="app-rail"><button className="brand" onClick={()=>navigate('overview')} title="Alpha 首页"><span className="brand-glyph"><FlaskConical size={21}/></span><span>Alpha</span></button>
+    <aside className="app-rail"><button className="brand" onClick={()=>navigate('overview')} title="危化品知识库首页"><span className="brand-glyph"><FlaskConical size={21}/></span><span>危化品</span></button>
       <div className="rail-section-label">WORKSPACE</div><nav aria-label="主导航">{NAV.map(({id,label,hint,icon:Icon})=><button key={id} className={`rail-link ${page===id?'is-active':''}`} onClick={()=>navigate(id)} title={hint}>
         <Icon size={18}/><span>{label}</span>{page===id&&<i/>}</button>)}</nav>
       <div className="rail-bottom"><div className="rail-status"><span className="pulse-dot"/><div><strong>KNOWLEDGE ENGINE</strong><small>{summary?'连接正常':'正在连接'}</small></div></div>
@@ -313,13 +262,13 @@ export default function App() {
         <button type="button" className={theme==='dark'?'active':''} aria-pressed={theme==='dark'} onClick={()=>setTheme('dark')}><Moon size={14}/> Dark</button>
       </div><span className="topbar-date">{new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'short',day:'numeric'})}</span><div className="topbar-avatar">CA</div></div>
     </header>
-      {page==='overview'&&<Welcome summary={summary} onNavigate={navigate}/>}
+      {['overview','analysis','data'].includes(page)&&<Suspense fallback={<main className="workspace-scroll"><p role="status">正在打开数据工作台…</p></main>}><DashboardWorkspace view={page} theme={theme} onNavigate={navigate} onOpenWiki={openWiki}/></Suspense>}
       {page==='graph'&&<GraphDesk raw={graph} loading={graphLoading} error={graphError} mode={mode} setMode={setMode} asOf={asOf} setAsOf={setAsOf} onAsk={askFromGraph} onResolve={()=>navigate('resolve')} externalFocusId={graphFocus} theme={theme} summary={summary}/>}
       {page==='ask'&&<AskWorkspace asOf={asOf} setAsOf={setAsOf} seedQuestion={seedQuestion}/>}
       {page==='review'&&<ReviewWorkspace summary={summary} onGraphRefresh={()=>setGraphRefresh(n=>n+1)}/>}
       {page==='resolve'&&<ResolutionWorkspace asOf={asOf} onGraphRefresh={()=>setGraphRefresh(n=>n+1)}/>}
       {page==='library'&&<LibraryWorkspace/>}
-      {page==='wiki'&&<WikiWorkspace/>}
+      {page==='wiki'&&<WikiWorkspace initialEntity={wikiEntity}/>}
     </div>
     {paletteOpen&&<CommandPalette close={()=>setPaletteOpen(false)} navigate={navigate} focusGraph={focusGraph}/>}
   </div>;

@@ -26,7 +26,7 @@ from core.kg.schema_manager import SchemaManager
 from core.knowledge import KeywordIndex, _approved, active_at, entity_candidates, export_graph, find_conflicts, fuse_rrf
 
 ROOT = BASE_DIR
-DIST = ROOT / "explorer_web" / "dist"
+DIST = Path(os.environ.get("CHEM_KB_EXPLORER_DIST", str(ROOT / "explorer_web" / "dist")))
 WIKI_ROOT = ROOT / "data" / "wiki"
 REVIEW_ROOT = ROOT / "data" / "kg" / "review"
 LEGACY_METADATA = ROOT / "data" / "legacy" / "chunks_metadata.json"
@@ -498,6 +498,10 @@ def wiki_review(entity):
     if case:
         CaseRepository().add_case(case)
     return jsonify({"record": record})
+
+
+from app.dashboard_api import register as register_dashboard
+dashboard_repository = register_dashboard(app, ROOT, _metadata, lambda: current_relations(*_reviews()))
 
 
 @app.get("/")

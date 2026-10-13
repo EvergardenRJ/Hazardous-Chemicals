@@ -16,7 +16,8 @@
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "three": "^0.186.1",
-    "three-spritetext": "^1.10.0"
+    "three-spritetext": "^1.10.0",
+    "echarts": "6.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.0",
