@@ -1,27 +1,36 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  Activity, ArrowRight, BookOpen, Check, ChevronDown, CircleHelp, Command,
+  Activity, ArrowRight, BookOpen, Check, ChevronDown, ChevronRight, CircleHelp, Command,
   Download, FileText, FlaskConical, GitMerge, LayoutDashboard, Maximize2, Network,
   Pause, Play, Search, Settings2, ShieldCheck, SlidersHorizontal, Sparkles,
-  X, ZoomIn, ZoomOut, Sun, Moon
+  X, ZoomIn, ZoomOut, Sun, Moon, Newspaper
 } from 'lucide-react';
-import GraphCanvas, { TYPE_COLORS } from './GraphCanvas.jsx';
+import { normalizeQuery, PAGE_TYPES } from './WikiCatalog.jsx';
+import NewsWorkspace from './NewsWorkspace.jsx';
+import ChemicalWorkspace from './ChemicalWorkspace.jsx';
+import { TYPE_COLORS } from './graph-theme.js';
+const GraphCanvas=lazy(()=>import('./GraphCanvas.jsx'));
+const WikiWorkspace=lazy(()=>import('./WikiWorkspace.jsx'));
+const DashboardWorkspace=lazy(()=>import('./DashboardWorkspace.jsx'));
 import { api, compactNumber, sourceLabel, today, validAt } from './api';
-const DashboardWorkspace = lazy(()=>import('./DashboardWorkspace.jsx'));
 import {
-  AskWorkspace, LibraryWorkspace, ResolutionWorkspace, ReviewWorkspace,
-  WikiWorkspace, WorkspaceHeading
+  AskWorkspace, GovernanceWorkspace, WorkspaceHeading
 } from './Panels.jsx';
+
+const SHORTCUT = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : 'Ctrl K';
+let wikiSearchCache=null;
+let wikiSearchCacheAt=0;
+let wikiSearchRequest=null;
+function loadWikiSearch(){if(wikiSearchCache&&Date.now()-wikiSearchCacheAt<20000)return Promise.resolve(wikiSearchCache);if(!wikiSearchRequest)wikiSearchRequest=api('/api/wiki').then(d=>{wikiSearchCache=d.entries||[];wikiSearchCacheAt=Date.now();return wikiSearchCache}).finally(()=>{wikiSearchRequest=null});return wikiSearchRequest;}
 
 const NAV = [
   { id:'overview', label:'总览', hint:'Overview', icon:LayoutDashboard },
   { id:'analysis', label:'多维分析', hint:'Dashboard Explore', icon:SlidersHorizontal },
-  { id:'data', label:'数据说明', hint:'Data Definitions', icon:CircleHelp },
+  { id:'data', label:'数据说明', hint:'Metrics Definitions', icon:CircleHelp },
   { id:'graph', label:'图谱探索', hint:'Explorer', icon:Network },
   { id:'ask', label:'智能检索', hint:'Analyze', icon:Search },
-  { id:'review', label:'断言审核', hint:'Review', icon:ShieldCheck },
-  { id:'resolve', label:'实体与冲突', hint:'Resolution', icon:GitMerge },
-  { id:'library', label:'文档库', hint:'Library', icon:FileText },
+  { id:'review', label:'知识治理', hint:'断言审核 · 实体与冲突', icon:ShieldCheck },
+  { id:'news', label:'危化品新闻', hint:'News', icon:Newspaper },
   { id:'wiki', label:'知识 Wiki', hint:'Wiki', icon:BookOpen }
 ];
 
@@ -34,7 +43,9 @@ const TYPE_LABEL = {
 
 function stateFromHash() {
   const id = window.location.hash.replace('#','');
-  return NAV.some(item => item.id === id) ? id : 'overview';
+  if (id === 'resolve' || id === 'review-entities') return 'review';
+  if (id === 'library') return 'data';
+  return (id === 'chemical' || NAV.some(item => item.id === id)) ? id : 'overview';
 }
 
 function StatusChip({ children, tone='blue' }) {
@@ -138,8 +149,8 @@ function GraphDesk({ raw, loading, error, mode, setMode, asOf, setAsOf, onAsk, o
         <div className="canvas-pattern"/>
         {loading ? <div className="canvas-message"><Activity className="spin" size={24}/><strong>正在加载知识网络</strong></div>
           : error ? <div className="canvas-message"><CircleHelp size={24}/><strong>图谱加载失败</strong><small>{error}</small></div>
-          : filtered.nodes.length ? <GraphCanvas ref={canvasRef} nodes={filtered.nodes} edges={filtered.edges}
-              selection={selection} focusId={focusId} highlighted={path} onSelect={setSelection} theme={theme}/>
+          : filtered.nodes.length ? <Suspense fallback={<div className="canvas-message">正在加载图谱画布…</div>}><GraphCanvas ref={canvasRef} nodes={filtered.nodes} edges={filtered.edges}
+              selection={selection} focusId={focusId} highlighted={path} onSelect={setSelection} theme={theme}/></Suspense>
           : <div className="canvas-message"><Network size={30}/><strong>当前视图没有关系</strong><small>切换审核状态或生效时点查看。</small></div>}
         <div className="canvas-overlay canvas-overlay--left"><span className="eyebrow">3D / ORBIT VIEW</span><strong>{filtered.nodes.length} 节点 <span>·</span> {filtered.edges.length} 关系</strong></div>
         <div className="canvas-controls"><button onClick={()=>canvasRef.current?.zoomIn()} title="放大"><ZoomIn size={17}/></button>
@@ -185,28 +196,48 @@ function GraphDesk({ raw, loading, error, mode, setMode, asOf, setAsOf, onAsk, o
   </section>;
 }
 
-function CommandPalette({ close, navigate, focusGraph }) {
-  const [query,setQuery]=useState('');
-  const [nodes,setNodes]=useState([]);
-  const inputRef=useRef(null);
-  useEffect(()=>{inputRef.current?.focus();},[]);
+function CommandPalette({ close, navigate, focusGraph, openWiki }) {
+  const [query,setQuery]=useState(''),[nodes,setNodes]=useState([]),[wikiEntries,setWikiEntries]=useState(wikiSearchCache||[]),[loadingWiki,setLoadingWiki]=useState(!wikiSearchCache),[wikiError,setWikiError]=useState(''),[loadingNodes,setLoadingNodes]=useState(false),[selected,setSelected]=useState(0);
+  const inputRef=useRef(null),dialogRef=useRef(null),resultsRef=useRef(null);
+  useEffect(()=>{const previous=document.activeElement;inputRef.current?.focus();return()=>previous?.focus()},[]);
+  useEffect(()=>{let alive=true;loadWikiSearch().then(d=>{if(alive)setWikiEntries(d)}).catch(()=>{if(alive)setWikiError('Wiki 目录暂未载入，可进入知识 Wiki 重试。')}).finally(()=>{if(alive)setLoadingWiki(false)});return()=>{alive=false}},[]);
   useEffect(()=>{
-    if(!query.trim()){setNodes([]);return;}
-    const timer=setTimeout(()=>api('/api/search?q='+encodeURIComponent(query)).then(d=>setNodes(d.nodes||[])).catch(()=>setNodes([])),180);
-    return ()=>clearTimeout(timer);
+    if(!query.trim()){setNodes([]);setLoadingNodes(false);return;}
+    let alive=true;const controller=new AbortController();setNodes([]);setLoadingNodes(true);
+    const timer=setTimeout(()=>api('/api/search?q='+encodeURIComponent(query),{signal:controller.signal}).then(d=>{if(alive)setNodes(d.nodes||[])}).catch(()=>{if(alive)setNodes([])}).finally(()=>{if(alive)setLoadingNodes(false)}),220);
+    return()=>{alive=false;clearTimeout(timer);controller.abort()};
   },[query]);
-  const matches=NAV.filter(n=>(n.label+' '+n.hint).toLowerCase().includes(query.toLowerCase()));
-  return <div className="palette-backdrop" onMouseDown={close}><div className="palette" role="dialog" aria-modal="true" aria-label="命令搜索" onMouseDown={e=>e.stopPropagation()}>
-    <div className="palette-input"><Search size={20}/><input ref={inputRef} value={query} onChange={e=>setQuery(e.target.value)} onKeyDown={e=>{if(e.key==='Escape')close();if(e.key==='Enter'&&matches[0])navigate(matches[0].id);}} placeholder="搜索工作区或图谱实体…"/><kbd>ESC</kbd></div>
-    <div className="palette-results"><div className="eyebrow">WORKSPACES</div>{matches.map(({id,label,hint,icon:Icon})=><button key={id} onClick={()=>navigate(id)}><Icon size={17}/><strong>{label}</strong><small>{hint}</small><ArrowRight size={14}/></button>)}
-      {nodes.length>0 && <><div className="eyebrow">GRAPH ENTITIES</div>{nodes.map(n=><button key={n.id} onClick={()=>focusGraph(n.id)}><span className="node-dot" style={{background:TYPE_COLORS[n.type]||TYPE_COLORS.entity}}/><strong>{n.label}</strong><small>{TYPE_LABEL[n.type]||n.type}</small><ArrowRight size={14}/></button>)}</>}</div>
-    <div className="palette-foot"><span>ENTER 打开</span><span>⌘ K 快速唤起</span></div>
+  const matches=NAV.filter(n=>normalizeQuery(n.label+' '+n.hint).includes(normalizeQuery(query)));
+  const wikiHits=query.trim()?wikiEntries.filter(e=>normalizeQuery(e.entity).includes(normalizeQuery(query))).slice(0,8):[];
+  const rows=[...matches.map(n=>({kind:'workspace',key:'nav-'+n.id,label:n.label,hint:'工作区',icon:n.icon,run:()=>navigate(n.id)})),...wikiHits.map(e=>({kind:'wiki',key:'wiki-'+e.wiki_id,label:e.entity,hint:PAGE_TYPES[e.page_type]||'Wiki',icon:BookOpen,run:()=>openWiki(e.entity)})),...nodes.slice(0,8).map(n=>({kind:'node',key:'node-'+n.id,label:n.label,hint:TYPE_LABEL[n.type]||'图谱实体',icon:Network,run:()=>focusGraph(n.id)}))];
+  useEffect(()=>setSelected(0),[query]);
+  useEffect(()=>{if(selected>=rows.length)setSelected(Math.max(0,rows.length-1))},[rows.length]);
+  useEffect(()=>{resultsRef.current?.querySelector('[aria-selected="true"]')?.scrollIntoView({block:'nearest'})},[selected]);
+  function keydown(e) {
+    if(e.key==='Escape'){e.preventDefault();close()}
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();setSelected(i=>rows.length?(i+(e.key==='ArrowDown'?1:-1)+rows.length)%rows.length:0)}
+    if(e.key==='Enter'&&e.target===inputRef.current){e.preventDefault();rows[selected]?.run()}
+    if(e.key==='Tab'){
+      const controls=[...dialogRef.current.querySelectorAll('input,button:not(:disabled)')],first=controls[0],last=controls[controls.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus()}
+      if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus()}
+    }
+  }
+  return <div className="palette-backdrop" onMouseDown={close}><div ref={dialogRef} className="palette" role="dialog" aria-modal="true" aria-label="命令搜索" onMouseDown={e=>e.stopPropagation()} onKeyDown={keydown}>
+    <div className="palette-input"><Search size={20}/><input ref={inputRef} value={query} onChange={e=>setQuery(e.target.value)} placeholder="搜索 Wiki、图谱实体或工作区…" role="combobox" aria-label="搜索所有知识" aria-controls="knowledge-search-results" aria-expanded="true" aria-autocomplete="list" aria-activedescendant={rows[selected]?'search-result-'+selected:undefined}/><kbd>Esc</kbd><button className="palette-close" onClick={close} aria-label="关闭命令搜索"><X size={16}/></button></div>
+    <div className="palette-results" id="knowledge-search-results" ref={resultsRef} role="listbox" aria-label="知识搜索结果">{rows.map((row,i)=>{const Icon=row.icon;return <div key={row.key}>{(i===0||rows[i-1].kind!==row.kind)&&<div className="eyebrow">{row.kind==='workspace'?'工作区':row.kind==='wiki'?'知识 Wiki':'图谱实体'}</div>}<button id={'search-result-'+i} role="option" aria-selected={selected===i} className={selected===i?'is-selected':''} onMouseEnter={()=>setSelected(i)} onClick={row.run}><Icon size={17}/><strong>{row.label}</strong><small>{row.hint}</small><ChevronRight size={14}/></button></div>})}
+      {query.trim()&&(loadingWiki||loadingNodes)&&<div className="palette-search-state" role="status">正在检索{loadingWiki?' Wiki 目录':'图谱实体'}…</div>}
+      {wikiError&&<div className="palette-search-state">{wikiError}</div>}
+      {!rows.length&&!loadingWiki&&!loadingNodes&&<div className="palette-search-state">没有匹配的知识。试试较短的名称，或进入智能检索查找原文。</div>}
+    </div><div className="palette-foot"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>{SHORTCUT} 搜索</span><span>Esc 关闭</span></div>
   </div></div>;
 }
 
 export default function App() {
   const [page,setPage]=useState(stateFromHash);
+  const [governanceTab,setGovernanceTab]=useState(()=>['#resolve','#review-entities'].includes(location.hash)?'entities':'assertions');
   const [summary,setSummary]=useState(null);
+  const [connection,setConnection]=useState('connecting');
   const [graph,setGraph]=useState(null);
   const [graphError,setGraphError]=useState('');
   const [graphLoading,setGraphLoading]=useState(false);
@@ -214,9 +245,8 @@ export default function App() {
   const [mode,setMode]=useState('all');
   const [asOf,setAsOf]=useState(today);
   const [paletteOpen,setPaletteOpen]=useState(false);
-  const [seedQuestion,setSeedQuestion]=useState('');
-  const [wikiEntity,setWikiEntity]=useState('');
-  const [graphFocus,setGraphFocus]=useState('');
+  const [seedQuestion,setSeedQuestion]=useState(()=>{const c=new URLSearchParams(location.search).get('chemical');return c?c+'储存和装卸有哪些原文依据？':''});
+  const [graphFocus,setGraphFocus]=useState(()=>{const c=new URLSearchParams(location.search).get('chemical');return c?'chemical::'+c:''});
   const [theme,setTheme]=useState(()=>{
     try { return localStorage.getItem('alpha-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); }
     catch { return 'dark'; }
@@ -226,7 +256,7 @@ export default function App() {
     try { localStorage.setItem('alpha-theme',theme); } catch { /* Storage can be disabled. */ }
   },[theme]);
   useEffect(()=>{
-    const refresh=()=>api('/api/summary').then(setSummary).catch(()=>{});
+    const refresh=()=>api('/api/summary').then(d=>{setSummary(d);setConnection('ready')}).catch(()=>setConnection('offline'));
     refresh(); const timer=setInterval(refresh,30000);
     return ()=>clearInterval(timer);
   },[graphRefresh]);
@@ -238,39 +268,41 @@ export default function App() {
     return ()=>{active=false;};
   },[page,mode,graphRefresh]);
   useEffect(()=>{
-    const onHash=()=>setPage(stateFromHash());
+    const onHash=()=>{setPage(stateFromHash());if(['#resolve','#review-entities'].includes(location.hash))setGovernanceTab('entities');else if(location.hash==='#review')setGovernanceTab('assertions');};
     const onKey=e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();setPaletteOpen(v=>!v);}
       if(e.key==='Escape')setPaletteOpen(false);};
-    window.addEventListener('hashchange',onHash);window.addEventListener('keydown',onKey);
-    return ()=>{window.removeEventListener('hashchange',onHash);window.removeEventListener('keydown',onKey);};
+    window.addEventListener('hashchange',onHash);window.addEventListener('popstate',onHash);window.addEventListener('keydown',onKey);
+    return ()=>{window.removeEventListener('hashchange',onHash);window.removeEventListener('popstate',onHash);window.removeEventListener('keydown',onKey);};
   },[]);
-  const navigate=useCallback(id=>{window.location.hash=id;setPage(id);setPaletteOpen(false);},[]);
-  const openWiki=useCallback(entity=>{setWikiEntity(entity);navigate('wiki');},[navigate]);
+  const navigate=useCallback((id,section)=>{const target=id==='resolve'?'review':id==='library'?'data':id;const tab=section||(id==='resolve'?'entities':'assertions');if(target==='review')setGovernanceTab(tab);window.location.hash=target==='review'&&tab==='entities'?'review-entities':target;setPage(target);setPaletteOpen(false);},[]);
+  const selectGovernanceTab=useCallback(tab=>{setGovernanceTab(tab);window.location.hash=tab==='entities'?'review-entities':'review';},[]);
+  const openWiki=useCallback(name=>{const url=new URL(window.location.href);url.searchParams.set('wiki',name);url.searchParams.delete('section');url.searchParams.delete('view');url.searchParams.delete('revision');url.hash='wiki';window.history.pushState({},'',url);setPage('wiki');setPaletteOpen(false);window.dispatchEvent(new Event('wiki:navigate'))},[]);
   const askFromGraph=useCallback(question=>{setSeedQuestion(question);navigate('ask');},[navigate]);
   const focusGraph=useCallback(id=>{setGraphFocus(id);navigate('graph');},[navigate]);
   return <div className="app-shell">
-    <aside className="app-rail"><button className="brand" onClick={()=>navigate('overview')} title="危化品知识库首页"><span className="brand-glyph"><FlaskConical size={21}/></span><span>危化品</span></button>
-      <div className="rail-section-label">WORKSPACE</div><nav aria-label="主导航">{NAV.map(({id,label,hint,icon:Icon})=><button key={id} className={`rail-link ${page===id?'is-active':''}`} onClick={()=>navigate(id)} title={hint}>
+    <aside className="app-rail"><button className="brand" onClick={()=>navigate('overview')} title="化工安全知识库首页"><span className="brand-glyph"><FlaskConical size={21}/></span><span>危化品</span></button>
+      <div className="rail-section-label">工作区</div><nav aria-label="主导航">{NAV.map(({id,label,hint,icon:Icon})=><button key={id} className={`rail-link ${page===id?'is-active':''}`} onClick={()=>navigate(id)} title={label} aria-current={page===id?'page':undefined}>
         <Icon size={18}/><span>{label}</span>{page===id&&<i/>}</button>)}</nav>
-      <div className="rail-bottom"><div className="rail-status"><span className="pulse-dot"/><div><strong>KNOWLEDGE ENGINE</strong><small>{summary?'连接正常':'正在连接'}</small></div></div>
-        <div className="rail-version">CHEMICAL SAFETY / v1.0</div></div>
+      <div className="rail-bottom"><div className={'rail-status '+(connection==='offline'?'is-offline':'')}><span className="pulse-dot"/><div><strong>化工安全知识库</strong><small>{connection==='ready'?'连接正常':connection==='offline'?'连接中断':'正在连接'}</small></div></div>
+        <div className="rail-version">知识与来源相连</div></div>
     </aside>
-    <div className="app-main"><header className="app-topbar"><div className="breadcrumb"><span>WORKSPACE</span><ArrowRight size={13}/><strong>{NAV.find(n=>n.id===page)?.label||'总览'}</strong></div>
-      <button className="command-trigger" onClick={()=>setPaletteOpen(true)}><Search size={16}/><span>搜索实体、来源或工作区</span><kbd>⌘ K</kbd></button>
+    <div className="app-main"><header className="app-topbar"><div className="breadcrumb"><span>知识库</span><ArrowRight size={13}/><strong>{page==='chemical'?'化学品专题':NAV.find(n=>n.id===page)?.label||'总览'}</strong></div>
+      <button className="command-trigger" onClick={()=>setPaletteOpen(true)}><Search size={16}/><span>搜索 Wiki、实体或工作区</span><kbd>{SHORTCUT}</kbd></button>
       <div className="topbar-right"><div className="theme-switch" role="group" aria-label="页面外观">
-        <button type="button" className={theme==='light'?'active':''} aria-pressed={theme==='light'} onClick={()=>setTheme('light')}><Sun size={14}/> Light</button>
-        <button type="button" className={theme==='dark'?'active':''} aria-pressed={theme==='dark'} onClick={()=>setTheme('dark')}><Moon size={14}/> Dark</button>
+        <button type="button" className={theme==='light'?'active':''} aria-pressed={theme==='light'} onClick={()=>setTheme('light')}><Sun size={14}/> 浅色</button>
+        <button type="button" className={theme==='dark'?'active':''} aria-pressed={theme==='dark'} onClick={()=>setTheme('dark')}><Moon size={14}/> 深色</button>
       </div><span className="topbar-date">{new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'short',day:'numeric'})}</span><div className="topbar-avatar">CA</div></div>
     </header>
-      {['overview','analysis','data'].includes(page)&&<Suspense fallback={<main className="workspace-scroll"><p role="status">正在打开数据工作台…</p></main>}><DashboardWorkspace view={page} theme={theme} onNavigate={navigate} onOpenWiki={openWiki}/></Suspense>}
-      {page==='graph'&&<GraphDesk raw={graph} loading={graphLoading} error={graphError} mode={mode} setMode={setMode} asOf={asOf} setAsOf={setAsOf} onAsk={askFromGraph} onResolve={()=>navigate('resolve')} externalFocusId={graphFocus} theme={theme} summary={summary}/>}
+      {connection==='offline'&&<div className="app-connection-notice" role="status">连接已中断，请确认 SSH 隧道和服务器运行后刷新页面。</div>}
+      {page==='chemical'&&<ChemicalWorkspace onNavigate={navigate} onOpenWiki={openWiki} onFocusGraph={focusGraph}/>}
+      {['overview','analysis','data'].includes(page)&&<Suspense fallback={<div className="workspace-scroll"><p role="status">正在打开数据工作台…</p></div>}><DashboardWorkspace view={page} theme={theme} onNavigate={navigate} onOpenWiki={openWiki}/></Suspense>}
+      {page==='graph'&&<GraphDesk raw={graph} loading={graphLoading} error={graphError} mode={mode} setMode={setMode} asOf={asOf} setAsOf={setAsOf} onAsk={askFromGraph} onResolve={()=>navigate('review','entities')} externalFocusId={graphFocus} theme={theme} summary={summary}/>}
       {page==='ask'&&<AskWorkspace asOf={asOf} setAsOf={setAsOf} seedQuestion={seedQuestion}/>}
-      {page==='review'&&<ReviewWorkspace summary={summary} onGraphRefresh={()=>setGraphRefresh(n=>n+1)}/>}
-      {page==='resolve'&&<ResolutionWorkspace asOf={asOf} onGraphRefresh={()=>setGraphRefresh(n=>n+1)}/>}
-      {page==='library'&&<LibraryWorkspace/>}
-      {page==='wiki'&&<WikiWorkspace initialEntity={wikiEntity}/>}
+      {page==='review'&&<GovernanceWorkspace tab={governanceTab} setTab={selectGovernanceTab} summary={summary} asOf={asOf} onGraphRefresh={()=>setGraphRefresh(n=>n+1)}/>}
+      {page==='news'&&<NewsWorkspace/>}
+      {page==='wiki'&&<Suspense fallback={<div className="workspace-scroll"><p role="status">正在打开知识 Wiki…</p></div>}><WikiWorkspace/></Suspense>}
     </div>
-    {paletteOpen&&<CommandPalette close={()=>setPaletteOpen(false)} navigate={navigate} focusGraph={focusGraph}/>}
+    {paletteOpen&&<CommandPalette close={()=>setPaletteOpen(false)} navigate={navigate} focusGraph={focusGraph} openWiki={openWiki}/>}
   </div>;
 }
 

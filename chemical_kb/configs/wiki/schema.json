@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "page_types": [
+    "chemical",
+    "concept",
+    "legacy"
+  ],
+  "knowledge_source": [
+    "grounded",
+    "model_prior",
+    "mixed",
+    "unknown"
+  ],
+  "high_risk_policy": "evidence_only",
+  "max_input_tokens": 7000,
+  "section_output_tokens": 3072
+}

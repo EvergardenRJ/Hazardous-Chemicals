@@ -1,10 +1,11 @@
 import DatasetCatalog from './DatasetCatalog.jsx';
+import DocumentUpload from './DocumentUpload.jsx';
 import {useEffect,useMemo,useRef,useState} from 'react';
 import * as echarts from 'echarts/core';
 import {BarChart,LineChart,TreemapChart,ScatterChart,HeatmapChart,SankeyChart,GraphChart,BoxplotChart} from 'echarts/charts';
 import {GridComponent,TooltipComponent,LegendComponent,DataZoomComponent,VisualMapComponent,AriaComponent} from 'echarts/components';
 import {SVGRenderer} from 'echarts/renderers';
-import {ArrowDown,ArrowUp,BarChart3,BookOpen,Check,ChevronDown,ChevronLeft,ChevronRight,Database,Download,ExternalLink,FileText,Filter,GripVertical,Info,LayoutGrid,LineChart as LineIcon,Maximize2,MoreHorizontal,Network,Plus,RefreshCw,Save,Search,Settings2,Share2,SlidersHorizontal,Table2,Undo2,X} from 'lucide-react';
+import {ArrowDown,ArrowUp,BarChart3,BookOpen,Check,ChevronDown,ChevronLeft,ChevronRight,Database,Download,ExternalLink,FileText,Filter,GripVertical,Info,LayoutGrid,LineChart as LineIcon,Maximize2,MoreHorizontal,Network,Plus,RefreshCw,Save,Search,Settings2,Share2,SlidersHorizontal,Table2,Undo2,UploadCloud,X} from 'lucide-react';
 import {api} from './api';
 import './dashboard.css';
 
@@ -51,6 +52,7 @@ function EChart({option,onSelect,theme,height=280}){
  useEffect(()=>{chart.current?.setOption(option,true)},[option,theme]);
  return <div ref={ref} style={{height}} className="dash-echart" role="img" aria-label={option.aria?.description||'数据图表，使用查看数据获取表格视图'}/>;
 }
+const RELATION_LABELS={"has_clause": "包含条款", "parent_of": "包含下级条款", "references": "引用", "replaces": "代替", "defines": "定义", "derived_from": "出自", "belongs_to_class": "属于危险类别", "governs": "规范", "located_at": "位于", "has_equipment": "拥有设备", "operates_process": "运营工艺", "handles": "涉危化品操作", "has_hazard_source": "构成重大危险源", "hazard_of": "涉及化学品", "contains": "储存/输送介质", "used_in": "用于工艺", "regulates": "监管", "issued_by": "由…发布", "occurred_in": "发生于单位", "occurred_at": "发生于场所", "involves_chemical": "涉及化学品", "involves_equipment": "涉及设备", "involves_process": "涉及工艺", "direct_cause": "直接原因", "indirect_cause": "间接原因", "leads_to": "导致", "relates_to": "关联对象", "has_measure": "有措施", "liability_of": "责任主体", "based_on": "依据", "violates": "违反", "applies_to": "适用于"};
 function chartOption(kind,r,theme){
  const dark=theme==='dark',ink=dark?'#dce9f3':'#20344b',muted=dark?'#a6b8c7':'#667b8d',grid=dark?'#33495b':'#e6edf3';
  const common={animation:false,color:COLORS,textStyle:{fontFamily:'system-ui, Microsoft YaHei, sans-serif',fontSize:12,color:ink},
@@ -120,11 +122,11 @@ function chartOption(kind,r,theme){
  }
  if(kind==='network'){
   const nodes=r.network?.nodes||[],links=r.network?.links||[];
-  return {...common,tooltip:{...common.tooltip,formatter:p=>esc(p.dataType==='edge'?p.data.name:p.data.name)},
-   series:[{type:'graph',layout:'force',roam:true,force:{repulsion:200,edgeLength:85},draggable:true,
-    data:nodes.map((n,i)=>({...n,name:n.id,fullName:n.name,symbolSize:24,itemStyle:{color:COLORS[i%COLORS.length]}})),
-    links:links.map(l=>({...l,label:{show:false},lineStyle:{color:COLORS[0],opacity:.5}})),
-    label:{show:true,color:ink,fontSize:11,formatter:p=>(p.data.fullName||p.name).slice(0,10)},emphasis:{focus:'adjacency'},edgeSymbol:['none','arrow']}]};
+  return {...common,tooltip:{...common.tooltip,formatter:p=>p.dataType==='edge'?esc(nodes.find(n=>n.id===p.data.source)?.name||p.data.source)+' → '+esc(nodes.find(n=>n.id===p.data.target)?.name||p.data.target)+'<br/>'+esc(RELATION_LABELS[p.data.name]||p.data.name)+'<br/>点击关系边可核对原文':esc(p.data.fullName||p.data.name)},
+   series:[{type:'graph',layout:'force',roam:true,zoom:r._expanded?0.75:(nodes.length>30?0.45:0.55),force:{repulsion:420,edgeLength:[85,145],gravity:.12},draggable:true,
+    data:nodes.map((n,i)=>({...n,name:n.id,fullName:n.name,label:{show:nodes.length<=25||n.name==='液氯'||/^(standard|accident)::/.test(n.id)},emphasis:{label:{show:true}},symbolSize:n.name==='液氯'?42:24,itemStyle:{color:n.name==='液氯'?'#147d92':COLORS[i%COLORS.length]}})),
+    links:links.map(l=>({...l,label:{show:links.length<=30,formatter:RELATION_LABELS[l.name]||l.name,fontSize:10},emphasis:{label:{show:true}},lineStyle:{color:COLORS[0],opacity:.5}})),
+    label:{show:true,color:ink,fontSize:11,formatter:p=>(p.data.fullName||p.name).slice(0,14)},labelLayout:{hideOverlap:true},emphasis:{focus:'adjacency'},edgeSymbol:['none','arrow']}]};
  }
  return common;
 }
@@ -170,7 +172,7 @@ function chartResult(kind,r){
  }
  return r;
 }
-function ChartPanel({id,title,subtitle,kind,r,theme,onPoint,onAction,wide=false,editing,move,draggable,onDragStart,onDrop}){
+function ChartPanel({id,title,subtitle,kind,r,theme,onPoint,onAction,wide=false,editing,move,draggable,onDragStart,onDrop,scopeControl}){
  r=chartResult(kind,r);
  const [menu,setMenu]=useState(false),[table,setTable]=useState(false);
  const empty=['treemap','stacked'].includes(kind)?!r?.tree?.length:kind==='line'?!r?.timeline?.length:kind==='network'?!r?.network?.nodes?.length:kind==='scatter'?!r?.scatter?.length:['box','histogram'].includes(kind)?!r?.distribution?.length:kind==='sankey'?!r?.sankey?.length:!r?.groups?.length;
@@ -192,6 +194,7 @@ function ChartPanel({id,title,subtitle,kind,r,theme,onPoint,onAction,wide=false,
     </div></>}
    </div>
   </header>
+  {scopeControl}
   {!r?<Empty title="正在读取数据">首次加载需要建立只读分析快照。</Empty>:empty?<Empty title={kind==='line'?'该时间口径没有已知日期':kind==='network'?'当前范围无实体关系':'当前范围没有适用数据'}>{kind==='line'?'未知日期仍保留在其他统计中；可选择新闻文章的发布日期分析。':kind==='network'?'字面量属性在已接受知识明细中查看。':'更换范围、维度或指标；不会填入演示值。'}</Empty>
    :table||kind==='pivot'?<Pivot r={r} onSelect={g=>onPoint?.({data:{group:g}},r)}/>:<EChart option={option} onSelect={event=>onPoint?.(event,r)} theme={theme}/>}
   <footer><span>{footer}</span><span>{r?fmt(r.total)+' 条范围内记录':'读取中'}</span></footer>
@@ -233,6 +236,8 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
  const [dataTab,setDataTab]=useState('files');
  const [boot,setBoot]=useState(null),[bootError,setBootError]=useState(''),[refresh,setRefresh]=useState(0);
  const [query,setQuery]=useState(initialQuery),[draft,setDraft]=useState(initialQuery),[result,setResult]=useState(null);
+ const [relationScope,setRelationScope]=useState('液氯');
+ const [relationSource,setRelationSource]=useState('');
  const [independent,setIndependent]=useState({news:null,relations:null}),[error,setError]=useState(''),[busy,setBusy]=useState(false);
  const [search,setSearch]=useState(''),[controlTab,setControlTab]=useState('data'),[kind,setKind]=useState('grouped');
  const [mode,setMode]=useState('board'),[modal,setModal]=useState(null),[point,setPoint]=useState(null),[notice,setNotice]=useState('');
@@ -252,9 +257,9 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
  },[queryKey,boot?.snapshot_id]);
  useEffect(()=>{
   if(!boot)return;let alive=true;const controller=new AbortController();
-  Promise.all(['news','relations'].map(dataset=>postQuery({dataset,dimensions:['type','source'],metric:'count',filters:dataset==='relations'?[{field:'type',values:['实体关系']}]:[],unknown:'include',snapshot_id:boot.snapshot_id},controller.signal).then(r=>[dataset,{...r,_query:{dataset,dimensions:['type','source'],metric:'count',filters:dataset==='relations'?[{field:'type',values:['实体关系']}]:[],unknown:'include',snapshot_id:boot.snapshot_id}}]).catch(e=>{if(alive&&e.name!=='AbortError')setError('独立图表读取失败：'+e.message);return [dataset,null]})))
+  Promise.all(['news','relations'].map(dataset=>postQuery({dataset,dimensions:['type','source'],metric:'count',q:dataset==='relations'?relationScope:'',filters:dataset==='relations'?[{field:'type',values:['实体关系']},...(relationSource?[{field:'source',values:[relationSource]}]:[])]:[],unknown:'include',snapshot_id:boot.snapshot_id},controller.signal).then(r=>[dataset,{...r,_query:{dataset,dimensions:['type','source'],metric:'count',q:dataset==='relations'?relationScope:'',filters:dataset==='relations'?[{field:'type',values:['实体关系']},...(relationSource?[{field:'source',values:[relationSource]}]:[])]:[],unknown:'include',snapshot_id:boot.snapshot_id}}]).catch(e=>{if(alive&&e.name!=='AbortError')setError('独立图表读取失败：'+e.message);return [dataset,null]})))
    .then(entries=>alive&&setIndependent(Object.fromEntries(entries)));return()=>{alive=false;controller.abort()};
- },[boot?.snapshot_id]);
+ },[boot?.snapshot_id,relationScope,relationSource]);
  useEffect(()=>{
   if(!compare||!boot){setCompareResult(null);setCompareA(null);return}
   let alive=true;const controller=new AbortController();
@@ -327,7 +332,7 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
   structure:{title:'文种与来源结构',subtitle:'面积表示当前指标 · 来源是已有标签',kind:'treemap',r:result},
   ranking:{title:activeSpec?.dimensions.chemical?'化学品名称提及排行':'类别与数量比较',subtitle:activeSpec?.dimensions.chemical?'字面提及 · 多标签，不代表已核实实体':'当前维度与指标',kind:'bar',r:activeSpec?.dimensions.chemical?chemicalData:result},
   matrix:{title:activeSpec?.dimensions.chemical?'名称提及 × 资料类型':'双维度覆盖矩阵',subtitle:'未标注单列 · 组合数据可下钻',kind:'heatmap',r:activeSpec?.dimensions.chemical?chemicalData:result},
-  network:{title:'当前已接受实体关系',subtitle:'独立知识范围 · 属性在明细中查看',kind:'network',r:independent.relations},
+  network:{title:'当前已接受实体关系',subtitle:relationScope?'液氯相关已接受关系 · 悬停或点击关系边核对':'全部已接受关系 · 属性在明细中查看',kind:'network',r:independent.relations,scopeControl:<div className="dash-network-controls"><label>关系图范围 <select aria-label="关系图范围" value={relationScope} onChange={e=>setRelationScope(e.target.value)}><option value="液氯">液氯相关关系</option><option value="">全部已接受关系</option></select></label><label>资料分类 <select aria-label="关系资料分类" value={relationSource} onChange={e=>setRelationSource(e.target.value)}><option value="">全部资料</option><option value="标准">标准条款</option><option value="法规">法规与目录</option><option value="事故报告">事故与设备</option></select></label><span>悬停查看关系 · 点击核对原文</span></div>},
   composition:{title:'各来源的资料构成',subtitle:'分母是各来源内记录量 · 互斥文种',kind:'stacked',r:result,wide:true},
  };
  const explorePanels=[
@@ -340,11 +345,11 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
  ];
  const fieldEntries=Object.entries(spec?.dimensions||{}).filter(([key,d])=>(d.label+' '+key).includes(search));
  function panelProps(id,p){return {id,...p,theme,editing,draggable:editing,move:delta=>moveItem(id,delta),onDragStart:e=>editing&&e.dataTransfer.setData('dash-panel',id),onDrop:e=>reorderDrop(id,e),onPoint:(point,shown)=>selectPoint(point,shown||p.r,p.title),onAction:action}}
- if(bootError)return <main className="dashboard-workspace"><Empty title="分析数据暂时不可读取">{bootError}</Empty><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}>重新读取</button></main>;
- if(!boot)return <main className="dashboard-workspace"><Empty title="正在建立数据分析快照">只读加载资料、新闻、Wiki 与当前知识目录。</Empty></main>;
- if(view==='data')return <main className="dashboard-workspace"><header className="dash-page-head"><div><span className="dash-kicker">数据依据</span><h1>数据说明与指标词典</h1><p>来源、粒度、字段覆盖和统计定义共同决定分析能回答什么。</p></div><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}><RefreshCw size={16}/>更新快照</button></header>
-  <div className="dash-view-tabs" role="tablist" aria-label="数据说明内容"><button role="tab" aria-selected={dataTab==='files'} className={dataTab==='files'?'active':''} onClick={()=>setDataTab('files')}>文件与样例</button><button role="tab" aria-selected={dataTab==='dictionary'} className={dataTab==='dictionary'?'active':''} onClick={()=>setDataTab('dictionary')}>指标与分析边界</button></div>
-  {dataTab==='files'?<DatasetCatalog snapshot={boot.snapshot_id} refresh={refresh}/>:<>
+ if(bootError && view!=='data')return <main className="dashboard-workspace"><Empty title="分析数据暂时不可读取">{bootError}</Empty><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}>重新读取</button></main>;
+ if(!boot && view!=='data')return <main className="dashboard-workspace"><Empty title="正在建立数据分析快照">只读加载资料、新闻、Wiki 与当前知识目录。</Empty></main>;
+ if(view==='data')return <main className="dashboard-workspace"><header className="dash-page-head"><div><span className="dash-kicker">数据依据</span><h1>数据说明与指标词典</h1><p>查看来源、统计口径与字段覆盖，并在此上传新的 PDF 资料。</p></div><div className="dash-head-actions"><button className="dash-button" onClick={()=>setDataTab('upload')}><UploadCloud size={16}/>上传新文档</button><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}><RefreshCw size={16}/>更新快照</button></div></header>
+  <div className="dash-view-tabs" role="tablist" aria-label="数据说明内容"><button role="tab" aria-selected={dataTab==='files'} className={dataTab==='files'?'active':''} onClick={()=>setDataTab('files')}>文件与样例</button><button role="tab" aria-selected={dataTab==='dictionary'} className={dataTab==='dictionary'?'active':''} onClick={()=>setDataTab('dictionary')}>指标与分析边界</button><button role="tab" aria-selected={dataTab==='upload'} className={dataTab==='upload'?'active':''} onClick={()=>setDataTab('upload')}>上传文档</button></div>
+  {dataTab==='upload'?<DocumentUpload/>:!boot?<Empty title="数据快照暂时不可读取">{bootError||'正在加载数据说明。上传文档仍可通过上方入口操作。'}</Empty>:dataTab==='files'?<DatasetCatalog snapshot={boot.snapshot_id} refresh={refresh}/>:<>
   <section className="dash-panel"><header><h2>当前数据对象</h2></header><div className="dash-dataset-cards">{Object.entries(boot.datasets).map(([key,ds])=><article key={key}><Database size={21}/><h3>{ds.label}</h3><strong>{ds.available?fmt(ds.total):'未接入'} <small>{ds.unit}</small></strong><p>{ds.note}</p><dl><dt>去重键</dt><dd>{ds.key}</dd><dt>时间口径</dt><dd>{ds.time_label}</dd><dt>日期未知</dt><dd>{fmt(ds.unknown_date)}</dd></dl><button className="dash-button" onClick={()=>{datasetChange(key);onNavigate('analysis')}}>分析这个对象</button></article>)}</div></section>
   <section className="dash-panel"><header><h2>字段覆盖与可用维度</h2></header><div className="dash-field-coverage">{Object.entries(boot.datasets).map(([key,ds])=><details key={key} open={key==='documents'}><summary>{ds.label}</summary><table className="dash-table"><thead><tr><th>维度</th><th>有效覆盖</th><th>未标注</th><th>统计特征</th></tr></thead><tbody>{Object.entries(ds.dimensions).map(([f,d])=><tr key={f}><td>{d.label}</td><td>{d.coverage===null?'暂无分母':d.coverage+'%'}</td><td>{fmt(d.missing)}</td><td>{d.multi?'多标签，重新去重':d.type==='time'?'未知时间单列':'单值类别'}</td></tr>)}</tbody></table></details>)}</div></section>
   <section className="dash-panel"><header><h2>分析边界与快照</h2></header><div className="dash-passport"><ul>{boot.limitations.map(v=><li key={v}>{v}</li>)}</ul><p>快照 {boot.snapshot_id} · 来源更新 {stamp(boot.source_updated_at)} · 规则 {boot.version}</p><p>重复片段 ID：{boot.quality.duplicate_chunk_ids}；无文档 ID 记录：{boot.quality.rows_without_document_id}。同 ID 片段保留首次记录，重复项不重复聚合。</p></div></section>
@@ -408,7 +413,7 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
   </Modal>}
   {modal&&<Modal title={modal.title} onClose={()=>setModal(null)} large={['expand','details','evidence'].includes(modal.type)}>
    {modal.type==='passport'&&<Passport r={modal.r}/>}
-   {modal.type==='expand'&&<><EChart option={chartOption(modal.kind,modal.r,theme)} theme={theme} height={500} onSelect={p=>selectPoint(p,modal.r,modal.title)}/><Passport r={modal.r}/></>}
+   {modal.type==='expand'&&<><EChart option={chartOption(modal.kind,{...modal.r,_expanded:true},theme)} theme={theme} height={500} onSelect={p=>selectPoint(p,modal.r,modal.title)}/><Passport r={modal.r}/></>}
    {modal.type==='details'&&<DetailsTable r={modal.r} query={modal.query} onRecord={record=>setModal({type:'evidence',title:'原文与来源',record,dataset:modal.r.dataset,snapshot:modal.r.snapshot_id})}/>}
    {modal.type==='evidence'&&<Evidence record={modal.record} dataset={modal.dataset} snapshot={modal.snapshot} onOpenWiki={onOpenWiki}/>}
    {modal.type==='share'&&<><p>链接保存分析定义，访问者需要对应服务器连接。</p><textarea readOnly value={modal.url} rows={6} style={{width:'100%'}}/></>}

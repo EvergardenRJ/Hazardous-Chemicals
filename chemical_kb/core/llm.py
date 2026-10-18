@@ -1,4 +1,5 @@
 import torch
+import time
 
 from transformers import (
     AutoTokenizer,
@@ -141,6 +142,11 @@ class QwenLLM:
         # generate
         # ==========================
 
+        input_count=inputs["input_ids"].shape[1]
+        window=getattr(self.model.config,"max_position_embeddings",32768)
+        if input_count+max_new_tokens>window:
+            raise ValueError("输入与输出预算超过模型上下文窗口")
+        started=time.monotonic()
         with torch.no_grad():
 
             outputs = self.model.generate(
@@ -174,4 +180,10 @@ class QwenLLM:
         )
 
 
+        eos=self.tokenizer.eos_token_id
+        eos_ids={eos} if isinstance(eos,int) else set(eos or [])
+        finished=bool(len(generated_ids) and int(generated_ids[-1]) in eos_ids)
+        self.last_usage={"input_tokens":input_count,"output_tokens":len(generated_ids),
+                         "elapsed":round(time.monotonic()-started,3),
+                         "finish_reason":"stop" if finished or len(generated_ids)<max_new_tokens else "length"}
         return answer.strip()

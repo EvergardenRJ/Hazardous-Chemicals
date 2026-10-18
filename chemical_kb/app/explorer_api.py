@@ -33,6 +33,8 @@ LEGACY_METADATA = ROOT / "data" / "legacy" / "chunks_metadata.json"
 LEGACY_REVIEWS = ROOT / "data" / "legacy" / "reviewed.jsonl"
 _legacy_review_lock = threading.Lock()
 app = Flask(__name__, static_folder=None)
+from app.news_api import news_bp
+app.register_blueprint(news_bp)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 _model_lock = threading.Lock()
 _rag = None
@@ -118,6 +120,8 @@ def _error(message, status=400):
 
 @app.before_request
 def _guard_mutations():
+    if request.endpoint == "wp_import":
+        request.max_content_length = 100 * 1024 * 1024
     if request.method in ("GET", "HEAD", "OPTIONS"):
         return None
     origin = request.headers.get("Origin", "")
@@ -162,7 +166,7 @@ def summary():
     catalog = current_relations(reviewed, pending)
     source_assertions = [item["assertion"] for item in catalog]
     active_assertions = [item["assertion"] for item in catalog if item["status"] in ("approved", "modified")]
-    wiki_count = sum(1 for p in WIKI_ROOT.iterdir() if p.is_dir() and p.name != "review") if WIKI_ROOT.exists() else 0
+    wiki_count = len(wiki_service.repo.list())
     metadata = _metadata()
     return jsonify({
         "chunks": len(metadata), "documents": len({str(m.get("doc_id")) for m in metadata if m.get("doc_id")}),
@@ -214,18 +218,10 @@ def _get_rag():
 
 @app.post("/api/ask")
 def ask():
-    data = request.get_json(silent=True) or {}
-    question = str(data.get("question") or "").strip()[:2000]
-    if not question:
-        return _error("Question required")
     try:
-        with _model_lock:
-            result = _get_rag().answer(question, as_of=data.get("as_of") or None)
-    except RuntimeError as exc:
-        if "out of memory" in str(exc).lower():
-            return _error("GPU memory is exhausted; close other model sessions and retry", 503)
-        raise
-    return jsonify(result)
+        return jsonify(app.extensions["wiki_platform"].ask(request.get_json(silent=True) or {}))
+    except (ValueError, TypeError, KeyError) as exc:
+        return _error(str(exc))
 
 
 @app.get("/api/schema")
@@ -424,81 +420,10 @@ def _safe_entity(value):
     return value
 
 
-@app.get("/api/wiki")
-def wiki_list():
-    names = sorted(p.name for p in WIKI_ROOT.iterdir() if p.is_dir() and p.name != "review") if WIKI_ROOT.exists() else []
-    return jsonify({"entities": names})
-
-
-@app.get("/api/wiki/<entity>")
-def wiki_detail(entity):
-    try:
-        entity = _safe_entity(entity)
-    except ValueError as exc:
-        return _error(str(exc))
-    root = WIKI_ROOT / entity
-    md = root / "wiki.md"
-    if not md.exists():
-        return _error("Wiki not found", 404)
-    from core.kg.wiki_review_manager import WikiReviewManager
-    manager = WikiReviewManager()
-    markdown = md.read_text(encoding="utf-8")
-    return jsonify({"entity": entity, "markdown": markdown,
-                    "sections": manager.get_sections(entity, markdown),
-                    "reviews": manager.get_reviews(entity),
-                    "evidence": _read_json(root / "evidence.json", [])})
-
-
-@app.post("/api/wiki/<entity>/generate")
-def wiki_generate(entity):
-    try:
-        entity = _safe_entity(entity)
-    except ValueError as exc:
-        return _error(str(exc))
-    from core.wiki_generator import WikiGenerator
-    with _model_lock:
-        result = WikiGenerator(_get_rag()).generate(entity)
-    return jsonify({"entity": entity, "result": result})
-
-
-@app.post("/api/wiki/<entity>/review")
-def wiki_review(entity):
-    try:
-        entity = _safe_entity(entity)
-    except ValueError as exc:
-        return _error(str(exc))
-    from core.kg.wiki_review_manager import WikiReviewManager
-    from core.kg.wiki_case_builder import WikiCaseBuilder
-    from core.kg.case_repository import CaseRepository
-    data = request.get_json(silent=True) or {}
-    status = data.get("review_status")
-    if status not in ("approved", "modified", "rejected"):
-        return _error("Invalid review status")
-    if status != "approved" and not str(data.get("review_comment") or "").strip():
-        return _error("Comment required")
-    manager = WikiReviewManager()
-    md = WIKI_ROOT / entity / "wiki.md"
-    if not md.exists():
-        return _error("Wiki not found", 404)
-    markdown = md.read_text(encoding="utf-8")
-    manager.init_review(entity, markdown)
-    section = next((s for s in manager.get_sections(entity, markdown)
-                    if s["section"] == data.get("section")), None)
-    if section is None:
-        return _error("Section not found", 404)
-    record = dict(manager.get_reviews(entity).get(section["section"], {}))
-    record.update({"section": section["section"], "content": section["content"],
-                   "knowledge_source": section["knowledge_source"],
-                   "evidence_ids": section["evidence_ids"], "review_status": status,
-                   "reviewed_content": data.get("reviewed_content") or (section["content"] if status == "approved" else ""),
-                   "error_type": data.get("error_type") or "",
-                   "review_comment": data.get("review_comment") or ""})
-    manager.submit_review(entity, record)
-    case = WikiCaseBuilder().build_from_review(record)
-    if case:
-        CaseRepository().add_case(case)
-    return jsonify({"record": record})
-
+from core.wiki.routes import register as register_wiki
+wiki_service = register_wiki(app)
+from core.chemical_workspace import register as register_chemical_workspace
+register_chemical_workspace(app, wiki_service, _metadata, _reviews, _graph, ROOT)
 
 from app.dashboard_api import register as register_dashboard
 dashboard_repository = register_dashboard(app, ROOT, _metadata, lambda: current_relations(*_reviews()))
@@ -525,6 +450,9 @@ def main():
     args = parser.parse_args()
     if args.host not in ("127.0.0.1", "localhost", "::1") and not os.environ.get("CHEM_KB_API_KEY"):
         parser.error("Set CHEM_KB_API_KEY before binding to a non-loopback host")
+    from core.news_store import sync
+    result = {"skipped": True} if os.environ.get("CHEM_KB_SKIP_NEWS_STARTUP_SYNC") == "1" else sync()
+    print("News startup synchronization:", json.dumps(result, ensure_ascii=False), flush=True)
     app.run(host=args.host, port=args.port, threaded=True)
 
 
