@@ -4,6 +4,8 @@ import remarkGfm from 'remark-gfm';
 import { BookOpen, Check, ChevronLeft, ChevronRight, Copy, FileText, History, LoaderCircle, Maximize2, Minimize2, PanelRightClose, PanelRightOpen, RefreshCw, Search, Settings2, Star, X } from 'lucide-react';
 import { api, post } from './api';
 import './wiki.css';
+import { Alert, Button } from '@mui/material';
+import { useUI, useDirtyDraft, EvidenceAdapter, StatusBadge } from './components/WorkspaceUI';
 import WikiCatalog, { normalizeQuery, readLocalList, saveLocalList } from './WikiCatalog';
 import WikiTools,{WikiPageExtras} from './WikiTools';
 
@@ -71,6 +73,7 @@ function AccidentReading({detail,entity}) {
 }
 
 export default function WikiWorkspace() {
+  const ui=useUI();
   const [entries,setEntries]=useState([]),[jobs,setJobs]=useState([]),[schemaSections,setSchemaSections]=useState([]);
   const [detail,setDetail]=useState(null),[entity,setEntity]=useState(''),[input,setInput]=useState(()=>new URLSearchParams(location.search).get('chemical')||'');
   const [selected,setSelected]=useState(''),[view,setView]=useState('draft');
@@ -85,7 +88,9 @@ export default function WikiWorkspace() {
   const [comparison,setComparison]=useState(null),[history,setHistory]=useState(null),[findings,setFindings]=useState(null),[searchHits,setSearchHits]=useState(null);
   const requestSeq=useRef(0),detailRef=useRef(null),dirtyRef=useRef(false),initialOpen=useRef(false);
   const section=detail?.sections?.find(s=>s.section_id===selected);
-  const dirty=!!section&&edited.trim()!==(section.candidate_content||section.content||'').trim();
+  const textDirty=!!section&&edited.trim()!==(section.candidate_content||section.content||'').trim();
+  const dirty=textDirty||!!comment;
+  const localDraft=useDirtyDraft({id:'wiki:'+entity+':'+selected,dirty,content:{edited,comment},baseVersion:detail?.revision_id,title:'此章节有未保存的修改',onRestore:v=>{setEdited(v.edited);setComment(v.comment)},onDiscard:()=>{dirtyRef.current=false;setEdited(section?.candidate_content||section?.content||'');setComment('')}});
   useEffect(()=>{dirtyRef.current=dirty;detailRef.current=detail;},[dirty,detail]);
   useEffect(()=>{localStorage.setItem('wiki-reviewer',reviewer);},[reviewer]);
   async function loadRegistry() {
@@ -102,22 +107,22 @@ export default function WikiWorkspace() {
     return ()=>{alive=false;clearInterval(id);requestSeq.current++;openController.current?.abort();};
   },[]);
   useEffect(()=>{setEdited(section?.candidate_content||section?.content||'');setComment('');},[selected,detail?.revision_id]);
-  function canLeave() { return !dirtyRef.current||window.confirm('本节有未保存修改，放弃修改并切换？'); }
+  async function canLeave() { return !dirtyRef.current||await ui.guardNavigation(); }
   function writeLocation(name,chapter,newView='draft',revision=null,replace=false) {
     const url=new URL(window.location.href);url.hash='wiki';url.searchParams.set('wiki',name);
     if(chapter)url.searchParams.set('section',chapter);else url.searchParams.delete('section');
     if(newView!=='draft')url.searchParams.set('view',newView);else url.searchParams.delete('view');
     if(revision&&newView==='history')url.searchParams.set('revision',revision);else url.searchParams.delete('revision');
-    if(url.href!==window.location.href)window.history[replace?'replaceState':'pushState']({},'',url);
+    if(url.href!==window.location.href){window.history[replace?'replaceState':'pushState']({},'',url);window.dispatchEvent(new Event('workspace:location'));}
   }
-  function chooseSection(id) {
-    if(!canLeave())return;
+  async function chooseSection(id) {
+    if(!await canLeave())return;
     const next=detail.sections.find(s=>s.section_id===id);if(!next)return;
     setSelected(id);setEvidenceFocus(null);writeLocation(entity,next.section,view,detail.revision_id);
     requestAnimationFrame(()=>readerRef.current?.scrollIntoView({block:'start',behavior:'auto'}));
   }
   async function open(name,newView='draft',revision=null,force=false,options={}) {
-    if(!force&&!canLeave())return false;
+    if(!force&&!await canLeave())return false;
     const seq=++requestSeq.current;openController.current?.abort();const controller=new AbortController();openController.current=controller;
     setOpening(true);setError('');setEvidenceFocus(null);setHistory(null);setComparison(null);
     try {
@@ -135,19 +140,19 @@ export default function WikiWorkspace() {
   useEffect(()=>{
     if(initialOpen.current||!entries.length)return;
     initialOpen.current=true;
-    const params=new URLSearchParams(window.location.search),wanted=params.get('wiki')||localStorage.getItem('wiki-last-entity')||'氢氟酸';
+    const params=new URLSearchParams(window.location.search),wanted=params.get('wiki')||params.get('chemical')||localStorage.getItem('wiki-last-entity')||'氢氟酸';
     const entry=entries.find(e=>e.entity===wanted)||entries[0];
     open(entry.entity,params.get('view')||(entry.published_revision?'published':'draft'),params.get('revision'),false,{section:params.get('section'),replace:true});
   },[entries]);
   useEffect(()=>{
-    function navigateToLocation() {
+    async function navigateToLocation() {
       if(window.location.hash!=='#wiki')return;
       const params=new URLSearchParams(window.location.search),name=params.get('wiki');if(!name)return;
-      if(dirtyRef.current&&!canLeave()){const d=detailRef.current;writeLocation(d.entity,d.sections.find(s=>s.section_id===selected)?.section,d.view,d.revision_id,true);return;}
-      open(name,params.get('view')||'draft',params.get('revision'),true,{section:params.get('section'),location:false});
+      if(dirtyRef.current&&!await canLeave()){const d=detailRef.current;writeLocation(d.entity,d.sections.find(s=>s.section_id===selected)?.section,d.view,d.revision_id,true);return;}
+      open(name,params.get('view')||(entries.find(e=>e.entity===name)?.published_revision?'published':'draft'),params.get('revision'),true,{section:params.get('section'),location:false});
     }
-    window.addEventListener('popstate',navigateToLocation);window.addEventListener('wiki:navigate',navigateToLocation);
-    return()=>{window.removeEventListener('popstate',navigateToLocation);window.removeEventListener('wiki:navigate',navigateToLocation)};
+    window.addEventListener('wiki:navigate',navigateToLocation);
+    return()=>{window.removeEventListener('wiki:navigate',navigateToLocation)};
   },[selected]);
   useEffect(()=>{if(entity){try{localStorage.setItem('wiki-last-entity',entity)}catch{}}},[entity]);
   useEffect(()=>{
@@ -182,12 +187,17 @@ export default function WikiWorkspace() {
         content_hash:section.content_hash,review_status:status,reviewed_content:status==='modified'?edited:section.content,
         review_comment:comment,error_type:status==='approved'?'':'content_review',reviewer
       });
+      localDraft.clear();dirtyRef.current=false;
       const sectionId=section.section_id;
       await open(entity,'draft',null,true);setSelected(sectionId);await loadRegistry();
       setMessage(status==='modified'?'修改已保存到新草稿版本，并记录审核。':'审核已记录。');setComment('');
     });
   }
   async function publish() {
+    const checks=detail.sections.map(s=>({section:s.section,status:detail.reviews?.[s.section]?.review_status||s.review_status||'pending'}));
+    const remaining=checks.filter(s=>!['approved','modified'].includes(s.status));
+    if(!detail.validation.ok||remaining.length){setError('发布检查未通过：'+(!detail.validation.ok?detail.validation.errors.join('；'):'')+(remaining.length?'；尚有 '+remaining.length+' 节未完成当前版本审核。':''));return;}
+    if(!await ui.request({title:'发布当前审核版本？',description:'将发布 '+entity+' 的当前版本。服务器会再次校验审核与必要证据，发布后保留历史与回滚入口。',submitLabel:'发布审核版'}))return;
     await action(async()=>{
       await post('/api/wiki/'+esc(entity)+'/publish',{expected_revision:detail.revision_id,reviewer});
       await loadRegistry();await open(entity,'published',null,true);setMessage('当前版本已发布，可在历史中回查。');
@@ -211,12 +221,13 @@ export default function WikiWorkspace() {
   }
   const renderer={a:({href,children})=>{
     if(href?.startsWith('#wiki-page-'))return <button className="wiki-inline-link" onClick={()=>open(decodeURIComponent(href.slice(11)))}>{children}</button>;
-    if(href?.startsWith('#wiki-evidence-'))return <button className="wiki-citation" onClick={()=>setEvidenceFocus(href.slice(15))}>{children}</button>;
+    if(href?.startsWith('#wiki-evidence-'))return <button className="wiki-citation" data-evidence-id={href.slice(15)} onClick={()=>{const id=href.slice(15);setEvidenceFocus(id);const e=detail.evidence.find(e=>e.evidence_id===id);if(e)showEvidence(e)}}>{children}</button>;
     return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
   }};
   const evidence=detail?.evidence||[];
   const focused=evidence.find(e=>e.evidence_id===evidenceFocus);
   const shownEvidence=focused?[focused]:evidence.filter(e=>!section?.evidence_refs?.length||section.evidence_refs.includes(e.evidence_id));
+  function showEvidence(e){const page=e.metadata?.page_start;ui.openEvidence(EvidenceAdapter(e,{knowledgeRevision:detail.revision_id,triggerSelector:'button[data-evidence-id="'+CSS.escape(e.evidence_id)+'"]',fileUrl:'/api/wiki/'+esc(entity)+'/evidence/'+esc(e.evidence_id)+'/pdf?revision='+esc(detail.revision_id)+(page?'#page='+Math.max(1,Number(page)):'')}));}
   return <section className={'workspace-scroll wiki-v2 wiki-refresh '+(readingFocus?'wiki-focus ':'')+(!resourcesOpen?'wiki-resources-hidden':'')}>
     <header className="workspace-heading"><div><h1>知识 Wiki <span className="wiki-total">{entries.length.toLocaleString('zh-CN')} 项</span></h1><p>查找化学品、设备与安全专题，沿来源继续阅读。</p></div>
       <div className="wiki-workspace-actions"><button className="button button--quiet" aria-expanded={showTools} onClick={()=>setShowTools(v=>!v)}><Settings2 size={16}/>{showTools?'收起维护工具':'维护与扩展'}</button><button className="button button--quiet" onClick={()=>action(async()=>{const d=await api('/api/wiki/lint');setFindings(d.findings);})}><Search size={16}/>维护检查</button></div></header>
@@ -237,6 +248,7 @@ export default function WikiWorkspace() {
     <div className="wiki-desk">
       <WikiCatalog entries={entries} entity={entity} input={input} setInput={setInput} pageType={pageType} setPageType={setPageType} filter={filter} setFilter={setFilter} favorites={favorites} recent={recent} onOpen={open} onGenerate={generate} busy={busy||opening} onSearch={()=>action(async()=>{const d=await api('/api/wiki/search?q='+esc(input));setSearchHits(d.results)})}/>
       {detail?<main className="wiki-document" aria-busy={opening}>
+        {localDraft.recovery}
         <div className="panel wiki-page-head"><div><h2>{entity}<span className="wiki-formula">{detail.chemical_profile?.formula||""}</span></h2>{detail.chemical_profile?.english&&<p className="wiki-english">{detail.chemical_profile.english}</p>}<div className="wiki-state"><span>{detail.is_published?'已发布版本':view==='history'?'历史版本':'未发布草稿'}</span><span>{FRESH[detail.freshness||detail.entry.freshness]||'来源待核实'}</span><span>{detail.sections.length} 节 / {evidence.length} 条证据</span></div></div>
           <div className="wiki-head-actions"><button className={'button button--quiet wiki-bookmark '+(favorites.includes(entity)?'is-saved':'')} aria-pressed={favorites.includes(entity)} onClick={toggleFavorite}><Star size={15}/>{favorites.includes(entity)?'已收藏':'收藏'}</button><button className="button button--quiet" disabled={view==='draft'&&!detail.entry.published_revision} title={view==='draft'&&!detail.entry.published_revision?'此条目暂无发布版':undefined} onClick={()=>open(entity,view==='draft'?'published':'draft')}>{view==='draft'?'阅读发布版':'审核当前草稿'}</button>
           <button className="button button--quiet" onClick={showHistory}><History size={16}/>版本历史</button>
@@ -252,16 +264,18 @@ export default function WikiWorkspace() {
           
           </div><WikiMedia key={detail.illustration?.url||entity} media={detail.illustration}/>
         </div>
-        <div className="wiki-reader-toolbar"><label className="wiki-chapter-select"><BookOpen size={15}/><select value={selected} onChange={e=>chooseSection(e.target.value)} aria-label="跳转 Wiki 章节">{detail.sections.map((s,i)=><option key={s.section_id} value={s.section_id}>{i+1}. {s.section}</option>)}</select></label><span className="wiki-chapter-position">{chapterIndex+1} / {detail.sections.length} 节</span><div className="wiki-reader-actions"><button className="button button--quiet" onClick={copyChapterLink} title="复制本章节链接"><Copy size={14}/><span>复制链接</span></button><button className="button button--quiet" aria-pressed={!resourcesOpen} onClick={()=>setResourcesOpen(v=>!v)} title={resourcesOpen?'收起参考资料':'展开参考资料'}>{resourcesOpen?<PanelRightClose size={15}/>:<PanelRightOpen size={15}/>}<span>{resourcesOpen?'收起资料':'展开资料'}</span></button><button className="button button--quiet" aria-pressed={readingFocus} onClick={()=>setReadingFocus(v=>!v)}>{readingFocus?<Minimize2 size={15}/>:<Maximize2 size={15}/>}<span>{readingFocus?'退出专注':'专注阅读'}</span></button></div></div>
+        <div className="wiki-reader-toolbar"><label className="wiki-chapter-select"><BookOpen size={15}/><select value={selected} onChange={e=>chooseSection(e.target.value)} aria-label="跳转 Wiki 章节">{detail.sections.map((s,i)=><option key={s.section_id} value={s.section_id}>{i+1}. {s.section}</option>)}</select></label><span className="wiki-chapter-position">{chapterIndex+1} / {detail.sections.length} 节</span><div className="wiki-reader-actions"><button className="button button--quiet" onClick={copyChapterLink} title="复制本章节链接"><Copy size={14}/><span>复制链接</span></button><button className="button button--quiet" disabled={!shownEvidence.length} onClick={()=>shownEvidence[0]&&showEvidence(shownEvidence[0])}><FileText size={15}/><span>本节证据 {shownEvidence.length}</span></button><button className="button button--quiet" aria-pressed={readingFocus} onClick={()=>setReadingFocus(v=>!v)}>{readingFocus?<Minimize2 size={15}/>:<Maximize2 size={15}/>}<span>{readingFocus?'退出专注':'专注阅读'}</span></button></div></div>
         <nav className="wiki-section-nav" aria-label="Wiki 章节">{detail.sections.map(s=><button className={selected===s.section_id?'active':''} aria-current={selected===s.section_id?'true':undefined} key={s.section_id} onClick={()=>chooseSection(s.section_id)}>{s.section}</button>)}</nav>
         {section&&<div className="wiki-reading-layout">
           <article className="panel wiki-reading" ref={readerRef} id="wiki-reader" tabIndex={-1}><div className="wiki-reading-title"><h2>{section.section}</h2></div><ChapterSourceBar detail={detail} section={section}/>
             <div className="markdown-body"><ReactMarkdown remarkPlugins={[remarkGfm]} components={renderer}>{markdown(section.content)}</ReactMarkdown></div><ChapterMaterials detail={detail} section={section}/>
+            <div className="ui-wiki-evidence-links">{shownEvidence.length?shownEvidence.map((e,i)=><Button key={e.evidence_id} size="small" variant="outlined" onClick={()=>showEvidence(e)}>证据 {i+1} · {e.metadata?.code||e.metadata?.title||'原文'}</Button>):<Alert severity="warning">本节暂无可核查文档证据，需要补充资料。</Alert>}</div>
+            <details className="ui-extended-reading"><summary>扩展阅读：百科资料与事故材料</summary><EncyclopediaSources detail={detail} section={section}/><AccidentReading detail={detail} entity={entity}/></details>
             <nav className="wiki-chapter-pager" aria-label="相邻章节"><button disabled={chapterIndex<=0} onClick={()=>chooseSection(detail.sections[chapterIndex-1].section_id)}><ChevronLeft size={16}/><span><small>上一节</small>{detail.sections[chapterIndex-1]?.section}</span></button><button disabled={chapterIndex>=detail.sections.length-1} onClick={()=>chooseSection(detail.sections[chapterIndex+1].section_id)}><span><small>下一节</small>{detail.sections[chapterIndex+1]?.section}</span><ChevronRight size={16}/></button></nav>
             {currentDraft&&view==='draft'&&<details className="wiki-review-form"><summary>审核此章节</summary><h3>核对正文后记录审核</h3><label>候选正文<textarea value={edited} onChange={e=>setEdited(e.target.value)} aria-label="候选正文"/></label>
               <div className="form-grid"><label>审核人<input value={reviewer} onChange={e=>setReviewer(e.target.value)} placeholder="姓名或工号"/></label><label>审核意见<input value={comment} onChange={e=>setComment(e.target.value)} placeholder="修改或拒绝时必填"/></label></div>
               {record.reviewer&&<p className="wiki-review-note">上次记录：{record.reviewer}，{record.reviewed_at}，{STATE[record.review_status]}</p>}
-              <div className="compose-actions"><button className="button button--primary" disabled={busy||!reviewer.trim()||dirty} onClick={()=>review('approved')}><Check size={16}/>通过</button>
+              <div className="compose-actions"><Button disabled={busy||!dirty} onClick={localDraft.stash}>暂存本机</Button><button className="button button--primary" disabled={busy||!reviewer.trim()||textDirty} onClick={()=>review('approved')}><Check size={16}/>通过</button>
               <button className="button button--quiet" disabled={busy||!reviewer.trim()||!comment.trim()||!edited.trim()} onClick={()=>review('modified')}>修改并通过</button>
               <button className="button button--danger" disabled={busy||!reviewer.trim()||!comment.trim()} onClick={()=>review('rejected')}>拒绝</button>
               <button className="button button--quiet" disabled={busy||dirty||!schemaSections.includes(section.section)} onClick={()=>generate(true)}><RefreshCw size={16}/>重新生成本节</button></div>

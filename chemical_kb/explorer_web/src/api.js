@@ -6,8 +6,13 @@ export async function api(path, options = {}) {
   });
   if (!response.ok) {
     let message = response.statusText;
-    try { message = (await response.json()).error || message; } catch {}
-    throw new Error(message || `HTTP ${response.status}`);
+    let payload = null;
+    try { payload = await response.json(); message = payload.error || message; } catch {}
+    const error = new Error(message || `HTTP ${response.status}`);
+    error.status = response.status;
+    error.code = payload?.error_code || (response.status===409?'version_conflict':null);
+    error.details = payload?.details || payload?.errors || null;
+    throw error;
   }
   return response.json();
 }
@@ -34,5 +39,3 @@ export function sourceLabel(item) {
   return [item.source_doc_id || item.doc_id || '', item.page_start ? `p.${item.page_start}` : '']
     .filter(Boolean).join(' · ') || '来源未标注';
 }
-
-

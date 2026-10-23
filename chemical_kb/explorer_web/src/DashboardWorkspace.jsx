@@ -1,3 +1,5 @@
+import {Button,Dialog,DialogTitle,DialogContent,IconButton,Tab,Tabs} from '@mui/material';
+import {useUI} from './components/WorkspaceUI';
 import DatasetCatalog from './DatasetCatalog.jsx';
 import DocumentUpload from './DocumentUpload.jsx';
 import {useEffect,useMemo,useRef,useState} from 'react';
@@ -5,7 +7,7 @@ import * as echarts from 'echarts/core';
 import {BarChart,LineChart,TreemapChart,ScatterChart,HeatmapChart,SankeyChart,GraphChart,BoxplotChart} from 'echarts/charts';
 import {GridComponent,TooltipComponent,LegendComponent,DataZoomComponent,VisualMapComponent,AriaComponent} from 'echarts/components';
 import {SVGRenderer} from 'echarts/renderers';
-import {ArrowDown,ArrowUp,BarChart3,BookOpen,Check,ChevronDown,ChevronLeft,ChevronRight,Database,Download,ExternalLink,FileText,Filter,GripVertical,Info,LayoutGrid,LineChart as LineIcon,Maximize2,MoreHorizontal,Network,Plus,RefreshCw,Save,Search,Settings2,Share2,SlidersHorizontal,Table2,Undo2,UploadCloud,X} from 'lucide-react';
+import {ArrowDown,ArrowUp,BarChart3,BookOpen,Check,ChevronDown,ChevronLeft,ChevronRight,Database,Download,ExternalLink,FileText,FlaskConical,Filter,GripVertical,Info,LayoutGrid,LineChart as LineIcon,Maximize2,MoreHorizontal,Network,Plus,RefreshCw,Save,Search,Settings2,Share2,SlidersHorizontal,Table2,Undo2,UploadCloud,X} from 'lucide-react';
 import {api} from './api';
 import './dashboard.css';
 
@@ -123,7 +125,7 @@ function chartOption(kind,r,theme){
  if(kind==='network'){
   const nodes=r.network?.nodes||[],links=r.network?.links||[];
   return {...common,tooltip:{...common.tooltip,formatter:p=>p.dataType==='edge'?esc(nodes.find(n=>n.id===p.data.source)?.name||p.data.source)+' → '+esc(nodes.find(n=>n.id===p.data.target)?.name||p.data.target)+'<br/>'+esc(RELATION_LABELS[p.data.name]||p.data.name)+'<br/>点击关系边可核对原文':esc(p.data.fullName||p.data.name)},
-   series:[{type:'graph',layout:'force',roam:true,zoom:r._expanded?0.75:(nodes.length>30?0.45:0.55),force:{repulsion:420,edgeLength:[85,145],gravity:.12},draggable:true,
+   series:[{type:'graph',layout:'force',roam:true,zoom:r._expanded?0.75:(nodes.length>30?0.4:0.55),force:{repulsion:300,edgeLength:[70,120],gravity:.18,layoutAnimation:false},draggable:true,
     data:nodes.map((n,i)=>({...n,name:n.id,fullName:n.name,label:{show:nodes.length<=25||n.name==='液氯'||/^(standard|accident)::/.test(n.id)},emphasis:{label:{show:true}},symbolSize:n.name==='液氯'?42:24,itemStyle:{color:n.name==='液氯'?'#147d92':COLORS[i%COLORS.length]}})),
     links:links.map(l=>({...l,label:{show:links.length<=30,formatter:RELATION_LABELS[l.name]||l.name,fontSize:10},emphasis:{label:{show:true}},lineStyle:{color:COLORS[0],opacity:.5}})),
     label:{show:true,color:ink,fontSize:11,formatter:p=>(p.data.fullName||p.name).slice(0,14)},labelLayout:{hideOverlap:true},emphasis:{focus:'adjacency'},edgeSymbol:['none','arrow']}]};
@@ -182,7 +184,7 @@ function ChartPanel({id,title,subtitle,kind,r,theme,onPoint,onAction,wide=false,
  if(kind==='histogram')footer+=' · 对展示的全部筛选记录按字符数分箱';
  if(kind==='bar')footer+=' · 展示前14组';
  if(kind==='sankey')footer+=' · 记录归属，非因果关系';
- return <section className={'dash-panel '+(wide?'dash-panel-wide':'')} data-chart-id={id} draggable={draggable} onDragStart={onDragStart} onDragOver={editing?e=>e.preventDefault():undefined} onDrop={onDrop}>
+ return <section className={'dash-panel '+(wide?'dash-panel-wide':'')} data-chart-id={id} data-chart-kind={kind} draggable={draggable} onDragStart={onDragStart} onDragOver={editing?e=>e.preventDefault():undefined} onDrop={onDrop}>
   <header><div>{editing&&<GripVertical size={16}/>}<h2>{title}</h2><span>{subtitle}</span></div>
    <div className="dash-panel-actions">{editing&&<><button onClick={()=>move(-1)} title="前移"><ArrowUp size={14}/></button><button onClick={()=>move(1)} title="后移"><ArrowDown size={14}/></button></>}
     <button onClick={()=>onAction('passport',r,title)} aria-label={'统计说明：'+title}><Info size={15}/></button>
@@ -202,15 +204,8 @@ function ChartPanel({id,title,subtitle,kind,r,theme,onPoint,onAction,wide=false,
 }
 
 function Modal({title,onClose,children,large=false}){
- const ref=useRef();
- useEffect(()=>{const prev=document.activeElement;(ref.current?.querySelector('button,input,select,a[href]')||ref.current)?.focus();const listener=e=>{
-  if(e.key==='Escape'){e.preventDefault();onClose()}
-  if(e.key==='Tab'){const items=[...ref.current.querySelectorAll('button:not(:disabled),input,select,textarea,a[href]')];const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus()}}
- };document.addEventListener('keydown',listener);return()=>{document.removeEventListener('keydown',listener);prev?.focus()}},[]);
- return <div className="dash-modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&onClose()}><div className={'dash-modal '+(large?'dash-modal-large':'')} ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-label={title}>
- <header><h2>{title}</h2><button className="dash-icon" aria-label="关闭窗口" onClick={onClose}><X size={19}/></button></header><div className="dash-modal-body">{children}</div></div></div>;
+ return <Dialog open onClose={onClose} fullWidth maxWidth={large?'lg':'md'} aria-labelledby="dashboard-dialog-title"><DialogTitle id="dashboard-dialog-title" sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>{title}<IconButton aria-label="关闭分析详情" onClick={onClose}><X size={20}/></IconButton></DialogTitle><DialogContent>{children}</DialogContent></Dialog>;
 }
-
 function Evidence({record,dataset,snapshot,onOpenWiki}){
  const [data,setData]=useState(null),[error,setError]=useState(''),[offset,setOffset]=useState(0);
  useEffect(()=>{let alive=true;setData(null);setError('');
@@ -232,7 +227,8 @@ function Evidence({record,dataset,snapshot,onOpenWiki}){
  </div>;
 }
 
-export default function DashboardWorkspace({view='overview',theme='light',onNavigate,onOpenWiki}){
+export default function DashboardWorkspace({view='overview',theme='light',onNavigate,onOpenWiki,chemical,onChooseChemical}){
+ const ui=useUI(),[showFilters,setShowFilters]=useState(false);
  const [dataTab,setDataTab]=useState('files');
  const [boot,setBoot]=useState(null),[bootError,setBootError]=useState(''),[refresh,setRefresh]=useState(0);
  const [query,setQuery]=useState(initialQuery),[draft,setDraft]=useState(initialQuery),[result,setResult]=useState(null);
@@ -315,14 +311,14 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
   if(name==='export')return csvDownload(r._query,setError);
   if(name==='compare'){setCompare({...query});setMode('compare');setNotice('已固定 A 组。修改下方 B 组关键词并运行比较。')}
  }
- function saveView(){
-  const name=prompt('为这个动态分析视图命名：','我的危化品分析');
+ async function saveView(){
+  const name=await ui.request({kind:'text',title:'保存分析视图',description:'视图定义保存在当前浏览器，重新打开时使用最新数据。',label:'视图名称',value:'我的危化品分析',maxLength:60,submitLabel:'保存视图'});
   if(!name?.trim())return;
   const entry={id:Date.now(),name:name.trim().slice(0,60),query,kind,mode,order,created_at:new Date().toISOString()};
   const next=[entry,...saved].slice(0,20);persist('chemical-dashboard-views',next);setSaved(next);setNotice('视图已保存在本机，重新打开时使用最新数据；导出附带固定快照。');
  }
  async function share(){
-  const u=new URL(location.href);u.searchParams.set('dashboard',JSON.stringify(query));u.hash='analysis';
+  const u=new URL(location.href);u.searchParams.set('dashboard',JSON.stringify(query));u.hash=view==='overview'?'insights':'analysis';
   try{await navigator.clipboard.writeText(u.toString());setNotice('分析链接已复制，链接包含筛选定义；访问者仍需连接当前服务器。')}catch{setModal({type:'share',title:'分析链接',url:u.toString()})}
  }
  function moveItem(id,delta){const at=order.indexOf(id),next=[...order],to=Math.max(0,Math.min(next.length-1,at+delta));next.splice(at,1);next.splice(to,0,id);setOrder(next)}
@@ -347,25 +343,27 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
  function panelProps(id,p){return {id,...p,theme,editing,draggable:editing,move:delta=>moveItem(id,delta),onDragStart:e=>editing&&e.dataTransfer.setData('dash-panel',id),onDrop:e=>reorderDrop(id,e),onPoint:(point,shown)=>selectPoint(point,shown||p.r,p.title),onAction:action}}
  if(bootError && view!=='data')return <main className="dashboard-workspace"><Empty title="分析数据暂时不可读取">{bootError}</Empty><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}>重新读取</button></main>;
  if(!boot && view!=='data')return <main className="dashboard-workspace"><Empty title="正在建立数据分析快照">只读加载资料、新闻、Wiki 与当前知识目录。</Empty></main>;
- if(view==='data')return <main className="dashboard-workspace"><header className="dash-page-head"><div><span className="dash-kicker">数据依据</span><h1>数据说明与指标词典</h1><p>查看来源、统计口径与字段覆盖，并在此上传新的 PDF 资料。</p></div><div className="dash-head-actions"><button className="dash-button" onClick={()=>setDataTab('upload')}><UploadCloud size={16}/>上传新文档</button><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}><RefreshCw size={16}/>更新快照</button></div></header>
-  <div className="dash-view-tabs" role="tablist" aria-label="数据说明内容"><button role="tab" aria-selected={dataTab==='files'} className={dataTab==='files'?'active':''} onClick={()=>setDataTab('files')}>文件与样例</button><button role="tab" aria-selected={dataTab==='dictionary'} className={dataTab==='dictionary'?'active':''} onClick={()=>setDataTab('dictionary')}>指标与分析边界</button><button role="tab" aria-selected={dataTab==='upload'} className={dataTab==='upload'?'active':''} onClick={()=>setDataTab('upload')}>上传文档</button></div>
-  {dataTab==='upload'?<DocumentUpload/>:!boot?<Empty title="数据快照暂时不可读取">{bootError||'正在加载数据说明。上传文档仍可通过上方入口操作。'}</Empty>:dataTab==='files'?<DatasetCatalog snapshot={boot.snapshot_id} refresh={refresh}/>:<>
+ if(view==='data')return <main className="dashboard-workspace"><header className="dash-page-head"><div><span className="dash-kicker">数据依据</span><h1>文档与数据</h1><p>上传文档、核对真实数据样例，查看统计范围与字段解释。</p></div><div className="dash-head-actions"><button className="dash-button" onClick={()=>setDataTab('upload')}><UploadCloud size={16}/>上传新文档</button><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}><RefreshCw size={16}/>更新快照</button></div></header>
+  <Tabs value={dataTab} onChange={(_,v)=>setDataTab(v)} variant="scrollable" scrollButtons="auto" aria-label="文档与数据内容" sx={{mb:3}}><Tab value="files" label="数据样例"/><Tab value="dictionary" label="指标口径"/><Tab value="upload" label="文档上传"/></Tabs>
+  {dataTab==='upload'?<DocumentUpload onCompleted={()=>setRefresh(n=>n+1)}/>:!boot?<Empty title="数据快照暂时不可读取">{bootError||'正在加载数据说明。上传文档仍可通过上方入口操作。'}</Empty>:dataTab==='files'?<DatasetCatalog snapshot={boot.snapshot_id} refresh={refresh}/>:<>
   <section className="dash-panel"><header><h2>当前数据对象</h2></header><div className="dash-dataset-cards">{Object.entries(boot.datasets).map(([key,ds])=><article key={key}><Database size={21}/><h3>{ds.label}</h3><strong>{ds.available?fmt(ds.total):'未接入'} <small>{ds.unit}</small></strong><p>{ds.note}</p><dl><dt>去重键</dt><dd>{ds.key}</dd><dt>时间口径</dt><dd>{ds.time_label}</dd><dt>日期未知</dt><dd>{fmt(ds.unknown_date)}</dd></dl><button className="dash-button" onClick={()=>{datasetChange(key);onNavigate('analysis')}}>分析这个对象</button></article>)}</div></section>
   <section className="dash-panel"><header><h2>字段覆盖与可用维度</h2></header><div className="dash-field-coverage">{Object.entries(boot.datasets).map(([key,ds])=><details key={key} open={key==='documents'}><summary>{ds.label}</summary><table className="dash-table"><thead><tr><th>维度</th><th>有效覆盖</th><th>未标注</th><th>统计特征</th></tr></thead><tbody>{Object.entries(ds.dimensions).map(([f,d])=><tr key={f}><td>{d.label}</td><td>{d.coverage===null?'暂无分母':d.coverage+'%'}</td><td>{fmt(d.missing)}</td><td>{d.multi?'多标签，重新去重':d.type==='time'?'未知时间单列':'单值类别'}</td></tr>)}</tbody></table></details>)}</div></section>
   <section className="dash-panel"><header><h2>分析边界与快照</h2></header><div className="dash-passport"><ul>{boot.limitations.map(v=><li key={v}>{v}</li>)}</ul><p>快照 {boot.snapshot_id} · 来源更新 {stamp(boot.source_updated_at)} · 规则 {boot.version}</p><p>重复片段 ID：{boot.quality.duplicate_chunk_ids}；无文档 ID 记录：{boot.quality.rows_without_document_id}。同 ID 片段保留首次记录，重复项不重复聚合。</p></div></section>
   </>}
  </main>;
 
- return <main className={'dashboard-workspace '+(draftSize==='compact'?'dash-compact':'')}>
+ return <main data-dashboard-view={view} className={'dashboard-workspace '+(draftSize==='compact'?'dash-compact':'')}>
   <header className="dash-page-head"><div><span className="dash-kicker">{view==='overview'?'内容洞察':'探索与比较'}</span><h1>{view==='overview'?'危化品数据洞察':'多维探索工作台'}</h1><p>{view==='overview'?'资料结构、专题覆盖与可核实的知识关联。':'选择事实对象和指标，在同一口径下组合维度、联动与核对原文。'}</p></div>
-   <div className="dash-head-actions"><button className="dash-button" onClick={()=>setRefresh(n=>n+1)} title="更新快照"><RefreshCw size={15}/></button>{view==='overview'&&<button className="dash-button" onClick={()=>{setEditing(!editing);setOrderBefore(order)}}><Settings2 size={15}/>{editing?'退出编辑':'编辑看板'}</button>}
+   <details className="ui-dashboard-actions"><summary>更多操作</summary><div className="dash-head-actions"><button className="dash-button" onClick={()=>setRefresh(n=>n+1)} title="更新快照"><RefreshCw size={15}/></button>{view==='overview'&&<button className="dash-button" onClick={()=>{setEditing(!editing);setOrderBefore(order)}}><Settings2 size={15}/>{editing?'退出编辑':'编辑看板'}</button>}
     <button className="dash-button" onClick={saveView}><Save size={15}/>保存视图</button><button className="dash-button" onClick={share}><Share2 size={15}/>分享</button><button className="dash-button" disabled={!result} onClick={()=>csvDownload(result._query,setError)}><Download size={15}/>导出</button>
-   </div>
+   </div></details>
   </header>
   {notice&&<div className="dash-notice" role="status">{notice}<button className="dash-icon" aria-label="关闭提示" onClick={()=>setNotice('')}><X size={14}/></button></div>}
   {(error||bootError)&&<div className="dash-error" role="alert">{error||bootError}<button className="dash-button" onClick={()=>setRefresh(n=>n+1)}>更新快照重试</button></div>}
-  {view==='overview'&&<div className="dash-view-tabs">{[['documents','资料结构'],['relations','知识关联'],['news','新闻观察'],['wiki','Wiki 内容']].map(([id,title])=><button key={id} className={query.dataset===id?'active':''} onClick={()=>datasetChange(id)}>{title}</button>)}</div>}
-  <section className="dash-filters" aria-label="数据筛选"><label>数据对象<select aria-label="分析数据对象" value={query.dataset} onChange={e=>datasetChange(e.target.value)}>{Object.entries(boot.datasets).map(([key,ds])=><option key={key} value={key} disabled={!ds.available}>{ds.label}</option>)}</select></label>
+  {view==='overview'&&<section className="ui-continue"><FlaskConical size={28}/><div><h2>{chemical?'继续核对：'+chemical:'从专题回到证据'}</h2><p>{chemical?'阅读章节、查原文、提问与审核沿同一主题继续。':'选择化学品，集中阅读 Wiki、来源和事故资料。'}</p></div><Button variant="contained" onClick={()=>chemical?onNavigate('chemical'):onChooseChemical()}>{chemical?'打开当前专题':'选择化学品'}</Button>{chemical&&<Button onClick={()=>onOpenWiki(chemical)}>阅读 Wiki</Button>}</section>}
+   {view==='overview'&&<div className="dash-view-tabs">{[['documents','资料结构'],['relations','知识关联'],['news','新闻观察'],['wiki','Wiki 内容']].map(([id,title])=><button key={id} className={query.dataset===id?'active':''} onClick={()=>datasetChange(id)}>{title}</button>)}</div>}
+  <div className="ui-filter-toggle"><Button variant={showFilters?'contained':'outlined'} onClick={()=>setShowFilters(v=>!v)} aria-expanded={showFilters}>{showFilters?'收起筛选':'筛选资料'}</Button>{JSON.stringify(draft)!==JSON.stringify(query)&&<span className="ui-unapplied" role="status">条件已修改，尚未应用</span>}</div>
+   <section hidden={view==='overview'&&!showFilters} className="dash-filters" aria-label="数据筛选"><label>数据对象<select aria-label="分析数据对象" value={query.dataset} onChange={e=>datasetChange(e.target.value)}>{Object.entries(boot.datasets).map(([key,ds])=><option key={key} value={key} disabled={!ds.available}>{ds.label}</option>)}</select></label>
    {(view==='overview'?['type','source']:['type','chemical']).filter(f=>activeSpec?.dimensions[f]).map(f=><label key={f}>{LABEL[f]}<select aria-label={LABEL[f]+'筛选'} value={query.filters.find(v=>v.field===f)?.values[0]||''} onChange={e=>e.target.value?addFilter(f,[e.target.value],'筛选控件'):run({...query,filters:query.filters.filter(v=>v.field!==f)})}><option value="">全部</option>{activeSpec.dimensions[f].values.map(v=><option key={v}>{v}</option>)}</select></label>)}
    <label className="dash-q">内容关键词<div><Search size={14}/><input aria-label="内容关键词" placeholder="检索当前对象的真实文本" value={draft.q} onChange={e=>setDraft({...draft,q:e.target.value})} onKeyDown={e=>e.key==='Enter'&&run(draft)}/></div></label>
    <button className="dash-button dash-primary" onClick={()=>run(draft)} disabled={busy}><Filter size={14}/>应用</button>

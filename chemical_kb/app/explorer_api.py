@@ -35,6 +35,8 @@ _legacy_review_lock = threading.Lock()
 app = Flask(__name__, static_folder=None)
 from app.news_api import news_bp
 app.register_blueprint(news_bp)
+from app.quiz_api import register as register_quiz
+register_quiz(app, ROOT)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 _model_lock = threading.Lock()
 _rag = None

@@ -1,4 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Alert, Button, Tab, Tabs } from '@mui/material';
+import { useUI, useDirtyDraft, EvidenceAdapter } from './components/WorkspaceUI';
+import { relationLabels } from './theme/tokens';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
@@ -28,12 +31,17 @@ function DateFilter({ value, onChange }) {
 }
 
 export function AskWorkspace({ asOf, setAsOf, seedQuestion }) {
+  const ui = useUI();
   const [question, setQuestion] = useState(seedQuestion || '');
   const [answer, setAnswer] = useState(null);
-  const [sessions,setSessions]=useState([]),[session,setSession]=useState(''),[history,setHistory]=useState([]),[drafts,setDrafts]=useState(false),[mode,setMode]=useState('wiki'),[archiveTitle,setArchiveTitle]=useState(''),[saved,setSaved]=useState('');
+  const [sessions,setSessions]=useState([]),[session,setSession]=useState(()=>new URLSearchParams(location.search).get('conversation_id')||''),[history,setHistory]=useState([]),[drafts,setDrafts]=useState(false),[mode,setMode]=useState('wiki'),[archiveTitle,setArchiveTitle]=useState(''),[saved,setSaved]=useState('');
   const loadSessions=()=>api('/api/wiki/platform/conversations').then(d=>setSessions(d.conversations||[]));
   useEffect(()=>{loadSessions().catch(()=>{});},[]);
-  async function chooseSession(id){setSession(id);setSaved('');if(!id){setHistory([]);setAnswer(null);return;}try{const d=await api('/api/wiki/platform/conversations/'+id);setHistory(d.answers||[]);setAnswer(d.answers?.at(-1)||null);setQuestion(d.answers?.at(-1)?.question||'');}catch(e){setError(e.message);}}
+  useEffect(()=>{if(session)chooseSession(session)},[]);
+  async function chooseSession(id){setSession(id);setSaved('');const u=new URL(location.href);id?u.searchParams.set('conversation_id',id):u.searchParams.delete('conversation_id');historyReplace(u);if(!id){setHistory([]);setAnswer(null);return;}try{const d=await api('/api/wiki/platform/conversations/'+id);setHistory(d.answers||[]);setAnswer(d.answers?.at(-1)||null);setQuestion(d.answers?.at(-1)?.question||'');}catch(e){setError(e.message);}}
+  function historyReplace(u){window.history.replaceState({},'',u);window.dispatchEvent(new Event('workspace:navigate'));}
+  async function renameSession(){const title=await ui.request({kind:'text',title:'重命名对话',label:'对话名称',value:sessions.find(c=>c.id===session)?.title||'',submitLabel:'保存名称'});if(!title)return;try{await post('/api/wiki/platform/conversations/'+session,{action:'rename',title});await loadSessions();ui.notify('对话名称已保存')}catch(e){setError(e.message)}}
+  async function deleteSession(){if(!await ui.request({title:'删除此对话？',description:'此对话及其回答记录将被删除；已经归档的 Wiki 页面会保留。',danger:true,submitLabel:'删除对话'}))return;try{await post('/api/wiki/platform/conversations/'+session,{action:'delete'});await chooseSession('');await loadSessions();ui.notify('对话已删除')}catch(e){setError(e.message)}}
   async function archiveAnswer(){setBusy(true);try{const d=await post('/api/wiki/platform/answers/'+answer.answer_id+'/archive',{title:archiveTitle||answer.question});setSaved(d.entity);}catch(e){setError(e.message);}finally{setBusy(false);}}
   const wikiHref=name=>'/?wiki='+encodeURIComponent(name)+'#wiki';
   const [quick, setQuick] = useState(null);
@@ -43,8 +51,8 @@ export function AskWorkspace({ asOf, setAsOf, seedQuestion }) {
   const prompts = ['液氯泄漏后应如何应急处置？', '储存甲醇有哪些安全要求？', '压力容器事故有哪些常见原因？'];
   async function ask() {
     if (!question.trim()) return;
-    setBusy(true); setError(''); setAnswer(null);
-    try { const d=await post('/api/ask',{question:question.trim(),as_of:asOf,conversation_id:session||undefined,include_drafts:drafts,mode});setAnswer(d);setSession(d.conversation_id);setHistory(h=>[...h,d]);setArchiveTitle(d.question.slice(0,70));setSaved('');await loadSessions(); }
+    setBusy(true); setError('');
+    try { const d=await post('/api/ask',{question:question.trim(),as_of:asOf,conversation_id:session||undefined,include_drafts:drafts,mode});setAnswer(d);setSession(d.conversation_id);const u=new URL(location.href);u.searchParams.set('conversation_id',d.conversation_id);historyReplace(u);setHistory(h=>[...h,d]);setArchiveTitle((d.question||question).slice(0,70));setSaved('');loadSessions().catch(()=>ui.notify('答案已生成，对话列表暂未刷新','warning')); }
     catch (e) { setError(e.message); }
     finally { setBusy(false); }
   }
@@ -62,7 +70,7 @@ export function AskWorkspace({ asOf, setAsOf, seedQuestion }) {
     <div className="ask-layout">
       <div className="panel ask-compose">
         <div className="panel-header"><div><div className="eyebrow">QUERY CONSOLE</div><h2>向知识库提问</h2></div><span className="live-dot">WIKI QUERY</span></div>
-        <div className="ask-session-actions"><select aria-label="对话历史" value={session} onChange={e=>chooseSession(e.target.value)}><option value="">新对话</option>{sessions.map(c=><option value={c.id} key={c.id}>{c.title}</option>)}</select><button className="button button--quiet" onClick={()=>chooseSession('')}>新建对话</button>{session&&<button className="button button--quiet" onClick={async()=>{const title=window.prompt('对话名称',sessions.find(c=>c.id===session)?.title||'');if(title){await post('/api/wiki/platform/conversations/'+session,{action:'rename',title});await loadSessions();}}}>重命名</button>}{session&&<button className="button button--quiet" onClick={async()=>{if(window.confirm('删除此对话及回答记录？已归档的 Wiki 页面会保留。')){await post('/api/wiki/platform/conversations/'+session,{action:'delete'});await chooseSession('');await loadSessions();}}}>删除对话</button>}</div>
+        <div className="ask-session-actions"><select aria-label="对话历史" value={session} onChange={e=>chooseSession(e.target.value)}><option value="">新对话</option>{sessions.map(c=><option value={c.id} key={c.id}>{c.title}{c.updated_at?' · '+c.updated_at.slice(0,10):''}</option>)}</select><button className="button button--quiet" onClick={()=>chooseSession('')}>新建对话</button>{session&&<><button className="button button--quiet" disabled={busy} onClick={renameSession}>重命名</button><button className="button button--quiet" disabled={busy} onClick={deleteSession}>删除对话</button></>}</div>
         {history.length>1&&<details><summary>本次对话 {history.length} 条回答</summary><div className="ask-history-list">{history.map(a=><button key={a.answer_id} onClick={()=>{setAnswer(a);setQuestion(a.question)}}>{a.question}</button>)}</div></details>}
         <div className="ask-mode"><label><input type="checkbox" checked={drafts} onChange={e=>setDrafts(e.target.checked)}/>参考草稿 Wiki</label><label>检索范围 <select aria-label="问答资料范围" value={mode} onChange={e=>setMode(e.target.value)}><option value="wiki">已发布 Wiki 与原文</option><option value="sources">只读原文</option></select></label></div>
         <textarea className="question-box" value={question} onChange={e => setQuestion(e.target.value)}
@@ -86,12 +94,14 @@ export function AskWorkspace({ asOf, setAsOf, seedQuestion }) {
         </div>
       </aside>
     </div>
-    {error && <Notice tone="error">{error}</Notice>}
+    {busy&&<Alert severity="info">正在读取并组织资料，结果返回后会显示。关闭页面不代表取消服务器处理。</Alert>}
+    {drafts&&<Alert severity="warning" sx={{my:2}}>当前范围包含未审核草稿，回答仍需对照原文核实。</Alert>}
+    {error && <Notice tone="error">{error}　<button className="button button--quiet" onClick={searchEvidence} disabled={busy}>仅查原文片段</button></Notice>}
     {answer && <div className="results-layout">
       <section className="panel answer-panel"><div className="panel-header"><div><div className="eyebrow">GROUNDED RESPONSE</div><h2>回答</h2></div><span className="count-badge">{answer.evidence?.length || 0} 条证据</span></div>
         <div className="markdown-body"><ReactMarkdown remarkPlugins={[remarkGfm]}>{(answer.answer || '没有足够可靠的证据生成回答。').replace(/\[\[([^\]\n]+)\]\]/g,(_,name)=>'['+name+']('+wikiHref(name)+')')}</ReactMarkdown></div>
         <p className="subtle">{answer.resource_note}</p>{answer.wiki_refs?.length>0&&<p>参考 Wiki：{answer.wiki_refs.map((r,i)=><a className="wiki-inline-link" key={i} href={wikiHref(r.entity)}>{r.entity} / {r.section}</a>)}</p>}
-        <div className="ask-archive"><input aria-label="归档 Wiki 标题" value={archiveTitle} onChange={e=>setArchiveTitle(e.target.value)} placeholder="专题标题"/><button className="button button--primary" disabled={busy||!answer.answer_id} onClick={archiveAnswer}>保存到 Wiki</button><button className="button button--quiet" disabled={busy} onClick={ask}>重新生成</button>{saved&&<a className="wiki-inline-link" href={wikiHref(saved)}>打开归档：{saved}</a>}</div>
+        <div className="ask-archive"><input aria-label="归档 Wiki 标题" value={archiveTitle} onChange={e=>setArchiveTitle(e.target.value)} placeholder="专题标题"/><button className="button button--primary" disabled={busy||!answer.answer_id} onClick={archiveAnswer}>保存为 Wiki 草稿</button><button className="button button--quiet" disabled={busy} onClick={ask}>重新生成</button>{saved&&<a className="wiki-inline-link" href={wikiHref(saved)}>打开归档：{saved}</a>}</div>
       </section>
       <section className="evidence-stack"><div className="section-label">证据链 / SOURCES</div>
         {(answer.evidence || []).map((item, index) => <article className="panel evidence-item" key={index}>
@@ -99,7 +109,7 @@ export function AskWorkspace({ asOf, setAsOf, seedQuestion }) {
             <span className="status-pill status-pill--blue">{(item.routes || ['vector']).join(' + ')}</span></div>
           <h3>{item.metadata?.title || '未命名来源'}</h3><div className="subtle">{sourceLabel(item.metadata || {})}</div>
           <p>{item.metadata?.text || ''}</p>
-          <div className="evidence-foot">{item.rrf_score!=null?<>RRF {Number(item.rrf_score).toFixed(4)}</>:<>原文依据 · 页码 {item.metadata?.page_start||'未记录'}</>}{item.rerank_score!=null&&<> · Rerank {Number(item.rerank_score).toFixed(2)}</>}</div>
+          <Button size="small" onClick={()=>ui.openEvidence(EvidenceAdapter(item))}>核对原文与来源</Button><details className="evidence-foot"><summary>检索技术详情</summary>{item.rrf_score!=null&&<>RRF {Number(item.rrf_score).toFixed(4)}</>}{item.rerank_score!=null&&<> · Rerank {Number(item.rerank_score).toFixed(2)}</>}</details>
         </article>)}
       </section>
     </div>}
@@ -110,12 +120,13 @@ export function AskWorkspace({ asOf, setAsOf, seedQuestion }) {
 }
 
 export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
+  const ui=useUI();
   const [items, setItems] = useState([]);
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState(()=>new URLSearchParams(location.search).get('assertion_id')||'');
   const [query, setQuery] = useState(()=>new URLSearchParams(location.search).get('chemical')||'');
   const [filter, setFilter] = useState('all');
   const [decision, setDecision] = useState('modified');
-  const [reviewer, setReviewer] = useState('adamin');
+  const [reviewer, setReviewer] = useState(()=>{try{return localStorage.getItem('ui-reviewer')||''}catch{return ''}});
   const [comment, setComment] = useState('');
   const [errorType, setErrorType] = useState('');
   const [corrected, setCorrected] = useState({});
@@ -125,18 +136,28 @@ export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [conflict,setConflict]=useState(false),[formId,setFormId]=useState(''),[sourceError,setSourceError]=useState('');
   const load = () => api('/api/reviews').then(d => setItems(d.items || [])).catch(e => setError(e.message));
   useEffect(() => { load(); api('/api/schema').then(setSchema).catch(() => {}); }, []);
-  const current = items.find(item => item.assertion_id === selected) || items[0];
+  const visible = items.filter(item => {
+    if(filter==='active'&&!['approved','modified'].includes(item.status))return false;
+    if(filter!=='all'&&filter!=='active'&&item.status!==filter)return false;
+    const a=item.assertion;return !query.trim()||[item.assertion_id,a.subject_label,a.predicate,a.object_label,a.source_doc_id,a.source_text_quote].some(x=>String(x||'').toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));
+  });
+  const current = visible.find(item => item.assertion_id === selected) || visible[0];
+  const dirty=!!current&&formId===current.assertion_id&&(JSON.stringify(corrected)!==JSON.stringify(current.assertion)||!!comment||!!errorType||decision!==(current.status==='pending'?'approved':'modified'));
+  const draft=useDirtyDraft({id:'review:'+current?.assertion_id,dirty,baseVersion:current?.review_id||'initial',content:{corrected,comment,errorType,decision},title:'这条断言有未保存的审核修改',onRestore:v=>{setCorrected(v.corrected);setComment(v.comment);setErrorType(v.errorType);setDecision(v.decision)},onDiscard:()=>{setCorrected({...current?.assertion});setComment('');setErrorType('');setDecision(current?.status==='pending'?'approved':'modified')}});
   useEffect(() => {
     if (!current) return;
     setSelected(current.assertion_id);
     setCorrected({ ...current.assertion });
     setDecision(current.status === 'pending' ? 'approved' : 'modified');
-    setComment(''); setMessage('');
+    setComment(''); setErrorType('');setMessage('');setConflict(false);setFormId(current.assertion_id);setSource(null);setHistory(null);setSourceError('');
     const id = encodeURIComponent(current.assertion_id);
-    api('/api/reviews/' + id + '/source').then(setSource).catch(() => setSource(null));
-    api('/api/reviews/' + id + '/history').then(setHistory).catch(() => setHistory(null));
+    const controller=new AbortController();
+    api('/api/reviews/' + id + '/source',{signal:controller.signal}).then(d=>{if(!controller.signal.aborted)setSource(d)}).catch(e=>{if(e.name!=='AbortError')setSourceError('来源暂未读取：'+e.message)});
+    api('/api/reviews/' + id + '/history',{signal:controller.signal}).then(d=>{if(!controller.signal.aborted)setHistory(d)}).catch(()=>{});
+    return()=>controller.abort();
   }, [current?.assertion_id, current?.review_id]);
   const counts = {
     all: items.length,
@@ -144,14 +165,6 @@ export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
     pending: items.filter(x => x.status === 'pending').length,
     rejected: items.filter(x => x.status === 'rejected').length
   };
-  const visible = items.filter(item => {
-    if (filter === 'active' && !['approved','modified'].includes(item.status)) return false;
-    if (filter !== 'all' && filter !== 'active' && item.status !== filter) return false;
-    if (!query.trim()) return true;
-    const a = item.assertion;
-    return [item.assertion_id, a.subject_label, a.predicate, a.object_label,
-      a.source_doc_id, a.source_text_quote].some(x => String(x || '').toLowerCase().includes(query.trim().toLowerCase()));
-  });
   const update = (key, value) => setCorrected(a => ({...a, [key]: value}));
   const textField = (label, key) => <label key={key}>{label}<input value={corrected[key] ?? ''}
     onChange={e => update(key, e.target.value)}/></label>;
@@ -159,17 +172,19 @@ export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
   const entityTypes = schema?.entity_types?.map(e => e.id) || [];
   const attrs = schema?.entity_types?.find(e => e.id === corrected.subject_type)?.attributes?.map(a => a.name) || [];
   async function submit() {
-    if (!current) return;
+    if (!current || busy) return;
+    if(!reviewer.trim()){setError('请填写审核人姓名或工号。');return;}
     setBusy(true); setError(''); setMessage('');
     try {
       await post('/api/reviews/' + encodeURIComponent(current.assertion_id), {
-        decision, reviewer: reviewer.trim() || 'adamin', comment: comment.trim(),
+        decision, reviewer: reviewer.trim(), comment: comment.trim(),
         error_type: errorType.trim(), expected_review_id: current.review_id,
         corrected: decision === 'modified' ? corrected : null
       });
       setMessage('审核版本已保存；图谱与导出会使用最新版本。');
+      draft.clear();try{localStorage.setItem('ui-reviewer',reviewer.trim())}catch{}setComment('');setErrorType('');
       await load(); onGraphRefresh?.();
-    } catch (e) { setError(e.message); }
+    } catch (e) { setError(e.status===409?'记录已被其他操作更新。你的修改仍然保留，请暂存并读取最新版本后重新核对。':e.message);setConflict(e.status===409); }
     finally { setBusy(false); }
   }
   const a = current?.assertion;
@@ -187,26 +202,30 @@ export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
     <div className="review-console">
       <aside className="panel relation-catalog">
         <div className="panel-header"><div><div className="eyebrow">ALL RELATIONS</div><h2>关系列表</h2></div><span className="count-badge">{visible.length}</span></div>
-        <div className="search-field"><Search size={15}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="搜索实体、关系或来源…" aria-label="搜索全部关系"/></div>
+        <div className="search-field"><Search size={15}/><input value={query} onChange={e=>{const v=e.target.value;ui.guardNavigation(()=>setQuery(v))}} placeholder="搜索实体、关系或来源…" aria-label="搜索全部关系"/></div>
         <div className="relation-filters">{[['all','全部'],['active','有效'],['pending','待审'],['rejected','撤销']].map(([id,label]) =>
-          <button key={id} className={filter===id?'active':''} onClick={()=>setFilter(id)}>{label}<span>{counts[id]}</span></button>)}</div>
+          <button key={id} className={filter===id?'active':''} onClick={()=>ui.guardNavigation(()=>setFilter(id))}>{label}<span>{counts[id]}</span></button>)}</div>
         <div className="relation-list">{visible.map(item => <button key={item.assertion_id}
           className={'relation-item '+(current?.assertion_id===item.assertion_id?'is-active':'')}
-          onClick={()=>setSelected(item.assertion_id)}>
+          onClick={()=>ui.guardNavigation(()=>setSelected(item.assertion_id))}>
           <div><span className={'relation-status relation-status--'+item.status}>{statusText[item.status]||item.status}</span>
             <small>{item.assertion.source_doc_id}</small></div>
           <strong>{item.assertion.subject_label || item.assertion.subject_id}</strong>
-          <span className="relation-predicate">{item.assertion.predicate} → {item.assertion.object_label || item.assertion.object_id}</span>
+          <span className="relation-predicate">{relationLabels[item.assertion.predicate]||item.assertion.predicate} → {item.assertion.object_label || item.assertion.object_id}</span>
           <code>{item.assertion_id}</code>
         </button>)}</div>
       </aside>
       {a ? <div className="relation-detail">
+        {draft.recovery}
+        {sourceError&&<Alert severity="warning">{sourceError}</Alert>}
+        {conflict&&<Alert severity="warning" action={<Button onClick={async()=>{draft.stash();setFormId('');await load()}}>暂存并读取最新版</Button>}>服务器版本已变化；先保留本地修改，再与最新版本比较。</Alert>}
         <div className="panel relation-evidence">
           <div className="panel-header"><div><div className="eyebrow">KNOWLEDGE ↔ CHUNK</div><h2>来源与证据</h2></div>
             <span className={'relation-status relation-status--'+current.status}>{statusText[current.status]||current.status}</span></div>
           <div className="relation-triple"><strong>{a.subject_label}</strong><span>{a.predicate}</span><strong>{a.object_label}</strong></div>
           <div className="provenance-meta"><span>文档 {a.source_doc_id}</span><span>片段 {a.source_chunk_id}</span><span>页码 {a.page_start || '—'}</span></div>
           <blockquote>{a.source_text_quote || '当前断言没有来源引文。'}</blockquote>
+          <Button onClick={()=>ui.openEvidence(EvidenceAdapter(a,{title:source?.chunk?.title||a.source_doc_id,quote:source?.chunk?.text||a.source_text_quote,reviewStatus:current.status,knowledgeRevision:current.review_id,reviewUrl:'/?assertion_id='+encodeURIComponent(current.assertion_id)+'#review'}))}>在证据面板核对</Button>
           {source?.chunk?.text && <details className="source-context"><summary>查看完整来源片段 · {source.chunk.title || source.chunk.doc_id}</summary>
             <p>{source.chunk.text}</p></details>}
           <div className="related-chunks">同一片段关联 {source?.related_assertion_ids?.length || 0} 条断言 · 历史审核 {current.revision_count} 次</div>
@@ -233,8 +252,9 @@ export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
           <label className="relation-comment">审核意见<textarea value={comment} onChange={e=>setComment(e.target.value)}
             placeholder={decision==='approved'?'可选；请确认已核对来源':'说明修订或撤销原因'} /></label>
           {decision === 'approved' && <p className="edit-note">确认有效会保存当前内容；修改字段请选择“修改并保存”。</p>}
-          <button className="button button--primary" onClick={submit} disabled={busy || (decision!=='approved'&&!comment.trim())}>
-            {busy?<LoaderCircle className="spin" size={16}/>:<Check size={16}/>}保存审核版本</button>
+          {dirty&&<details className="ui-review-diff"><summary>查看本次字段修改</summary>{Object.entries(corrected).filter(([key,value])=>JSON.stringify(value)!==JSON.stringify(a[key])).map(([key,value])=><p key={key}><strong>{key}</strong><br/>原值：{String(a[key]??'未记录')}<br/>修改：{String(value??'未记录')}</p>)}</details>}
+          <div className="ui-review-actions"><Button onClick={draft.stash} disabled={!dirty||busy}>暂存本机</Button><button className="button button--primary" onClick={submit} disabled={busy || !reviewer.trim() || conflict || (decision!=='approved'&&!comment.trim())}>
+            {busy?<LoaderCircle className="spin" size={16}/>:<Check size={16}/>}保存审核版本</button></div>
           {message && <Notice tone="success">{message}</Notice>}{error && <Notice tone="error">{error}</Notice>}
         </div>
         <div className="panel relation-history"><div className="eyebrow">REVIEW HISTORY</div>
@@ -247,11 +267,13 @@ export function ReviewWorkspace({ onGraphRefresh, summary, embedded = false }) {
   </section>;
 }
 export function ResolutionWorkspace({ asOf, onGraphRefresh, embedded = false }) {
+  const ui=useUI();
   const [audit, setAudit] = useState(null);
   const [candidateIndex, setCandidateIndex] = useState(0);
   const [aliasId, setAliasId] = useState('');
   const [canonicalId, setCanonicalId] = useState('');
-  const [reviewer, setReviewer] = useState('adamin');
+  const [reviewer, setReviewer] = useState(()=>{try{return localStorage.getItem('ui-reviewer')||''}catch{return ''}});
+  const [busy,setBusy]=useState(false);
   const [format, setFormat] = useState('jsonld');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -262,12 +284,15 @@ export function ResolutionWorkspace({ asOf, onGraphRefresh, embedded = false }) 
     if (candidate) { setAliasId(candidate.canonical_ids[0] || ''); setCanonicalId(candidate.canonical_ids[1] || ''); }
   }, [candidateIndex, audit]);
   async function merge(action = 'merge', alias = aliasId, canonical = canonicalId) {
+    if(busy||!reviewer.trim())return;
+    if(!await ui.request({title:action==='merge'?'确认实体合并':'撤销实体合并',description:action==='merge'?`将别名 ${alias} 关联到 ${canonical}。原始断言保留，别名合并可撤销。`:`解除 ${alias} 到 ${canonical} 的别名关联，保留审核历史。`,submitLabel:action==='merge'?'确认合并':'撤销合并',danger:action!=='merge'}))return;
+    setBusy(true);
     setError(''); setMessage('');
     try {
       await post('/api/entities/alias', { alias_id: alias, canonical_id: canonical, reviewer, action });
       setMessage(action === 'merge' ? '全局别名已记录，原始断言保持不变。' : '别名合并已撤销。');
       await reload(); onGraphRefresh?.();
-    } catch (e) { setError(e.message); }
+    } catch (e) { setError(e.message); } finally {setBusy(false)}
   }
   return <section className={embedded ? 'governance-pane' : 'workspace-scroll'}>
     {!embedded && <WorkspaceHeading kicker="ENRICH / RESOLVE" title="实体与冲突"
@@ -289,7 +314,7 @@ export function ResolutionWorkspace({ asOf, onGraphRefresh, embedded = false }) 
           <div className="form-grid"><label>合并的别名<select value={aliasId} onChange={e=>setAliasId(e.target.value)}>{candidate.canonical_ids.map(id=><option key={id}>{id}</option>)}</select></label>
             <label>保留的全局 ID<select value={canonicalId} onChange={e=>setCanonicalId(e.target.value)}>{candidate.canonical_ids.map(id=><option key={id}>{id}</option>)}</select></label></div>
           <label>审核人<input value={reviewer} onChange={e=>setReviewer(e.target.value)} placeholder="姓名或工号"/></label>
-          <button className="button button--primary" onClick={() => merge()} disabled={!reviewer.trim() || aliasId===canonicalId}><Check size={16}/>确认实体合并</button>
+          <button className="button button--primary" onClick={() => merge()} disabled={busy || !reviewer.trim() || aliasId===canonicalId}><Check size={16}/>{busy?'正在保存…':'确认实体合并'}</button>
         </> : <Empty title="没有重复候选" detail="当前已审核和待审核断言未发现同名同类的不同 ID。" icon={GitMerge}/>}
         {Object.entries(audit?.aliases || {}).length > 0 && <div className="alias-log"><div className="eyebrow">ACTIVE ALIASES</div>
           {Object.entries(audit.aliases).map(([alias,canonical])=><div key={alias}><code>{alias}</code><ArrowRight size={13}/><code>{canonical}</code><button onClick={()=>merge('revoke',alias,canonical)} disabled={!reviewer.trim()} title="撤销合并"><X size={14}/></button></div>)}</div>}
@@ -317,13 +342,9 @@ export function GovernanceWorkspace({ tab = 'assertions', setTab, summary, asOf,
   return <section className="workspace-scroll governance-workspace">
     <WorkspaceHeading kicker="GOVERNANCE / EVIDENCE" title="知识治理"
       description="在同一处核对断言原文、修订关系、确认实体别名，并检查跨来源冲突与导出图谱。"/>
-    <div className="governance-tabs" role="tablist" aria-label="知识治理内容">
-      <button type="button" role="tab" aria-selected={tab==='assertions'} className={tab==='assertions'?'active':''} onClick={()=>setTab('assertions')}><ShieldCheck size={17}/>断言审核</button>
-      <button type="button" role="tab" aria-selected={tab==='entities'} className={tab==='entities'?'active':''} onClick={()=>setTab('entities')}><GitMerge size={17}/>实体与冲突</button>
-    </div>
+    <Tabs value={tab} onChange={(_,v)=>setTab(v)} aria-label="知识治理内容" sx={{mb:2,borderBottom:1,borderColor:'divider'}}><Tab value="assertions" label="断言审核" icon={<ShieldCheck size={17}/>} iconPosition="start"/><Tab value="entities" label="实体与冲突" icon={<GitMerge size={17}/>} iconPosition="start"/></Tabs>
     {tab==='entities'
       ? <ResolutionWorkspace embedded asOf={asOf} onGraphRefresh={onGraphRefresh}/>
       : <ReviewWorkspace embedded summary={summary} onGraphRefresh={onGraphRefresh}/>}
   </section>;
 }
-

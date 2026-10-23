@@ -1,0 +1,114 @@
+[
+  {
+    "id": "chemistry",
+    "title": "危化知识快测",
+    "category": "基础知识",
+    "description": "化学性质与毒理概念，来自 ChemBench 安全子集。",
+    "language": "en",
+    "source": "ChemBench v0.2.0 safety 子集"
+  },
+  {
+    "id": "lab-safety",
+    "title": "实验室防护阅读",
+    "category": "场景判断",
+    "description": "阅读实验室场景，识别原题中的防护与风险判断。",
+    "language": "en",
+    "source": "LabSafety Bench"
+  },
+  {
+    "id": "hazard-find",
+    "title": "危险在哪里",
+    "category": "场景判断",
+    "description": "识别化学危险与行动后果，提交后逐题核对原解释。",
+    "language": "en",
+    "source": "LabSafety Bench"
+  },
+  {
+    "id": "storage",
+    "title": "储存与废弃物",
+    "category": "场景判断",
+    "description": "围绕储存、相容性和废弃物场景学习。",
+    "language": "en",
+    "source": "LabSafety Bench"
+  },
+  {
+    "id": "safety",
+    "title": "中文安全快测",
+    "category": "基础知识",
+    "description": "从日常化学品相关问题开始，理解基本误区。",
+    "language": "zh",
+    "source": "SafetyBench 中文；本项目补充解释"
+  },
+  {
+    "id": "sds",
+    "title": "SDS 信息寻宝",
+    "category": "证据阅读",
+    "description": "先核对产品身份，再从资料中找依据。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "conditions",
+    "title": "条件变了怎么办",
+    "category": "场景判断",
+    "description": "识别对象和适用条件变化，不把结论生搬硬套。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "evidence",
+    "title": "证据辨真",
+    "category": "证据阅读",
+    "description": "分清支持、不足、干扰与冲突。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "clarify",
+    "title": "先问什么",
+    "category": "证据阅读",
+    "description": "用短场景学习找出关键缺口并更新判断。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "plan",
+    "title": "预案拼图",
+    "category": "预案训练",
+    "description": "根据给定事实选择章节要素，标记未知条件。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "review-plan",
+    "title": "预案找错",
+    "category": "预案训练",
+    "description": "核对职责、资源和证据，也允许正确接受无缺陷片段。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "accident",
+    "title": "事故复盘入门",
+    "category": "预案训练",
+    "description": "在虚构片段中区分调查事实、推断和时间。",
+    "language": "zh",
+    "source": "本项目原创教学案例（虚构资料）"
+  },
+  {
+    "id": "symbols",
+    "title": "标识识别挑战",
+    "category": "基础知识",
+    "description": "认识危险公示图形；标准素材整理中。",
+    "language": "zh",
+    "source": ""
+  },
+  {
+    "id": "identity",
+    "title": "化学品身份卡",
+    "category": "基础知识",
+    "description": "名称、编号与对象歧义；ChEmREF 数据整理中。",
+    "language": "zh",
+    "source": ""
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "source_rows": 632,
+  "eligible_chemical_rows": 281,
+  "parse_exclusions": [
+    16,
+    35,
+    52,
+    58,
+    125,
+    267,
+    316,
+    323,
+    331,
+    347,
+    382,
+    395,
+    408,
+    414,
+    419,
+    456,
+    473,
+    552,
+    621
+  ],
+  "sha256": "582535f4a57d7e54528faad64d7e510221ba22add2924b92a55265a7cdd53825",
+  "source": "https://huggingface.co/datasets/yujunzhou/LabSafety_Bench",
+  "date": "2026-10-22",
+  "notes": "Public QA only; no sampledQA, multimodal or private holdout. Original author answers, not expert-reviewed by project."
+}

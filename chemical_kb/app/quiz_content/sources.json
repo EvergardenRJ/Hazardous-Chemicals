@@ -1,0 +1,56 @@
+[
+  {
+    "name": "LabSafety Bench",
+    "status": "已导入相关文本原题",
+    "note": "英文题干、原答案和作者解释；实验室情境不能直接代表工业工况。",
+    "url": "https://github.com/YujunZhou/LabSafety-Bench"
+  },
+  {
+    "name": "ChemBench v0.2.0",
+    "status": "已导入 safety 单选文本子集",
+    "note": "排除图像引用、非单选和明显第三方付费考试来源；不是完整 Mini。",
+    "url": "https://zenodo.org/records/14010212"
+  },
+  {
+    "name": "SafetyBench",
+    "status": "已导入中文相关子集",
+    "note": "排除明显歧义、错误或与危化品无关题；本项目补充简短解释。",
+    "url": "https://github.com/thu-coai/SafetyBench"
+  },
+  {
+    "name": "RGB",
+    "status": "方法已用于中文原创资料题",
+    "note": "原始数据有非商业和相同方式共享限制；本次不复制其通用题目。",
+    "url": "https://github.com/chen700564/RGB"
+  },
+  {
+    "name": "ChEmREF",
+    "status": "来源已登记，数据待整理",
+    "note": "化学表示、ERG 应急和考试分别处理；第三方考试素材未直接再发布。",
+    "url": "https://github.com/dill-lab/ChEmREF"
+  },
+  {
+    "name": "HLE / MMLU",
+    "status": "高阶扩展，尚未导入",
+    "note": "仅考虑相关化学题；不把整套通用题库放入学习大厅。",
+    "url": ""
+  },
+  {
+    "name": "ShARC / MultiDoc2Dial",
+    "status": "借鉴任务结构",
+    "note": "中文原创题承接澄清和资料整合；不复制已用于训练的任务作为未见评测。",
+    "url": ""
+  },
+  {
+    "name": "ALCE / ARES / MT-Bench / CRAG",
+    "status": "方法参考",
+    "note": "分别用于证据支持、忠实性、多轮与后续检索任务设计；不计原题数量。",
+    "url": "https://aclanthology.org/2023.emnlp-main.398/"
+  },
+  {
+    "name": "本项目原创教学案例",
+    "status": "已加入中文练习",
+    "note": "虚构资料只用于题内判断，不是现实产品安全数据或企业预案。",
+    "url": ""
+  }
+]

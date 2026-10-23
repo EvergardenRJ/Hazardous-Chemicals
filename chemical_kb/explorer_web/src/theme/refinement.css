@@ -1,0 +1,39 @@
+/* Desktop portal refinements: grouped navigation, themed motion, compact data surfaces. */
+.ui-portal-shell .ui-topbar{overflow:hidden;transition:height .24s ease,opacity .18s ease,border-width .24s ease;min-height:0;flex-shrink:0}
+.ui-portal-shell .ui-topbar.is-scroll-hidden{height:0;opacity:0;border-bottom-width:0;pointer-events:none}
+.ui-grouped-nav{position:relative;z-index:40;justify-content:flex-start;gap:clamp(24px,4vw,78px)}
+.ui-grouped-nav>.ui-horizontal-item>button{display:flex;align-items:center;gap:9px;padding-left:8px;padding-right:8px;font-size:15px;min-height:55px}
+.ui-grouped-nav>.ui-horizontal-item>button.active:after{left:8px;right:8px}
+.ui-grouped-nav>.ui-horizontal-item>button>svg{opacity:.65;transition:transform .18s}.ui-grouped-nav>.ui-horizontal-item>button>svg.is-open{transform:rotate(180deg)}
+.ui-grouped-nav .ui-horizontal-status{margin-left:auto}
+.ui-mega-panel{position:absolute;top:100%;left:50%;transform:translateX(-50%);width:min(1300px,calc(100vw - 64px));display:grid;grid-template-columns:minmax(270px,.9fr) minmax(0,1.6fr);gap:40px;padding:29px 36px 31px;background:var(--ui-surface);color:var(--ui-ink);border:1px solid var(--ui-line);border-top:2px solid var(--ui-accent);box-shadow:0 18px 30px #102e3920;animation:mega-reveal .16s ease both}
+.ui-mega-intro{display:flex;align-items:center;gap:23px;border-right:1px solid var(--ui-line);padding-right:30px}.ui-mega-intro>svg{color:var(--ui-accent);flex:none}.ui-mega-intro strong{font-size:16px;font-weight:500;line-height:1.8}.ui-mega-intro p{font-size:12px;color:var(--ui-muted);line-height:1.9;max-width:32ch;margin:9px 0 0}
+.ui-mega-links{display:flex;align-items:stretch;gap:22px}.ui-mega-links>button{display:flex;align-items:center;gap:20px;flex:1;min-width:0;padding:16px 10px;text-align:left;border:0;border-bottom:1px solid var(--ui-line);background:transparent;color:var(--ui-ink);font-size:16px;line-height:1.6}.ui-mega-links>button small{display:block;font-size:11px;color:var(--ui-muted);line-height:1.8;margin-top:9px}.ui-mega-links>button svg{margin-left:auto;color:var(--ui-accent);flex:none}.ui-mega-links>button:hover,.ui-mega-links>button[aria-current=page]{color:var(--ui-accent);border-color:var(--ui-accent);background:var(--ui-soft)}
+.portal-hero.portal-carousel{padding:0;height:430px;min-height:0;background:#103f43;flex:none;isolation:isolate}
+.portal-carousel-track{display:flex;height:100%;transition:transform .7s cubic-bezier(.22,.65,.25,1);will-change:transform}
+.portal-hero-slide{position:relative;flex:0 0 100%;min-width:0;height:100%;padding:41px max(45px,calc((100vw - 1260px)/2)) 68px;overflow:hidden;color:#b9e0d3}
+.portal-hero-chemical{background:#104348}.portal-hero-wiki{background:#173e52;color:#bad7e7}.portal-hero-graph{background:#244b49;color:#bddccb}.portal-hero-news{background:#48483e;color:#e5d9b9}
+.portal-carousel .portal-drawing{max-width:680px;width:51%;right:max(16px,calc((100vw - 1360px)/2));top:2px;opacity:.95}
+.portal-hero-news .portal-hero p{color:#ddd6be}.portal-hero-news .portal-kicker{color:#ddd2b4}
+.portal-carousel .portal-slide-control{right:max(45px,calc((100vw - 1260px)/2));bottom:42px;z-index:3;color:#f5efdf;gap:14px}.portal-carousel .portal-slide-control>button{min-width:24px;min-height:28px}
+.portal-overview-summary{padding:38px max(50px,calc((100vw - 1220px)/2)) 45px;background:var(--ui-bg);border-top:1px solid var(--ui-line)}
+html[data-ui=v2] .portal-overview-summary>.dashboard-summary{padding:0;overflow:visible;background:transparent;height:auto}
+.dashboard-summary .dash-page-head h2{font:500 29px/1.5 'Noto Serif SC','Songti SC','SimSun',serif;letter-spacing:.04em;margin:0 0 8px;color:var(--ui-ink)}
+.dashboard-summary .dash-snapshot-metrics{margin-bottom:28px}.dashboard-summary .dash-loading{font-size:12px;padding:8px 12px}
+.dashboard-summary-link{display:flex;align-items:center;gap:18px;justify-content:space-between;margin:20px 0 0;font-size:12px;color:var(--ui-muted)}.dashboard-summary-link .MuiButton-root{font-size:13px;gap:15px}
+html[data-ui=v2] .dashboard-workspace:not(.dashboard-summary){padding:25px clamp(20px,1.65vw,34px) 38px;flex:1}
+html[data-ui=v2] .dashboard-workspace[data-dashboard-view=overview] .dash-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+html[data-ui=v2] .dash-overview-grid>.dash-panel,html[data-ui=v2] .dash-overview-grid>.dash-panel:first-child,html[data-ui=v2] .dash-overview-grid>.dash-panel:nth-child(2),html[data-ui=v2] .dash-overview-grid>.dash-panel:last-child{grid-column:auto;display:flex;flex-direction:column;min-height:0}
+html[data-ui=v2] .dash-overview-grid>.dash-panel>header{flex:none;min-height:70px;padding:17px 20px 10px}
+html[data-ui=v2] .dash-overview-grid>.dash-panel>.dash-echart{flex:1 0 320px;min-height:320px}
+html[data-ui=v2] .dash-overview-grid>.dash-panel>.dash-pivot-wrap,html[data-ui=v2] .dash-overview-grid>.dash-panel>.dash-empty{flex:1;min-height:320px}
+html[data-ui=v2] .dash-overview-grid>.dash-panel>footer{margin-top:auto;min-height:43px;flex:none;align-items:center;padding:10px 16px}
+html[data-ui=v2] .dash-overview-grid .dash-network-controls{padding:0 20px 7px;gap:7px 17px;flex:none}.dash-overview-grid .dash-network-controls>span{flex-basis:auto}
+html[data-ui=v2] .dash-overview-grid .dash-network-controls select{background:var(--ui-bg);border-color:var(--ui-line)}
+@keyframes mega-reveal{from{translate:0 -4px}to{translate:0 0}}
+@media(min-width:1700px){html[data-ui=v2] .dash-overview-grid>.dash-panel>.dash-echart{flex-basis:365px;min-height:365px}}
+@media(max-width:1250px) and (min-width:1024px){.ui-grouped-nav{gap:21px;padding:0 24px}.ui-grouped-nav>.ui-horizontal-item>button{font-size:14px}.ui-mega-panel{width:calc(100vw - 48px);gap:24px;padding:25px}.ui-mega-links{gap:12px}.ui-mega-links>button{font-size:14px;gap:8px}}
+@media(max-width:767px){.portal-hero.portal-carousel{height:430px}.portal-hero-slide{padding:30px 24px 80px}.portal-carousel .portal-drawing{width:90%;right:-30%;opacity:.2}.portal-carousel .portal-slide-control{right:24px;bottom:37px;gap:8px}.portal-overview-summary{padding:28px 20px}.dashboard-summary-link{align-items:flex-start;flex-direction:column;gap:8px}html[data-ui=v2] .dashboard-workspace[data-dashboard-view=overview] .dash-overview-grid{grid-template-columns:1fr}.ui-portal-shell .ui-topbar.is-scroll-hidden{height:0}}
+@media(prefers-reduced-motion:reduce){.portal-carousel-track,.ui-portal-shell .ui-topbar{transition:none}.ui-mega-panel{animation:none}}
+
+html[data-ui=v2] .dash-overview-grid>.dash-panel[data-chart-kind=network]>.dash-echart{flex-basis:385px;min-height:385px}

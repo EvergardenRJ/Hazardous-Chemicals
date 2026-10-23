@@ -197,9 +197,3 @@ const GraphCanvas = forwardRef(function GraphCanvas(
 });
 
 export default GraphCanvas;
-
-
-
-
-
-

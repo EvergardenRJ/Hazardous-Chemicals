@@ -293,7 +293,7 @@ export default function App() {
         <button type="button" className={theme==='dark'?'active':''} aria-pressed={theme==='dark'} onClick={()=>setTheme('dark')}><Moon size={14}/> 深色</button>
       </div><span className="topbar-date">{new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'short',day:'numeric'})}</span><div className="topbar-avatar">CA</div></div>
     </header>
-      {connection==='offline'&&<div className="app-connection-notice" role="status">连接已中断，请确认 SSH 隧道和服务器运行后刷新页面。</div>}
+      {connection==='offline'&&<div className="app-connection-notice" role="status">连接已中断，请确认服务运行后刷新页面。</div>}
       {page==='chemical'&&<ChemicalWorkspace onNavigate={navigate} onOpenWiki={openWiki} onFocusGraph={focusGraph}/>}
       {['overview','analysis','data'].includes(page)&&<Suspense fallback={<div className="workspace-scroll"><p role="status">正在打开数据工作台…</p></div>}><DashboardWorkspace view={page} theme={theme} onNavigate={navigate} onOpenWiki={openWiki}/></Suspense>}
       {page==='graph'&&<GraphDesk raw={graph} loading={graphLoading} error={graphError} mode={mode} setMode={setMode} asOf={asOf} setAsOf={setAsOf} onAsk={askFromGraph} onResolve={()=>navigate('review','entities')} externalFocusId={graphFocus} theme={theme} summary={summary}/>}
@@ -305,7 +305,3 @@ export default function App() {
     {paletteOpen&&<CommandPalette close={()=>setPaletteOpen(false)} navigate={navigate} focusGraph={focusGraph} openWiki={openWiki}/>}
   </div>;
 }
-
-
-
-
