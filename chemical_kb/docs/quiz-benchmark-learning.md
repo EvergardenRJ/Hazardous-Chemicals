@@ -10,7 +10,7 @@
 
 每题显示仅供参考声明及答案解释。原题保留题源标签；SafetyBench 补充解释和虚构原创教学案例明确注明。完整来源清单在 `app/quiz_content/sources.json`，RGB、ALCE、ARES 等方法参考与实际导入题目分开；ChEmREF、标准图形及高阶扩展尚未全量导入。
 
-题库 SHA-256：`e505f0732e8685fef2bb5ee45ceadc41467cb0d5904c0aa760cb62d00f5c11a5`。
+服务器同步快照（CRLF）SHA-256：`e505f0732e8685fef2bb5ee45ceadc41467cb0d5904c0aa760cb62d00f5c11a5`。Git 规范化为 LF 后的 SHA-256：`195d7e4898415ba80c16a57238c58f9bc339c8befe1e6322ae2579d7c020e7b2`。两者仅换行不同，500 道题的 JSON 内容完全相同。
 
 ## 运行与验证
 
