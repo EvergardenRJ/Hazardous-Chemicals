@@ -1,0 +1,164 @@
+.page-quote {
+  margin: 9px 0 0;
+  padding-left: 11px;
+  border-left: 2px solid currentColor;
+  border-left-color: color-mix(in srgb, currentColor 28%, transparent);
+  max-width: 820px;
+  min-width: 0;
+  color: inherit;
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+
+.page-quote-body {
+  margin: 0;
+}
+
+.page-quote-body--inline {
+  display: inline;
+}
+
+.page-quote-body--inline .page-quote-text {
+  display: inline;
+}
+
+.page-quote-body--stacked {
+  display: block;
+}
+
+.ui-topic-start .page-quote {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.page-quote-text,
+.page-quote-translation {
+  display: block;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.page-quote-text {
+  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  letter-spacing: .01em;
+}
+
+.page-quote-translation {
+  margin-top: 3px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  opacity: .82;
+}
+
+.page-quote-source {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10.5px;
+  line-height: 1.6;
+  opacity: .78;
+  vertical-align: baseline;
+}
+
+.page-quote-source summary {
+  display: inline;
+  cursor: pointer;
+  list-style: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.page-quote-source summary::-webkit-details-marker {
+  display: none;
+}
+
+.page-quote-source summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.page-quote-source[open] {
+  display: block;
+  margin: 4px 0 0;
+  opacity: .9;
+}
+
+.page-quote-source-body {
+  display: grid;
+  gap: 2px;
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.page-quote-credit {
+  opacity: .8;
+}
+
+.page-quote-source-body a {
+  color: inherit;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.workspace-heading .workspace-heading-note {
+  margin-top: 4px;
+  font-size: 11px;
+  opacity: .82;
+}
+
+.askv2-head-title .askv2-scope {
+  margin: 4px 0 0;
+  color: var(--askv2-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.chemical-page-quote {
+  margin: 12px 0 0;
+}
+
+.dash-page-head .page-quote,
+.graph-head .page-quote,
+.news-heading .page-quote,
+.quiz-heading .page-quote {
+  max-width: 820px;
+}
+
+.news-heading > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .page-quote {
+    margin-top: 7px;
+    padding-left: 9px;
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .page-quote-translation {
+    font-size: 12.5px;
+  }
+  .page-quote-source {
+    margin-left: 4px;
+    font-size: 10px;
+  }
+  .page-quote-source-body {
+    font-size: 10.5px;
+  }
+  .news-heading {
+    flex-wrap: wrap;
+  }
+  .news-heading > div:first-child {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .news-heading > .button {
+    margin-top: 8px;
+  }
+}

@@ -4,6 +4,7 @@ import {api,sourceLabel,today,validAt} from './api';
 import {TYPE_COLORS} from './graph-theme';
 import {typeLabels as TYPE_LABEL,relationLabels} from './theme/tokens';
 import {useUI,EvidenceAdapter} from './components/WorkspaceUI';
+import {PageQuote} from './components/PageQuote';
 import {Autocomplete,Button,TextField,ToggleButton,ToggleButtonGroup} from '@mui/material';
 const GraphCanvas=lazy(()=>import('./GraphCanvas.jsx'));
 function StatusChip({children,tone='blue'}){return <span className={'status-pill status-pill--'+tone}>{children}</span>}
@@ -71,8 +72,8 @@ export default function GraphDesk({ raw, loading, error, mode, setMode, asOf, se
   function focusNode(id) {setSelection({kind:'node',id});setFocusId(id);setSearch('');}
   function tracePath() {setPath(buildPath(filtered.nodes,filtered.edges,pathStart,pathEnd));setPathAttempted(true);}
   return <section className="graph-page">
-    <div className="graph-head"><div className="graph-title"><div className="eyebrow">EXPLORER / GRAPH STUDIO</div><h1>知识图谱 <span>Explorer</span></h1>
-      <p>选择实体或关系核对原文。已通过实体关系 {summary?.entity_relations ?? '—'} 条，属性 {summary?.literal_attributes ?? '—'} 条；关系来源覆盖 {summary?.relation_source_docs ?? '—'} / {summary?.documents ?? '—'} 份文档。</p></div>
+    <div className="graph-head"><div className="graph-title"><div className="eyebrow">KNOWLEDGE GRAPH / TRACEABLE EVIDENCE</div><h1>图谱探索 <span>Explorer</span></h1>
+      <PageQuote/><p>已通过审核的实体关系 {summary?.entity_relations ?? '—'} 条，属性 {summary?.literal_attributes ?? '—'} 条；来源文档 {summary?.relation_source_docs ?? '—'} 份。</p></div>
       <div className="graph-head-actions"><StatusChip tone={mode==='all'?'amber':'mint'}>{mode==='all'?'包含待审候选':'已审核知识'}</StatusChip>
         <button className="button button--quiet" onClick={()=>onResolve()}><GitMerge size={15}/>治理与导出</button></div></div>
     <div className="graph-toolbar">
@@ -132,9 +133,9 @@ export default function GraphDesk({ raw, loading, error, mode, setMode, asOf, se
     </div>}
     <details className="ui-graph-advanced"><summary>高级分析：生效时间轴与关联路径</summary><div className="timeline-panel">
       <div className="timeline-leading"><button className="play-button" disabled={!dateBounds.length} onClick={()=>setPlaying(!playing)} title={playing?'暂停时间轴':'播放时间轴'}>{playing?<Pause size={16}/>:<Play size={16}/>}</button>
-        <div><strong>TEMPORAL EVIDENCE</strong><span>{dateBounds.length?asOf:'旧断言尚未标注生效日期'}</span></div></div>
+        <div><strong>TEMPORAL EVIDENCE</strong><span>{dateBounds.length?asOf:'当前关系尚未标注生效日期'}</span></div></div>
       <div className="timeline-main"><div className="timeline-track"><input type="range" min="0" max={Math.max(0,fullDates.length-1)} value={dateIndex} disabled={!dateBounds.length}
-          onChange={e=>setAsOf(fullDates[Number(e.target.value)])} aria-label="历史生效时点"/>
+          onChange={e=>setAsOf(fullDates[Number(e.target.value)])} aria-label="生效时点"/>
         <div className="timeline-markers">{fullDates.slice(0,8).map(d=><span key={d}>{d}</span>)}</div></div></div>
       <label className="timeline-date">AS OF <input type="date" value={asOf} onChange={e=>setAsOf(e.target.value)}/></label>
     </div>

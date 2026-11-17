@@ -3,6 +3,7 @@ import {Alert,BottomNavigation,BottomNavigationAction,Box,Button,Chip,Dialog,Dia
 import {Activity,BookOpen,FileText,FlaskConical,LayoutDashboard,Menu as MenuIcon,Monitor,Moon,MoreHorizontal,Network,Newspaper,PanelLeftClose,Search,ShieldCheck,SlidersHorizontal,Sun,X} from 'lucide-react';
 import {api,today} from '../api';
 import {useUI} from '../components/WorkspaceUI';
+import {PageQuote,PageQuoteProvider} from '../components/PageQuote';
 import {commitRoute,readRoute,routeUrl,savePosition,restorePosition} from './routeState';
 import WorkspaceNavigation from './WorkspaceNavigation';
 import useScrollBrandbar from './useScrollBrandbar';
@@ -56,17 +57,19 @@ export default function AppShell(){
   <WorkspaceNavigation page={page} navigate={navigate} connection={connection}/>
 
   {connection==='offline'&&<Alert severity="warning" action={<Button onClick={()=>setRefresh(x=>x+1)}>重试连接</Button>}>服务暂时不可达，保留上次读取的数据。请稍后重试。</Alert>}
+  <PageQuoteProvider page={page}>
   <Suspense fallback={<div className="ui-page-loading" role="status"><Activity size={22}/>正在打开工作区…</div>}>
    {page==='overview'&&<PortalHome summary={summary} chemical={chemical} theme={ui.themeMode} onNavigate={navigate} onOpenWiki={openWiki} onChooseChemical={name=>name?chooseChemical(name):setTopicOpen(true)} onSearch={query=>{setSearchSeed(query);setSearchOpen(true)}}/>}
    {['insights','analysis','data'].includes(page)&&<DashboardWorkspace view={page==='insights'?'overview':page} theme={ui.themeMode} onNavigate={navigate} onOpenWiki={openWiki} chemical={chemical} onChooseChemical={()=>setTopicOpen(true)}/>}
-   {page==='chemical'&&(chemical?<ChemicalWorkspace key={chemical} onNavigate={navigate} onOpenWiki={openWiki} onFocusGraph={focusGraph}/>:<div className="ui-topic-start"><FlaskConical size={46}/><h1>从一种化学品开始</h1><p>把 Wiki、标准原文、事故资料、问答与审核放在同一主题下。</p><Button variant="contained" onClick={()=>setTopicOpen(true)}>选择化学品专题</Button><Stack direction="row" gap={1} sx={{mt:3}}>{['液氯','甲醇','氢氟酸'].map(n=><Button key={n} variant="outlined" onClick={()=>chooseChemical(n)}>{n}</Button>)}</Stack></div>)}
+   {page==='chemical'&&(chemical?<ChemicalWorkspace key={chemical} onNavigate={navigate} onOpenWiki={openWiki} onFocusGraph={focusGraph}/>:<div className="ui-topic-start"><FlaskConical size={46}/><h1>从一种化学品开始</h1><PageQuote/><Button variant="contained" onClick={()=>setTopicOpen(true)}>选择化学品专题</Button><Stack direction="row" gap={1} sx={{mt:3}}>{['液氯','甲醇','氢氟酸'].map(n=><Button key={n} variant="outlined" onClick={()=>chooseChemical(n)}>{n}</Button>)}</Stack></div>)}
    {page==='wiki'&&<WikiWorkspace key={chemical}/>}
    {page==='quiz'&&<QuizWorkspace onAsk={q=>{setSeedQuestion(q);navigate('ask')}}/>}
    {page==='ask'&&<AskWorkspace key={chemical} asOf={asOf} setAsOf={setAsOf} seedQuestion={seedQuestion||(chemical?chemical+'储存和装卸有哪些原文依据？':'')}/>}
    {page==='review'&&<GovernanceWorkspace key={chemical} tab={route.governanceTab} setTab={tab=>navigate('review',tab)} summary={summary} asOf={asOf} onGraphRefresh={()=>setRefresh(x=>x+1)}/>}
    {page==='news'&&<NewsWorkspace key={chemical+':'+(route.params.article||'')}/>}
    {page==='graph'&&<GraphDesk raw={graph} loading={graphLoading} error={graphError} mode={mode} setMode={v=>navigateRaw('graph',{mode:v},true)} asOf={asOf} setAsOf={setAsOf} onAsk={q=>{setSeedQuestion(q);navigate('ask')}} onResolve={id=>{if(id)navigateRaw('review',{assertion_id:id});else navigate('review','entities')}} externalFocusId={route.params.focus_id||(chemical?'chemical::'+chemical:'')} theme={ui.themeMode} summary={summary}/>}
-  </Suspense></div>
+  </Suspense>
+  </PageQuoteProvider></div>
   <BottomNavigation className="ui-bottom-nav" showLabels value={['overview','ask','chemical','wiki'].includes(page)?page:'more'} onChange={(_,id)=>id==='more'?setMobileMenu(true):navigate(id)}>{[['overview','总览',LayoutDashboard],['ask','检索',Search],['wiki','Wiki',BookOpen],['chemical','专题',FlaskConical],['more','更多',MoreHorizontal]].map(([id,label,Icon])=><BottomNavigationAction key={id} value={id} label={label} icon={<Icon size={21}/>}/>)}</BottomNavigation>
   <Suspense fallback={null}>{searchOpen&&<KnowledgeSearch nav={NAV} initialQuery={searchSeed} open onClose={()=>setSearchOpen(false)} navigate={navigate} openWiki={openWiki} focusGraph={focusGraph} chooseChemical={chooseChemical}/>}{topicOpen&&<KnowledgeSearch nav={NAV} chemicalOnly open onClose={()=>setTopicOpen(false)} navigate={navigate} openWiki={openWiki} focusGraph={focusGraph} chooseChemical={chooseChemical}/>}{tasksOpen&&<TaskDrawer open onClose={()=>setTasksOpen(false)} openWiki={openWiki}/>}</Suspense>
  </div>;

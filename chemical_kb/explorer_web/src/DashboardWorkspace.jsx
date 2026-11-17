@@ -9,6 +9,7 @@ import {GridComponent,TooltipComponent,LegendComponent,DataZoomComponent,VisualM
 import {SVGRenderer} from 'echarts/renderers';
 import {ArrowDown,ArrowUp,BarChart3,BookOpen,Check,ChevronDown,ChevronLeft,ChevronRight,Database,Download,ExternalLink,FileText,FlaskConical,Filter,GripVertical,Info,LayoutGrid,LineChart as LineIcon,Maximize2,MoreHorizontal,Network,Plus,RefreshCw,Save,Search,Settings2,Share2,SlidersHorizontal,Table2,Undo2,UploadCloud,X} from 'lucide-react';
 import {api} from './api';
+import {PageQuote} from './components/PageQuote';
 import './dashboard.css';
 
 echarts.use([BarChart,LineChart,TreemapChart,ScatterChart,HeatmapChart,SankeyChart,GraphChart,BoxplotChart,GridComponent,TooltipComponent,LegendComponent,DataZoomComponent,VisualMapComponent,AriaComponent,SVGRenderer]);
@@ -343,7 +344,7 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
  function panelProps(id,p){return {id,...p,theme,editing,draggable:editing,move:delta=>moveItem(id,delta),onDragStart:e=>editing&&e.dataTransfer.setData('dash-panel',id),onDrop:e=>reorderDrop(id,e),onPoint:(point,shown)=>selectPoint(point,shown||p.r,p.title),onAction:action}}
  if(bootError && view!=='data')return <main className="dashboard-workspace"><Empty title="分析数据暂时不可读取">{bootError}</Empty><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}>重新读取</button></main>;
  if(!boot && view!=='data')return <main className="dashboard-workspace"><Empty title="正在建立数据分析快照">只读加载资料、新闻、Wiki 与当前知识目录。</Empty></main>;
- if(view==='data')return <main className="dashboard-workspace"><header className="dash-page-head"><div><span className="dash-kicker">数据依据</span><h1>文档与数据</h1><p>上传文档、核对真实数据样例，查看统计范围与字段解释。</p></div><div className="dash-head-actions"><button className="dash-button" onClick={()=>setDataTab('upload')}><UploadCloud size={16}/>上传新文档</button><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}><RefreshCw size={16}/>更新快照</button></div></header>
+ if(view==='data')return <main className="dashboard-workspace"><header className="dash-page-head"><div><span className="dash-kicker">数据依据</span><h1>文档与数据</h1><PageQuote/></div><div className="dash-head-actions"><button className="dash-button" onClick={()=>setDataTab('upload')}><UploadCloud size={16}/>上传新文档</button><button className="dash-button" onClick={()=>setRefresh(n=>n+1)}><RefreshCw size={16}/>更新快照</button></div></header>
   <Tabs value={dataTab} onChange={(_,v)=>setDataTab(v)} variant="scrollable" scrollButtons="auto" aria-label="文档与数据内容" sx={{mb:3}}><Tab value="files" label="数据样例"/><Tab value="dictionary" label="指标口径"/><Tab value="upload" label="文档上传"/></Tabs>
   {dataTab==='upload'?<DocumentUpload onCompleted={()=>setRefresh(n=>n+1)}/>:!boot?<Empty title="数据快照暂时不可读取">{bootError||'正在加载数据说明。上传文档仍可通过上方入口操作。'}</Empty>:dataTab==='files'?<DatasetCatalog snapshot={boot.snapshot_id} refresh={refresh}/>:<>
   <section className="dash-panel"><header><h2>当前数据对象</h2></header><div className="dash-dataset-cards">{Object.entries(boot.datasets).map(([key,ds])=><article key={key}><Database size={21}/><h3>{ds.label}</h3><strong>{ds.available?fmt(ds.total):'未接入'} <small>{ds.unit}</small></strong><p>{ds.note}</p><dl><dt>去重键</dt><dd>{ds.key}</dd><dt>时间口径</dt><dd>{ds.time_label}</dd><dt>日期未知</dt><dd>{fmt(ds.unknown_date)}</dd></dl><button className="dash-button" onClick={()=>{datasetChange(key);onNavigate('analysis')}}>分析这个对象</button></article>)}</div></section>
@@ -353,7 +354,7 @@ export default function DashboardWorkspace({view='overview',theme='light',onNavi
  </main>;
 
  return <main data-dashboard-view={view} className={'dashboard-workspace '+(draftSize==='compact'?'dash-compact':'')}>
-  <header className="dash-page-head"><div><span className="dash-kicker">{view==='overview'?'内容洞察':'探索与比较'}</span><h1>{view==='overview'?'危化品数据洞察':'多维探索工作台'}</h1><p>{view==='overview'?'资料结构、专题覆盖与可核实的知识关联。':'选择事实对象和指标，在同一口径下组合维度、联动与核对原文。'}</p></div>
+  <header className="dash-page-head"><div><span className="dash-kicker">{view==='overview'?'内容洞察':'探索与比较'}</span><h1>{view==='overview'?'危化品数据洞察':'多维探索工作台'}</h1><PageQuote/></div>
    <details className="ui-dashboard-actions"><summary>更多操作</summary><div className="dash-head-actions"><button className="dash-button" onClick={()=>setRefresh(n=>n+1)} title="更新快照"><RefreshCw size={15}/></button>{view==='overview'&&<button className="dash-button" onClick={()=>{setEditing(!editing);setOrderBefore(order)}}><Settings2 size={15}/>{editing?'退出编辑':'编辑看板'}</button>}
     <button className="dash-button" onClick={saveView}><Save size={15}/>保存视图</button><button className="dash-button" onClick={share}><Share2 size={15}/>分享</button><button className="dash-button" disabled={!result} onClick={()=>csvDownload(result._query,setError)}><Download size={15}/>导出</button>
    </div></details>

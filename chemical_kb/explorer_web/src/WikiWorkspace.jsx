@@ -6,6 +6,7 @@ import { api, post } from './api';
 import './wiki.css';
 import { Alert, Button } from '@mui/material';
 import { useUI, useDirtyDraft, EvidenceAdapter, StatusBadge } from './components/WorkspaceUI';
+import {PageQuote} from './components/PageQuote';
 import WikiCatalog, { normalizeQuery, readLocalList, saveLocalList } from './WikiCatalog';
 import WikiTools,{WikiPageExtras} from './WikiTools';
 
@@ -229,7 +230,7 @@ export default function WikiWorkspace() {
   const shownEvidence=focused?[focused]:evidence.filter(e=>!section?.evidence_refs?.length||section.evidence_refs.includes(e.evidence_id));
   function showEvidence(e){const page=e.metadata?.page_start;ui.openEvidence(EvidenceAdapter(e,{knowledgeRevision:detail.revision_id,triggerSelector:'button[data-evidence-id="'+CSS.escape(e.evidence_id)+'"]',fileUrl:'/api/wiki/'+esc(entity)+'/evidence/'+esc(e.evidence_id)+'/pdf?revision='+esc(detail.revision_id)+(page?'#page='+Math.max(1,Number(page)):'')}));}
   return <section className={'workspace-scroll wiki-v2 wiki-refresh '+(readingFocus?'wiki-focus ':'')+(!resourcesOpen?'wiki-resources-hidden':'')}>
-    <header className="workspace-heading"><div><h1>知识 Wiki <span className="wiki-total">{entries.length.toLocaleString('zh-CN')} 项</span></h1><p>查找化学品、设备与安全专题，沿来源继续阅读。</p></div>
+    <header className="workspace-heading"><div><h1>知识 Wiki <span className="wiki-total">{entries.length.toLocaleString('zh-CN')} 项</span></h1><PageQuote/></div>
       <div className="wiki-workspace-actions"><button className="button button--quiet" aria-expanded={showTools} onClick={()=>setShowTools(v=>!v)}><Settings2 size={16}/>{showTools?'收起维护工具':'维护与扩展'}</button><button className="button button--quiet" onClick={()=>action(async()=>{const d=await api('/api/wiki/lint');setFindings(d.findings);})}><Search size={16}/>维护检查</button></div></header>
     {showTools&&<WikiTools onOpen={name=>open(name)} onChanged={loadRegistry}/>}
     {opening&&detail&&<div className="wiki-loading" role="status"><LoaderCircle size={15} className="spin"/>正在打开条目…</div>}

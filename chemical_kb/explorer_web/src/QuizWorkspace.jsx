@@ -2,6 +2,7 @@ import {Dialog,DialogContent} from '@mui/material';
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,BookOpen,CheckCircle2,FlaskConical,RotateCcw,Search,ShieldCheck,Trophy,FileText,ExternalLink} from 'lucide-react';
 import {useUI} from './components/WorkspaceUI';
+import {PageQuote} from './components/PageQuote';
 import './quiz.css';
 
 const KEY='hazmat-learning-v1';
@@ -25,7 +26,7 @@ export default function QuizWorkspace({onAsk}){
  const reviews=Object.values(records.review),history=records.history;
  const finish=session?.finished;
  return <section className="quiz workspace-scroll">
-  <header className="quiz-heading"><div><p>智能检索 / 兴趣测试</p><h1>危化品知识挑战</h1><span>认识危险，读懂资料，把每一道题学明白。</span></div><FlaskConical size={52} strokeWidth={1.1}/></header>
+  <header className="quiz-heading"><div><p>智能检索 / 兴趣测试</p><h1>危化品知识挑战</h1><PageQuote/></div><FlaskConical size={52} strokeWidth={1.1}/></header>
   <p className="quiz-disclaimer"><ShieldCheck size={17}/>仅供学习参考，不替代产品 SDS、专业培训或现场处置要求。原题答案与解析来自所列题源。</p>
   {error&&<div className="quiz-error" role="alert">{error}<button onClick={()=>view==='hall'?load():setError('')}>重试或继续</button></div>}
   {!saved&&<p role="alert">浏览器未能保存记录。本轮仍可答题，请完成后导出成绩。</p>}

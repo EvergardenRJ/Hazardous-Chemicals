@@ -9,11 +9,12 @@ import {
   GitMerge, LoaderCircle, Search, ShieldCheck, X
 } from 'lucide-react';
 import { api, post, sourceLabel, today } from './api';
+import {PageQuote} from './components/PageQuote';
 import './wiki-tools.css';
 
 export function WorkspaceHeading({ kicker, title, description, action }) {
   return <div className="workspace-heading">
-    <div><div className="eyebrow">{kicker}</div><h1>{title}</h1><p>{description}</p></div>
+    <div><div className="eyebrow">{kicker}</div><h1>{title}</h1><PageQuote/><p className="workspace-heading-note">{description}</p></div>
     {action && <div className="heading-action">{action}</div>}
   </div>;
 }
